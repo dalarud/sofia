@@ -94,8 +94,8 @@ section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
 .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; }
 .brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; }
-.mark { display: block; flex: none; height: auto; max-width: 100%; }
-.brand .wordmark-paint { display: block; width: 9.5rem; height: auto; margin-block: -.4rem -.5rem; }
+.logo, .symbol { display: block; height: auto; max-width: 100%; color: var(--fg); }
+.brand .logo { width: 10.5rem; }
 .brand__text { display: grid; line-height: 1; }
 .brand__studio { font-family: "Caveat", "Segoe Print", cursive; font-size: 1.05rem; line-height: .8; color: var(--accent); transform: rotate(-5deg); transform-origin: left bottom; margin: 0 0 .05rem .05rem; }
 .brand__name { font-family: var(--font-display); font-size: 1.75rem; line-height: .9; letter-spacing: -.01em; }
@@ -142,7 +142,6 @@ section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
 .manifesto { padding-block: clamp(3rem, 8vw, 7rem); }
 .manifesto__text { font-family: var(--font-display); font-size: clamp(2rem, 4.8vw, 4.1rem); line-height: 1.12; letter-spacing: -.015em; max-width: 22ch; text-wrap: pretty; }
 .manifesto__text em { color: var(--accent); }
-.manifesto__text .mark { display: inline-block; width: 1.7em; vertical-align: -.02em; margin-inline: .12em; }
 .manifesto__by { margin-top: 2rem; display: flex; align-items: center; gap: 1rem; color: var(--muted); font-size: var(--step--1); }
 .manifesto__by strong { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 1.8rem; color: var(--fg); }
 
@@ -298,12 +297,12 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .site-footer a { text-decoration: none; color: var(--muted); }
 .site-footer a:hover { color: var(--fg); }
 .namestory { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1.5rem 2.5rem; align-items: center; margin-top: 3.5rem; padding-top: 3rem; border-top: 1px solid var(--line); }
-.namestory .mark { width: clamp(9rem, 20vw, 15rem); }
+.namestory .symbol { width: clamp(6rem, 13vw, 9rem); }
 .namestory h4 { margin-bottom: .6rem; }
 .namestory p { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2.1rem); line-height: 1.2; max-width: 34ch; }
 .namestory p em { color: var(--accent); }
 @media (max-width: 600px) { .namestory { grid-template-columns: 1fr; } }
-.wordmark { display: block; width: min(100%, 52rem); height: auto; margin: 2.5rem 0 1rem -1rem; }
+.footer-logo { width: min(100%, 46rem); margin: 3.5rem 0 2rem; }
 .footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
 @media (max-width: 760px) { .footer-cols { grid-template-columns: 1fr 1fr; } .footer-cols > div:first-child { grid-column: 1 / -1; } }
 
@@ -340,7 +339,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Studio Dalarud, till början av sidan"><canvas class="wordmark-paint" width="740" height="350" aria-hidden="true"></canvas></a>
+    <a class="brand" href="#top" aria-label="Studio Dalarud, till början av sidan"><svg class="logo" aria-hidden="true" focusable="false" viewBox="0 0 379.4 100.0"><g stroke="currentColor" stroke-width="3.1" stroke-linecap="round"><line x1="7.54" y1="34.46" x2="7.54" y2="65.54"/><line x1="14.62" y1="22.76" x2="14.62" y2="77.24"/><line x1="21.69" y1="15.89" x2="21.69" y2="84.11"/><line x1="28.77" y1="11.34" x2="28.77" y2="88.66"/><line x1="35.85" y1="8.38" x2="35.85" y2="91.62"/><line x1="42.92" y1="6.70" x2="42.92" y2="93.30"/><line x1="50.00" y1="6.15" x2="50.00" y2="49.76"/><line x1="50.00" y1="78.24" x2="50.00" y2="93.85"/><line x1="57.08" y1="6.70" x2="57.08" y2="47.48"/><line x1="57.08" y1="80.52" x2="57.08" y2="93.30"/><line x1="64.15" y1="8.38" x2="64.15" y2="48.77"/><line x1="64.15" y1="79.23" x2="64.15" y2="91.62"/><line x1="71.23" y1="11.34" x2="71.23" y2="55.38"/><line x1="71.23" y1="72.62" x2="71.23" y2="88.66"/><line x1="78.31" y1="15.89" x2="78.31" y2="84.11"/><line x1="85.38" y1="22.76" x2="85.38" y2="77.24"/><line x1="92.46" y1="34.46" x2="92.46" y2="65.54"/></g><path fill="var(--accent)" transform="translate(8 4) scale(.9) translate(5.6 6.7)" d="M40.2 60.6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z"/><path fill="currentColor" d="M125.612 34.062 124.468 34.868Q124.767 35.492 125.28049999999999 36.025Q125.794 36.558 126.4765 36.8765Q127.159 37.195 127.952 37.195Q128.537 37.195 129.0765 37.0065Q129.61599999999999 36.818 130.045 36.4735Q130.474 36.129 130.7275 35.622Q130.981 35.115 130.981 34.478Q130.981 33.88 130.773 33.4315Q130.565 32.983000000000004 130.2335 32.658Q129.902 32.333 129.4925 32.111999999999995Q129.083 31.891 128.667 31.748Q127.939 31.488 127.484 31.241Q127.029 30.994 126.8145 30.7145Q126.6 30.435000000000002 126.6 30.084Q126.6 29.694 126.899 29.4015Q127.198 29.109 127.835 29.109Q128.29 29.109 128.6345 29.2845Q128.979 29.46 129.239 29.7525Q129.499 30.045 129.681 30.383L130.916 29.681Q130.695 29.2 130.279 28.758000000000003Q129.863 28.316000000000003 129.265 28.023500000000002Q128.667 27.731 127.861 27.731Q127.042 27.731 126.3985 28.043Q125.755 28.355 125.378 28.9075Q125.001 29.46 125.001 30.188000000000002Q125.001 30.825 125.248 31.2735Q125.495 31.722 125.872 32.0275Q126.249 32.333 126.66499999999999 32.534499999999994Q127.081 32.736 127.419 32.853Q127.991 33.061 128.433 33.2755Q128.875 33.49 129.1155 33.795500000000004Q129.356 34.101 129.356 34.595Q129.356 35.141 128.966 35.479Q128.576 35.817 127.952 35.817Q127.445 35.817 127.0225 35.596000000000004Q126.6 35.375 126.2555 34.985Q125.911 34.595 125.612 34.062ZM139.691 29.317H142.09599999999998V37.0H143.63V29.317H146.035V27.9H139.691ZM155.14800000000002 27.9V34.01Q155.14800000000002 34.764 155.38850000000002 35.355500000000006Q155.62900000000002 35.947 156.07100000000003 36.363Q156.513 36.779 157.12400000000002 37.0Q157.735 37.221 158.46300000000002 37.221Q159.191 37.221 159.80200000000002 37.0Q160.413 36.779 160.8615 36.363Q161.31 35.947 161.5505 35.355500000000006Q161.79100000000003 34.764 161.79100000000003 34.01V27.9H160.244V33.945Q160.244 34.777 159.7955 35.297Q159.347 35.817 158.46300000000002 35.817Q157.592 35.817 157.137 35.297Q156.68200000000002 34.777 156.68200000000002 33.945V27.9ZM171.80100000000002 27.9V37.0H173.374V27.9ZM174.739 37.0Q176.13 37.0 177.183 36.4345Q178.23600000000002 35.869 178.82750000000001 34.8485Q179.419 33.828 179.419 32.45Q179.419 31.072 178.82750000000001 30.051499999999997Q178.23600000000002 29.031 177.183 28.4655Q176.13 27.9 174.739 27.9H172.75V29.343H174.70000000000002Q175.376 29.343 175.948 29.538Q176.52 29.733 176.9425 30.122999999999998Q177.365 30.512999999999998 177.6055 31.098Q177.846 31.683 177.846 32.45Q177.846 33.217 177.6055 33.802Q177.365 34.387 176.9425 34.7705Q176.52 35.154 175.948 35.355500000000006Q175.376 35.557 174.70000000000002 35.557H172.75V37.0ZM188.97400000000002 27.9V37.0H190.53400000000002V27.9ZM201.714 32.45Q201.714 31.514 202.11700000000002 30.7795Q202.52 30.045 203.21550000000002 29.629Q203.911 29.213 204.808 29.213Q205.731 29.213 206.42649999999998 29.629Q207.12199999999999 30.045 207.512 30.7795Q207.902 31.514 207.902 32.45Q207.902 33.386 207.50549999999998 34.114000000000004Q207.109 34.842 206.4135 35.2645Q205.718 35.687 204.808 35.687Q203.911 35.687 203.21550000000002 35.2645Q202.52 34.842 202.11700000000002 34.114000000000004Q201.714 33.386 201.714 32.45ZM200.089 32.45Q200.089 33.464 200.44 34.335Q200.791 35.206 201.428 35.843Q202.065 36.48 202.92950000000002 36.8375Q203.794 37.195 204.808 37.195Q205.848 37.195 206.70600000000002 36.8375Q207.564 36.48 208.201 35.843Q208.838 35.206 209.189 34.335Q209.54 33.464 209.54 32.45Q209.54 31.423000000000002 209.189 30.565Q208.838 29.707 208.1945 29.0765Q207.551 28.445999999999998 206.69299999999998 28.0885Q205.835 27.731 204.808 27.731Q203.807 27.731 202.9425 28.0885Q202.078 28.445999999999998 201.4345 29.0765Q200.791 29.707 200.44 30.565Q200.089 31.423000000000002 200.089 32.45Z"/><path fill="currentColor" d="M125.432 46.2V77.0H130.756V46.2ZM135.376 77.0Q140.084 77.0 143.648 75.086Q147.212 73.172 149.214 69.71799999999999Q151.216 66.264 151.216 61.6Q151.216 56.936 149.214 53.482Q147.212 50.028000000000006 143.648 48.114000000000004Q140.084 46.2 135.376 46.2H128.644V51.084H135.244Q137.532 51.084 139.46800000000002 51.744Q141.404 52.403999999999996 142.834 53.724Q144.264 55.044 145.078 57.024Q145.892 59.004000000000005 145.892 61.6Q145.892 64.196 145.078 66.176Q144.264 68.156 142.834 69.45400000000001Q141.404 70.752 139.46800000000002 71.434Q137.532 72.116 135.244 72.116H128.644V77.0ZM168.772 69.08H185.052L184.084 64.68H169.784ZM176.824 54.912000000000006 181.752 66.352 181.84 67.628 186.02 77.0H191.916L176.824 44.484L161.776 77.0H167.62800000000001L171.89600000000002 67.364L171.984 66.22ZM204.236 46.2V77.0H221.66V72.336H209.428V46.2ZM237.896 69.08H254.176L253.208 64.68H238.908ZM245.948 54.912000000000006 250.876 66.352 250.964 67.628 255.144 77.0H261.04L245.948 44.484L230.9 77.0H236.752L241.02 67.364L241.108 66.22ZM279.74 62.304 289.508 77.0H295.8L285.328 62.304ZM273.36 46.2V77.0H278.552V46.2ZM276.44 50.688H282.644Q284.448 50.688 285.76800000000003 51.304Q287.088 51.92 287.836 53.064Q288.584 54.208 288.584 55.88Q288.584 57.508 287.836 58.67400000000001Q287.088 59.84 285.76800000000003 60.434Q284.448 61.028 282.644 61.028H276.44V65.34H282.864Q286.252 65.34 288.716 64.152Q291.18 62.964 292.56600000000003 60.808Q293.952 58.652 293.952 55.748000000000005Q293.952 52.844 292.56600000000003 50.71Q291.18 48.576 288.716 47.388000000000005Q286.252 46.2 282.864 46.2H276.44ZM308.12 46.2V66.88Q308.12 69.432 308.93399999999997 71.434Q309.748 73.436 311.244 74.844Q312.74 76.252 314.808 77.0Q316.87600000000003 77.748 319.34000000000003 77.748Q321.80400000000003 77.748 323.872 77.0Q325.94 76.252 327.45799999999997 74.844Q328.976 73.436 329.79 71.434Q330.60400000000004 69.432 330.60400000000004 66.88V46.2H325.368V66.66Q325.368 69.476 323.85 71.23599999999999Q322.332 72.996 319.34000000000003 72.996Q316.392 72.996 314.852 71.23599999999999Q313.312 69.476 313.312 66.66V46.2ZM346.004 46.2V77.0H351.328V46.2ZM355.948 77.0Q360.656 77.0 364.22 75.086Q367.784 73.172 369.786 69.71799999999999Q371.788 66.264 371.788 61.6Q371.788 56.936 369.786 53.482Q367.784 50.028000000000006 364.22 48.114000000000004Q360.656 46.2 355.948 46.2H349.216V51.084H355.81600000000003Q358.104 51.084 360.03999999999996 51.744Q361.976 52.403999999999996 363.406 53.724Q364.836 55.044 365.65 57.024Q366.464 59.004000000000005 366.464 61.6Q366.464 64.196 365.65 66.176Q364.836 68.156 363.406 69.45400000000001Q361.976 70.752 360.03999999999996 71.434Q358.104 72.116 355.81600000000003 72.116H349.216V77.0Z"/></svg></a>
     <nav class="nav" id="nav" aria-label="Huvudmeny">
       <a href="#tjanster">Tjänster</a>
       <a href="#ro-modellen">Ro-modellen</a>
@@ -385,7 +384,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   <section class="manifesto" aria-label="Vad Studio Dalarud tror på">
     <div class="wrap">
       <p class="eyebrow">Studio Dalarud</p>
-      <p class="manifesto__text" style="margin-top:1.4rem">Ett hem ska inte bara se bra ut. Det ska hjälpa dig att <em>landa</em><canvas class="mark" width="640" height="260" aria-hidden="true"></canvas> efter dagen. Därför inreder jag för ögat, för vardagen och för hjärnor av alla slag.</p>
+      <p class="manifesto__text" style="margin-top:1.4rem">Ett hem ska inte bara se bra ut. Det ska hjälpa dig att <em>landa</em> efter dagen. Därför inreder jag för ögat, för vardagen och för hjärnor av alla slag.</p>
       <div class="manifesto__by"><strong>Sofia Dalarud</strong><span>Inredningsstylist, homestagingkonsult och keramiker med bakgrund i specialpedagogik</span></div>
     </div>
   </section>
@@ -583,10 +582,10 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
       <div><h4>Följ</h4><ul><li><a href="#kontakt">Instagram</a></li><li><a href="#kontakt">Pinterest</a></li><li><a href="#kontakt">Nyhetsbrev</a></li></ul></div>
     </div>
     <div class="namestory">
-      <canvas class="mark" width="640" height="260" aria-hidden="true"></canvas>
-      <div><h4>Om namnet</h4><p>Dalarud kan läsas som <em>dal</em> och <em>rud</em>, ett gammalt ord för en röjning i skogen. En glänta i dalen: en ljus plats att landa i. Symbolen är dalen, skålen och stenen som vilar i den.</p></div>
+      <svg class="symbol" aria-hidden="true" focusable="false" viewBox="0 0 100.0 100.0"><g stroke="currentColor" stroke-width="3.1" stroke-linecap="round"><line x1="7.54" y1="34.46" x2="7.54" y2="65.54"/><line x1="14.62" y1="22.76" x2="14.62" y2="77.24"/><line x1="21.69" y1="15.89" x2="21.69" y2="84.11"/><line x1="28.77" y1="11.34" x2="28.77" y2="88.66"/><line x1="35.85" y1="8.38" x2="35.85" y2="91.62"/><line x1="42.92" y1="6.70" x2="42.92" y2="93.30"/><line x1="50.00" y1="6.15" x2="50.00" y2="49.76"/><line x1="50.00" y1="78.24" x2="50.00" y2="93.85"/><line x1="57.08" y1="6.70" x2="57.08" y2="47.48"/><line x1="57.08" y1="80.52" x2="57.08" y2="93.30"/><line x1="64.15" y1="8.38" x2="64.15" y2="48.77"/><line x1="64.15" y1="79.23" x2="64.15" y2="91.62"/><line x1="71.23" y1="11.34" x2="71.23" y2="55.38"/><line x1="71.23" y1="72.62" x2="71.23" y2="88.66"/><line x1="78.31" y1="15.89" x2="78.31" y2="84.11"/><line x1="85.38" y1="22.76" x2="85.38" y2="77.24"/><line x1="92.46" y1="34.46" x2="92.46" y2="65.54"/></g><path fill="var(--accent)" transform="translate(8 4) scale(.9) translate(5.6 6.7)" d="M40.2 60.6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z"/></svg>
+      <div><h4>Om namnet</h4><p>Dalarud kan läsas som <em>dal</em> och <em>rud</em>, ett gammalt ord för en röjning i skogen. Märket är skogen ritad som raka streck, med en glänta där en sten av lera vilar. Struktur som ger plats för ro.</p></div>
     </div>
-    <canvas class="wordmark-paint wordmark" width="740" height="350" aria-hidden="true"></canvas>
+    <svg class="logo footer-logo" aria-hidden="true" focusable="false" viewBox="0 0 379.4 100.0"><g stroke="currentColor" stroke-width="3.1" stroke-linecap="round"><line x1="7.54" y1="34.46" x2="7.54" y2="65.54"/><line x1="14.62" y1="22.76" x2="14.62" y2="77.24"/><line x1="21.69" y1="15.89" x2="21.69" y2="84.11"/><line x1="28.77" y1="11.34" x2="28.77" y2="88.66"/><line x1="35.85" y1="8.38" x2="35.85" y2="91.62"/><line x1="42.92" y1="6.70" x2="42.92" y2="93.30"/><line x1="50.00" y1="6.15" x2="50.00" y2="49.76"/><line x1="50.00" y1="78.24" x2="50.00" y2="93.85"/><line x1="57.08" y1="6.70" x2="57.08" y2="47.48"/><line x1="57.08" y1="80.52" x2="57.08" y2="93.30"/><line x1="64.15" y1="8.38" x2="64.15" y2="48.77"/><line x1="64.15" y1="79.23" x2="64.15" y2="91.62"/><line x1="71.23" y1="11.34" x2="71.23" y2="55.38"/><line x1="71.23" y1="72.62" x2="71.23" y2="88.66"/><line x1="78.31" y1="15.89" x2="78.31" y2="84.11"/><line x1="85.38" y1="22.76" x2="85.38" y2="77.24"/><line x1="92.46" y1="34.46" x2="92.46" y2="65.54"/></g><path fill="var(--accent)" transform="translate(8 4) scale(.9) translate(5.6 6.7)" d="M40.2 60.6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z"/><path fill="currentColor" d="M125.612 34.062 124.468 34.868Q124.767 35.492 125.28049999999999 36.025Q125.794 36.558 126.4765 36.8765Q127.159 37.195 127.952 37.195Q128.537 37.195 129.0765 37.0065Q129.61599999999999 36.818 130.045 36.4735Q130.474 36.129 130.7275 35.622Q130.981 35.115 130.981 34.478Q130.981 33.88 130.773 33.4315Q130.565 32.983000000000004 130.2335 32.658Q129.902 32.333 129.4925 32.111999999999995Q129.083 31.891 128.667 31.748Q127.939 31.488 127.484 31.241Q127.029 30.994 126.8145 30.7145Q126.6 30.435000000000002 126.6 30.084Q126.6 29.694 126.899 29.4015Q127.198 29.109 127.835 29.109Q128.29 29.109 128.6345 29.2845Q128.979 29.46 129.239 29.7525Q129.499 30.045 129.681 30.383L130.916 29.681Q130.695 29.2 130.279 28.758000000000003Q129.863 28.316000000000003 129.265 28.023500000000002Q128.667 27.731 127.861 27.731Q127.042 27.731 126.3985 28.043Q125.755 28.355 125.378 28.9075Q125.001 29.46 125.001 30.188000000000002Q125.001 30.825 125.248 31.2735Q125.495 31.722 125.872 32.0275Q126.249 32.333 126.66499999999999 32.534499999999994Q127.081 32.736 127.419 32.853Q127.991 33.061 128.433 33.2755Q128.875 33.49 129.1155 33.795500000000004Q129.356 34.101 129.356 34.595Q129.356 35.141 128.966 35.479Q128.576 35.817 127.952 35.817Q127.445 35.817 127.0225 35.596000000000004Q126.6 35.375 126.2555 34.985Q125.911 34.595 125.612 34.062ZM139.691 29.317H142.09599999999998V37.0H143.63V29.317H146.035V27.9H139.691ZM155.14800000000002 27.9V34.01Q155.14800000000002 34.764 155.38850000000002 35.355500000000006Q155.62900000000002 35.947 156.07100000000003 36.363Q156.513 36.779 157.12400000000002 37.0Q157.735 37.221 158.46300000000002 37.221Q159.191 37.221 159.80200000000002 37.0Q160.413 36.779 160.8615 36.363Q161.31 35.947 161.5505 35.355500000000006Q161.79100000000003 34.764 161.79100000000003 34.01V27.9H160.244V33.945Q160.244 34.777 159.7955 35.297Q159.347 35.817 158.46300000000002 35.817Q157.592 35.817 157.137 35.297Q156.68200000000002 34.777 156.68200000000002 33.945V27.9ZM171.80100000000002 27.9V37.0H173.374V27.9ZM174.739 37.0Q176.13 37.0 177.183 36.4345Q178.23600000000002 35.869 178.82750000000001 34.8485Q179.419 33.828 179.419 32.45Q179.419 31.072 178.82750000000001 30.051499999999997Q178.23600000000002 29.031 177.183 28.4655Q176.13 27.9 174.739 27.9H172.75V29.343H174.70000000000002Q175.376 29.343 175.948 29.538Q176.52 29.733 176.9425 30.122999999999998Q177.365 30.512999999999998 177.6055 31.098Q177.846 31.683 177.846 32.45Q177.846 33.217 177.6055 33.802Q177.365 34.387 176.9425 34.7705Q176.52 35.154 175.948 35.355500000000006Q175.376 35.557 174.70000000000002 35.557H172.75V37.0ZM188.97400000000002 27.9V37.0H190.53400000000002V27.9ZM201.714 32.45Q201.714 31.514 202.11700000000002 30.7795Q202.52 30.045 203.21550000000002 29.629Q203.911 29.213 204.808 29.213Q205.731 29.213 206.42649999999998 29.629Q207.12199999999999 30.045 207.512 30.7795Q207.902 31.514 207.902 32.45Q207.902 33.386 207.50549999999998 34.114000000000004Q207.109 34.842 206.4135 35.2645Q205.718 35.687 204.808 35.687Q203.911 35.687 203.21550000000002 35.2645Q202.52 34.842 202.11700000000002 34.114000000000004Q201.714 33.386 201.714 32.45ZM200.089 32.45Q200.089 33.464 200.44 34.335Q200.791 35.206 201.428 35.843Q202.065 36.48 202.92950000000002 36.8375Q203.794 37.195 204.808 37.195Q205.848 37.195 206.70600000000002 36.8375Q207.564 36.48 208.201 35.843Q208.838 35.206 209.189 34.335Q209.54 33.464 209.54 32.45Q209.54 31.423000000000002 209.189 30.565Q208.838 29.707 208.1945 29.0765Q207.551 28.445999999999998 206.69299999999998 28.0885Q205.835 27.731 204.808 27.731Q203.807 27.731 202.9425 28.0885Q202.078 28.445999999999998 201.4345 29.0765Q200.791 29.707 200.44 30.565Q200.089 31.423000000000002 200.089 32.45Z"/><path fill="currentColor" d="M125.432 46.2V77.0H130.756V46.2ZM135.376 77.0Q140.084 77.0 143.648 75.086Q147.212 73.172 149.214 69.71799999999999Q151.216 66.264 151.216 61.6Q151.216 56.936 149.214 53.482Q147.212 50.028000000000006 143.648 48.114000000000004Q140.084 46.2 135.376 46.2H128.644V51.084H135.244Q137.532 51.084 139.46800000000002 51.744Q141.404 52.403999999999996 142.834 53.724Q144.264 55.044 145.078 57.024Q145.892 59.004000000000005 145.892 61.6Q145.892 64.196 145.078 66.176Q144.264 68.156 142.834 69.45400000000001Q141.404 70.752 139.46800000000002 71.434Q137.532 72.116 135.244 72.116H128.644V77.0ZM168.772 69.08H185.052L184.084 64.68H169.784ZM176.824 54.912000000000006 181.752 66.352 181.84 67.628 186.02 77.0H191.916L176.824 44.484L161.776 77.0H167.62800000000001L171.89600000000002 67.364L171.984 66.22ZM204.236 46.2V77.0H221.66V72.336H209.428V46.2ZM237.896 69.08H254.176L253.208 64.68H238.908ZM245.948 54.912000000000006 250.876 66.352 250.964 67.628 255.144 77.0H261.04L245.948 44.484L230.9 77.0H236.752L241.02 67.364L241.108 66.22ZM279.74 62.304 289.508 77.0H295.8L285.328 62.304ZM273.36 46.2V77.0H278.552V46.2ZM276.44 50.688H282.644Q284.448 50.688 285.76800000000003 51.304Q287.088 51.92 287.836 53.064Q288.584 54.208 288.584 55.88Q288.584 57.508 287.836 58.67400000000001Q287.088 59.84 285.76800000000003 60.434Q284.448 61.028 282.644 61.028H276.44V65.34H282.864Q286.252 65.34 288.716 64.152Q291.18 62.964 292.56600000000003 60.808Q293.952 58.652 293.952 55.748000000000005Q293.952 52.844 292.56600000000003 50.71Q291.18 48.576 288.716 47.388000000000005Q286.252 46.2 282.864 46.2H276.44ZM308.12 46.2V66.88Q308.12 69.432 308.93399999999997 71.434Q309.748 73.436 311.244 74.844Q312.74 76.252 314.808 77.0Q316.87600000000003 77.748 319.34000000000003 77.748Q321.80400000000003 77.748 323.872 77.0Q325.94 76.252 327.45799999999997 74.844Q328.976 73.436 329.79 71.434Q330.60400000000004 69.432 330.60400000000004 66.88V46.2H325.368V66.66Q325.368 69.476 323.85 71.23599999999999Q322.332 72.996 319.34000000000003 72.996Q316.392 72.996 314.852 71.23599999999999Q313.312 69.476 313.312 66.66V46.2ZM346.004 46.2V77.0H351.328V46.2ZM355.948 77.0Q360.656 77.0 364.22 75.086Q367.784 73.172 369.786 69.71799999999999Q371.788 66.264 371.788 61.6Q371.788 56.936 369.786 53.482Q367.784 50.028000000000006 364.22 48.114000000000004Q360.656 46.2 355.948 46.2H349.216V51.084H355.81600000000003Q358.104 51.084 360.03999999999996 51.744Q361.976 52.403999999999996 363.406 53.724Q364.836 55.044 365.65 57.024Q366.464 59.004000000000005 366.464 61.6Q366.464 64.196 365.65 66.176Q364.836 68.156 363.406 69.45400000000001Q361.976 70.752 360.03999999999996 71.434Q358.104 72.116 355.81600000000003 72.116H349.216V77.0Z"/></svg>
     <div class="footer-legal"><span>© 2026 Studio Dalarud · Sofia Dalarud · Innehar F-skattsedel</span><span>Prototyp · illustrationer ersätts med foton</span></div>
   </div>
 </footer>
@@ -925,114 +924,6 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     });
   });
 
-  /* ================= Logotypen: Gläntan, målad ================= */
-  function spline(pts, step) {
-    var out = [];
-    for (var i = 0; i < pts.length - 1; i++) {
-      var p0 = pts[i - 1] || pts[i], p1 = pts[i], p2 = pts[i + 1], p3 = pts[i + 2] || p2, n = Math.max(2, Math.ceil(Math.hypot(p2[0] - p1[0], p2[1] - p1[1]) / step));
-      for (var s = 0; s < n; s++) {
-        var t = s / n, t2 = t * t, t3 = t2 * t;
-        out.push([0, 1].map(function (k) { return .5 * (2 * p1[k] + (-p0[k] + p2[k]) * t + (2 * p0[k] - 5 * p1[k] + 4 * p2[k] - p3[k]) * t2 + (-p0[k] + 3 * p1[k] - 3 * p2[k] + p3[k]) * t3); }));
-      }
-    }
-    out.push(pts[pts.length - 1]);
-    return out;
-  }
-  // Ett penseldrag i tusch: en tät kropp och borststrån ovanpå, med torra partier mot ändarna.
-  function brush(ctx, line, o) {
-    var r = rng(o.seed || 1), pts = spline(line, 2), n = pts.length;
-    var W = function (t) { return o.min + (o.max - o.min) * Math.pow(Math.sin(Math.PI * t), o.pow || .8); };
-    var nor = pts.map(function (p, i) { var a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)], dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1; return [-dy / l, dx / l]; });
-    // Penseltryck: nedåtdrag blir tjocka, uppåt- och sidodrag tunna, som i kalligrafi.
-    var press = pts.map(function (p, i) { var a = pts[Math.max(0, i - 3)], b = pts[Math.min(n - 1, i + 3)], l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1; return (b[1] - a[1]) / l; });
-    press = press.map(function (v, i) { var s = 0, c = 0; for (var k = -6; k <= 6; k++) { var q = press[i + k]; if (q !== undefined) { s += q; c++; } } return s / c; });
-    var Wb = W;
-    W = function (t) { var i = Math.round(t * (n - 1)); return o.contrast ? Wb(t) * (1 - o.contrast + o.contrast * Math.max(0, Math.min(1, (press[i] + .25) / 1.1))) : Wb(t); };
-    var left = [], right = [];
-    pts.forEach(function (p, i) { var w = W(i / (n - 1)) * .42; left.push([p[0] + nor[i][0] * w, p[1] + nor[i][1] * w]); right.push([p[0] - nor[i][0] * w, p[1] - nor[i][1] * w]); });
-    ctx.save(); ctx.fillStyle = ctx.strokeStyle = o.color; ctx.lineCap = "round"; ctx.lineJoin = "round";
-    ctx.globalAlpha = o.body || .5; trace(ctx, left.concat(right.reverse())); ctx.fill();
-    var B = o.bristles || 26;
-    for (var b = 0; b < B; b++) {
-      var u = b / (B - 1) * 2 - 1, gap = 0, drift = 0, drawing = false;
-      ctx.globalAlpha = .22 + r() * .5; ctx.lineWidth = o.max / B * (1.3 + r() * 1.4); ctx.beginPath();
-      for (var i = 0; i < n; i++) {
-        var t = i / (n - 1), w = W(t) / 2;
-        drift = drift * .92 + gauss(r) * .12;
-        var dry = (Math.abs(u) > .7 ? .3 : 0) + (t > .82 ? (t - .82) * 4 : 0) + (t < .1 ? (.1 - t) * 4 : 0);
-        if (gap > 0 || r() < dry * .1) {
-          if (!gap) gap = 3 + Math.floor(r() * 12);
-          gap--; if (drawing) { ctx.stroke(); ctx.beginPath(); drawing = false; } continue;
-        }
-        var x = pts[i][0] + nor[i][0] * (u * w + drift), y = pts[i][1] + nor[i][1] * (u * w + drift);
-        if (drawing) ctx.lineTo(x, y); else { ctx.moveTo(x, y); drawing = true; }
-      }
-      if (drawing) ctx.stroke();
-    }
-    ctx.restore();
-  }
-  var VALLEY = [[118, 92], [168, 100], [216, 128], [266, 164], [320, 178], [374, 164], [424, 128], [472, 100], [522, 92]];
-  function paintLogo(ctx, ink, clay, glow) {
-    // ljuset i gläntan
-    wash(ctx, ellipse(320, 128, 124, 108, 30, .14, 31), glow, { seed: 31, alpha: .045, layers: 20, spread: .3, edge: .08 });
-    brush(ctx, VALLEY, { color: ink, min: 3, max: 24, seed: 17, bristles: 20 });
-    var stone = ellipse(318, 146, 50, 29, 26, .08, 21);
-    wash(ctx, stone, clay, { seed: 21, alpha: .055, layers: 26, spread: .22, edge: .55 });
-    wash(ctx, ellipse(300, 137, 15, 6, 12, .1, 22), "#FFFFFF", { seed: 22, alpha: .035, layers: 8, spread: .25, edge: 0 });
-    pencil(ctx, stone, { seed: 23, color: ink, alpha: .28, width: 1.8, passes: 1, jitter: 1.6 });
-  }
-  function drawMark(canvas) {
-    var ctx = fit(canvas, 640, 260); if (!ctx) return;
-    paintLogo(ctx, token(canvas.dataset.ink || "--fg"), token(canvas.dataset.clay || "--accent"), token("--clay-soft"));
-  }
-  // Används för att exportera logotypen som bildfiler (profil/).
-  window.dalarudLogo = paintLogo;
-  // Ordbilden: Dalarud handtextat med samma pensel, en dal under ordet där stenen vilar.
-  var LETTERS = [
-    // D
-    { s: [[[62, 84], [59, 150], [61, 228]], [[58, 88], [104, 80], [142, 108], [154, 160], [138, 208], [98, 232], [58, 228]]], w: 17 },
-    // a
-    { s: [[[240, 162], [222, 143], [192, 147], [176, 181], [182, 218], [204, 232], [228, 220], [241, 192]], [[245, 141], [243, 190], [247, 225], [258, 233]]], w: 14 },
-    // l
-    { s: [[[290, 66], [286, 150], [288, 214], [300, 232], [314, 228]]], w: 15 },
-    // a
-    { s: [[[386, 162], [368, 143], [338, 147], [322, 181], [328, 218], [350, 232], [374, 220], [387, 192]], [[391, 141], [389, 190], [393, 225], [404, 233]]], w: 14 },
-    // r
-    { s: [[[432, 142], [431, 190], [433, 232]], [[433, 178], [443, 153], [463, 142], [484, 149]]], w: 14 },
-    // u
-    { s: [[[506, 142], [504, 196], [516, 226], [538, 233], [560, 219], [570, 188]], [[573, 140], [571, 190], [575, 225], [586, 233]]], w: 14 },
-    // d
-    { s: [[[676, 162], [654, 143], [626, 147], [610, 181], [616, 218], [638, 232], [662, 220], [676, 192]], [[684, 60], [679, 150], [681, 220], [693, 233]]], w: 15 }
-  ];
-  var DIP = [[24, 262], [140, 260], [250, 266], [312, 290], [356, 318], [392, 324], [430, 316], [470, 290], [528, 266], [640, 260], [718, 262]];
-  function paintWordmark(ctx, ink, clay, glow, opts) {
-    opts = opts || {};
-    var r = rng(5);
-    wash(ctx, ellipse(392, 292, 120, 62, 30, .14, 41), glow, { seed: 41, alpha: .05, layers: 20, spread: .3, edge: .08 });
-    LETTERS.forEach(function (L, i) {
-      L.s.forEach(function (stroke, j) {
-        // lätt lutning framåt, som handskrift
-        var pts = stroke.map(function (q) { return [q[0] + (232 - q[1]) * .12 + gauss(r) * 1.2, q[1] + gauss(r) * 1.2]; });
-        brush(ctx, pts, { color: ink, min: 2, max: L.w * 1.45, seed: 200 + i * 7 + j, bristles: 16, pow: .45, contrast: .78, body: .85 });
-      });
-    });
-    brush(ctx, DIP, { color: ink, min: 2, max: 13, seed: 77, bristles: 16, pow: .9, body: .7 });
-    var stone = ellipse(392, 299, 34, 19, 22, .08, 43);
-    wash(ctx, stone, clay, { seed: 43, alpha: .06, layers: 24, spread: .2, edge: .55 });
-    wash(ctx, ellipse(380, 292, 10, 4, 10, .1, 44), "#FFFFFF", { seed: 44, alpha: .04, layers: 8, spread: .25, edge: 0 });
-    pencil(ctx, stone, { seed: 45, color: ink, alpha: .28, width: 1.4, passes: 1, jitter: 1.2 });
-    if (opts.studio !== false) {
-      ctx.save(); ctx.translate(180, 120); ctx.rotate(-6 * Math.PI / 180);
-      ctx.fillStyle = clay; ctx.globalAlpha = .9; ctx.font = "40px Caveat, 'Segoe Print', cursive"; ctx.fillText("studio", 0, 0);
-      ctx.restore();
-    }
-  }
-  function drawWordmark(canvas) {
-    var ctx = fit(canvas, 740, 350); if (!ctx) return;
-    paintWordmark(ctx, token("--fg"), token("--accent"), token("--clay-soft"));
-  }
-  window.dalarudWordmark = paintWordmark;
-
   /* ================= Akvarellstenar bakom text ================= */
   function drawBlob(canvas) {
     var w = canvas.clientWidth, h = canvas.clientHeight; if (!w || !h) return;
@@ -1048,9 +939,6 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   document.querySelectorAll("[data-product]").forEach(function (c) { register(c, drawProduct); });
   document.querySelectorAll("canvas.blob").forEach(function (c) { register(c, drawBlob); });
   register(planCanvas, drawPlan);
-  document.querySelectorAll("canvas.mark").forEach(function (c) { register(c, drawMark); });
-  document.querySelectorAll("canvas.wordmark-paint").forEach(function (c) { register(c, drawWordmark); });
-  if (document.fonts && document.fonts.load) document.fonts.load("40px Caveat").then(function () { document.querySelectorAll("canvas.wordmark-paint").forEach(drawWordmark); }, function () {});
   function repaint(force) {
     painters.forEach(function (p) { var w = p.c.clientWidth; if (force || w !== p.w) { p.w = w; p.fn(p.c); } });
     buildHero();

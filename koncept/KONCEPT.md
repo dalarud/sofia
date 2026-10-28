@@ -180,28 +180,23 @@ Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig ka
 ### Logotyp: Gläntan
 Logotypen utgår från namnet. **Dalarud** kan läsas som *dal* och *rud*, ett gammalt ord för röjning i skogen. Tillsammans blir det en glänta i dalen, en ljus plats att landa i.
 
-- **En sammansatt ordbild.** Logotypen är en komposition där allt är målat med samma pensel. Ingen del är ett vanligt typsnitt.
-  - **Dalarud** är handtextat med pensel och tusch. Det lutar lätt framåt som handskrift och har tjocka nedåtdrag och tunna uppåtdrag. Penselns strån och torra partier syns i kanterna.
-  - **Dalen** är ett penseldrag under ordet som sjunker ner under bokstäverna *a-r*.
-  - **Stenen** i lerfärgad akvarell vilar i dalen, och bakom den syns ett mjukt ljus, gläntan.
-  - **studio** är handskrivet i lerfärg och instucket mellan *D* och *l*, som en anteckning i en skissbok.
-- **Symbolen** är dalen med stenen och ljuset, utan ord. Den används där ordbilden blir för liten, till exempel som profilbild, favicon och stämpel.
-- **Filer i `profil/`:**
-  - `logotyp-akvarell.png` / `logotyp-akvarell-ljus.png` – ordbilden, högupplöst med genomskinlig bakgrund (för ljus resp. mörk botten).
-  - `symbol-akvarell.png` / `symbol-akvarell-ljus.png` – symbolen ensam.
-  - `symbol.svg` / `symbol-ljus.svg` – förenklad vektorsymbol för stämpel i lera, gravyr och tryck i en färg.
-- **Typografi runt logotypen:** handtextningen används bara i logotypen. Rubriker sätts i Instrument Serif och brödtext i Hanken Grotesk. Handskriften (Caveat) används bara till anteckningar i skisser, så att logotypen förblir unik.
-- *Nästa steg:* låt en grafisk formgivare eller Sofia själv måla symbolen för hand med pensel och tusch, och vektorisera den bästa versionen. Då får den en äkta handgjord kant.
+**Märket** är en rund stämpel av lodräta streck med rundade ändar. Strax under mitten, lite åt sidan, slutar strecken och lämnar en rund öppning, gläntan. Där vilar en sten i lerfärg. Märket kan läsas på flera sätt:
+- **Skogen** och gläntan i namnet.
+- **Ordning och överblick:** raka, jämna streck, struktur som i Ro-modellen.
+- **Räfflad keramik:** strecken liknar en drejad, räfflad yta. Märket kan tryckas som stämpel direkt i leran.
+- **Ro:** öppningen är platsen där det blir tyst och där stenen får ligga i fred. *Struktur som ger plats för ro.*
 
-### Grafiska element
-Profilen bygger på några återkommande grepp som gör Studio Dalarud igenkännbart även utan logotyp:
+**Ordbilden** har *STUDIO DALARUD* i versaler med generös spärrning, satt i Jost (en geometrisk grotesk i Futura-traditionen) och konverterad till kurvor.
 
-- **Kiselstenen och dalen.** Stenen och dalformen från logotypen. Mjuka, handformade, lite ojämna former, aldrig perfekta cirklar eller rundade rektanglar. Den används som punkt i rubriketiketter, som bildbeskärning (porträtt i stenform), som markör i listor och som stor färgyta bakom text.
-- **Brus → ro.** Huvudgreppet: föremål som ligger huller om buller i starka, krockande färger och sedan ordnar sig i lugna rader i profilens färger. Fungerar som animation på hemsidan, som före/efter-par på Instagram och som omslag till föreläsningen.
-- **Ordning på bordet (knolling).** Föremål fotograferade uppifrån, sorterade i rader och grupper. Det är ett bildmanér som visar överblick och kopplar inredning, keramik och NPF-tänket.
-- **Hyllan.** Keramiken visas stående på en hylla i ek med en hängande prislapp, aldrig i vanliga produktkort.
-- **Stor typografi.** Korta, stora påståenden i serif med ett ord i kursiv lerfärg, till exempel "till *ro*", "ditt *hem*".
-- **Planritningen.** Ro-modellen förklaras med en enkel planritning där zoner markeras. Samma stil kan användas i Sofias leveranser till kunder (åtgärdsplanen).
+**Kontrast mot hemsidan.** Logotypen är stram, geometrisk och exakt, medan hemsidans bilder är målade och levande. De hänger ihop genom samma idé (brus blir ordning, en sten som vilar), samma färger (granskog och lera) och samma lugn. Logotypen är ramen, skisserna är livet inuti.
+
+**Filer i `profil/`** (SVG för tryck och skärning, PNG för snabb användning):
+- `logotyp.svg/.png` och `logotyp-ljus.svg/.png`: liggande logotyp, för ljus respektive mörk botten.
+- `logotyp-staende.svg/.png` och `logotyp-staende-ljus.svg`: märket ovanför namnet, till skyltar, etiketter och förpackningar.
+- `symbol.svg/.png` och `symbol-ljus.svg/.png`: märket ensamt, till profilbild, favicon och keramikstämpel.
+- `bygg-logotyp.py`: skriptet som bygger filerna. Det gör det enkelt att justera antal streck, gläntans placering eller färger.
+
+**Användning:** märket fungerar ner till cirka 16 px. Ge logotypen fritt utrymme runt sig, minst halva märkets bredd. Placera den inte direkt på en akvarell. Använd en lugn yta i linne, granskog eller lera.
 
 ### Tonalitet
 Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluffiga ord.
