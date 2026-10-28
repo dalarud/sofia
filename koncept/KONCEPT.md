@@ -177,26 +177,28 @@ Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig ka
 - Människor och vardag i bild – ett hem som används, inte ett museum.
 - Samma ljusa, varma bildredigering (preset) på alla bilder för igenkänning.
 
-### Logotyp: Gläntan
-Logotypen utgår från namnet. **Dalarud** kan läsas som *dal* och *rud*, ett gammalt ord för röjning i skogen. Tillsammans blir det en glänta i dalen, en ljus plats att landa i.
+### Logotyp: Rundbågen
+Vald bland sex förslag (se `profil/forslag/index.html`).
 
-**Märket** är en rund stämpel av lodräta streck med rundade ändar. Strax under mitten, lite åt sidan, slutar strecken och lämnar en rund öppning, gläntan. Där vilar en sten i lerfärg. Märket kan läsas på flera sätt:
-- **Skogen** och gläntan i namnet.
-- **Ordning och överblick:** raka, jämna streck, struktur som i Ro-modellen.
-- **Räfflad keramik:** strecken liknar en drejad, räfflad yta. Märket kan tryckas som stämpel direkt i leran.
-- **Ro:** öppningen är platsen där det blir tyst och där stenen får ligga i fred. *Struktur som ger plats för ro.*
+**Märket** är tre bågar inuti varandra, som ett fönster eller en dörröppning. Innerst vilar en sten i lerfärg. Det kan läsas på flera sätt:
+- **Hemmet:** ett välvt fönster eller en dörr in, ett vanligt motiv i skandinaviska hem.
+- **Trygghet och ro:** bågarna ringar in det viktiga, och stenen ligger skyddad längst in.
+- **Namnet:** öppningen är vägen in till gläntan, *dal + rud*.
+- **Leran:** stenen är samma sten som på hela sidan och kopplar till keramiken.
 
-**Ordbilden** har *STUDIO DALARUD* i versaler med generös spärrning, satt i Jost (en geometrisk grotesk i Futura-traditionen) och konverterad till kurvor.
+**Ordbilden:** *Dalarud* i Young Serif, en varm serif med lite hantverkskaraktär, och under den *STUDIO* i spärrade versaler i Jost. Texten är konverterad till kurvor.
 
-**Kontrast mot hemsidan.** Logotypen är stram, geometrisk och exakt, medan hemsidans bilder är målade och levande. De hänger ihop genom samma idé (brus blir ordning, en sten som vilar), samma färger (granskog och lera) och samma lugn. Logotypen är ramen, skisserna är livet inuti.
+**Bågen som formelement.** Rundbågen återkommer i profilen, till exempel som beskärning av porträttet av Sofia på hemsidan. Den kan också användas som beskärning av bilder, som fönster i trycksaker och som form på etiketter.
 
-**Filer i `profil/`** (SVG för tryck och skärning, PNG för snabb användning):
+**Kontrast mot hemsidan.** Logotypen är tecknad med rena linjer, medan bilderna är målade. Det som binder ihop dem är färgerna (granskog och lera), stenen och lugnet.
+
+**Filer i `profil/`** (SVG för tryck och skärning, PNG för vardagsbruk):
 - `logotyp.svg/.png` och `logotyp-ljus.svg/.png`: liggande logotyp, för ljus respektive mörk botten.
 - `logotyp-staende.svg/.png` och `logotyp-staende-ljus.svg`: märket ovanför namnet, till skyltar, etiketter och förpackningar.
-- `symbol.svg/.png` och `symbol-ljus.svg/.png`: märket ensamt, till profilbild, favicon och keramikstämpel.
-- `bygg-logotyp.py`: skriptet som bygger filerna. Det gör det enkelt att justera antal streck, gläntans placering eller färger.
+- `symbol.svg/.png` och `symbol-ljus.svg/.png`: märket ensamt, till profilbild, favicon och stämpel i leran.
+- `bygg-logotyp.py`: skriptet som bygger filerna.
 
-**Användning:** märket fungerar ner till cirka 16 px. Ge logotypen fritt utrymme runt sig, minst halva märkets bredd. Placera den inte direkt på en akvarell. Använd en lugn yta i linne, granskog eller lera.
+**Användning:** märket fungerar ner till cirka 16 px. Ge logotypen fritt utrymme runt sig, minst halva märkets bredd. Placera den på en lugn yta i linne, granskog eller lera, inte direkt på en akvarell.
 
 ### Tonalitet
 Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluffiga ord.

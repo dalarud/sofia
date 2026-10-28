@@ -6,7 +6,6 @@ Användning:
 Mappen ska innehålla Jost-500.ttf, Jostwght400.ttf, InstrumentSerif.ttf och YoungSerif.ttf
 (alla från Google Fonts, fri licens).
 """
-import importlib.util
 import math
 import sys
 from pathlib import Path
@@ -17,11 +16,38 @@ from fontTools.ttLib import TTFont
 
 HERE = Path(__file__).parent
 UT = HERE / "forslag"
-spec = importlib.util.spec_from_file_location("logo", HERE / "bygg-logotyp.py")
-logo = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(logo)
 
 GRANSKOG, LERA, LINNE, LERA_LJUS = "#2B362E", "#9B5E49", "#F3EEE6", "#D49C82"
+
+# --- A. Gläntan ---
+# Märket i en ruta på 100 x 100
+R = 46                 # stämpelns radie
+STRECK = 13            # antal streck
+BREDD = 3.1            # streckens bredd
+GLANTA = (58, 64, 15)  # gläntans mitt och radie, lite åt sidan som en plats i skogen
+STEN_GLANTA = "M40.2 60.6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z"
+
+
+def glantan_mark(ink, clay):
+    lines = []
+    pitch = 2 * R / STRECK
+    cx, cy, cr = GLANTA
+    for i in range(STRECK):
+        x = 50 - R + pitch * (i + .5)
+        dx = x - 50
+        half = math.sqrt(R * R - dx * dx) - BREDD / 2 - .6
+        top, bot = 50 - half, 50 + half
+        segs = [(top, bot)]
+        if abs(x - cx) < cr:
+            h = math.sqrt(cr * cr - (x - cx) ** 2)
+            segs = [(top, cy - h - BREDD / 2), (cy + h + BREDD / 2, bot)]
+        for a, b in segs:
+            if b - a > 1.5:
+                lines.append(f'<line x1="{x:.2f}" y1="{a:.2f}" x2="{x:.2f}" y2="{b:.2f}"/>')
+    return (f'<g stroke="{ink}" stroke-width="{BREDD}" stroke-linecap="round">{"".join(lines)}</g>'
+            f'<path fill="{clay}" transform="translate(8 4) scale(.9) translate(5.6 6.7)" d="{STEN_GLANTA}"/>')
+
+
 STEN = "M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z"  # runt (0, 0), ca 20 x 16
 
 
@@ -79,7 +105,7 @@ def build(fonts):
 
     # A. Gläntan (nuvarande)
     def a_sym(ink, clay):
-        return logo.mark(ink, clay)
+        return glantan_mark(ink, clay)
 
     def a_lock(ink, clay):
         st, _ = text(jost5, "STUDIO", 13, 124, 37, .62)
