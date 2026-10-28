@@ -180,13 +180,17 @@ Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig ka
 ### Logotyp: Gläntan
 Logotypen utgår från namnet. **Dalarud** kan läsas som *dal* och *rud*, ett gammalt ord för röjning i skogen. Tillsammans blir det en glänta i dalen, en ljus plats att landa i.
 
-- **Symbolen** är målad, i samma uttryck som hemsidans skisser. Ett penseldrag i tusch bildar en flack dal, och man ser borstens strån och torra partier mot ändarna. I dalen vilar en sten i lerfärgad akvarell, och bakom den finns ett mjukt ljus som är gläntan. Formen kan läsas som dalen, som en skål och som stenen som har hittat sin plats.
-- **Ordmärket:** *studio* handskrivet i lerfärg, som anteckningarna i skisserna, över *Dalarud* i Instrument Serif.
+- **En sammansatt ordbild.** Logotypen är en komposition där allt är målat med samma pensel. Ingen del är ett vanligt typsnitt.
+  - **Dalarud** är handtextat med pensel och tusch. Det lutar lätt framåt som handskrift och har tjocka nedåtdrag och tunna uppåtdrag. Penselns strån och torra partier syns i kanterna.
+  - **Dalen** är ett penseldrag under ordet som sjunker ner under bokstäverna *a-r*.
+  - **Stenen** i lerfärgad akvarell vilar i dalen, och bakom den syns ett mjukt ljus, gläntan.
+  - **studio** är handskrivet i lerfärg och instucket mellan *D* och *l*, som en anteckning i en skissbok.
+- **Symbolen** är dalen med stenen och ljuset, utan ord. Den används där ordbilden blir för liten, till exempel som profilbild, favicon och stämpel.
 - **Filer i `profil/`:**
-  - `logotyp-akvarell.png` / `logotyp-akvarell-ljus.png` – huvudlogotyp, högupplöst med genomskinlig bakgrund (för ljus resp. mörk botten).
-  - `symbol-akvarell.png` / `symbol-akvarell-ljus.png` – symbolen ensam, till profilbild, favicon och förpackningar.
-  - `symbol.svg`, `symbol-ljus.svg`, `logotyp.svg` – förenklad vektorversion för stämpel i lera, gravyr, brodyr och små storlekar där akvarellen inte syns.
-- **Användning:** den målade versionen på hemsida, sociala medier, visitkort och förpackningar. Vektorversionen när logotypen ska skäras, stämplas eller tryckas i en färg.
+  - `logotyp-akvarell.png` / `logotyp-akvarell-ljus.png` – ordbilden, högupplöst med genomskinlig bakgrund (för ljus resp. mörk botten).
+  - `symbol-akvarell.png` / `symbol-akvarell-ljus.png` – symbolen ensam.
+  - `symbol.svg` / `symbol-ljus.svg` – förenklad vektorsymbol för stämpel i lera, gravyr och tryck i en färg.
+- **Typografi runt logotypen:** handtextningen används bara i logotypen. Rubriker sätts i Instrument Serif och brödtext i Hanken Grotesk. Handskriften (Caveat) används bara till anteckningar i skisser, så att logotypen förblir unik.
 - *Nästa steg:* låt en grafisk formgivare eller Sofia själv måla symbolen för hand med pensel och tusch, och vektorisera den bästa versionen. Då får den en äkta handgjord kant.
 
 ### Grafiska element

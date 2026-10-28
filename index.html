@@ -95,7 +95,7 @@ section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; }
 .brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; }
 .mark { display: block; flex: none; height: auto; max-width: 100%; }
-.brand .mark { width: 3.8rem; margin-inline: -.55rem -.45rem; }
+.brand .wordmark-paint { display: block; width: 9.5rem; height: auto; margin-block: -.4rem -.5rem; }
 .brand__text { display: grid; line-height: 1; }
 .brand__studio { font-family: "Caveat", "Segoe Print", cursive; font-size: 1.05rem; line-height: .8; color: var(--accent); transform: rotate(-5deg); transform-origin: left bottom; margin: 0 0 .05rem .05rem; }
 .brand__name { font-family: var(--font-display); font-size: 1.75rem; line-height: .9; letter-spacing: -.01em; }
@@ -303,7 +303,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .namestory p { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2.1rem); line-height: 1.2; max-width: 34ch; }
 .namestory p em { color: var(--accent); }
 @media (max-width: 600px) { .namestory { grid-template-columns: 1fr; } }
-.wordmark { font-family: var(--font-display); font-size: clamp(3.4rem, 17vw, 16rem); line-height: .85; letter-spacing: -.04em; margin: 3rem 0 1.5rem; white-space: nowrap; }
+.wordmark { display: block; width: min(100%, 52rem); height: auto; margin: 2.5rem 0 1rem -1rem; }
 .footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
 @media (max-width: 760px) { .footer-cols { grid-template-columns: 1fr 1fr; } .footer-cols > div:first-child { grid-column: 1 / -1; } }
 
@@ -340,7 +340,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Studio Dalarud, till början av sidan"><canvas class="mark" width="640" height="260" aria-hidden="true"></canvas><span class="brand__text"><span class="brand__studio">studio</span><span class="brand__name">Dalarud</span></span></a>
+    <a class="brand" href="#top" aria-label="Studio Dalarud, till början av sidan"><canvas class="wordmark-paint" width="740" height="350" aria-hidden="true"></canvas></a>
     <nav class="nav" id="nav" aria-label="Huvudmeny">
       <a href="#tjanster">Tjänster</a>
       <a href="#ro-modellen">Ro-modellen</a>
@@ -586,7 +586,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
       <canvas class="mark" width="640" height="260" aria-hidden="true"></canvas>
       <div><h4>Om namnet</h4><p>Dalarud kan läsas som <em>dal</em> och <em>rud</em>, ett gammalt ord för en röjning i skogen. En glänta i dalen: en ljus plats att landa i. Symbolen är dalen, skålen och stenen som vilar i den.</p></div>
     </div>
-    <p class="wordmark" aria-hidden="true">Dalarud</p>
+    <canvas class="wordmark-paint wordmark" width="740" height="350" aria-hidden="true"></canvas>
     <div class="footer-legal"><span>© 2026 Studio Dalarud · Sofia Dalarud · Innehar F-skattsedel</span><span>Prototyp · illustrationer ersätts med foton</span></div>
   </div>
 </footer>
@@ -943,10 +943,15 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     var r = rng(o.seed || 1), pts = spline(line, 2), n = pts.length;
     var W = function (t) { return o.min + (o.max - o.min) * Math.pow(Math.sin(Math.PI * t), o.pow || .8); };
     var nor = pts.map(function (p, i) { var a = pts[Math.max(0, i - 1)], b = pts[Math.min(n - 1, i + 1)], dx = b[0] - a[0], dy = b[1] - a[1], l = Math.hypot(dx, dy) || 1; return [-dy / l, dx / l]; });
+    // Penseltryck: nedåtdrag blir tjocka, uppåt- och sidodrag tunna, som i kalligrafi.
+    var press = pts.map(function (p, i) { var a = pts[Math.max(0, i - 3)], b = pts[Math.min(n - 1, i + 3)], l = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1; return (b[1] - a[1]) / l; });
+    press = press.map(function (v, i) { var s = 0, c = 0; for (var k = -6; k <= 6; k++) { var q = press[i + k]; if (q !== undefined) { s += q; c++; } } return s / c; });
+    var Wb = W;
+    W = function (t) { var i = Math.round(t * (n - 1)); return o.contrast ? Wb(t) * (1 - o.contrast + o.contrast * Math.max(0, Math.min(1, (press[i] + .25) / 1.1))) : Wb(t); };
     var left = [], right = [];
     pts.forEach(function (p, i) { var w = W(i / (n - 1)) * .42; left.push([p[0] + nor[i][0] * w, p[1] + nor[i][1] * w]); right.push([p[0] - nor[i][0] * w, p[1] - nor[i][1] * w]); });
     ctx.save(); ctx.fillStyle = ctx.strokeStyle = o.color; ctx.lineCap = "round"; ctx.lineJoin = "round";
-    ctx.globalAlpha = .5; trace(ctx, left.concat(right.reverse())); ctx.fill();
+    ctx.globalAlpha = o.body || .5; trace(ctx, left.concat(right.reverse())); ctx.fill();
     var B = o.bristles || 26;
     for (var b = 0; b < B; b++) {
       var u = b / (B - 1) * 2 - 1, gap = 0, drift = 0, drawing = false;
@@ -982,6 +987,51 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   }
   // Används för att exportera logotypen som bildfiler (profil/).
   window.dalarudLogo = paintLogo;
+  // Ordbilden: Dalarud handtextat med samma pensel, en dal under ordet där stenen vilar.
+  var LETTERS = [
+    // D
+    { s: [[[62, 84], [59, 150], [61, 228]], [[58, 88], [104, 80], [142, 108], [154, 160], [138, 208], [98, 232], [58, 228]]], w: 17 },
+    // a
+    { s: [[[240, 162], [222, 143], [192, 147], [176, 181], [182, 218], [204, 232], [228, 220], [241, 192]], [[245, 141], [243, 190], [247, 225], [258, 233]]], w: 14 },
+    // l
+    { s: [[[290, 66], [286, 150], [288, 214], [300, 232], [314, 228]]], w: 15 },
+    // a
+    { s: [[[386, 162], [368, 143], [338, 147], [322, 181], [328, 218], [350, 232], [374, 220], [387, 192]], [[391, 141], [389, 190], [393, 225], [404, 233]]], w: 14 },
+    // r
+    { s: [[[432, 142], [431, 190], [433, 232]], [[433, 178], [443, 153], [463, 142], [484, 149]]], w: 14 },
+    // u
+    { s: [[[506, 142], [504, 196], [516, 226], [538, 233], [560, 219], [570, 188]], [[573, 140], [571, 190], [575, 225], [586, 233]]], w: 14 },
+    // d
+    { s: [[[676, 162], [654, 143], [626, 147], [610, 181], [616, 218], [638, 232], [662, 220], [676, 192]], [[684, 60], [679, 150], [681, 220], [693, 233]]], w: 15 }
+  ];
+  var DIP = [[24, 262], [140, 260], [250, 266], [312, 290], [356, 318], [392, 324], [430, 316], [470, 290], [528, 266], [640, 260], [718, 262]];
+  function paintWordmark(ctx, ink, clay, glow, opts) {
+    opts = opts || {};
+    var r = rng(5);
+    wash(ctx, ellipse(392, 292, 120, 62, 30, .14, 41), glow, { seed: 41, alpha: .05, layers: 20, spread: .3, edge: .08 });
+    LETTERS.forEach(function (L, i) {
+      L.s.forEach(function (stroke, j) {
+        // lätt lutning framåt, som handskrift
+        var pts = stroke.map(function (q) { return [q[0] + (232 - q[1]) * .12 + gauss(r) * 1.2, q[1] + gauss(r) * 1.2]; });
+        brush(ctx, pts, { color: ink, min: 2, max: L.w * 1.45, seed: 200 + i * 7 + j, bristles: 16, pow: .45, contrast: .78, body: .85 });
+      });
+    });
+    brush(ctx, DIP, { color: ink, min: 2, max: 13, seed: 77, bristles: 16, pow: .9, body: .7 });
+    var stone = ellipse(392, 299, 34, 19, 22, .08, 43);
+    wash(ctx, stone, clay, { seed: 43, alpha: .06, layers: 24, spread: .2, edge: .55 });
+    wash(ctx, ellipse(380, 292, 10, 4, 10, .1, 44), "#FFFFFF", { seed: 44, alpha: .04, layers: 8, spread: .25, edge: 0 });
+    pencil(ctx, stone, { seed: 45, color: ink, alpha: .28, width: 1.4, passes: 1, jitter: 1.2 });
+    if (opts.studio !== false) {
+      ctx.save(); ctx.translate(180, 120); ctx.rotate(-6 * Math.PI / 180);
+      ctx.fillStyle = clay; ctx.globalAlpha = .9; ctx.font = "40px Caveat, 'Segoe Print', cursive"; ctx.fillText("studio", 0, 0);
+      ctx.restore();
+    }
+  }
+  function drawWordmark(canvas) {
+    var ctx = fit(canvas, 740, 350); if (!ctx) return;
+    paintWordmark(ctx, token("--fg"), token("--accent"), token("--clay-soft"));
+  }
+  window.dalarudWordmark = paintWordmark;
 
   /* ================= Akvarellstenar bakom text ================= */
   function drawBlob(canvas) {
@@ -999,6 +1049,8 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   document.querySelectorAll("canvas.blob").forEach(function (c) { register(c, drawBlob); });
   register(planCanvas, drawPlan);
   document.querySelectorAll("canvas.mark").forEach(function (c) { register(c, drawMark); });
+  document.querySelectorAll("canvas.wordmark-paint").forEach(function (c) { register(c, drawWordmark); });
+  if (document.fonts && document.fonts.load) document.fonts.load("40px Caveat").then(function () { document.querySelectorAll("canvas.wordmark-paint").forEach(drawWordmark); }, function () {});
   function repaint(force) {
     painters.forEach(function (p) { var w = p.c.clientWidth; if (force || w !== p.w) { p.w = w; p.fn(p.c); } });
     buildHero();
