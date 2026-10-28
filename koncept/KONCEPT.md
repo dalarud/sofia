@@ -169,18 +169,27 @@ Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig ka
 - Båda är gratis via Google Fonts.
 
 ### Bildspråk
+**Illustration: skissboken.** Allt illustrerat material görs som akvarell och blyerts, som sidor ur en inredares skissbok: planritningar, föremål och moodboards. Det känns handgjort och personligt och passar ihop med keramiken. På hemsidan målas skisserna i webbläsaren. På sikt kan Sofia måla egna skisser som ersätter dem.
+
+**Foto** (till den skarpa sajten):
 - Dagsljus, gärna snett fönsterljus. Inga hårda blixtar.
 - Närbilder på material: lera, lin, trä, händer i arbete.
 - Människor och vardag i bild – ett hem som används, inte ett museum.
 - Samma ljusa, varma bildredigering (preset) på alla bilder för igenkänning.
 
-### Logotyp (riktning)
-Ordmärke **Studio Dalarud** i Instrument Serif, föregånget av symbolen **kiselstenen**: en liten, lite ojämn oval i lerfärg, som en sten i handen eller en skål sedd uppifrån. Symbolen kan stämplas i keramiken och används ensam som profilbild på Instagram.
+### Logotyp: Gläntan
+Logotypen utgår från namnet. **Dalarud** kan läsas som *dal* och *rud*, ett gammalt ord för röjning i skogen. Tillsammans blir det en glänta i dalen, en ljus plats att landa i.
+
+- **Symbolen** är ett enda penseldrag från horisont till horisont. Det sjunker ner i en dal och är tyngst i botten. I dalen vilar en sten i lerfärg. Samma form kan läsas på tre sätt: som **dalen**, som en **skål** i profil och som **stenen** som har hittat sin plats. Det är *ro* i en bild.
+- **Ordmärket** har ett litet, glest spärrat *STUDIO* ovanför *Dalarud* i Instrument Serif. Efternamnet bär varumärket.
+- **Filer:** `profil/symbol.svg`, `profil/symbol-ljus.svg` (för mörk bakgrund) och `profil/logotyp.svg`. Texten i logotypfilen ska konverteras till konturer före tryck.
+- **Användning:** symbolen ensam som profilbild, favicon och som stämpel i botten på keramiken. Den kan också användas stort som en "signatur" i sidfoten, på visitkort och på förpackningar.
+- *Nästa steg:* låt en grafisk formgivare eller Sofia själv måla symbolen för hand med pensel och tusch, och vektorisera den bästa versionen. Då får den en äkta handgjord kant.
 
 ### Grafiska element
 Profilen bygger på några återkommande grepp som gör Studio Dalarud igenkännbart även utan logotyp:
 
-- **Kiselstenen.** Mjuka, handformade, lite ojämna former, aldrig perfekta cirklar eller rundade rektanglar. Den används som punkt i rubriketiketter, som bildbeskärning (porträtt i stenform), som markör i listor och som stor färgyta bakom text.
+- **Kiselstenen och dalen.** Stenen och dalformen från logotypen. Mjuka, handformade, lite ojämna former, aldrig perfekta cirklar eller rundade rektanglar. Den används som punkt i rubriketiketter, som bildbeskärning (porträtt i stenform), som markör i listor och som stor färgyta bakom text.
 - **Brus → ro.** Huvudgreppet: föremål som ligger huller om buller i starka, krockande färger och sedan ordnar sig i lugna rader i profilens färger. Fungerar som animation på hemsidan, som före/efter-par på Instagram och som omslag till föreläsningen.
 - **Ordning på bordet (knolling).** Föremål fotograferade uppifrån, sorterade i rader och grupper. Det är ett bildmanér som visar överblick och kopplar inredning, keramik och NPF-tänket.
 - **Hyllan.** Keramiken visas stående på en hylla i ek med en hängande prislapp, aldrig i vanliga produktkort.
