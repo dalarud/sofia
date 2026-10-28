@@ -29,6 +29,7 @@ Det som gör företaget unikt är kombinationen. Det finns många inredare och m
 
 **Undertitel:** *Inredning · Homestaging · Lera*
 **Tagline:** *Ett hem ska ge ro.*
+**Kärnbudskap / kampanjlinje:** *Från brus till ro.* Det beskriver vad kunden får: ett hem som går från rörigt, stressigt och överväldigande till lugnt, ordnat och personligt. Budskapet bär hela hemsidan och kan användas i annonser, på Instagram och i föreläsningar.
 
 ### Alternativ att pröva
 
@@ -174,7 +175,17 @@ Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig ka
 - Samma ljusa, varma bildredigering (preset) på alla bilder för igenkänning.
 
 ### Logotyp (riktning)
-Ordmärke **Studio Dalarud** i Instrument Serif, kompletterat med en enkel symbol: en mjuk, lite ojämn cirkel – som en skål sedd uppifrån eller en sten i handen. Symbolen kan stämplas i keramiken.
+Ordmärke **Studio Dalarud** i Instrument Serif, föregånget av symbolen **kiselstenen**: en liten, lite ojämn oval i lerfärg, som en sten i handen eller en skål sedd uppifrån. Symbolen kan stämplas i keramiken och används ensam som profilbild på Instagram.
+
+### Grafiska element
+Profilen bygger på några återkommande grepp som gör Studio Dalarud igenkännbart även utan logotyp:
+
+- **Kiselstenen.** Mjuka, handformade, lite ojämna former, aldrig perfekta cirklar eller rundade rektanglar. Den används som punkt i rubriketiketter, som bildbeskärning (porträtt i stenform), som markör i listor och som stor färgyta bakom text.
+- **Brus → ro.** Huvudgreppet: föremål som ligger huller om buller i starka, krockande färger och sedan ordnar sig i lugna rader i profilens färger. Fungerar som animation på hemsidan, som före/efter-par på Instagram och som omslag till föreläsningen.
+- **Ordning på bordet (knolling).** Föremål fotograferade uppifrån, sorterade i rader och grupper. Det är ett bildmanér som visar överblick och kopplar inredning, keramik och NPF-tänket.
+- **Hyllan.** Keramiken visas stående på en hylla i ek med en hängande prislapp, aldrig i vanliga produktkort.
+- **Stor typografi.** Korta, stora påståenden i serif med ett ord i kursiv lerfärg, till exempel "till *ro*", "ditt *hem*".
+- **Planritningen.** Ro-modellen förklaras med en enkel planritning där zoner markeras. Samma stil kan användas i Sofias leveranser till kunder (åtgärdsplanen).
 
 ### Tonalitet
 Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluffiga ord.
@@ -249,12 +260,13 @@ Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluf
 
 Prototypen (`index.html` i detta repo) visar struktur, tonalitet och visuell identitet:
 
-1. **Start** – budskapet "Ett hem ska ge ro" och de fyra områdena.
-2. **Tjänster** – inredning, homestaging, Lugna rum, med riktpriser.
-3. **Ro-modellen** – de fyra hörnstenarna, NPF-kopplingen.
-4. **Butik – Dalarud Lera** – produktkort och varukorg (prototyp, ingen riktig betalning).
-5. **Om Sofia** – bakgrund från förskolan, specialpedagogik och inredning.
-6. **Journal** – tips och inspiration (förbereder för SEO).
-7. **Kontakt / boka** – formulär för förfrågan.
+1. **Från brus till ro** – rubriken och en interaktiv yta där föremål i kaos ordnar sig. Besökaren kan själv dra reglaget mellan brus och ro.
+2. **Manifest** – ett stort typografiskt påstående om vad ett hem ska vara.
+3. **Tjänster som index** – Inredning, Homestaging, Lugna rum och Förskola som stora rader som fälls ut med pris och bokning.
+4. **Ro-modellen** – interaktiv planritning av ett familjehem. Varje hörnsten visar var i hemmet den gör skillnad, med konkreta tips.
+5. **Ateljén** – keramiken på en ekhylla med prislappar och varukorg (prototyp, ingen riktig betalning).
+6. **Om Sofia** – "Förskola + Inredning + Lera = ro", med porträtt i stenform.
+7. **Journal** – artiklar som en lugn lista (förbereder för SEO).
+8. **Vad skaver hemma?** – kontaktformulär där besökaren väljer det som skaver, vilket sänker tröskeln att höra av sig.
 
 **Nästa steg för en skarp sajt:** bygg den i en plattform Sofia själv kan uppdatera. **Shopify** passar om keramiken ska vara en stor del; **Squarespace** eller **Wix** passar om tjänsterna är i fokus och butiken är liten. Byt ut illustrationerna i prototypen mot riktiga foton.

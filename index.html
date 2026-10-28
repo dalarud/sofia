@@ -5,30 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Studio Dalarud</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Studio Dalarud – inredning, homestaging och handgjord keramik av Sofia Dalarud. Ett hem ska ge ro.">
+<meta name="description" content="Studio Dalarud – inredning, homestaging och handgjord keramik av Sofia Dalarud. Från brus till ro.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <style>
-/* Layout: asymmetrisk, luftig redaktionell rytm – bågfönstret som återkommande form, en mörk "kvällssektion" för Ro-modellen. */
+/* Layout: berättelsen "från brus till ro". Kaos som ordnar sig i hero, sedan lugna, breda typografiska ytor,
+   kiselstenen från leran som grafiskt grundelement och en hylla i ek som butik. */
 :root {
   --bg: #F3EEE6;          /* linne */
   --surface: #E6DCCB;     /* havre */
-  --surface-2: #EDE5D8;
+  --surface-2: #ECE4D7;
+  --stage: #E4D8C5;       /* bordsytan i hero */
   --fg: #2B362E;          /* granskog */
   --muted: #5D6458;
-  --line: #D3C7B4;
+  --line: #D0C3AF;
   --accent: #9B5E49;      /* lera */
   --accent-strong: #84503E;
   --on-accent: #FBF7F1;
   --moss: #6F7D62;        /* mossa */
   --moss-soft: #DCE0D2;
+  --clay-soft: #EBD6CA;
+  --wood: #B48D66;        /* ek */
   --deep: #2B362E;
   --on-deep: #EFE8DC;
   --on-deep-muted: #B9BCAD;
-  --sky-1: #EADFCF;
-  --sky-2: #F6F1E9;
-  --shadow: rgba(43, 54, 46, .10);
+  --shadow: rgba(43, 54, 46, .12);
 
   --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
   --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, system-ui, sans-serif;
@@ -36,264 +38,289 @@
   --step--1: .875rem;
   --step-0: 1.0625rem;
   --step-1: 1.3rem;
-  --step-2: 1.75rem;
-  --step-3: clamp(2.2rem, 4vw, 3rem);
-  --step-4: clamp(2.9rem, 7vw, 5.6rem);
+  --step-2: 1.9rem;
+  --step-3: clamp(2.4rem, 4.6vw, 3.6rem);
+  --step-4: clamp(3.4rem, 10vw, 8.6rem);
 
+  --pebble-a: 58% 42% 55% 45% / 52% 60% 40% 48%;
+  --pebble-b: 46% 54% 38% 62% / 58% 44% 56% 42%;
+  --pebble-c: 63% 37% 47% 53% / 43% 55% 45% 57%;
   --radius: 6px;
-  --wrap: 1180px;
+  --wrap: 1240px;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #1C221E; --surface: #283029; --surface-2: #222923; --fg: #ECE5D9; --muted: #B3AFA2;
+    --bg: #1C221E; --surface: #283029; --surface-2: #222923; --stage: #262E28; --fg: #ECE5D9; --muted: #B3AFA2;
     --line: #3A443B; --accent: #D49C82; --accent-strong: #E2AE95; --on-accent: #1C221E;
-    --moss: #A9B79A; --moss-soft: #2F3A31; --deep: #131814; --on-deep: #ECE5D9; --on-deep-muted: #A7AA9C;
-    --sky-1: #2C3530; --sky-2: #3A3A33; --shadow: rgba(0, 0, 0, .35);
+    --moss: #A9B79A; --moss-soft: #2F3A31; --clay-soft: #3A2F2A; --wood: #8C6C4E;
+    --deep: #131814; --on-deep: #ECE5D9; --on-deep-muted: #A7AA9C; --shadow: rgba(0, 0, 0, .4);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #1C221E; --surface: #283029; --surface-2: #222923; --fg: #ECE5D9; --muted: #B3AFA2;
+  --bg: #1C221E; --surface: #283029; --surface-2: #222923; --stage: #262E28; --fg: #ECE5D9; --muted: #B3AFA2;
   --line: #3A443B; --accent: #D49C82; --accent-strong: #E2AE95; --on-accent: #1C221E;
-  --moss: #A9B79A; --moss-soft: #2F3A31; --deep: #131814; --on-deep: #ECE5D9; --on-deep-muted: #A7AA9C;
-  --sky-1: #2C3530; --sky-2: #3A3A33; --shadow: rgba(0, 0, 0, .35);
+  --moss: #A9B79A; --moss-soft: #2F3A31; --clay-soft: #3A2F2A; --wood: #8C6C4E;
+  --deep: #131814; --on-deep: #ECE5D9; --on-deep-muted: #A7AA9C; --shadow: rgba(0, 0, 0, .4);
   color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
-body {
-  margin: 0; background: var(--bg); color: var(--fg);
-  font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
 img, svg { max-width: 100%; display: block; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
-h1 em, h2 em { font-style: italic; color: var(--accent); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1; margin: 0; text-wrap: balance; letter-spacing: -.015em; }
+h1 em, h2 em, h3 em { font-style: italic; color: var(--accent); }
 p { margin: 0; }
-.eyebrow { font-size: var(--step--1); text-transform: uppercase; letter-spacing: .14em; font-weight: 600; color: var(--moss); }
-.lede { font-size: var(--step-1); line-height: 1.5; color: var(--muted); max-width: 34ch; }
+.eyebrow { font-size: .8rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 600; color: var(--moss); display: inline-flex; align-items: center; gap: .6rem; }
+.eyebrow::before { content: ""; width: .8rem; height: .6rem; background: currentColor; border-radius: var(--pebble-a); }
+.wrap { max-width: var(--wrap); margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 720px) { .wrap { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
+section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
 
-.wrap {
-  max-width: var(--wrap); margin-inline: auto;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-}
-@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
-section { padding-block: clamp(4rem, 9vw, 7.5rem); }
-
-.btn {
-  display: inline-flex; align-items: center; gap: .5rem; cursor: pointer;
-  font: 600 .95rem/1 var(--font-body); letter-spacing: .02em; text-decoration: none;
-  padding: .95rem 1.4rem; border-radius: 999px; border: 1px solid var(--accent);
-  background: var(--accent); color: var(--on-accent); transition: background .2s, color .2s, border-color .2s;
-}
+.btn { display: inline-flex; align-items: center; gap: .55rem; cursor: pointer; font: 600 .95rem/1 var(--font-body); letter-spacing: .02em; text-decoration: none;
+  padding: 1rem 1.5rem; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); transition: background .2s, border-color .2s, color .2s; }
 .btn:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
-.btn--ghost { background: transparent; color: var(--fg); border-color: var(--line); }
-.btn--ghost:hover { background: var(--surface); border-color: var(--surface); }
-.link-arrow { font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--line); padding-bottom: 2px; }
-.link-arrow:hover { border-color: var(--accent); color: var(--accent); }
+.btn--ghost { background: transparent; color: var(--fg); border-color: var(--fg); }
+.btn--ghost:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
 /* ---------- Header ---------- */
-.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
-.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: .9rem; }
-.brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-.brand svg { width: 30px; height: 30px; }
-.brand__name { font-family: var(--font-display); font-size: 1.55rem; line-height: 1; }
-.nav { display: flex; align-items: center; gap: 1.6rem; }
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(10px); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1rem; }
+.brand { display: flex; align-items: center; gap: .55rem; text-decoration: none; }
+.brand__mark { width: 1.35rem; height: 1rem; background: var(--accent); border-radius: var(--pebble-a); flex: none; }
+.brand__name { font-family: var(--font-display); font-size: 1.6rem; line-height: 1; letter-spacing: -.01em; }
+.nav { display: flex; align-items: center; gap: 1.8rem; }
 .nav a { text-decoration: none; font-size: .95rem; font-weight: 500; color: var(--muted); }
 .nav a:hover { color: var(--fg); }
 .header-actions { display: flex; align-items: center; gap: .5rem; }
-.cart-btn, .menu-btn { font: 600 .9rem var(--font-body); background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: .55rem .95rem; cursor: pointer; display: inline-flex; gap: .45rem; align-items: center; }
-.cart-btn:hover, .menu-btn:hover { border-color: var(--fg); }
+.pill-btn { font: 600 .9rem var(--font-body); background: transparent; color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1rem; cursor: pointer; display: inline-flex; gap: .45rem; align-items: center; text-decoration: none; }
+.pill-btn:hover { border-color: var(--fg); }
+.pill-btn--solid { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.pill-btn--solid:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 .cart-count { display: inline-grid; place-items: center; min-width: 1.4rem; height: 1.4rem; padding-inline: .3rem; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-size: .75rem; font-variant-numeric: tabular-nums; }
 .menu-btn { display: none; }
-@media (max-width: 880px) {
+@media (max-width: 920px) {
   .menu-btn { display: inline-flex; }
+  .book-btn { display: none; }
   .nav { display: none; position: absolute; inset: 100% 0 auto; flex-direction: column; align-items: stretch; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line);
     padding: .5rem max(16px, env(safe-area-inset-right, 0px)) 1rem max(16px, env(safe-area-inset-left, 0px)); }
   .nav.is-open { display: flex; }
-  .nav a { padding: .8rem 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; color: var(--fg); }
+  .nav a { padding: .85rem 0; border-bottom: 1px solid var(--line); font-family: var(--font-display); font-size: 1.6rem; color: var(--fg); }
 }
 
-/* ---------- Hero ---------- */
-.hero { padding-block: clamp(3rem, 7vw, 6rem) clamp(3rem, 6vw, 5rem); }
-.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
-.hero__text { display: grid; gap: 1.6rem; min-width: 0; }
-.hero h1 { font-size: var(--step-4); }
-.hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
-.hero__meta { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; font-size: var(--step--1); color: var(--muted); padding-top: .5rem; }
-.hero__meta span::before { content: ""; display: inline-block; width: .45rem; height: .45rem; border-radius: 50%; background: var(--moss); margin-right: .5rem; vertical-align: .1em; }
-.hero__art { position: relative; }
-.hero__art svg { width: 100%; height: auto; }
-.hero__note { position: absolute; left: -1.5rem; bottom: 2.2rem; max-width: 15rem; background: var(--bg); border: 1px solid var(--line); padding: .9rem 1.1rem; border-radius: var(--radius); font-size: var(--step--1); line-height: 1.45; box-shadow: 0 10px 30px var(--shadow); }
-.hero__note strong { font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; display: block; }
-@media (max-width: 820px) {
-  .hero .wrap { grid-template-columns: 1fr; }
-  .hero__art { max-width: 420px; margin-inline: auto; width: 100%; }
-  .hero__note { left: 0; }
+/* ---------- Hero: från brus till ro ---------- */
+.hero { padding-block: clamp(2rem, 5vw, 4rem) clamp(3rem, 6vw, 5rem); }
+.hero__top { display: grid; grid-template-columns: 1.3fr .7fr; gap: 1.5rem 4rem; align-items: end; margin-bottom: clamp(1.8rem, 4vw, 3rem); }
+.hero h1 { font-size: var(--step-4); line-height: .9; letter-spacing: -.03em; }
+.hero h1 .line { display: block; }
+.hero h1 .line--indent { padding-left: clamp(1.5rem, 8vw, 7rem); }
+.hero__aside { display: grid; gap: 1.4rem; padding-bottom: .6rem; min-width: 0; }
+.hero__aside p { font-size: var(--step-1); line-height: 1.45; color: var(--muted); }
+.hero__actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+@media (max-width: 860px) { .hero__top { grid-template-columns: 1fr; } }
+
+.stage { background: var(--stage); border-radius: 18px; position: relative; overflow: hidden; }
+.stage svg { width: 100%; height: auto; }
+.stage__ui { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 2rem; margin-top: 1.1rem; }
+.stage__caption { font-family: var(--font-display); font-size: clamp(1.25rem, 2.2vw, 1.7rem); line-height: 1.2; min-height: 2.4em; max-width: 36ch; }
+.slider { display: flex; align-items: center; gap: .9rem; font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); flex: 1 1 18rem; max-width: 26rem; }
+.slider input { flex: 1; min-width: 0; appearance: none; -webkit-appearance: none; height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--accent) var(--fill, 0%), var(--line) var(--fill, 0%)); cursor: pointer; }
+.slider input::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 22px; border-radius: var(--pebble-a); background: var(--fg); border: 3px solid var(--bg); box-shadow: 0 2px 8px var(--shadow); }
+.slider input::-moz-range-thumb { width: 28px; height: 20px; border-radius: 45%; background: var(--fg); border: 3px solid var(--bg); }
+
+/* ---------- Manifest ---------- */
+.manifesto { padding-block: clamp(3rem, 8vw, 7rem); }
+.manifesto__text { font-family: var(--font-display); font-size: clamp(2rem, 4.8vw, 4.1rem); line-height: 1.12; letter-spacing: -.015em; max-width: 22ch; text-wrap: pretty; }
+.manifesto__text em { color: var(--accent); }
+.manifesto__text .pebble-inline { display: inline-block; width: .9em; height: .62em; border-radius: var(--pebble-b); background: var(--moss); vertical-align: .02em; margin-inline: .08em; }
+.manifesto__by { margin-top: 2rem; display: flex; align-items: center; gap: 1rem; color: var(--muted); font-size: var(--step--1); }
+.manifesto__by strong { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 1.8rem; color: var(--fg); }
+
+/* ---------- Tjänster som index ---------- */
+.head { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 4rem; align-items: end; margin-bottom: clamp(2rem, 5vw, 3.5rem); }
+.head h2 { font-size: var(--step-3); margin-top: .9rem; }
+.head p { color: var(--muted); max-width: 44ch; }
+@media (max-width: 760px) { .head { grid-template-columns: 1fr; } }
+
+.index { border-top: 1px solid var(--fg); }
+.index__row { border-bottom: 1px solid var(--line); transition: background .3s; }
+.index__row[open] { background: var(--row, var(--surface-2)); }
+.index__row summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto auto; gap: 1rem 2rem; align-items: center; padding: 1.5rem 1rem; }
+.index__row summary::-webkit-details-marker { display: none; }
+.index__name { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; letter-spacing: -.02em; transition: transform .3s, color .2s; }
+.index__row summary:hover .index__name { transform: translateX(.4rem); color: var(--accent); }
+.index__short { color: var(--muted); }
+.index__price { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 500; }
+.index__plus { width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 1px solid var(--fg); display: grid; place-items: center; position: relative; }
+.index__plus::before, .index__plus::after { content: ""; position: absolute; width: 12px; height: 1.5px; background: var(--fg); transition: transform .3s; }
+.index__plus::after { transform: rotate(90deg); }
+.index__row[open] .index__plus::after { transform: rotate(0deg); }
+.index__body { display: grid; grid-template-columns: 1.2fr 1fr auto; gap: 1.5rem 2rem; padding: 0 1rem 2.2rem; align-items: start; }
+.index__body p { max-width: 46ch; }
+.index__badge { display: inline-block; margin-bottom: .8rem; font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; padding: .3rem .65rem; border-radius: 999px; background: var(--bg); color: var(--accent); }
+.price-list { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); min-width: 0; }
+.price-list li { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); font-size: .97rem; }
+.price-list span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.index__note { margin-top: 1.2rem; font-size: var(--step--1); color: var(--muted); }
+@media (max-width: 860px) {
+  .index__row summary { grid-template-columns: minmax(0, 1fr) auto; padding: 1.3rem .25rem; }
+  .index__short { grid-column: 1; grid-row: 2; font-size: .95rem; }
+  .index__price { display: none; }
+  .index__plus { grid-column: 2; grid-row: 1 / span 2; }
+  .index__body { grid-template-columns: 1fr; padding: 0 .25rem 2rem; }
 }
 
-/* ---------- Områden ---------- */
-.areas { padding-block: 0 clamp(4rem, 8vw, 6rem); }
-.areas__grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-.area { padding: 1.8rem 1.4rem 1.6rem 0; display: grid; gap: .6rem; align-content: start; text-decoration: none; border-right: 1px solid var(--line); padding-left: 1.4rem; transition: background .25s; }
-.area:first-child { padding-left: 0; }
-.area:last-child { border-right: 0; }
-.area:hover h3 { color: var(--accent); }
-.area h3 { font-size: var(--step-2); transition: color .2s; }
-.area p { color: var(--muted); font-size: .98rem; }
-.area .eyebrow { color: var(--muted); font-weight: 500; }
-@media (max-width: 880px) {
-  .areas__grid { grid-template-columns: 1fr 1fr; }
-  .area { padding: 1.5rem 1rem 1.5rem 0 !important; border-right: 0; border-bottom: 1px solid var(--line); }
-  .area:nth-child(odd) { padding-right: 1.2rem !important; border-right: 1px solid var(--line); }
-  .area:nth-child(even) { padding-left: 1.2rem !important; }
-}
-@media (max-width: 480px) {
-  .areas__grid { grid-template-columns: 1fr; }
-  .area, .area:nth-child(odd), .area:nth-child(even) { padding: 1.4rem 0 !important; border-right: 0; }
-}
-
-/* ---------- Section head ---------- */
-.section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 4rem; align-items: end; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
-.section-head h2 { font-size: var(--step-3); margin-top: .7rem; }
-.section-head p { color: var(--muted); max-width: 46ch; }
-@media (max-width: 760px) { .section-head { grid-template-columns: 1fr; } }
-
-/* ---------- Tjänster ---------- */
-.services { background: var(--surface-2); }
-.services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.service { background: var(--bg); border-radius: var(--radius); padding: 2rem 1.75rem; display: flex; flex-direction: column; gap: 1.2rem; min-width: 0; }
-.service--feature { background: var(--moss-soft); }
-.service h3 { font-size: var(--step-2); }
-.service > p { color: var(--muted); }
-.price-list { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
-.price-list li { display: flex; justify-content: space-between; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid var(--line); font-size: .97rem; }
-.price-list span:last-child { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--muted); }
-.service .link-arrow { margin-top: auto; align-self: start; }
-.tag { display: inline-block; align-self: start; font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: .3rem .6rem; border-radius: 999px; background: var(--bg); color: var(--moss); }
-.services__foot { margin-top: 1.5rem; font-size: var(--step--1); color: var(--muted); }
-@media (max-width: 960px) { .services__grid { grid-template-columns: 1fr; max-width: 640px; } }
-
-/* ---------- Ro-modellen ---------- */
-.ro { background: var(--deep); color: var(--on-deep); }
+/* ---------- Ro-modellen: interaktiv planlösning ---------- */
+.ro { background: var(--deep); color: var(--on-deep); border-radius: clamp(24px, 4vw, 48px); margin-inline: clamp(0px, 1.2vw, 16px); }
 .ro .eyebrow { color: var(--on-deep-muted); }
 .ro h2 em { color: var(--accent); }
-.ro .section-head p { color: var(--on-deep-muted); }
-.ro__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.5rem 2rem; }
-.pillar { display: grid; gap: .9rem; align-content: start; border-top: 1px solid color-mix(in srgb, var(--on-deep) 22%, transparent); padding-top: 1.5rem; }
-.pillar svg { width: 44px; height: 44px; }
-.pillar h3 { font-size: var(--step-2); }
-.pillar p { color: var(--on-deep-muted); font-size: .98rem; }
-.pillar ul { margin: 0; padding-left: 1.1rem; color: var(--on-deep-muted); font-size: .93rem; display: grid; gap: .25rem; }
-.ro__quote { margin-top: clamp(3rem, 6vw, 5rem); display: grid; grid-template-columns: auto 1fr; gap: 1.5rem 2.5rem; align-items: start; max-width: 900px; }
-.ro__quote blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.2; }
-.ro__quote cite { display: block; margin-top: 1rem; font: 500 var(--step--1) var(--font-body); font-style: normal; color: var(--on-deep-muted); }
-.ro__quote .mark { font-family: var(--font-display); font-size: 5rem; line-height: .7; color: var(--accent); }
-@media (max-width: 960px) { .ro__grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .ro__grid { grid-template-columns: 1fr; } .ro__quote { grid-template-columns: 1fr; } }
+.ro .head p { color: var(--on-deep-muted); }
+.tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2rem; }
+.tab { font: 500 1rem var(--font-body); padding: .7rem 1.2rem; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--on-deep) 30%, transparent); background: transparent; color: var(--on-deep); cursor: pointer; display: inline-flex; gap: .55rem; align-items: center; }
+.tab::before { content: ""; width: .75rem; height: .55rem; border-radius: var(--pebble-a); background: currentColor; opacity: .4; }
+.tab[aria-selected="true"] { background: var(--on-deep); color: var(--deep); border-color: var(--on-deep); }
+.tab[aria-selected="true"]::before { background: var(--accent); opacity: 1; }
+.ro__layout { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+.plan { min-width: 0; }
+.plan svg { width: 100%; height: auto; }
+.plan .wall { fill: none; stroke: var(--on-deep); stroke-width: 4; stroke-linecap: square; }
+.plan .room-label { fill: var(--on-deep-muted); font: 600 11px var(--font-body); letter-spacing: .14em; text-transform: uppercase; }
+.plan .furn { fill: color-mix(in srgb, var(--on-deep) 12%, transparent); stroke: color-mix(in srgb, var(--on-deep) 30%, transparent); stroke-width: 1; }
+.plan .zone { opacity: 0; transition: opacity .45s; }
+.plan .zone.is-active { opacity: 1; }
+.plan .glow { fill: var(--accent); opacity: .22; }
+.plan .path { fill: none; stroke: var(--accent); stroke-width: 3; stroke-dasharray: 2 9; stroke-linecap: round; }
+.plan .pin circle { fill: var(--accent); }
+.plan .pin text { fill: var(--on-accent); font: 700 13px var(--font-body); text-anchor: middle; dominant-baseline: central; }
+.ro__panel { display: grid; gap: 1.2rem; min-width: 0; }
+.ro__panel h3 { font-size: clamp(2.4rem, 4vw, 3.4rem); }
+.ro__panel > p { color: var(--on-deep-muted); font-size: var(--step-1); line-height: 1.45; }
+.tips { list-style: none; margin: .4rem 0 0; padding: 0; display: grid; gap: .9rem; }
+.tips li { display: grid; grid-template-columns: 1.8rem 1fr; gap: .9rem; align-items: start; padding-bottom: .9rem; border-bottom: 1px solid color-mix(in srgb, var(--on-deep) 16%, transparent); }
+.tips b { display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: .8rem; }
+.ro__foot { margin-top: clamp(2.5rem, 5vw, 4rem); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.2rem 2rem; padding-top: 2rem; border-top: 1px solid color-mix(in srgb, var(--on-deep) 18%, transparent); }
+.ro__foot p { font-family: var(--font-display); font-size: clamp(1.4rem, 2.6vw, 2rem); line-height: 1.2; max-width: 30ch; }
+@media (max-width: 900px) { .ro__layout { grid-template-columns: 1fr; } }
 
-/* ---------- Butik ---------- */
-.shop-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+/* ---------- Ateljén: hyllan ---------- */
+.shop-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
 .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
-.chip { font: 500 .92rem var(--font-body); padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
+.chip { font: 500 .92rem var(--font-body); padding: .55rem 1.05rem; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
+.chip:hover { border-color: var(--fg); }
 .chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 .drop-note { font-size: var(--step--1); color: var(--muted); }
 .drop-note b { color: var(--accent); font-weight: 600; }
-.products { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem 1.5rem; }
-.product { display: grid; gap: .9rem; align-content: start; min-width: 0; }
-.product__img { background: var(--surface); border-radius: var(--radius); aspect-ratio: 4 / 5; max-width: 100%; display: grid; place-items: center; position: relative; overflow: hidden; }
-.product__img svg { width: 72%; height: auto; }
-.product__badge { position: absolute; top: .9rem; left: .9rem; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; background: var(--bg); color: var(--fg); padding: .3rem .6rem; border-radius: 999px; }
-.product__row { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
-.product h3 { font-size: 1.6rem; }
-.product__price { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
-.product p { color: var(--muted); font-size: .95rem; }
-.product .btn { justify-self: start; padding: .7rem 1.1rem; font-size: .88rem; }
-.product.is-added .btn { background: var(--moss); border-color: var(--moss); }
-@media (max-width: 900px) { .products { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 520px) { .products { grid-template-columns: 1fr; } }
+.shelf { display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 3rem; }
+.item { display: grid; gap: 0; min-width: 0; }
+.item__art { display: grid; place-items: end center; height: clamp(190px, 22vw, 270px); border-bottom: 12px solid var(--wood); padding-inline: 12%; position: relative; }
+.item__art svg { width: min(220px, 100%); height: auto; }
+.item__art::after { content: ""; position: absolute; left: 0; right: 0; bottom: -22px; height: 10px; background: linear-gradient(var(--shadow), transparent); }
+.tag { margin: 2rem auto 0; width: min(86%, 300px); background: var(--surface-2); border-radius: 4px 4px 14px 14px; padding: 1.2rem 1.2rem 1.1rem; display: grid; gap: .5rem; position: relative; }
+.tag::before { content: ""; position: absolute; top: -.6rem; left: 50%; width: 1px; height: .7rem; background: var(--muted); }
+.tag__row { display: flex; justify-content: space-between; align-items: baseline; gap: .8rem; }
+.tag h3 { font-size: 1.65rem; }
+.tag__price { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+.tag p { color: var(--muted); font-size: .92rem; line-height: 1.45; }
+.tag__badge { position: absolute; top: -.8rem; right: .8rem; font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; background: var(--accent); color: var(--on-accent); padding: .28rem .6rem; border-radius: 999px; }
+.add-btn { justify-self: start; margin-top: .3rem; font: 600 .88rem var(--font-body); background: none; border: 0; padding: .2rem 0; color: var(--fg); border-bottom: 1px solid var(--fg); cursor: pointer; }
+.add-btn:hover { color: var(--accent); border-color: var(--accent); }
+.item.is-added .add-btn { color: var(--moss); border-color: var(--moss); }
+@media (max-width: 900px) { .shelf { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px) { .shelf { grid-template-columns: 1fr; } .item__art { height: 200px; } }
 
-/* ---------- Om ---------- */
+/* ---------- Tre erfarenheter, ett företag ---------- */
 .about { background: var(--surface-2); }
-.about .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
-.about__portrait { position: relative; max-width: 420px; width: 100%; }
-.about__portrait svg { width: 100%; height: auto; }
-.about__portrait figcaption { font-size: var(--step--1); color: var(--muted); margin-top: .8rem; }
-.about__text { display: grid; gap: 1.3rem; min-width: 0; }
+.equation { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1.25fr; align-items: center; gap: 1rem; margin-bottom: clamp(3.5rem, 7vw, 6rem); }
+.peb { aspect-ratio: 1.25; max-width: 100%; display: grid; place-items: center; text-align: center; padding: 1rem; font-family: var(--font-display); font-size: clamp(1.15rem, 1.9vw, 1.6rem); line-height: 1.1; min-width: 0; }
+.peb small { display: block; font: 500 .78rem/1.3 var(--font-body); letter-spacing: .04em; color: var(--muted); margin-top: .4rem; }
+.peb--1 { background: var(--moss-soft); border-radius: var(--pebble-a); }
+.peb--2 { background: var(--bg); border-radius: var(--pebble-b); }
+.peb--3 { background: var(--clay-soft); border-radius: var(--pebble-c); }
+.peb--sum { background: var(--fg); color: var(--bg); border-radius: var(--pebble-b); font-size: clamp(1.5rem, 2.6vw, 2.3rem); }
+.peb--sum small { color: color-mix(in srgb, var(--bg) 70%, transparent); }
+.op { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--accent); text-align: center; }
+@media (max-width: 900px) {
+  .equation { grid-template-columns: 1fr auto 1fr; }
+  .op--eq { grid-column: 1 / -1; }
+  .peb--sum { grid-column: 1 / -1; justify-self: center; width: min(320px, 100%); }
+  .equation .op:nth-of-type(2) { display: none; }
+}
+.about__grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(2rem, 6vw, 6rem); align-items: center; }
+.portrait { margin: 0; }
+.portrait__img { aspect-ratio: 4 / 5; max-width: 100%; background: var(--surface); border-radius: var(--pebble-c); display: grid; place-items: center; position: relative; overflow: hidden; }
+.portrait__img span { font-family: var(--font-display); font-size: clamp(4rem, 9vw, 7rem); color: var(--accent); }
+.portrait figcaption { font-size: var(--step--1); color: var(--muted); margin-top: .8rem; }
+.about__text { display: grid; gap: 1.2rem; min-width: 0; }
 .about__text h2 { font-size: var(--step-3); }
 .about__text p { max-width: 58ch; }
-.creds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: .8rem; border-top: 1px solid var(--line); padding-top: 1.4rem; }
-.cred strong { display: block; font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; line-height: 1.1; margin-bottom: .35rem; }
-.cred span { font-size: var(--step--1); color: var(--muted); }
-.signature { font-family: var(--font-display); font-style: italic; font-size: 2rem; color: var(--accent); }
-@media (max-width: 820px) { .about .wrap { grid-template-columns: 1fr; } .creds { grid-template-columns: 1fr; } }
+.signature { font-family: var(--font-display); font-style: italic; font-size: 2.2rem; color: var(--accent); line-height: 1; }
+@media (max-width: 820px) { .about__grid { grid-template-columns: 1fr; } .portrait { max-width: 380px; } }
 
-/* ---------- Journal ---------- */
-.journal__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1.5rem; }
-.post { display: grid; gap: .8rem; align-content: start; text-decoration: none; min-width: 0; }
-.post__img { border-radius: var(--radius); aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; }
-.post__img svg { width: 100%; height: 100%; }
-.post:first-child .post__img { aspect-ratio: 4 / 3.4; }
-.post h3 { font-size: 1.6rem; transition: color .2s; }
+/* ---------- Journal som lista ---------- */
+.posts { border-top: 1px solid var(--fg); }
+.post { display: grid; grid-template-columns: 10rem minmax(0, 1fr) auto; gap: .5rem 2rem; align-items: baseline; padding: 1.6rem .25rem; border-bottom: 1px solid var(--line); text-decoration: none; }
+.post__cat { font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--moss); }
+.post h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.1; transition: color .2s; }
+.post__meta { color: var(--muted); font-size: var(--step--1); white-space: nowrap; }
 .post:hover h3 { color: var(--accent); }
-.post p { color: var(--muted); font-size: .95rem; }
-.post .eyebrow { font-size: .75rem; }
-@media (max-width: 880px) { .journal__grid { grid-template-columns: 1fr 1fr; } .post:first-child { grid-column: 1 / -1; } }
-@media (max-width: 520px) { .journal__grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .post { grid-template-columns: 1fr; } }
 
 /* ---------- Kontakt ---------- */
-.contact .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); }
+.contact { background: var(--clay-soft); }
+.contact__grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(2rem, 6vw, 6rem); }
 .contact__info { display: grid; gap: 1.4rem; align-content: start; }
 .contact__info h2 { font-size: var(--step-3); }
-.contact__list { list-style: none; padding: 0; margin: .5rem 0 0; display: grid; border-top: 1px solid var(--line); }
-.contact__list li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); font-size: .97rem; }
+.contact__info > p { font-size: var(--step-1); line-height: 1.45; color: var(--muted); max-width: 32ch; }
+.contact__list { list-style: none; padding: 0; margin: .5rem 0 0; display: grid; border-top: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); }
+.contact__list li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid color-mix(in srgb, var(--fg) 25%, transparent); font-size: .97rem; }
 .contact__list li span:first-child { color: var(--muted); }
-.form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; background: var(--surface-2); padding: clamp(1.4rem, 3vw, 2.4rem); border-radius: var(--radius); }
+.form { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; background: var(--bg); padding: clamp(1.4rem, 3vw, 2.6rem); border-radius: 18px; }
+.form legend, .field label { font-size: .88rem; font-weight: 600; }
+.form fieldset { grid-column: 1 / -1; border: 0; margin: 0; padding: 0; display: grid; gap: .7rem; min-width: 0; }
+.form fieldset .chips .chip { font-size: .88rem; }
 .field { display: grid; gap: .4rem; min-width: 0; }
 .field--full { grid-column: 1 / -1; }
-.field label { font-size: .88rem; font-weight: 600; }
-.field input, .field select, .field textarea { font: 400 1rem var(--font-body); color: var(--fg); background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: .8rem .9rem; width: 100%; }
-.field textarea { min-height: 8rem; resize: vertical; }
+.field input, .field select, .field textarea { font: 400 1rem var(--font-body); color: var(--fg); background: var(--surface-2); border: 1px solid transparent; border-radius: var(--radius); padding: .85rem .95rem; width: 100%; }
+.field textarea { min-height: 7rem; resize: vertical; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent); }
 .form__foot { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between; }
-.form__foot small { color: var(--muted); max-width: 32ch; }
+.form__foot small { color: var(--muted); max-width: 30ch; }
 .form__done { grid-column: 1 / -1; background: var(--moss-soft); border-radius: var(--radius); padding: 1rem 1.2rem; font-size: .97rem; }
-@media (max-width: 860px) { .contact .wrap { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .contact__grid { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .form { grid-template-columns: 1fr; } .contact__list li { grid-template-columns: 1fr; gap: .1rem; } }
 
 /* ---------- Footer ---------- */
-.site-footer { border-top: 1px solid var(--line); padding-block: 3rem 2.5rem; }
-.site-footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; }
+.site-footer { padding-block: 3.5rem 2.5rem; overflow: hidden; }
+.footer-cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 2rem; }
+.footer-cols p { color: var(--muted); font-size: .95rem; max-width: 30ch; }
 .site-footer h4 { margin: 0 0 .8rem; font-size: .78rem; text-transform: uppercase; letter-spacing: .14em; color: var(--moss); }
 .site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .4rem; font-size: .95rem; }
 .site-footer a { text-decoration: none; color: var(--muted); }
 .site-footer a:hover { color: var(--fg); }
-.footer-brand p { color: var(--muted); font-size: .95rem; max-width: 30ch; margin-top: .8rem; }
-.footer-legal { grid-column: 1 / -1; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-top: 1.8rem; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
-@media (max-width: 760px) { .site-footer .wrap { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+.wordmark { font-family: var(--font-display); font-size: clamp(3.4rem, 15.5vw, 15rem); line-height: .85; letter-spacing: -.04em; margin: 3.5rem 0 1.5rem; white-space: nowrap; display: flex; align-items: center; gap: .1em; }
+.wordmark span { display: inline-block; width: .5em; height: .36em; border-radius: var(--pebble-a); background: var(--accent); flex: none; }
+.footer-legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: .82rem; color: var(--muted); }
+@media (max-width: 760px) { .footer-cols { grid-template-columns: 1fr 1fr; } .footer-cols > div:first-child { grid-column: 1 / -1; } }
 
 /* ---------- Varukorg ---------- */
-.scrim { position: fixed; inset: 0; background: rgba(20, 24, 21, .4); z-index: 70; }
-.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); z-index: 80; background: var(--bg); color: var(--fg);
-  display: flex; flex-direction: column; box-shadow: -10px 0 40px var(--shadow);
+.scrim { position: fixed; inset: 0; background: rgba(20, 24, 21, .45); z-index: 70; }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); z-index: 80; background: var(--bg); color: var(--fg); display: flex; flex-direction: column; box-shadow: -10px 0 40px var(--shadow);
   padding: calc(1.4rem + env(safe-area-inset-top, 0px)) max(1.4rem, env(safe-area-inset-right, 0px)) calc(1.4rem + env(safe-area-inset-bottom, 0px)) 1.4rem;
   transform: translateX(100%); transition: transform .3s ease; visibility: hidden; }
 .drawer.is-open { transform: none; visibility: visible; }
 .drawer__head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
-.drawer__head h2 { font-size: 2rem; }
+.drawer__head h2 { font-size: 2.2rem; }
 .icon-btn { background: transparent; border: 1px solid var(--line); color: var(--fg); border-radius: 999px; width: 2.4rem; height: 2.4rem; cursor: pointer; font-size: 1.2rem; line-height: 1; }
 .cart-items { list-style: none; margin: 0; padding: 0; flex: 1; overflow-y: auto; }
 .cart-item { display: grid; grid-template-columns: 64px 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--line); }
-.cart-item__thumb { background: var(--surface); border-radius: 4px; aspect-ratio: 1; display: grid; place-items: center; }
-.cart-item__thumb svg { width: 80%; }
-.cart-item__name { font-family: var(--font-display); font-size: 1.25rem; line-height: 1.1; }
+.cart-item__thumb { background: var(--surface); border-radius: var(--pebble-a); aspect-ratio: 1; display: grid; place-items: center; }
+.cart-item__thumb svg { width: 72%; }
+.cart-item__name { font-family: var(--font-display); font-size: 1.3rem; line-height: 1.1; }
 .cart-item__meta { font-size: .85rem; color: var(--muted); }
 .qty { display: inline-flex; align-items: center; gap: .4rem; margin-top: .3rem; }
 .qty button { width: 1.7rem; height: 1.7rem; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--fg); cursor: pointer; }
@@ -303,10 +330,9 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 .total { display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .drawer__foot small { color: var(--muted); }
 .drawer__foot .btn { justify-content: center; }
+.drawer__foot .btn:disabled { opacity: .45; cursor: not-allowed; }
 .checkout-note { background: var(--moss-soft); border-radius: var(--radius); padding: .8rem 1rem; font-size: .9rem; }
-
-.toast { position: fixed; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 1rem); background: var(--fg); color: var(--bg);
-  padding: .75rem 1.2rem; border-radius: 999px; font-size: .92rem; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 90; white-space: nowrap; }
+.toast { position: fixed; left: 50%; bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px)); transform: translate(-50%, 1rem); background: var(--fg); color: var(--bg); padding: .75rem 1.2rem; border-radius: 999px; font-size: .92rem; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 90; white-space: nowrap; }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 </style>
 </head>
@@ -314,21 +340,18 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Studio Dalarud, till startsidan">
-      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4.5c8.4-.3 15.6 6.4 15.4 15.3-.2 8.7-7.3 15.9-15.8 15.7C11.2 35.3 4.4 28.4 4.6 19.9 4.8 11.5 11.7 4.8 20 4.5Z" fill="none" stroke="var(--accent)" stroke-width="2.2"/><path d="M11.5 21.5c2.6 4.6 13.9 5 17 0" fill="none" stroke="var(--fg)" stroke-width="1.8" stroke-linecap="round"/></svg>
-      <span class="brand__name">Studio Dalarud</span>
-    </a>
+    <a class="brand" href="#top" aria-label="Studio Dalarud, till början av sidan"><span class="brand__mark" aria-hidden="true"></span><span class="brand__name">Studio Dalarud</span></a>
     <nav class="nav" id="nav" aria-label="Huvudmeny">
       <a href="#tjanster">Tjänster</a>
-      <a href="#ro-modellen">Lugna rum</a>
-      <a href="#butik">Lera</a>
+      <a href="#ro-modellen">Ro-modellen</a>
+      <a href="#ateljen">Ateljén</a>
       <a href="#om">Om Sofia</a>
       <a href="#journal">Journal</a>
-      <a href="#kontakt">Kontakt</a>
     </nav>
     <div class="header-actions">
-      <button class="cart-btn" id="cartOpen" type="button" aria-label="Öppna varukorgen">Korg <span class="cart-count" id="cartCount">0</span></button>
-      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Meny</button>
+      <a class="pill-btn pill-btn--solid book-btn" href="#kontakt">Boka</a>
+      <button class="pill-btn" id="cartOpen" type="button" aria-label="Öppna varukorgen">Korg <span class="cart-count" id="cartCount">0</span></button>
+      <button class="pill-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">Meny</button>
     </div>
   </div>
 </header>
@@ -338,185 +361,171 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
   <!-- HERO -->
   <section class="hero">
     <div class="wrap">
-      <div class="hero__text">
-        <p class="eyebrow">Inredning · Homestaging · Lera</p>
-        <h1>Ett hem ska <em>ge ro.</em></h1>
-        <p class="lede">Jag hjälper dig skapa ett hem som är vackert, fungerar i vardagen och känns som ditt. Med skandinavisk enkelhet, naturliga material och kunskap om hur miljön påverkar hur vi mår.</p>
-        <div class="hero__actions">
-          <a class="btn" href="#kontakt">Boka en konsultation</a>
-          <a class="btn btn--ghost" href="#butik">Handla keramik</a>
-        </div>
-        <div class="hero__meta">
-          <span>Hembesök och digitalt</span>
-          <span>NPF-medveten inredning</span>
-          <span>Handgjort i egen ateljé</span>
+      <div class="hero__top">
+        <h1><span class="line">Från brus</span><span class="line line--indent">till <em>ro.</em></span></h1>
+        <div class="hero__aside">
+          <p>Inredning och homestaging för hem som är vackra och lätta att leva i. Med kunskap om hur miljön påverkar hur vi mår.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#kontakt">Boka ett första samtal</a>
+            <a class="btn btn--ghost" href="#ro-modellen">Så arbetar jag</a>
+          </div>
         </div>
       </div>
-      <div class="hero__art">
-        <svg viewBox="0 0 420 520" role="img" aria-label="Illustration: ett bågfönster i kvällsljus med en lervas och kvistar på en sideboard i ek">
-          <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="var(--sky-1)"/>
-              <stop offset="1" stop-color="var(--sky-2)"/>
-            </linearGradient>
-            <clipPath id="arch"><path d="M60 500V200C60 117 127 50 210 50s150 67 150 150v300Z"/></clipPath>
-          </defs>
-          <path d="M60 500V200C60 117 127 50 210 50s150 67 150 150v300Z" fill="url(#sky)"/>
-          <g clip-path="url(#arch)">
-            <circle cx="268" cy="190" r="46" fill="var(--accent)" opacity=".18"/>
-            <path d="M40 330c60-30 110-20 170-38s110-38 170-20v240H40Z" fill="var(--moss)" opacity=".22"/>
-            <path d="M40 360c70-22 130-6 190-22s100-26 150-12v190H40Z" fill="var(--moss)" opacity=".3"/>
-          </g>
-          <path d="M60 500V200C60 117 127 50 210 50s150 67 150 150v300" fill="none" stroke="var(--fg)" stroke-width="3"/>
-          <path d="M210 50v330M60 250h300" stroke="var(--fg)" stroke-width="2" opacity=".55"/>
-          <!-- sideboard -->
-          <rect x="20" y="420" width="380" height="16" rx="2" fill="var(--accent)" opacity=".55"/>
-          <rect x="34" y="436" width="352" height="70" fill="var(--surface)"/>
-          <path d="M150 436v70M270 436v70" stroke="var(--line)" stroke-width="2"/>
-          <!-- kvistar -->
-          <g fill="none" stroke="var(--fg)" stroke-width="2" stroke-linecap="round">
-            <path d="M118 340C110 280 92 240 70 200"/>
-            <path d="M120 340c8-70 30-120 62-160"/>
-            <path d="M118 300c-18-10-30-14-46-12"/>
-          </g>
-          <g fill="var(--moss)">
-            <ellipse cx="82" cy="222" rx="10" ry="5" transform="rotate(-40 82 222)"/>
-            <ellipse cx="96" cy="252" rx="10" ry="5" transform="rotate(30 96 252)"/>
-            <ellipse cx="160" cy="214" rx="10" ry="5" transform="rotate(-50 160 214)"/>
-            <ellipse cx="144" cy="250" rx="10" ry="5" transform="rotate(25 144 250)"/>
-            <ellipse cx="176" cy="186" rx="9" ry="4.5" transform="rotate(-30 176 186)"/>
-            <ellipse cx="78" cy="292" rx="9" ry="4.5" transform="rotate(10 78 292)"/>
-          </g>
-          <!-- vas -->
-          <path d="M106 330h26c-2 14 8 24 16 40 10 22 4 44-14 50h-30c-18-6-24-28-14-50 8-16 18-26 16-40Z" fill="var(--accent)"/>
-          <ellipse cx="119" cy="330" rx="13" ry="3.5" fill="var(--accent-strong)"/>
-          <!-- skål och sten -->
-          <path d="M250 404c0 10 16 16 36 16s36-6 36-16Z" fill="var(--moss)"/>
-          <ellipse cx="286" cy="404" rx="36" ry="6" fill="var(--moss)" opacity=".7"/>
-          <ellipse cx="350" cy="414" rx="16" ry="7" fill="var(--muted)" opacity=".7"/>
-        </svg>
-        <div class="hero__note"><strong>Ro-modellen</strong>Överblick, sinnesro, flöde och återhämtning. Fyra hörnstenar för ett lugnare hem.</div>
+      <div class="stage">
+        <svg id="stageSvg" viewBox="0 0 1000 500" role="img" aria-label="Föremål som ligger huller om buller och sedan ordnar sig i lugna rader, som en bild av hur ett hem kan gå från brus till ro"></svg>
+      </div>
+      <div class="stage__ui">
+        <p class="stage__caption" id="stageCaption" aria-live="polite">Så känns det i många hem: allt på en gång.</p>
+        <label class="slider" for="roSlider"><span>Brus</span><input id="roSlider" type="range" min="0" max="100" value="0" aria-label="Från brus till ro"><span>Ro</span></label>
       </div>
     </div>
   </section>
 
-  <!-- OMRÅDEN -->
-  <div class="areas">
+  <!-- MANIFEST -->
+  <section class="manifesto" aria-label="Vad Studio Dalarud tror på">
     <div class="wrap">
-      <div class="areas__grid">
-        <a class="area" href="#tjanster"><span class="eyebrow">För ditt hem</span><h3>Inredning</h3><p>Från ett rum till hela hemmet. Personligt, naturnära och lätt att leva i.</p></a>
-        <a class="area" href="#tjanster"><span class="eyebrow">Inför försäljning</span><h3>Homestaging</h3><p>Ljus, luft och känsla som får köparen att se sig själv bo där.</p></a>
-        <a class="area" href="#ro-modellen"><span class="eyebrow">NPF-medvetet</span><h3>Lugna rum</h3><p>Hem och lärmiljöer med struktur och färre sinnesintryck.</p></a>
-        <a class="area" href="#butik"><span class="eyebrow">Handgjort</span><h3>Lera</h3><p>Skålar, vaser och handstenar från min ateljé, i små serier.</p></a>
-      </div>
+      <p class="eyebrow">Studio Dalarud</p>
+      <p class="manifesto__text" style="margin-top:1.4rem">Ett hem ska inte bara se bra ut. Det ska hjälpa dig att <em>landa</em><span class="pebble-inline" aria-hidden="true"></span> efter dagen. Därför inreder jag för ögat, för vardagen och för hjärnor av alla slag.</p>
+      <div class="manifesto__by"><strong>Sofia Dalarud</strong><span>Inredningsstylist, homestagingkonsult och keramiker med bakgrund i specialpedagogik</span></div>
     </div>
-  </div>
+  </section>
 
   <!-- TJÄNSTER -->
-  <section class="services" id="tjanster">
+  <section id="tjanster" style="padding-top:0">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Tjänster</p>
-          <h2>Hjälp som utgår från <em>hur du lever.</em></h2>
-        </div>
-        <p>Varje uppdrag börjar med ett samtal om vardagen: vad som fungerar, vad som skaver och hur du vill att hemmet ska kännas. Sedan gör vi en plan som passar din budget.</p>
+      <div class="head">
+        <div><p class="eyebrow">Tjänster</p><h2>Vad behöver <em>ditt hem?</em></h2></div>
+        <p>Varje uppdrag börjar med ett samtal om hur du lever: vad som fungerar, vad som skaver och hur du vill att hemmet ska kännas. Sedan gör vi en plan som passar din budget.</p>
       </div>
-      <div class="services__grid">
-        <article class="service">
-          <h3>Inredning</h3>
-          <p>För dig som vill ha ett hem som känns helt och personligt, med det du redan har som grund.</p>
-          <ul class="price-list">
-            <li><span>Konsultation i hemmet, 2 h</span><span>1 995 kr</span></li>
-            <li><span>Digital konsultation, 60 min</span><span>995 kr</span></li>
-            <li><span>Rumsstyling, ett rum</span><span>från 5 900 kr</span></li>
-          </ul>
-          <a class="link-arrow" href="#kontakt" data-service="Inredning">Boka inredning →</a>
-        </article>
-        <article class="service">
-          <h3>Homestaging</h3>
-          <p>Bostaden ska kännas välkomnande redan på första bilden. Jag samarbetar gärna direkt med din mäklare.</p>
-          <ul class="price-list">
-            <li><span>Rådgivning inför visning</span><span>2 495 kr</span></li>
-            <li><span>Styling med egna möbler</span><span>från 6 900 kr</span></li>
-            <li><span>Komplett homestaging</span><span>offert</span></li>
-          </ul>
-          <a class="link-arrow" href="#kontakt" data-service="Homestaging">Boka homestaging →</a>
-        </article>
-        <article class="service service--feature">
-          <span class="tag">Unikt för Studio Dalarud</span>
-          <h3>Lugna rum</h3>
-          <p>Inredning med specialpedagogisk kunskap. För familjer med NPF och för alla som vill ha ett lugnare hem.</p>
-          <ul class="price-list">
-            <li><span>Hemanalys med åtgärdsplan</span><span>3 995 kr</span></li>
-            <li><span>Barnrum som ger ro</span><span>från 4 900 kr</span></li>
-            <li><span>Lärmiljö för förskolan</span><span>offert</span></li>
-          </ul>
-          <a class="link-arrow" href="#kontakt" data-service="Lugna rum">Boka Lugna rum →</a>
-        </article>
+      <div class="index">
+        <details class="index__row" style="--row: var(--surface-2)" open>
+          <summary><span class="index__name">Inredning</span><span class="index__short">Ett hem som känns helt och som ditt</span><span class="index__price">från 995 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
+          <div class="index__body">
+            <p>Jag utgår från det du redan har och bygger vidare med naturliga material, rätt ljus och en tydlig plan. Du får förslag du kan genomföra själv, eller hjälp hela vägen.</p>
+            <ul class="price-list"><li><span>Konsultation i hemmet, 2 h</span><span>1 995 kr</span></li><li><span>Digital konsultation, 60 min</span><span>995 kr</span></li><li><span>Rumsstyling, ett rum</span><span>från 5 900 kr</span></li></ul>
+            <a class="btn" href="#kontakt" data-service="Inredning">Boka</a>
+          </div>
+        </details>
+        <details class="index__row" style="--row: var(--clay-soft)">
+          <summary><span class="index__name">Homestaging</span><span class="index__short">Bostaden som köparen vill flytta in i</span><span class="index__price">från 2 495 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
+          <div class="index__body">
+            <p>Ljus, luft och känsla redan på första bilden. Jag arbetar helst med dina egna möbler och samarbetar gärna direkt med din mäklare.</p>
+            <ul class="price-list"><li><span>Rådgivning inför visning</span><span>2 495 kr</span></li><li><span>Styling med egna möbler</span><span>från 6 900 kr</span></li><li><span>Komplett homestaging</span><span>offert</span></li></ul>
+            <a class="btn" href="#kontakt" data-service="Homestaging">Boka</a>
+          </div>
+        </details>
+        <details class="index__row" style="--row: var(--moss-soft)">
+          <summary><span class="index__name">Lugna rum</span><span class="index__short">NPF-medveten inredning för hela familjen</span><span class="index__price">från 3 995 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
+          <div class="index__body">
+            <div><span class="index__badge">Unikt för Studio Dalarud</span><p>Jag går igenom hemmet med Ro-modellen och ger en konkret plan för struktur, sinnesintryck och återhämtning. För familjer med ADHD, autism eller annan NPF, och för alla som vill ha det lugnare.</p></div>
+            <ul class="price-list"><li><span>Hemanalys med åtgärdsplan</span><span>3 995 kr</span></li><li><span>Barnrum som ger ro</span><span>från 4 900 kr</span></li></ul>
+            <a class="btn" href="#kontakt" data-service="Lugna rum">Boka</a>
+          </div>
+        </details>
+        <details class="index__row" style="--row: var(--surface-2)">
+          <summary><span class="index__name">Förskola</span><span class="index__short">Lärmiljöer och föreläsningar för personal</span><span class="index__price">offert</span><span class="index__plus" aria-hidden="true"></span></summary>
+          <div class="index__body">
+            <p>Jag har arbetat många år i förskolan och vet hur en avdelning används en vanlig tisdag. Jag hjälper er skapa tillgängliga lärmiljöer, från hallen till vilan.</p>
+            <ul class="price-list"><li><span>Lärmiljöanalys av avdelning</span><span>från 8 000 kr</span></li><li><span>Föreläsning: Miljön som verktyg</span><span>från 5 000 kr</span></li></ul>
+            <a class="btn" href="#kontakt" data-service="Lärmiljö för förskola">Kontakta</a>
+          </div>
+        </details>
       </div>
-      <p class="services__foot">Priserna är riktpriser inklusive moms. Föreläsningar för förskolor, föräldragrupper och föreningar bokas på förfrågan.</p>
+      <p class="index__note">Priser för privatpersoner inklusive moms. Förskola och föreläsningar exklusive moms.</p>
     </div>
   </section>
 
   <!-- RO-MODELLEN -->
   <section class="ro" id="ro-modellen">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Lugna rum · Ro-modellen</p>
-          <h2>Bra inredning för hjärnor <em>av alla slag.</em></h2>
-        </div>
-        <p>Under mina år i förskolan såg jag hur mycket miljön betyder, särskilt för barn med NPF. Ro-modellen samlar det jag lärt mig i fyra hörnstenar. Den gör vardagen lättare för den som behöver det mest och känns bra för alla andra.</p>
+      <div class="head">
+        <div><p class="eyebrow">Ro-modellen</p><h2>Fyra hörnstenar för ett <em>lugnare hem.</em></h2></div>
+        <p>Under mina år i förskolan såg jag hur mycket miljön betyder, särskilt för barn med NPF. Ro-modellen samlar det jag lärt mig. Välj en hörnsten och se hur den kan se ut i ett vanligt familjehem.</p>
       </div>
-      <div class="ro__grid">
-        <div class="pillar">
-          <svg viewBox="0 0 44 44" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="var(--accent)" stroke-width="2"/><rect x="24" y="4" width="16" height="16" rx="2" fill="none" stroke="var(--accent)" stroke-width="2"/><rect x="4" y="24" width="16" height="16" rx="2" fill="none" stroke="var(--accent)" stroke-width="2"/><rect x="24" y="24" width="16" height="16" rx="2" fill="var(--accent)"/></svg>
-          <h3>Överblick</h3>
-          <p>En plats för varje sak och tydliga zoner. Mindre letande och färre beslut.</p>
-          <ul><li>Synlig, logisk förvaring</li><li>Zoner för lek, vila och mat</li><li>Bildstöd som smälter in</li></ul>
+      <div class="tabs" role="tablist" aria-label="Ro-modellens hörnstenar">
+        <button class="tab" role="tab" type="button" id="tab-overblick" data-pillar="overblick" aria-selected="true" aria-controls="roPanel">Överblick</button>
+        <button class="tab" role="tab" type="button" id="tab-sinnesro" data-pillar="sinnesro" aria-selected="false" aria-controls="roPanel" tabindex="-1">Sinnesro</button>
+        <button class="tab" role="tab" type="button" id="tab-flode" data-pillar="flode" aria-selected="false" aria-controls="roPanel" tabindex="-1">Flöde</button>
+        <button class="tab" role="tab" type="button" id="tab-aterhamtning" data-pillar="aterhamtning" aria-selected="false" aria-controls="roPanel" tabindex="-1">Återhämtning</button>
+      </div>
+      <div class="ro__layout">
+        <div class="plan">
+          <svg viewBox="0 0 600 410" role="img" aria-label="Planritning av ett familjehem med kök, vardagsrum, hall, barnrum och sovrum. Markeringar visar var den valda hörnstenen gör skillnad.">
+            <!-- möbler -->
+            <rect class="furn" x="22" y="22" width="186" height="28" rx="2"/>
+            <circle class="furn" cx="110" cy="148" r="36"/>
+            <rect class="furn" x="300" y="66" width="190" height="96" rx="4"/>
+            <rect class="furn" x="292" y="176" width="200" height="36" rx="8"/>
+            <rect class="furn" x="520" y="140" width="52" height="52" rx="10"/>
+            <rect class="furn" x="22" y="352" width="96" height="26" rx="2"/>
+            <rect class="furn" x="186" y="246" width="56" height="104" rx="6"/>
+            <rect class="furn" x="320" y="246" width="56" height="40" rx="2"/>
+            <rect class="furn" x="440" y="250" width="110" height="120" rx="6"/>
+            <!-- väggar -->
+            <path class="wall" d="M10 10H590V400H10Z"/>
+            <path class="wall" d="M220 10V100M220 160V230"/>
+            <path class="wall" d="M10 230H60M120 230H560"/>
+            <path class="wall" d="M170 230V290M170 340V400"/>
+            <path class="wall" d="M400 230V300M400 350V400"/>
+            <text class="room-label" x="22" y="218">Kök</text>
+            <text class="room-label" x="420" y="40">Vardagsrum</text>
+            <text class="room-label" x="22" y="258">Hall</text>
+            <text class="room-label" x="186" y="388">Barnrum</text>
+            <text class="room-label" x="416" y="388">Sovrum</text>
+
+            <g class="zone" data-zone="overblick">
+              <rect class="glow" x="14" y="234" width="152" height="162" rx="6"/>
+              <rect class="glow" x="250" y="300" width="146" height="96" rx="6"/>
+              <rect class="glow" x="14" y="56" width="76" height="60" rx="6"/>
+              <g class="pin"><circle cx="90" cy="300" r="14"/><text x="90" y="300">A</text></g>
+              <g class="pin"><circle cx="320" cy="340" r="14"/><text x="320" y="340">B</text></g>
+              <g class="pin"><circle cx="52" cy="86" r="14"/><text x="52" y="86">C</text></g>
+            </g>
+            <g class="zone" data-zone="sinnesro">
+              <circle class="glow" cx="395" cy="114" r="80"/>
+              <rect class="glow" x="404" y="234" width="182" height="162" rx="6"/>
+              <g class="pin"><circle cx="270" cy="40" r="14"/><text x="270" y="40">A</text></g>
+              <g class="pin"><circle cx="395" cy="114" r="14"/><text x="395" y="114">B</text></g>
+              <g class="pin"><circle cx="495" cy="310" r="14"/><text x="495" y="310">C</text></g>
+            </g>
+            <g class="zone" data-zone="flode">
+              <path class="path" d="M60 380C70 300 80 260 90 230S110 190 120 170 170 160 220 130 270 200 250 250 290 330 300 330"/>
+              <g class="pin"><circle cx="60" cy="380" r="14"/><text x="60" y="380">A</text></g>
+              <g class="pin"><circle cx="160" cy="150" r="14"/><text x="160" y="150">B</text></g>
+              <g class="pin"><circle cx="300" cy="330" r="14"/><text x="300" y="330">C</text></g>
+            </g>
+            <g class="zone" data-zone="aterhamtning">
+              <circle class="glow" cx="350" cy="350" r="44"/>
+              <circle class="glow" cx="546" cy="166" r="50"/>
+              <circle class="glow" cx="495" cy="310" r="56"/>
+              <g class="pin"><circle cx="350" cy="350" r="14"/><text x="350" y="350">A</text></g>
+              <g class="pin"><circle cx="546" cy="166" r="14"/><text x="546" y="166">B</text></g>
+              <g class="pin"><circle cx="495" cy="310" r="14"/><text x="495" y="310">C</text></g>
+            </g>
+          </svg>
         </div>
-        <div class="pillar">
-          <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="7" fill="var(--accent)"/><circle cx="22" cy="22" r="13" fill="none" stroke="var(--accent)" stroke-width="2" opacity=".6"/><circle cx="22" cy="22" r="19" fill="none" stroke="var(--accent)" stroke-width="2" opacity=".3"/></svg>
-          <h3>Sinnesro</h3>
-          <p>Ljus, ljud, färg och material i balans. Färre intryck där ögat vilar.</p>
-          <ul><li>Dimbart, varmt ljus</li><li>Textilier som dämpar ljud</li><li>Lugna färger och naturmaterial</li></ul>
-        </div>
-        <div class="pillar">
-          <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M4 30c6-12 12-12 18 0s12 12 18 0" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round"/><path d="M4 18c6-12 12-12 18 0s12 12 18 0" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linecap="round" opacity=".5"/></svg>
-          <h3>Flöde</h3>
-          <p>Hemmet stödjer rutinerna. Morgonen börjar i en hall som fungerar.</p>
-          <ul><li>Hallen som startplatta</li><li>En självklar plats för läxor</li><li>Kvällsrutiner i sovrummet</li></ul>
-        </div>
-        <div class="pillar">
-          <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M6 38V20C6 11 13 4 22 4s16 7 16 16v18Z" fill="none" stroke="var(--accent)" stroke-width="2"/><path d="M13 38v-9c0-5 4-9 9-9s9 4 9 9v9" fill="var(--accent)"/></svg>
-          <h3>Återhämtning</h3>
-          <p>Minst en plats i hemmet som bara är till för vila, för stora och små.</p>
-          <ul><li>Läshörna eller koja</li><li>Mjuka, tunga material</li><li>En handsten att hålla i</li></ul>
+        <div class="ro__panel" id="roPanel" role="tabpanel" aria-labelledby="tab-overblick">
+          <h3 id="roTitle">Överblick</h3>
+          <p id="roText">En plats för varje sak och tydliga zoner. Mindre letande, färre beslut och mer energi till annat.</p>
+          <ul class="tips" id="roTips"></ul>
         </div>
       </div>
-      <div class="ro__quote">
-        <span class="mark" aria-hidden="true">”</span>
-        <div>
-          <blockquote>Miljön är ett av de enklaste verktygen vi har. När rummet hjälper till behöver ingen kämpa lika mycket.</blockquote>
-          <cite>Sofia Dalarud, inredningsstylist med bakgrund i förskola och specialpedagogik</cite>
-        </div>
+      <div class="ro__foot">
+        <p>Det som hjälper den som har det svårast gör det lättare för alla.</p>
+        <a class="btn" href="#kontakt" data-service="Lugna rum">Boka en hemanalys</a>
       </div>
     </div>
   </section>
 
-  <!-- BUTIK -->
-  <section class="shop" id="butik">
+  <!-- ATELJÉN -->
+  <section id="ateljen">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Dalarud Lera</p>
-          <h2>Handgjort i stengods, <em>en i taget.</em></h2>
-        </div>
-        <p>Jag drejar och formar allt i min ateljé. Glasyrerna har färger från skog, strand och kvällsljus, och alla föremål för mat och dryck är livsmedelssäkra. Varje bit blir lite unik.</p>
+      <div class="head">
+        <div><p class="eyebrow">Ateljén · Dalarud Lera</p><h2>Format för hand, <em>en i taget.</em></h2></div>
+        <p>Jag drejar och formar allt i min ateljé. Glasyrerna har färger från skog, strand och kvällsljus. Allt för mat och dryck är livsmedelssäkert, och varje bit blir lite unik.</p>
       </div>
       <div class="shop-bar">
-        <div class="chips" role="group" aria-label="Filtrera produkter">
+        <div class="chips" role="group" aria-label="Filtrera föremål">
           <button class="chip" type="button" data-filter="alla" aria-pressed="true">Alla</button>
           <button class="chip" type="button" data-filter="servis" aria-pressed="false">Servis</button>
           <button class="chip" type="button" data-filter="dekor" aria-pressed="false">Dekor</button>
@@ -524,108 +533,88 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
         </div>
         <p class="drop-note">Nästa släpp: <b>Vintersläppet 5 december</b></p>
       </div>
-      <div class="products" id="products"></div>
+      <div class="shelf" id="shelf"></div>
     </div>
   </section>
 
   <!-- OM -->
   <section class="about" id="om">
     <div class="wrap">
-      <figure class="about__portrait" style="margin:0">
-        <svg viewBox="0 0 400 500" role="img" aria-label="Plats för porträtt av Sofia Dalarud i ateljén">
-          <path d="M20 490V200C20 101 101 20 200 20s180 81 180 180v290Z" fill="var(--surface)"/>
-          <path d="M20 490V200C20 101 101 20 200 20s180 81 180 180v290Z" fill="none" stroke="var(--line)" stroke-width="2"/>
-          <circle cx="200" cy="190" r="58" fill="var(--accent)" opacity=".35"/>
-          <path d="M92 490c4-90 48-150 108-150s104 60 108 150Z" fill="var(--moss)" opacity=".45"/>
-          <text x="200" y="210" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="56" fill="var(--fg)">SD</text>
-        </svg>
-        <figcaption>Här kommer ett porträtt av Sofia i ateljén.</figcaption>
-      </figure>
-      <div class="about__text">
-        <p class="eyebrow">Om Sofia</p>
-        <h2>Från förskolan till <em>hemmet.</em></h2>
-        <p>Hej! Jag heter Sofia Dalarud. I många år arbetade jag i förskolan, där jag fördjupade mig i specialpedagogik och NPF. Jag lärde mig att rätt miljö kan göra stor skillnad: ett lugnt rum, en tydlig plats för saker, ljus som inte stressar.</p>
-        <p>I dag är jag utbildad inredningsstylist och homestagingkonsult. Min stil är modern skandinavisk och naturnära, med material som trä, lin och lera. Jag vill att ett hem ska vara vackert, men framför allt en plats där du kan landa.</p>
-        <p>När jag inte inreder sitter jag vid drejskivan. Keramiken är mitt sätt att varva ner, och den hittar ofta in i hemmen jag stylar.</p>
-        <p class="signature">Sofia</p>
-        <div class="creds">
-          <div class="cred"><strong>Inredningsstylist</strong><span>Utbildad inredare och homestagingkonsult</span></div>
-          <div class="cred"><strong>Specialpedagogik</strong><span>Lång erfarenhet av NPF från förskolan</span></div>
-          <div class="cred"><strong>Keramiker</strong><span>Handgjort stengods från egen ateljé</span></div>
+      <div class="equation" aria-label="Förskola och specialpedagogik plus inredning och homestaging plus lera och hantverk blir Studio Dalarud">
+        <div class="peb peb--1">Förskola<small>och specialpedagogik</small></div>
+        <span class="op" aria-hidden="true">+</span>
+        <div class="peb peb--2">Inredning<small>och homestaging</small></div>
+        <span class="op" aria-hidden="true">+</span>
+        <div class="peb peb--3">Lera<small>och hantverk</small></div>
+        <span class="op op--eq" aria-hidden="true">=</span>
+        <div class="peb peb--sum"><em style="font-style:italic">ro</em><small>Studio Dalarud</small></div>
+      </div>
+      <div class="about__grid">
+        <figure class="portrait">
+          <div class="portrait__img" role="img" aria-label="Plats för porträtt av Sofia i ateljén"><span>SD</span></div>
+          <figcaption>Här kommer ett porträtt av Sofia i ateljén.</figcaption>
+        </figure>
+        <div class="about__text">
+          <p class="eyebrow">Om Sofia</p>
+          <h2>Tre erfarenheter, <em>ett företag.</em></h2>
+          <p>Hej! Jag heter Sofia Dalarud. I många år arbetade jag i förskolan och fördjupade mig i specialpedagogik och NPF. Där lärde jag mig att rätt miljö gör stor skillnad: ett lugnt rum, en tydlig plats för saker, ljus som inte stressar.</p>
+          <p>I dag är jag utbildad inredningsstylist och homestagingkonsult. Min stil är modern skandinavisk och naturnära, med trä, lin och lera. Jag vill att ett hem ska vara vackert, men framför allt en plats där du kan landa.</p>
+          <p>När jag inte inreder sitter jag vid drejskivan. Keramiken är mitt sätt att varva ner, och den hittar ofta in i hemmen jag stylar.</p>
+          <p class="signature">Sofia</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- JOURNAL -->
-  <section class="journal" id="journal">
+  <section id="journal">
     <div class="wrap">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Journal</p>
-          <h2>Tips för ett <em>lugnare hem.</em></h2>
-        </div>
-        <p>Konkreta råd om inredning, homestaging och miljöer som hjälper hela familjen. Inga måsten, bara sådant som fungerar.</p>
+      <div class="head">
+        <div><p class="eyebrow">Journal</p><h2>Små steg mot <em>ett lugnare hem.</em></h2></div>
+        <p>Konkreta råd om inredning, homestaging och miljöer som hjälper hela familjen. Sådant du kan göra redan i helgen.</p>
       </div>
-      <div class="journal__grid">
-        <a class="post" href="#journal">
-          <div class="post__img"><svg viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="340" fill="var(--moss-soft)"/><rect x="40" y="70" width="140" height="200" rx="4" fill="var(--bg)"/><rect x="58" y="96" width="104" height="40" rx="2" fill="var(--surface)"/><rect x="58" y="146" width="104" height="40" rx="2" fill="var(--surface)"/><rect x="58" y="196" width="104" height="52" rx="2" fill="var(--accent)" opacity=".5"/><path d="M220 270V160c0-40 30-70 70-70s70 30 70 70v110Z" fill="var(--bg)"/><circle cx="290" cy="200" r="26" fill="var(--moss)" opacity=".6"/><rect y="270" width="400" height="70" fill="var(--surface)"/></svg></div>
-          <span class="eyebrow">Lugna rum</span>
-          <h3>Ett barnrum som ger ro – sju saker att börja med</h3>
-          <p>Från ljuset vid sängen till hur leksakerna förvaras. Små ändringar som gör kvällen lättare.</p>
-        </a>
-        <a class="post" href="#journal">
-          <div class="post__img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="300" fill="var(--surface)"/><rect x="0" y="210" width="400" height="90" fill="var(--accent)" opacity=".25"/><rect x="60" y="80" width="90" height="130" fill="var(--bg)"/><rect x="250" y="40" width="20" height="170" fill="var(--fg)" opacity=".7"/><path d="M200 210h140v-30H200Z" fill="var(--moss)" opacity=".6"/></svg></div>
-          <span class="eyebrow">Homestaging</span>
-          <h3>Hallen säljer bostaden</h3>
-          <p>Därför är det första rummet viktigast, och så får du det rätt på en eftermiddag.</p>
-        </a>
-        <a class="post" href="#journal">
-          <div class="post__img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="400" height="300" fill="var(--accent)" opacity=".28"/><rect width="400" height="300" fill="var(--surface)" opacity=".5"/><ellipse cx="200" cy="170" rx="90" ry="22" fill="var(--bg)"/><path d="M110 170c0 50 40 80 90 80s90-30 90-80Z" fill="var(--bg)"/><ellipse cx="200" cy="170" rx="74" ry="14" fill="var(--moss)" opacity=".5"/></svg></div>
-          <span class="eyebrow">Ateljén</span>
-          <h3>Så blir en skål till</h3>
-          <p>Från lerklump till glaserad skål. Följ en bit genom ateljén, steg för steg.</p>
-        </a>
+      <div class="posts">
+        <a class="post" href="#journal"><span class="post__cat">Lugna rum</span><h3>Ett barnrum som ger ro: sju saker att börja med</h3><span class="post__meta">6 min läsning</span></a>
+        <a class="post" href="#journal"><span class="post__cat">Homestaging</span><h3>Hallen säljer bostaden</h3><span class="post__meta">4 min läsning</span></a>
+        <a class="post" href="#journal"><span class="post__cat">Ro-modellen</span><h3>Ljus i lager, och varför taklampan stressar</h3><span class="post__meta">5 min läsning</span></a>
+        <a class="post" href="#journal"><span class="post__cat">Ateljén</span><h3>Så blir en skål till, från lerklump till glasyr</h3><span class="post__meta">3 min läsning</span></a>
       </div>
     </div>
   </section>
 
   <!-- KONTAKT -->
   <section class="contact" id="kontakt">
-    <div class="wrap">
+    <div class="wrap contact__grid">
       <div class="contact__info">
-        <p class="eyebrow">Kontakt</p>
-        <h2>Berätta om <em>ditt hem.</em></h2>
-        <p class="lede">Skriv några rader om vad du behöver hjälp med. Jag svarar inom två arbetsdagar och föreslår ett första samtal, helt utan kostnad.</p>
+        <p class="eyebrow">Första steget</p>
+        <h2>Vad skaver <em>hemma?</em></h2>
+        <p>Berätta lite om ditt hem. Jag svarar inom två arbetsdagar och föreslår ett första samtal, utan kostnad.</p>
         <ul class="contact__list">
           <li><span>E-post</span><span>hej@studiodalarud.se</span></li>
           <li><span>Instagram</span><span>@studiodalarud</span></li>
           <li><span>Område</span><span>Hembesök i närområdet, digitalt i hela Sverige</span></li>
-          <li><span>Ateljé</span><span>Öppen ateljé vid släpp, se Instagram</span></li>
         </ul>
       </div>
       <form class="form" id="contactForm" novalidate>
+        <fieldset>
+          <legend>Välj det som stämmer, gärna flera</legend>
+          <div class="chips" id="painChips">
+            <button class="chip" type="button" aria-pressed="false">Det blir alltid rörigt</button>
+            <button class="chip" type="button" aria-pressed="false">Morgnarna är stressiga</button>
+            <button class="chip" type="button" aria-pressed="false">Svårt att varva ner</button>
+            <button class="chip" type="button" aria-pressed="false">Barnrummet fungerar inte</button>
+            <button class="chip" type="button" aria-pressed="false">Vi ska sälja</button>
+            <button class="chip" type="button" aria-pressed="false">Det känns opersonligt</button>
+          </div>
+        </fieldset>
         <div class="field"><label for="f-name">Namn</label><input id="f-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="f-email">E-post</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
-        <div class="field"><label for="f-service">Jag är intresserad av</label>
+        <div class="field field--full"><label for="f-service">Jag är intresserad av</label>
           <select id="f-service" name="service">
-            <option>Inredning</option>
-            <option>Homestaging</option>
-            <option>Lugna rum</option>
-            <option>Lärmiljö för förskola</option>
-            <option>Föreläsning</option>
-            <option>Keramik / beställning</option>
+            <option>Inredning</option><option>Homestaging</option><option>Lugna rum</option><option>Lärmiljö för förskola</option><option>Föreläsning</option><option>Keramik / beställning</option>
           </select>
         </div>
-        <div class="field"><label for="f-home">Bostad</label>
-          <select id="f-home" name="home">
-            <option>Lägenhet</option>
-            <option>Villa / radhus</option>
-            <option>Fritidshus</option>
-            <option>Verksamhet</option>
-          </select>
-        </div>
-        <div class="field field--full"><label for="f-msg">Berätta mer</label><textarea id="f-msg" name="message" placeholder="Vilka rum gäller det, och hur vill du att hemmet ska kännas?"></textarea></div>
+        <div class="field field--full"><label for="f-msg">Berätta mer (frivilligt)</label><textarea id="f-msg" name="message" placeholder="Vilka rum gäller det, och hur vill du att hemmet ska kännas?"></textarea></div>
         <div class="form__foot">
           <small>Jag använder dina uppgifter bara för att svara dig.</small>
           <button class="btn" type="submit">Skicka förfrågan</button>
@@ -638,24 +627,20 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 
 <footer class="site-footer">
   <div class="wrap">
-    <div class="footer-brand">
-      <span class="brand__name">Studio Dalarud</span>
-      <p>Inredning, homestaging och handgjord keramik. Ett hem ska ge ro.</p>
+    <div class="footer-cols">
+      <div><h4>Studio Dalarud</h4><p>Inredning, homestaging och handgjord keramik. Från brus till ro.</p></div>
+      <div><h4>Tjänster</h4><ul><li><a href="#tjanster">Inredning</a></li><li><a href="#tjanster">Homestaging</a></li><li><a href="#ro-modellen">Lugna rum</a></li><li><a href="#tjanster">Förskola</a></li></ul></div>
+      <div><h4>Ateljén</h4><ul><li><a href="#ateljen">Dalarud Lera</a></li><li><a href="#ateljen">Köpvillkor</a></li><li><a href="#ateljen">Frakt och retur</a></li></ul></div>
+      <div><h4>Följ</h4><ul><li><a href="#kontakt">Instagram</a></li><li><a href="#kontakt">Pinterest</a></li><li><a href="#kontakt">Nyhetsbrev</a></li></ul></div>
     </div>
-    <div><h4>Tjänster</h4><ul><li><a href="#tjanster">Inredning</a></li><li><a href="#tjanster">Homestaging</a></li><li><a href="#ro-modellen">Lugna rum</a></li><li><a href="#kontakt">Föreläsningar</a></li></ul></div>
-    <div><h4>Butik</h4><ul><li><a href="#butik">Dalarud Lera</a></li><li><a href="#butik">Köpvillkor</a></li><li><a href="#butik">Frakt och retur</a></li><li><a href="#butik">Skötselråd</a></li></ul></div>
-    <div><h4>Följ</h4><ul><li><a href="#kontakt">Instagram</a></li><li><a href="#kontakt">Pinterest</a></li><li><a href="#kontakt">Nyhetsbrev</a></li></ul></div>
-    <div class="footer-legal"><span>© 2026 Studio Dalarud · Sofia Dalarud · Innehar F-skattsedel</span><span>Prototyp · bilderna är illustrationer som ersätts med foton</span></div>
+    <p class="wordmark" aria-hidden="true">Dalarud<span></span></p>
+    <div class="footer-legal"><span>© 2026 Studio Dalarud · Sofia Dalarud · Innehar F-skattsedel</span><span>Prototyp · illustrationer ersätts med foton</span></div>
   </div>
 </footer>
 
-<!-- Varukorg -->
 <div class="scrim" id="scrim" hidden></div>
 <aside class="drawer" id="drawer" aria-label="Varukorg" aria-hidden="true">
-  <div class="drawer__head">
-    <h2>Varukorg</h2>
-    <button class="icon-btn" id="cartClose" type="button" aria-label="Stäng varukorgen">×</button>
-  </div>
+  <div class="drawer__head"><h2>Varukorg</h2><button class="icon-btn" id="cartClose" type="button" aria-label="Stäng varukorgen">×</button></div>
   <ul class="cart-items" id="cartItems"></ul>
   <div class="drawer__foot">
     <div class="total"><span>Summa</span><span id="cartTotal">0 kr</span></div>
@@ -668,92 +653,184 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
 
 <script>
 (function () {
-  // Glasyrnamn → färg. Produktfärger är desamma i ljust och mörkt läge.
-  var GLAZE = { mossa: "#7E8B6F", lera: "#A9705A", havre: "#D9CBB4", strand: "#C9B79C", skog: "#4F5E4C", kvall: "#8F7F92", sten: "#9A968C" };
+  var $ = function (s) { return document.querySelector(s); };
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  var SHAPES = {
-    skal: function (c) { return '<path d="M28 96c0 40 32 66 72 66s72-26 72-66Z" fill="' + c + '"/><ellipse cx="100" cy="96" rx="72" ry="14" fill="' + c + '"/><ellipse cx="100" cy="96" rx="62" ry="9" fill="#000" opacity=".14"/>'; },
-    vas: function (c) { return '<path d="M86 38h28c-2 22 6 36 20 54 18 24 14 62-8 74-8 4-44 4-52 0-22-12-26-50-8-74 14-18 22-32 20-54Z" fill="' + c + '"/><ellipse cx="100" cy="38" rx="14" ry="4" fill="#000" opacity=".2"/><path d="M78 112c10 4 34 4 44 0" stroke="#fff" stroke-opacity=".18" stroke-width="3" fill="none"/>'; },
-    mugg: function (c) { return '<path d="M138 86c26 0 30 46 2 50" fill="none" stroke="' + c + '" stroke-width="11" stroke-linecap="round"/><path d="M60 66h80l-4 92c-6 8-66 8-72 0Z" fill="' + c + '"/><ellipse cx="100" cy="66" rx="40" ry="7" fill="#000" opacity=".16"/><path d="M62 112h76" stroke="#fff" stroke-opacity=".2" stroke-width="2"/>'; },
-    lykta: function (c) { return '<path d="M64 62h72v96c-10 8-62 8-72 0Z" fill="' + c + '"/><ellipse cx="100" cy="62" rx="36" ry="7" fill="#000" opacity=".18"/><g fill="#F6D9A0" opacity=".9"><circle cx="82" cy="96" r="4"/><circle cx="100" cy="88" r="4"/><circle cx="118" cy="96" r="4"/><circle cx="90" cy="118" r="4"/><circle cx="110" cy="118" r="4"/><circle cx="100" cy="138" r="4"/></g>'; },
-    sten: function (c) { return '<path d="M46 118c-6-30 24-56 60-54 34 2 54 24 50 50-4 28-32 42-60 40-28-2-46-12-50-36Z" fill="' + c + '"/><ellipse cx="90" cy="96" rx="22" ry="8" fill="#fff" opacity=".18" transform="rotate(-14 90 96)"/>'; },
-    tval: function (c) { return '<ellipse cx="100" cy="120" rx="74" ry="26" fill="' + c + '"/><ellipse cx="100" cy="114" rx="62" ry="18" fill="#000" opacity=".12"/><g stroke="' + c + '" stroke-width="5" stroke-linecap="round"><path d="M64 114h72M70 104h60M70 124h60"/></g>'; }
+  /* ================= Hero: från brus till ro ================= */
+  var NS = "http://www.w3.org/2000/svg";
+  var svg = $("#stageSvg");
+  var seed = 7;
+  function rnd() { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }
+  function hex(h) { return [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)]; }
+  var NOISE = ["#E0663D", "#3F6FB5", "#E2B93B", "#C2457A", "#4E9E68", "#7A4FB0", "#D9542F", "#2E8CA8"];
+  var CALM = { rod: "#B08A63", ring: "#7E8B6F", book: "#A9705A", pebble: "#9A968C", dot: "#C9AE8C", tray: "#5F6E59" };
+  var SHAPE = {
+    rod: '<rect x="-7" y="-110" width="14" height="220" rx="7"/>',
+    ring: '<circle r="48"/><circle r="30" fill="#000" opacity=".13"/>',
+    book: '<rect x="-52" y="-34" width="104" height="68" rx="5"/><rect x="-52" y="-34" width="12" height="68" rx="3" fill="#000" opacity=".12"/>',
+    pebble: '<path d="M-40 6c-4-22 16-36 40-35 24 1 38 14 36 32-2 18-22 27-42 26-20-1-31-8-34-23Z"/>',
+    dot: '<circle r="14"/>',
+    tray: '<rect x="-80" y="-20" width="160" height="40" rx="20"/>'
   };
-  function art(shape, glaze) {
-    return '<svg viewBox="0 0 200 200" aria-hidden="true"><ellipse cx="100" cy="170" rx="66" ry="8" fill="#000" opacity=".08"/>' + SHAPES[shape](GLAZE[glaze]) + '</svg>';
-  }
+  var items = [];
+  function add(type, x, y) { items.push({ type: type, cx: x, cy: y }); }
+  for (var i = 0; i < 6; i++) add("rod", 110 + i * 26, 250);
+  [340, 480, 620].forEach(function (x) { add("ring", x, 140); });
+  [340, 480, 620].forEach(function (x) { add("book", x, 280); });
+  [340, 433, 527, 620].forEach(function (x) { add("pebble", x, 410); });
+  for (var r = 0; r < 4; r++) for (var c = 0; c < 3; c++) add("dot", 770 + c * 56, 110 + r * 56);
+  add("tray", 826, 400);
 
+  var shadowG = document.createElementNS(NS, "g");
+  var noiseG = document.createElementNS(NS, "g");
+  svg.appendChild(noiseG);
+  // Brus: krafsiga linjer som tonar bort
+  for (var n = 0; n < 9; n++) {
+    var p = document.createElementNS(NS, "path"), d = "M" + Math.round(60 + rnd() * 880) + " " + Math.round(40 + rnd() * 420);
+    for (var k = 0; k < 6; k++) d += " L" + Math.round(60 + rnd() * 880) + " " + Math.round(40 + rnd() * 420);
+    p.setAttribute("d", d); p.setAttribute("fill", "none"); p.setAttribute("stroke", NOISE[n % NOISE.length]);
+    p.setAttribute("stroke-width", "2.5"); p.setAttribute("stroke-linejoin", "round"); p.setAttribute("opacity", ".55");
+    noiseG.appendChild(p);
+  }
+  items.forEach(function (it, idx) {
+    it.x0 = 70 + rnd() * 860; it.y0 = 60 + rnd() * 380; it.r0 = -90 + rnd() * 180; it.s0 = .75 + rnd() * .6;
+    it.c0 = hex(NOISE[idx % NOISE.length]); it.c1 = hex(CALM[it.type]);
+    var g = document.createElementNS(NS, "g"); g.innerHTML = SHAPE[it.type];
+    svg.appendChild(g); it.el = g;
+  });
+
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  var caption = $("#stageCaption"), slider = $("#roSlider"), lastHalf = null;
+  function draw(t) {
+    var e = ease(t);
+    items.forEach(function (it, idx) {
+      // varje föremål landar lite förskjutet, så att ordningen "sätter sig"
+      var lag = (idx % 7) * .035, te = ease(Math.min(1, Math.max(0, (t - lag) / (1 - .21))));
+      var x = it.x0 + (it.cx - it.x0) * te, y = it.y0 + (it.cy - it.y0) * te;
+      var rot = it.r0 * (1 - te), s = it.s0 + (1 - it.s0) * te;
+      it.el.setAttribute("transform", "translate(" + x.toFixed(1) + " " + y.toFixed(1) + ") rotate(" + rot.toFixed(1) + ") scale(" + s.toFixed(3) + ")");
+      var col = it.c0.map(function (v, j) { return Math.round(v + (it.c1[j] - v) * te); });
+      it.el.setAttribute("fill", "rgb(" + col.join(",") + ")");
+    });
+    noiseG.setAttribute("opacity", Math.max(0, 1 - e * 1.8).toFixed(2));
+    slider.style.setProperty("--fill", Math.round(t * 100) + "%");
+    var half = t >= .55;
+    if (half !== lastHalf) {
+      caption.textContent = half ? "Så kan det kännas: varje sak har sin plats, och huvudet får vila." : "Så känns det i många hem: allt på en gång.";
+      lastHalf = half;
+    }
+  }
+  var anim = null;
+  function autoPlay() {
+    if (reduce) { slider.value = 100; draw(1); return; }
+    var start = null, dur = 2800;
+    function step(ts) {
+      if (start === null) start = ts;
+      var t = Math.min(1, (ts - start) / dur);
+      slider.value = Math.round(t * 100); draw(t);
+      if (t < 1) anim = requestAnimationFrame(step);
+    }
+    anim = requestAnimationFrame(step);
+  }
+  slider.addEventListener("input", function () { if (anim) cancelAnimationFrame(anim); anim = null; draw(slider.value / 100); });
+  draw(0);
+  setTimeout(autoPlay, 700);
+
+  /* ================= Ro-modellen ================= */
+  var PILLARS = {
+    overblick: { title: "Överblick", text: "En plats för varje sak och tydliga zoner. Mindre letande, färre beslut och mer energi till annat.",
+      tips: ["Krokar och en korg per person i hallen, i barnens höjd.", "Lådor i barnrummet med en bild på vad som finns i dem.", "En fast plats i köket för nycklar, post och laddare."] },
+    sinnesro: { title: "Sinnesro", text: "Ljus, ljud, färg och material i balans. Färre intryck där ögat vilar, så att kroppen kan slappna av.",
+      tips: ["Lampor på flera höjder istället för en stark taklampa.", "Matta, gardiner och kuddar som dämpar ljud i vardagsrummet.", "Mörkläggning och lugna, dova färger runt sängen."] },
+    flode: { title: "Flöde", text: "Hemmet stödjer vardagens rutiner. När vägen genom morgonen är självklar blir det färre konflikter.",
+      tips: ["Morgonen: allt som behövs ligger vid ytterdörren.", "En läxplats nära köket, där en vuxen finns till hands.", "Kvällen: samma ordning varje kväll, synlig som en bildremsa."] },
+    aterhamtning: { title: "Återhämtning", text: "Minst en plats i hemmet som bara är till för vila. För barn och vuxna, varje dag.",
+      tips: ["En koja eller ett tält med kuddar i barnrummet.", "En läshörna med fåtölj, pläd och en egen lampa.", "Tunga täcken och mjuka material i sovrummet."] }
+  };
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  function showPillar(key) {
+    var p = PILLARS[key];
+    tabs.forEach(function (t) { var on = t.dataset.pillar === key; t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1; if (on) $("#roPanel").setAttribute("aria-labelledby", t.id); });
+    document.querySelectorAll(".zone").forEach(function (z) { z.classList.toggle("is-active", z.dataset.zone === key); });
+    $("#roTitle").textContent = p.title; $("#roText").textContent = p.text;
+    $("#roTips").innerHTML = p.tips.map(function (tip, i) { return "<li><b>" + "ABC"[i] + "</b><span>" + tip + "</span></li>"; }).join("");
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { showPillar(t.dataset.pillar); });
+    t.addEventListener("keydown", function (e) {
+      var dir = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!dir) return;
+      var next = tabs[(i + dir + tabs.length) % tabs.length]; next.focus(); showPillar(next.dataset.pillar);
+    });
+  });
+  showPillar("overblick");
+
+  /* ================= Ateljén ================= */
+  var GLAZE = { mossa: "#7E8B6F", lera: "#A9705A", havre: "#D9CBB4", strand: "#C9B79C", kvall: "#8F7F92", sten: "#9A968C" };
+  var ART = {
+    skal: function (c) { return '<path d="M28 116c0 34 32 56 72 56s72-22 72-56Z" fill="' + c + '"/><ellipse cx="100" cy="116" rx="72" ry="12" fill="' + c + '"/><ellipse cx="100" cy="116" rx="62" ry="8" fill="#000" opacity=".14"/>'; },
+    vas: function (c) { return '<path d="M88 18h24c-2 22 6 38 20 56 18 24 16 74-8 92-8 5-40 5-48 0-24-18-26-68-8-92 14-18 22-34 20-56Z" fill="' + c + '"/><ellipse cx="100" cy="18" rx="12" ry="3.5" fill="#000" opacity=".2"/><path d="M76 110c12 4 36 4 48 0" stroke="#fff" stroke-opacity=".2" stroke-width="3" fill="none"/>'; },
+    mugg: function (c) { return '<path d="M138 92c26 0 30 46 2 50" fill="none" stroke="' + c + '" stroke-width="11" stroke-linecap="round"/><path d="M60 72h80l-4 96c-6 6-66 6-72 0Z" fill="' + c + '"/><ellipse cx="100" cy="72" rx="40" ry="7" fill="#000" opacity=".16"/>'; },
+    lykta: function (c) { return '<path d="M64 70h72v100c-10 6-62 6-72 0Z" fill="' + c + '"/><ellipse cx="100" cy="70" rx="36" ry="7" fill="#000" opacity=".18"/><g fill="#F6D9A0" opacity=".95"><circle cx="82" cy="104" r="4"/><circle cx="100" cy="96" r="4"/><circle cx="118" cy="104" r="4"/><circle cx="90" cy="128" r="4"/><circle cx="110" cy="128" r="4"/><circle cx="100" cy="150" r="4"/></g>'; },
+    sten: function (c) { return '<path d="M52 152c-6-26 22-48 54-46 30 2 48 20 44 42-4 20-26 26-52 25-24-1-42-5-46-21Z" fill="' + c + '"/><ellipse cx="92" cy="128" rx="18" ry="6" fill="#fff" opacity=".2" transform="rotate(-10 92 128)"/>'; },
+    tval: function (c) { return '<path d="M30 150c0 14 32 22 70 22s70-8 70-22Z" fill="' + c + '"/><ellipse cx="100" cy="150" rx="70" ry="13" fill="' + c + '"/><g stroke="#000" stroke-opacity=".14" stroke-width="4" stroke-linecap="round"><path d="M64 148h72M72 154h56"/></g>'; }
+  };
+  function art(shape, glaze) { return '<svg viewBox="0 0 200 175" aria-hidden="true">' + ART[shape](GLAZE[glaze]) + "</svg>"; }
   var PRODUCTS = [
-    { id: "skal-mossa", name: "Skål Mossa", price: 395, shape: "skal", glaze: "mossa", cat: "servis", text: "Frukostskål med matt grön glasyr. Ø 14 cm." },
     { id: "vas-strand", name: "Vas Strand", price: 595, shape: "vas", glaze: "strand", cat: "dekor", text: "Hög vas för kvistar och torkade blommor. H 24 cm.", badge: "Få kvar" },
-    { id: "handsten", name: "Handsten", price: 195, shape: "sten", glaze: "sten", cat: "lugn", text: "Slät sten att hålla i handen när tankarna snurrar. Lagom för en barnhand.", badge: "Signatur" },
-    { id: "mugg-morgon", name: "Mugg Morgon", price: 295, shape: "mugg", glaze: "havre", cat: "servis", text: "Rymlig kaffemugg i varm havre. 3 dl." },
+    { id: "skal-mossa", name: "Skål Mossa", price: 395, shape: "skal", glaze: "mossa", cat: "servis", text: "Frukostskål med matt grön glasyr. Ø 14 cm." },
+    { id: "handsten", name: "Handsten", price: 195, shape: "sten", glaze: "sten", cat: "lugn", text: "Slät sten att hålla i när tankarna snurrar. Lagom stor för en barnhand.", badge: "Signatur" },
     { id: "lykta-kvall", name: "Ljuslykta Kväll", price: 345, shape: "lykta", glaze: "kvall", cat: "lugn", text: "Ger ett mjukt, prickigt ljus. För värmeljus." },
-    { id: "tval-lera", name: "Tvålkopp Lera", price: 245, shape: "tval", glaze: "lera", cat: "dekor", text: "Med räfflor så att tvålen torkar. L 12 cm." }
+    { id: "mugg-morgon", name: "Mugg Morgon", price: 295, shape: "mugg", glaze: "havre", cat: "servis", text: "Rymlig kaffemugg i varm havre. 3 dl." },
+    { id: "tval-lera", name: "Tvålfat Lera", price: 245, shape: "tval", glaze: "lera", cat: "dekor", text: "Med räfflor så att tvålen torkar. L 12 cm." }
   ];
   var byId = {}; PRODUCTS.forEach(function (p) { byId[p.id] = p; });
-
   var kr = function (n) { return n.toLocaleString("sv-SE") + " kr"; };
-  var $ = function (s) { return document.querySelector(s); };
-
-  // ---------- Produkter ----------
-  var grid = $("#products");
-  grid.innerHTML = PRODUCTS.map(function (p) {
-    return '<article class="product" data-cat="' + p.cat + '" data-id="' + p.id + '">' +
-      '<div class="product__img">' + (p.badge ? '<span class="product__badge">' + p.badge + '</span>' : "") + art(p.shape, p.glaze) + '</div>' +
-      '<div class="product__row"><h3>' + p.name + '</h3><span class="product__price">' + kr(p.price) + '</span></div>' +
-      '<p>' + p.text + '</p>' +
-      '<button class="btn" type="button" data-add="' + p.id + '">Lägg i korgen</button></article>';
+  var shelf = $("#shelf");
+  shelf.innerHTML = PRODUCTS.map(function (p) {
+    return '<article class="item" data-cat="' + p.cat + '"><div class="item__art">' + art(p.shape, p.glaze) + '</div>' +
+      '<div class="tag">' + (p.badge ? '<span class="tag__badge">' + p.badge + "</span>" : "") +
+      '<div class="tag__row"><h3>' + p.name + '</h3><span class="tag__price">' + kr(p.price) + "</span></div>" +
+      "<p>" + p.text + '</p><button class="add-btn" type="button" data-add="' + p.id + '">Lägg i korgen</button></div></article>';
   }).join("");
-
-  document.querySelectorAll(".chip").forEach(function (chip) {
+  document.querySelectorAll("[data-filter]").forEach(function (chip) {
     chip.addEventListener("click", function () {
       var f = chip.dataset.filter;
-      document.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
-      grid.querySelectorAll(".product").forEach(function (el) { el.hidden = !(f === "alla" || el.dataset.cat === f); });
+      document.querySelectorAll("[data-filter]").forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
+      shelf.querySelectorAll(".item").forEach(function (el) { el.hidden = !(f === "alla" || el.dataset.cat === f); });
     });
   });
 
-  // ---------- Varukorg ----------
+  /* ================= Varukorg ================= */
   var cart = {};
   try { cart = JSON.parse(localStorage.getItem("sd-cart") || "{}") || {}; } catch (e) { cart = {}; }
   function save() { try { localStorage.setItem("sd-cart", JSON.stringify(cart)); } catch (e) {} }
-
   function renderCart() {
-    var ids = Object.keys(cart).filter(function (id) { return byId[id] && cart[id] > 0; });
-    var count = 0, total = 0;
+    var ids = Object.keys(cart).filter(function (id) { return byId[id] && cart[id] > 0; }), count = 0, total = 0;
     ids.forEach(function (id) { count += cart[id]; total += cart[id] * byId[id].price; });
-    $("#cartCount").textContent = count;
-    $("#cartTotal").textContent = kr(total);
+    $("#cartCount").textContent = count; $("#cartTotal").textContent = kr(total);
     $("#cartItems").innerHTML = ids.length ? ids.map(function (id) {
       var p = byId[id];
-      return '<li class="cart-item"><div class="cart-item__thumb">' + art(p.shape, p.glaze) + '</div>' +
-        '<div><div class="cart-item__name">' + p.name + '</div><div class="cart-item__meta">' + kr(p.price) + ' / st</div>' +
-        '<div class="qty"><button type="button" data-dec="' + id + '" aria-label="Ta bort en ' + p.name + '">−</button><span>' + cart[id] + '</span>' +
+      return '<li class="cart-item"><div class="cart-item__thumb">' + art(p.shape, p.glaze) + "</div>" +
+        '<div><div class="cart-item__name">' + p.name + '</div><div class="cart-item__meta">' + kr(p.price) + " / st</div>" +
+        '<div class="qty"><button type="button" data-dec="' + id + '" aria-label="Ta bort en ' + p.name + '">−</button><span>' + cart[id] + "</span>" +
         '<button type="button" data-inc="' + id + '" aria-label="Lägg till en ' + p.name + '">+</button></div></div>' +
-        '<span class="cart-item__price">' + kr(cart[id] * p.price) + '</span></li>';
-    }).join("") : '<li class="cart-empty">Korgen är tom. Titta gärna in bland keramiken.</li>';
+        '<span class="cart-item__price">' + kr(cart[id] * p.price) + "</span></li>";
+    }).join("") : '<li class="cart-empty">Korgen är tom. Titta gärna in i ateljén.</li>';
     $("#checkoutBtn").disabled = !ids.length;
   }
-
   var toastTimer;
-  function toast(msg) {
-    var t = $("#toast"); t.textContent = msg; t.classList.add("is-visible");
-    clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove("is-visible"); }, 2200);
-  }
-
+  function toast(msg) { var t = $("#toast"); t.textContent = msg; t.classList.add("is-visible"); clearTimeout(toastTimer); toastTimer = setTimeout(function () { t.classList.remove("is-visible"); }, 2200); }
   document.addEventListener("click", function (e) {
-    var add = e.target.closest("[data-add]"), inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
-    if (add) {
-      var id = add.dataset.add; cart[id] = (cart[id] || 0) + 1; save(); renderCart();
-      toast(byId[id].name + " ligger i korgen");
-      var card = add.closest(".product"); card.classList.add("is-added"); add.textContent = "Tillagd ✓";
-      setTimeout(function () { card.classList.remove("is-added"); add.textContent = "Lägg i korgen"; }, 1600);
+    var addB = e.target.closest("[data-add]"), inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+    if (addB) {
+      var id = addB.dataset.add; cart[id] = (cart[id] || 0) + 1; save(); renderCart(); toast(byId[id].name + " ligger i korgen");
+      var card = addB.closest(".item"); card.classList.add("is-added"); addB.textContent = "Tillagd ✓";
+      setTimeout(function () { card.classList.remove("is-added"); addB.textContent = "Lägg i korgen"; }, 1600);
     }
     if (inc) { cart[inc.dataset.inc]++; save(); renderCart(); }
     if (dec) { cart[dec.dataset.dec]--; if (cart[dec.dataset.dec] <= 0) delete cart[dec.dataset.dec]; save(); renderCart(); }
   });
-
   var drawer = $("#drawer"), scrim = $("#scrim");
   function openCart() { drawer.classList.add("is-open"); drawer.setAttribute("aria-hidden", "false"); scrim.hidden = false; $("#cartClose").focus(); }
   function closeCart() { drawer.classList.remove("is-open"); drawer.setAttribute("aria-hidden", "true"); scrim.hidden = true; $("#checkoutNote").hidden = true; $("#cartOpen").focus(); }
@@ -764,30 +841,27 @@ section { padding-block: clamp(4rem, 9vw, 7.5rem); }
   $("#checkoutBtn").addEventListener("click", function () { $("#checkoutNote").hidden = false; });
   renderCart();
 
-  // ---------- Meny ----------
+  /* ================= Meny ================= */
   var nav = $("#nav"), menuBtn = $("#menuBtn");
-  menuBtn.addEventListener("click", function () {
-    var open = nav.classList.toggle("is-open"); menuBtn.setAttribute("aria-expanded", String(open));
-  });
+  menuBtn.addEventListener("click", function () { var open = nav.classList.toggle("is-open"); menuBtn.setAttribute("aria-expanded", String(open)); });
   nav.addEventListener("click", function (e) { if (e.target.closest("a")) { nav.classList.remove("is-open"); menuBtn.setAttribute("aria-expanded", "false"); } });
 
-  // ---------- Tjänstelänkar förväljer formuläret ----------
-  document.querySelectorAll("[data-service]").forEach(function (a) {
-    a.addEventListener("click", function () { $("#f-service").value = a.dataset.service; });
+  /* ================= Kontakt ================= */
+  document.querySelectorAll("[data-service]").forEach(function (a) { a.addEventListener("click", function () { $("#f-service").value = a.dataset.service; }); });
+  document.querySelectorAll("#painChips .chip").forEach(function (c) {
+    c.addEventListener("click", function () { c.setAttribute("aria-pressed", String(c.getAttribute("aria-pressed") !== "true")); });
   });
-
-  // ---------- Kontaktformulär ----------
   $("#contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
     var name = $("#f-name"), email = $("#f-email"), done = $("#formDone");
-    if (!name.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value.trim())) {
-      done.hidden = false;
-      done.textContent = "Fyll i ditt namn och en giltig e-postadress så att jag kan svara dig.";
-      (name.value.trim() ? email : name).focus();
-      return;
-    }
     done.hidden = false;
-    done.textContent = "Tack " + name.value.trim().split(" ")[0] + "! I den skarpa sajten skickas förfrågan till Sofia. Det här är en prototyp, så inget meddelande har skickats.";
+    if (!name.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value.trim())) {
+      done.textContent = "Fyll i ditt namn och en giltig e-postadress så att jag kan svara dig.";
+      (name.value.trim() ? email : name).focus(); return;
+    }
+    var picked = Array.prototype.map.call(document.querySelectorAll('#painChips [aria-pressed="true"]'), function (c) { return c.textContent.toLowerCase(); });
+    done.textContent = "Tack " + name.value.trim().split(" ")[0] + "!" + (picked.length ? " Du skrev att " + picked.join(", ") + ". Det tar vi med till första samtalet." : "") +
+      " Det här är en prototyp, så inget meddelande har skickats.";
   });
 })();
 </script>
