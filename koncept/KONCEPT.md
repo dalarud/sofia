@@ -180,10 +180,13 @@ Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig ka
 ### Logotyp: Gläntan
 Logotypen utgår från namnet. **Dalarud** kan läsas som *dal* och *rud*, ett gammalt ord för röjning i skogen. Tillsammans blir det en glänta i dalen, en ljus plats att landa i.
 
-- **Symbolen** är ett enda penseldrag från horisont till horisont. Det sjunker ner i en dal och är tyngst i botten. I dalen vilar en sten i lerfärg. Samma form kan läsas på tre sätt: som **dalen**, som en **skål** i profil och som **stenen** som har hittat sin plats. Det är *ro* i en bild.
-- **Ordmärket** har ett litet, glest spärrat *STUDIO* ovanför *Dalarud* i Instrument Serif. Efternamnet bär varumärket.
-- **Filer:** `profil/symbol.svg`, `profil/symbol-ljus.svg` (för mörk bakgrund) och `profil/logotyp.svg`. Texten i logotypfilen ska konverteras till konturer före tryck.
-- **Användning:** symbolen ensam som profilbild, favicon och som stämpel i botten på keramiken. Den kan också användas stort som en "signatur" i sidfoten, på visitkort och på förpackningar.
+- **Symbolen** är målad, i samma uttryck som hemsidans skisser. Ett penseldrag i tusch bildar en flack dal, och man ser borstens strån och torra partier mot ändarna. I dalen vilar en sten i lerfärgad akvarell, och bakom den finns ett mjukt ljus som är gläntan. Formen kan läsas som dalen, som en skål och som stenen som har hittat sin plats.
+- **Ordmärket:** *studio* handskrivet i lerfärg, som anteckningarna i skisserna, över *Dalarud* i Instrument Serif.
+- **Filer i `profil/`:**
+  - `logotyp-akvarell.png` / `logotyp-akvarell-ljus.png` – huvudlogotyp, högupplöst med genomskinlig bakgrund (för ljus resp. mörk botten).
+  - `symbol-akvarell.png` / `symbol-akvarell-ljus.png` – symbolen ensam, till profilbild, favicon och förpackningar.
+  - `symbol.svg`, `symbol-ljus.svg`, `logotyp.svg` – förenklad vektorversion för stämpel i lera, gravyr, brodyr och små storlekar där akvarellen inte syns.
+- **Användning:** den målade versionen på hemsida, sociala medier, visitkort och förpackningar. Vektorversionen när logotypen ska skäras, stämplas eller tryckas i en färg.
 - *Nästa steg:* låt en grafisk formgivare eller Sofia själv måla symbolen för hand med pensel och tusch, och vektorisera den bästa versionen. Då får den en äkta handgjord kant.
 
 ### Grafiska element
