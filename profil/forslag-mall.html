@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dalarud logotypförslag</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Layout: en lugn kolumn med ett förslag i taget; varje förslag visas ljust, mörkt, smått och som stämpel. */
+:root {
+  --bg: #F3EEE6; --tile: #FBF8F3; --fg: #2B362E; --muted: #5D6458; --line: #D0C3AF; --accent: #9B5E49;
+  --dark: #2B362E; --clay: #9B5E49;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #1C221E; --tile: #232A25; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3A443B; --accent: #D49C82; --dark: #131814; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #1C221E; --tile: #232A25; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3A443B; --accent: #D49C82; --dark: #131814; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 1.0625rem/1.6 var(--font-body); }
+main { max-width: 1080px; margin-inline: auto; padding-block: 3.5rem 5rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.intro { display: grid; gap: 1rem; margin-bottom: 3rem; max-width: 60ch; }
+.intro p:first-child { font-size: .8rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 0; }
+h1 { font: 400 clamp(2.6rem, 6vw, 4.2rem)/1 var(--font-display); margin: 0; letter-spacing: -.02em; }
+.intro p { margin: 0; color: var(--muted); }
+nav { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .5rem; }
+nav a { text-decoration: none; font-size: .9rem; padding: .4rem .85rem; border: 1px solid var(--line); border-radius: 999px; color: var(--fg); }
+nav a:hover { border-color: var(--fg); }
+.card { border-top: 1px solid var(--fg); padding-block: 2rem 3.5rem; display: grid; gap: 1.5rem; scroll-margin-top: 1rem; }
+.card header { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: .5rem 3rem; align-items: baseline; }
+.card h2 { font: 400 2.2rem/1 var(--font-display); margin: 0; }
+.card header p { margin: 0; color: var(--muted); max-width: 56ch; }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.tile { border-radius: 10px; display: grid; place-items: center; padding: clamp(1.5rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem); min-height: 13rem; }
+.tile--light { background: var(--tile); color: var(--fg); border: 1px solid var(--line); }
+.tile--dark { background: var(--dark); }
+.lock { width: 100%; max-width: 400px; height: auto; display: block; }
+.row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: stretch; }
+.sizes { flex: 1 1 20rem; display: flex; align-items: center; gap: 2rem; padding: 1.2rem 1.6rem; border: 1px solid var(--line); border-radius: 10px; background: var(--tile); color: var(--fg); }
+.sizes > .sym { width: 96px; height: 96px; }
+.sizes span { display: block; }
+.s48 .sym { width: 48px; height: 48px; } .s24 .sym { width: 24px; height: 24px; } .s16 .sym { width: 16px; height: 16px; }
+.stamp { width: 9.5rem; aspect-ratio: 1; border-radius: 50%; background: var(--clay); display: grid; place-items: center; }
+.stamp .sym { width: 62%; height: auto; }
+footer { color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); padding-top: 1.5rem; }
+@media (max-width: 720px) { .card header, .tiles { grid-template-columns: 1fr; } .stamp { width: 7rem; } }
+</style>
+</head>
+<body>
+<main>
+  <section class="intro">
+    <p>Studio Dalarud · grafisk profil</p>
+    <h1>Logotypförslag</h1>
+    <p>Sex riktningar för Sofias logotyp. Alla bygger på samma värld: glänta, sten, lera, ordning och ro. Men de har olika personlighet. Varje förslag visas på ljus och mörk botten, i små storlekar (ner till en webbläsarflik) och som stämpel på lera.</p>
+    <nav aria-label="Förslag"><a href="#glantan">A. Gläntan</a><a href="#rundbagen">B. Rundbågen</a><a href="#monogram">C. Monogrammet</a><a href="#brus-till-ro">D. Brus till ro</a><a href="#rutnatet">E. Rutnätet</a><a href="#lerstampeln">F. Lerstämpeln</a></nav>
+  </section>
+<!--KORT-->
+  <footer>Alla förslag är vektorer och ligger i <code>profil/forslag/</code> i en ljus och en mörk variant. Färger: granskog och lera. Typsnitt: Jost, Instrument Serif och Young Serif (fria licenser).</footer>
+</main>
+</body>
+</html>
