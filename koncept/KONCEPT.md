@@ -186,7 +186,11 @@ Vald bland sex förslag (se `profil/forslag/index.html`).
 - **Namnet:** öppningen är vägen in till gläntan, *dal + rud*.
 - **Leran:** stenen är samma sten som på hela sidan och kopplar till keramiken.
 
-**Ordbilden:** *Dalarud* i Young Serif, en varm serif med lite hantverkskaraktär, och under den *STUDIO* i spärrade versaler i Jost. Texten är konverterad till kurvor.
+**Ordbilden är egenritad.** *Dalarud* är inte satt i ett typsnitt. Bokstäverna är ritade med samma linje som bågarna, med samma tjocklek och rundade ändar, och formerna är byggda av bågar och raka ben:
+- **D** är en båge på sidan, **r** en halv båge och **u** en båge upp och ner, alltså dalen.
+- I **u:et** vilar samma sten som i märket. Märket är hemmet (bågen) och ordet är dalen, och stenen finns i båda.
+- Ordet står på samma baslinje som bågarnas fötter, så att märke och ord står på samma golv.
+- *STUDIO* är ritat på samma sätt i små, spärrade versaler.
 
 **Bågen som formelement.** Rundbågen återkommer i profilen, till exempel som beskärning av porträttet av Sofia på hemsidan. Den kan också användas som beskärning av bilder, som fönster i trycksaker och som form på etiketter.
 
