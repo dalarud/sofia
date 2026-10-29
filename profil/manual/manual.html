@@ -18,7 +18,7 @@ html, body { margin: 0; background: var(--linne); color: var(--granskog); font: 
 .page:last-child { page-break-after: auto; }
 .folio { position: absolute; left: 18mm; right: 18mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .04em; }
 .eyebrow { font-size: 7.5pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--lera); display: flex; gap: 2.5mm; align-items: center; }
-.eyebrow::before { content: ""; width: 3mm; height: 3.4mm; border: 1.3px solid currentColor; border-bottom: 0; border-radius: 1.5mm 1.5mm 0 0; }
+.eyebrow::before { content: ""; width: 2.4mm; height: 1.7mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: currentColor; }
 h1, h2, h3 { font-family: "Instrument Serif", serif; font-weight: 400; margin: 0; line-height: 1; letter-spacing: -.01em; }
 h1 em, h2 em { color: var(--lera); }
 h2 { font-size: 34pt; margin: 3mm 0 6mm; }
@@ -76,25 +76,19 @@ ul { margin: 0; padding-left: 4mm; } li { margin-bottom: 1.6mm; }
 .tag img { width: 24mm; margin: 4mm auto 3mm; display: block; }
 code { font-size: 8pt; }
 /* digitala komponenter */
-.ui-row { display: flex; flex-wrap: wrap; gap: 5mm; align-items: center; margin: 3mm 0 2mm; }
-.ui-btn { display: inline-flex; align-items: center; gap: 2.4mm; font: 600 9.5pt "Hanken Grotesk"; padding: 3.6mm 5.6mm 3.2mm; border-radius: 5.5mm 5.5mm 1.2mm 1.2mm; border: 1.5px solid var(--lera); background: var(--lera); color: var(--linne); }
-.ui-btn::after { content: ""; width: 2mm; height: 1.45mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: currentColor; }
-.ui-btn.hover { outline: 1.5px solid var(--lera); outline-offset: 1mm; }
-.ui-btn.ghost { background: transparent; color: var(--granskog); border-color: var(--granskog); }
-.ui-btn.ghost::after { background: var(--lera); }
-.ui-chip { display: inline-flex; align-items: center; gap: 1.6mm; font: 500 9pt "Hanken Grotesk"; padding: 2mm 3.6mm 1.8mm; border-radius: 3.7mm 3.7mm 1mm 1mm; border: 1.5px solid var(--line); }
-.ui-chip.on { background: var(--granskog); color: var(--linne); border-color: var(--granskog); }
-.ui-chip.on::before { content: ""; width: 1.8mm; height: 1.3mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: var(--lera); }
+.ui-row { display: flex; flex-wrap: wrap; gap: 4mm 9mm; align-items: baseline; margin: 3mm 0 2mm; }
+.ui-btn { position: relative; font: italic 400 17pt/1 "Instrument Serif"; padding-bottom: 3.2mm; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0 2C28 2 34 12 50 12S72 2 100 2' fill='none' stroke='%239B5E49' stroke-width='1.6' vector-effect='non-scaling-stroke' stroke-linecap='round'/></svg>") left bottom / 100% 2.4mm no-repeat; }
+.ui-stone { display: inline-block; width: 2mm; height: 1.45mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: var(--lera); }
+.ui-link { font: 500 10pt "Hanken Grotesk"; color: var(--muted); border-bottom: 1px solid currentColor; padding-bottom: .6mm; }
+.ui-word { font: 400 14pt "Instrument Serif"; color: var(--muted); position: relative; }
+.ui-word.on { font-style: italic; color: var(--lera); }
+.ui-word.on::after { content: ""; position: absolute; left: 50%; bottom: -2.4mm; width: 2mm; height: 1.45mm; margin-left: -1mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: var(--lera); }
 .ui-field { width: 70mm; } .ui-field b { display: block; font-size: 6.8pt; letter-spacing: .14em; color: var(--muted); }
 .ui-field span { display: block; border-bottom: 1.5px solid var(--granskog); padding: 1.5mm 0; }
 .ui-lined { width: 70mm; height: 20mm; background: repeating-linear-gradient(transparent 0 calc(7mm - 1.5px), rgba(43,54,46,.28) calc(7mm - 1.5px) 7mm); font: 13pt Caveat; color: var(--muted); padding-top: 1mm; }
 .ui-price { width: 80mm; display: flex; align-items: baseline; gap: 2mm; font-size: 9.5pt; } .ui-price::after { content: ""; order: 1; flex: 1; border-bottom: 2px dotted rgba(43,54,46,.35); }
 .ui-price span:last-child { order: 2; font-weight: 500; }
-.ui-tag { width: 52mm; background: #ECE4D7; border-radius: 50% 50% 1.5mm 1.5mm / 8mm 8mm 1.5mm 1.5mm; padding: 9mm 4mm 4mm; position: relative; }
-.ui-tag::before { content: ""; position: absolute; top: 3.4mm; left: 50%; width: 2.2mm; height: 2.2mm; margin-left: -1.1mm; border-radius: 50%; border: 1.5px solid var(--muted); }
-.ui-tag em { position: absolute; top: 2mm; right: 1mm; font: 600 6pt "Hanken Grotesk"; letter-spacing: .12em; color: var(--linne); background: var(--lera); padding: 1.4mm 2.6mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; transform: rotate(6deg); font-style: normal; }
-.ui-frame { width: 60mm; height: 30mm; background: var(--havre); border-radius: 50% 50% 2mm 2mm / 22% 22% 2mm 2mm; outline: 1.5px solid var(--line); outline-offset: 2.5mm; margin: 3mm; }
-
+.ui-valley { width: 60mm; height: 6mm; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 14' preserveAspectRatio='none'><path d='M0 2C28 2 34 12 50 12S72 2 100 2' fill='none' stroke='%239B5E49' stroke-width='1.6' vector-effect='non-scaling-stroke' stroke-linecap='round'/></svg>") center / 100% 100% no-repeat; }
 </style>
 </head>
 <body>
@@ -245,9 +239,9 @@ code { font-size: 8pt; }
 <!-- 10 Grafiska element -->
 <section class="page">
   <div class="eyebrow">Grafiska element</div>
-  <h2>Bågen, stenen och <em>skissboken</em></h2>
+  <h2>Dalen, stenen och <em>skissboken</em></h2>
   <div style="display:grid;grid-template-columns:.7fr 1.3fr 1fr;gap:7mm;flex:1;align-items:start">
-    <div class="el"><div class="arch-frame">porträtt</div><h3 style="margin-top:3mm">Rundbågen</h3><p class="cap">Bågen som bildram för porträtt och bilder, och som form för etiketter. Samma proportioner som märket.</p></div>
+    <div class="el"><div class="arch-frame" style="border-radius:2mm;aspect-ratio:4/5">porträtt</div><h3 style="margin-top:3mm">Bilder</h3><p class="cap">Bilder och porträtt i enkla ramar med svagt rundade hörn. Bågen finns bara i logotypen.</p></div>
     <div class="el"><img src="bilder/ro.png" alt=""><h3 style="margin-top:3mm">Från brus till ro</h3><p class="cap">Föremål som går från kaos till ordning, målade i akvarell. Huvudbilden på hemsidan, och fungerar som före/efter-serie på Instagram.</p>
       <img src="bilder/plan.png" style="margin-top:4mm" alt=""><h3 style="margin-top:3mm">Planritningen</h3><p class="cap">Ro-modellen förklaras med en skissad planritning i blyerts och akvarell. Samma stil används i åtgärdsplaner till kunder.</p></div>
     <div class="el"><img src="bilder/hylla.png" alt=""><h3 style="margin-top:3mm">Skissboken</h3><p class="cap">Föremål och miljöer visas som akvarell- och blyertsskisser. Det handgjorda kompletterar logotypens rena linje. På sikt kan Sofias egna skisser och foton ersätta dem.</p><h3 style="margin-top:5mm">Stenen</h3><p class="cap">Den lilla stenen i lera används som punkt, markör och detalj. Den finns i märket, i ordbilden och i keramiken.</p></div>
@@ -258,27 +252,27 @@ code { font-size: 8pt; }
 <!-- Digitalt -->
 <section class="page">
   <div class="eyebrow">Digitalt</div>
-  <h2>Knappar, fält och <em>etiketter</em></h2>
+  <h2>Inga rutor, bara <em>ord</em></h2>
   <div class="cols" style="grid-template-columns:1.1fr 1fr">
     <div>
-      <h3>Knappar har bågform</h3>
-      <p class="cap">Rundade upptill och nästan raka nedtill, som en dörröppning. Linjen är 1,5 px, samma som i logotypen. Efter texten står stenen. När man pekar på knappen visas en andra linje, som märkets dubbla bågar.</p>
-      <div class="ui-row"><span class="ui-btn">Boka ett första samtal</span><span class="ui-btn hover">Vid hovring</span><span class="ui-btn ghost">Så arbetar jag</span></div>
-      <h3 style="margin-top:6mm">Filter och val</h3>
-      <p class="cap">Små bågar. Det som är valt blir granskog och får en sten.</p>
-      <div class="ui-row"><span class="ui-chip on">Morgnarna är stressiga</span><span class="ui-chip">Vi ska sälja</span><span class="ui-chip">Servis</span></div>
-      <h3 style="margin-top:6mm">Bildramar</h3>
-      <p class="cap">Bilder och huvudytor får ett svagt välvt tak och en yttre linje.</p>
-      <div class="ui-frame"></div>
+      <h3>Knappar är ord</h3>
+      <p class="cap">Huvudknappen är ett kursivt ord i Instrument Serif med dalen som understrykning. När man pekar fördjupas dalen och stenen rullar ner i den. Övriga knappar är enkla länkar med en pil. Använd huvudknappen sparsamt, högst en eller två per vy.</p>
+      <div class="ui-row"><span class="ui-btn">Boka ett första samtal</span><span class="ui-link">Så arbetar jag →</span></div>
+      <h3 style="margin-top:7mm">Val och flikar</h3>
+      <p class="cap">Alternativen står som ord. Det valda blir kursivt i lera och får stenen under sig.</p>
+      <div class="ui-row" style="margin-bottom:5mm"><span class="ui-word on">Alla</span><span class="ui-word">Servis</span><span class="ui-word">Dekor</span><span class="ui-word">För lugn</span></div>
+      <h3 style="margin-top:5mm">Dalen och stenen</h3>
+      <p class="cap">Dalen från namnet, dal + rud, är understrykningen. Stenen markerar det valda och det särskilda.</p>
+      <div class="ui-row"><div class="ui-valley"></div><span class="ui-stone"></span></div>
     </div>
     <div>
-      <h3>Fält som i en skissbok</h3>
-      <p class="cap">Ingen ruta, bara en linje att skriva på. Textrutor är linjerat papper med handskrivna exempel.</p>
+      <h3>Fält att skriva på</h3>
+      <p class="cap">Ingen ruta, bara en linje. Textrutor är linjerat papper med handskrivna exempel.</p>
       <div class="ui-row" style="display:grid;gap:4mm"><div class="ui-field"><b>NAMN</b><span>Anna</span></div><div class="ui-lined">Vilka rum gäller det?</div></div>
       <h3 style="margin-top:5mm">Priser och etiketter</h3>
-      <p class="cap">Priser står med prickade linjer, som på en meny. Etiketter är hängande lappar med bågtak, och en sten markerar det som är särskilt.</p>
-      <div class="ui-row" style="display:grid;gap:4mm"><div class="ui-price"><span>Konsultation i hemmet, 2 h</span><span>1 995 kr</span></div>
-      <div class="ui-tag"><em>SIGNATUR</em><div style="font:400 14pt 'Instrument Serif'">Handsten</div><div class="cap" style="margin:0">195 kr</div></div></div>
+      <p class="cap">Priser står med prickade linjer, som på en meny. Etiketter som "Signatur" och "Få kvar" är kursiv text i lera, utan ram.</p>
+      <div class="ui-row" style="display:grid;gap:3mm"><div class="ui-price"><span>Konsultation i hemmet, 2 h</span><span>1 995 kr</span></div>
+      <div><div style="font:italic 400 12pt 'Instrument Serif';color:var(--lera)">Signatur</div><div style="font:400 17pt 'Instrument Serif'">Handsten</div><span class="ui-link" style="font-size:9pt;color:var(--granskog)">Lägg i korgen →</span></div></div>
     </div>
   </div>
   <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>11</span></div>

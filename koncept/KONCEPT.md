@@ -200,14 +200,14 @@ Vald bland sex förslag (se `profil/forslag/index.html`).
 - *STUDIO* är ritat på samma sätt i små, spärrade versaler.
 
 ### Grafiska element
-- **Rundbågen** som bildram för porträtt och bilder, och som form för etiketter. Små bågar används som markörer vid rubriketiketter på hemsidan.
+- **Dalen** från namnet som understrykning av huvudknappar.
 - **Stenen** i lera som punkt och detalj. Den finns i märket, i ordbilden, i keramiken och som reglage på hemsidan.
 - **Från brus till ro:** föremål som går från kaos till ordning, i akvarell.
 - **Skissboken:** föremål, planritningar och miljöer i akvarell och blyerts. Skisserna är det handgjorda, och logotypen är den rena linjen.
 
-**Gränssnitt på hemsidan.** Alla knappar, fält och etiketter följer profilen. Knappar och val har bågform med 1,5 px linje, som i logotypen. Stenen står efter knapptexter och markerar det som är valt. En andra linje visas vid hovring, som de dubbla bågarna. Formulärfält är linjer att skriva på, och textrutor är linjerat papper. Priser står med prickade linjer, prislappar är hängande etiketter med bågtak, och huvudbilden, porträttet och formuläret har välvda tak. Se sidan "Digitalt" i manualen.
+**Gränssnitt på hemsidan: inga rutor.** Knappar är ord. Huvudknappen är ett kursivt ord i Instrument Serif med dalen som understrykning, och stenen rullar ner i dalen när man pekar. Övriga knappar är enkla länkar med pil. Val och flikar står som ord, och det valda blir kursivt i lera med stenen under sig. Formulärfält är linjer att skriva på, och textrutor är linjerat papper. Priser står med prickade linjer. Etiketter som "Signatur" är kursiv text utan ram. Bågen används bara i logotypen. Se sidan "Digitalt" i manualen.
 
-**Kontrast mot hemsidan.** Logotypen är tecknad med rena linjer, medan bilderna är målade. Det som binder ihop dem är färgerna (granskog och lera), stenen, bågen och lugnet.
+**Kontrast mot hemsidan.** Logotypen är tecknad med rena linjer, medan bilderna är målade. Det som binder ihop dem är färgerna (granskog och lera), stenen, dalen och lugnet.
 
 ### Logotypens filer och regler
 - **`profil/logotyp/pdf/`:** vektor i CMYK för tryckeri, skylt, gravyr och skärning.
