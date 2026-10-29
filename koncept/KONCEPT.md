@@ -153,20 +153,27 @@ Modellen fungerar för alla – och särskilt bra för den som har NPF. Det är 
 ### Känsla
 Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig kallt. Lin, ek, lera, mossa och kvällsljus.
 
+> Den fullständiga grafiska manualen finns i `profil/grafisk-manual.pdf`, och alla original finns i `profil/`.
+
 ### Färgpalett
 
-| Namn | Hex | Användning |
-|---|---|---|
-| **Linne** | `#F3EEE6` | Bakgrund |
-| **Havre** | `#E4D9C8` | Ytor, kort, sektioner |
-| **Lera** | `#A9705A` | Accent, knappar, detaljer |
-| **Mossa** | `#7E8B6F` | Sekundär accent, NPF-delen |
-| **Granskog** | `#2E3A31` | Text, mörka sektioner |
+| Namn | HEX | RGB | CMYK* | Användning |
+|---|---|---|---|---|
+| **Linne** | `#F3EEE6` | 243 238 230 | 3 4 8 0 | Bakgrund, luft |
+| **Havre** | `#E6DCCB` | 230 220 203 | 8 11 19 0 | Ytor, kort, sektioner |
+| **Granskog** | `#2B362E` | 43 54 46 | 62 45 58 62 | Text, logotyp, mörka ytor |
+| **Lera** | `#9B5E49` | 155 94 73 | 22 55 64 20 | Accent, stenen, knappar |
+| **Mossa** | `#6F7D62` | 111 125 98 | 45 30 52 30 | Lugna rum, detaljer |
+| **Lera ljus** | `#D49C82` | 212 156 130 | 12 40 48 4 | Stenen på mörk botten |
+
+\*CMYK för bestruket papper, omräknat. Stäm av mot ett provtryck hos tryckeriet. Ungefärlig fördelning: mycket linne, granskog för text och lera sparsamt.
 
 ### Typografi
-- **Rubriker:** *Instrument Serif* – elegant, lite personlig, gärna i kursiv för enstaka ord.
-- **Brödtext:** *Hanken Grotesk* – ren, lättläst och modern skandinavisk.
-- Båda är gratis via Google Fonts.
+- **Logotypen** är ritad och använder inget typsnitt.
+- **Rubriker:** *Instrument Serif*, smal och elegant, gärna med ett ord i kursiv lerfärg.
+- **Brödtext:** *Hanken Grotesk* (Regular, Medium, SemiBold), ren och lättläst.
+- **Anteckningar:** *Caveat*, bara i skisser och planritningar.
+- Alla har fri licens och ligger i `profil/typsnitt/`.
 
 ### Bildspråk
 **Illustration: skissboken.** Allt illustrerat material görs som akvarell och blyerts, som sidor ur en inredares skissbok: planritningar, föremål och moodboards. Det känns handgjort och personligt och passar ihop med keramiken. På hemsidan målas skisserna i webbläsaren. På sikt kan Sofia måla egna skisser som ersätter dem.
@@ -192,17 +199,24 @@ Vald bland sex förslag (se `profil/forslag/index.html`).
 - Ordet står på samma baslinje som bågarnas fötter, så att märke och ord står på samma golv.
 - *STUDIO* är ritat på samma sätt i små, spärrade versaler.
 
-**Bågen som formelement.** Rundbågen återkommer i profilen, till exempel som beskärning av porträttet av Sofia på hemsidan. Den kan också användas som beskärning av bilder, som fönster i trycksaker och som form på etiketter.
+### Grafiska element
+- **Rundbågen** som bildram för porträtt och bilder, och som form för etiketter. Små bågar används som markörer vid rubriketiketter på hemsidan.
+- **Stenen** i lera som punkt och detalj. Den finns i märket, i ordbilden, i keramiken och som reglage på hemsidan.
+- **Från brus till ro:** föremål som går från kaos till ordning, i akvarell.
+- **Skissboken:** föremål, planritningar och miljöer i akvarell och blyerts. Skisserna är det handgjorda, och logotypen är den rena linjen.
 
-**Kontrast mot hemsidan.** Logotypen är tecknad med rena linjer, medan bilderna är målade. Det som binder ihop dem är färgerna (granskog och lera), stenen och lugnet.
+**Kontrast mot hemsidan.** Logotypen är tecknad med rena linjer, medan bilderna är målade. Det som binder ihop dem är färgerna (granskog och lera), stenen, bågen och lugnet.
 
-**Filer i `profil/`** (SVG för tryck och skärning, PNG för vardagsbruk):
-- `logotyp.svg/.png` och `logotyp-ljus.svg/.png`: liggande logotyp, för ljus respektive mörk botten.
-- `logotyp-staende.svg/.png` och `logotyp-staende-ljus.svg`: märket ovanför namnet, till skyltar, etiketter och förpackningar.
-- `symbol.svg/.png` och `symbol-ljus.svg/.png`: märket ensamt, till profilbild, favicon och stämpel i leran.
-- `bygg-logotyp.py`: skriptet som bygger filerna.
-
-**Användning:** märket fungerar ner till cirka 16 px. Ge logotypen fritt utrymme runt sig, minst halva märkets bredd. Placera den på en lugn yta i linne, granskog eller lera, inte direkt på en akvarell.
+### Logotypens filer och regler
+- **`profil/logotyp/pdf/`:** vektor i CMYK för tryckeri, skylt, gravyr och skärning.
+- **`profil/logotyp/svg/`:** vektor i RGB för webb, skärm och Canva.
+- **`profil/logotyp/png/`:** 300 dpi med genomskinlig bakgrund. Liggande 6000 px bred (51 cm), stående och symbol 4000 px (34 cm).
+- **Format:** `logotyp` (liggande, huvudversion), `logotyp-staende` och `symbol`.
+- **Varianter:** `farg` (ljus botten), `negativ` (granskog och mörk botten), `svart` (enfärg, stämpel, gravyr) och `vit` (foto och färgade ytor).
+- **Frizon:** halva märkets bredd runt hela logotypen.
+- **Minsta storlek:** liggande 35 mm / 140 px, stående 20 mm / 90 px, symbol 8 mm / 16 px.
+- **Visitkort:** `profil/visitkort-tryck.pdf`, 85 × 55 mm med 3 mm utfall, CMYK och inbäddade typsnitt. Telefonnummer och adresser är exempel.
+- **Bygga om:** `python3 profil/bygg-logotyp.py` och sedan `node profil/bygg-tryck.js`.
 
 ### Tonalitet
 Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluffiga ord.

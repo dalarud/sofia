@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Studio Dalarud – grafisk profil</title>
+<style>
+@font-face { font-family: "Instrument Serif"; src: url("../typsnitt/InstrumentSerif-Regular.ttf"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url("../typsnitt/InstrumentSerif-Italic.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400; src: url("../typsnitt/HankenGrotesk-Regular.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 500; src: url("../typsnitt/HankenGrotesk-Medium.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 600; src: url("../typsnitt/HankenGrotesk-SemiBold.ttf"); }
+@font-face { font-family: "Caveat"; src: url("../typsnitt/Caveat-Regular.ttf"); }
+@page { size: 297mm 210mm; margin: 0; }
+:root { --linne: #F3EEE6; --havre: #E6DCCB; --lera: #9B5E49; --mossa: #6F7D62; --granskog: #2B362E; --ljus: #D49C82; --muted: #5D6458; --line: #D0C3AF; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--linne); color: var(--granskog); font: 400 10.5pt/1.5 "Hanken Grotesk", sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 297mm; height: 210mm; padding: 16mm 18mm 14mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; background: var(--linne); }
+.page:last-child { page-break-after: auto; }
+.folio { position: absolute; left: 18mm; right: 18mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .04em; }
+.eyebrow { font-size: 7.5pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--lera); display: flex; gap: 2.5mm; align-items: center; }
+.eyebrow::before { content: ""; width: 3mm; height: 3.4mm; border: 1.3px solid currentColor; border-bottom: 0; border-radius: 1.5mm 1.5mm 0 0; }
+h1, h2, h3 { font-family: "Instrument Serif", serif; font-weight: 400; margin: 0; line-height: 1; letter-spacing: -.01em; }
+h1 em, h2 em { color: var(--lera); }
+h2 { font-size: 34pt; margin: 3mm 0 6mm; }
+h3 { font-size: 15pt; margin-bottom: 1.5mm; }
+p { margin: 0 0 2.5mm; max-width: 120mm; }
+.muted { color: var(--muted); }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; flex: 1; min-height: 0; }
+.cols-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7mm; }
+.tile { border-radius: 3mm; display: grid; place-items: center; padding: 8mm; }
+.tile img { max-width: 100%; max-height: 100%; }
+.cap { font-size: 7.5pt; color: var(--muted); margin-top: 2mm; letter-spacing: .02em; }
+ul { margin: 0; padding-left: 4mm; } li { margin-bottom: 1.6mm; }
+.dark { background: var(--granskog); color: var(--linne); }
+.dark .folio, .dark .muted { color: #B9BCAD; }
+.dark .eyebrow { color: var(--ljus); }
+
+/* omslag */
+.cover { justify-content: center; align-items: center; }
+.cover img { width: 92mm; }
+.cover .folio { justify-content: center; gap: 6mm; }
+/* kärna */
+.big { font-size: 58pt; line-height: .95; letter-spacing: -.02em; }
+/* uppbyggnad */
+.glyphs { display: flex; gap: 10mm; align-items: flex-end; margin: 4mm 0 6mm; }
+.glyph { text-align: center; } .glyph svg { height: 34mm; display: block; margin: 0 auto 2mm; overflow: visible; }
+/* frizon */
+.clear { position: relative; display: inline-block; padding: 15mm; border: 1px dashed var(--lera); margin: 6mm 0; }
+.clear img { width: 120mm; display: block; }
+.clear span { position: absolute; font-size: 7pt; color: var(--lera); }
+.minsize { display: flex; gap: 12mm; align-items: flex-end; margin-top: 4mm; }
+/* undvik */
+.dont { position: relative; background: #FBF8F3; border-radius: 3mm; height: 34mm; display: grid; place-items: center; overflow: hidden; }
+.dont img { width: 62mm; }
+.dont::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top right, transparent calc(50% - .6px), var(--lera) calc(50% - .6px), var(--lera) calc(50% + .6px), transparent calc(50% + .6px)); opacity: .8; }
+/* färger */
+.swatches { display: grid; grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr; gap: 4mm; flex: 1; }
+.sw { border-radius: 3mm; padding: 5mm; display: flex; flex-direction: column; justify-content: flex-end; font-size: 8pt; line-height: 1.45; }
+.sw b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 20pt; line-height: 1; margin-bottom: 3mm; }
+.ratio { display: flex; height: 6mm; border-radius: 1.5mm; overflow: hidden; margin-top: 5mm; border: 1px solid var(--line); }
+/* typografi */
+.type { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8mm; }
+.specimen { font-size: 46pt; line-height: 1; margin: 2mm 0 3mm; }
+/* element */
+.el img { width: 100%; border-radius: 2mm; display: block; }
+.arch-frame { width: 100%; aspect-ratio: 4 / 5; background: var(--havre); border-radius: 50% 50% 2mm 2mm / 40% 40% 2mm 2mm; display: grid; place-items: center; font-family: Caveat, cursive; font-size: 16pt; color: var(--muted); }
+/* tillämpning */
+.apps { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7mm; flex: 1; align-items: start; }
+.card-img { width: 100%; border-radius: 1.5mm; box-shadow: 0 2mm 6mm rgba(43, 54, 46, .2); display: block; }
+.ig { width: 42mm; height: 42mm; border-radius: 50%; background: var(--linne); border: 1px solid var(--line); display: grid; place-items: center; }
+.ig img { width: 60%; }
+.stamp { width: 42mm; height: 42mm; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #C08A6E, var(--lera)); display: grid; place-items: center; box-shadow: inset 0 0 0 2mm rgba(0, 0, 0, .06); }
+.stamp img { width: 48%; opacity: .55; mix-blend-mode: multiply; }
+.tag { width: 46mm; padding: 6mm 5mm 5mm; background: #FBF8F3; border-radius: 1mm 1mm 4mm 4mm; border: 1px solid var(--line); text-align: center; position: relative; }
+.tag::before { content: ""; position: absolute; top: 2.5mm; left: 50%; width: 2.4mm; height: 2.4mm; margin-left: -1.2mm; border-radius: 50%; border: 1px solid var(--muted); }
+.tag img { width: 24mm; margin: 4mm auto 3mm; display: block; }
+code { font-size: 8pt; }
+</style>
+</head>
+<body>
+
+<!-- 1 Omslag -->
+<section class="page cover">
+  <img src="../logotyp/svg/dalarud-logotyp-staende-farg.svg" alt="Studio Dalarud">
+  <div class="folio"><span>GRAFISK PROFIL</span><span>VERSION 1 · 2026</span></div>
+</section>
+
+<!-- 2 Kärnan -->
+<section class="page">
+  <div class="eyebrow">Kärnan</div>
+  <div class="cols" style="margin-top:8mm">
+    <div>
+      <h1 class="big">Ett hem ska<br>ge <em>ro.</em></h1>
+      <p style="margin-top:8mm;font-size:12pt" class="muted">Studio Dalarud gör hem och miljöer som är vackra, personliga och lätta att leva i. Med inredning, homestaging och handgjord keramik, och med specialpedagogisk kunskap om hur miljön påverkar hur vi mår.</p>
+    </div>
+    <div style="display:grid;gap:7mm;align-content:start;padding-top:4mm">
+      <div><h3>Från brus till ro</h3><p>Kärnbudskapet. Ett hem som går från rörigt och överväldigande till lugnt och ordnat. Det bär hemsidan, sociala medier och föreläsningar.</p></div>
+      <div><h3>Namnet</h3><p>Dalarud kan läsas som <i>dal</i> och <i>rud</i>, ett gammalt ord för röjning i skogen. En glänta i dalen: en ljus plats att landa i.</p></div>
+      <div><h3>Värdeord</h3><p>Ro · Natur · Omtanke · Hantverk</p></div>
+      <div><h3>Tonalitet</h3><p>Varm, kunnig och lugn. Du-tilltal och korta meningar, och hellre konkreta tips än fluffiga ord. <i>"Börja i hallen. Det är där dagen startar."</i></p></div>
+    </div>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>2</span></div>
+</section>
+
+<!-- 3 Logotypen -->
+<section class="page">
+  <div class="eyebrow">Logotypen</div>
+  <h2>Rundbågen</h2>
+  <div class="tile" style="background:#FBF8F3;flex:1;margin-bottom:8mm"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" style="width:190mm" alt=""></div>
+  <div class="cols-3">
+    <div><h3>Märket</h3><p>Tre bågar som ett fönster eller en dörröppning, och innerst en sten av lera. Hemmet som en trygg plats som ringar in det viktiga.</p></div>
+    <div><h3>Ordbilden</h3><p>Egenritad med samma linje som bågarna: samma tjocklek, rundade ändar och former byggda av bågar och raka ben. Den är inte ett typsnitt.</p></div>
+    <div><h3>Stenen</h3><p>Stenen vilar i bågen, i hemmet, och i u:et, i dalen. Den knyter ihop märke och namn, och leran med inredningen.</p></div>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>3</span></div>
+</section>
+
+<!-- 4 Uppbyggnad -->
+<section class="page">
+  <div class="eyebrow">Uppbyggnad</div>
+  <h2>Bokstäver av <em>bågar</em></h2>
+  <p class="muted" style="max-width:170mm">Varje bokstav är ritad med samma linje som märket. Ordet står på samma baslinje som bågarnas fötter, så att märke och namn står på samma golv. Linjen är 3,4 % av märkets höjd, och STUDIO har halva tjockleken.</p>
+  <div class="glyphs">
+    <div class="glyph"><svg viewBox="-4 -60 42 64"><path d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="#2B362E" stroke-width="3.4" stroke-linejoin="round"/></svg><span class="cap">D – en båge på sidan</span></div>
+    <div class="glyph"><svg viewBox="-4 -60 44 64"><path d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="#2B362E" stroke-width="3.4" stroke-linecap="round"/></svg><span class="cap">a – en sluten skål</span></div>
+    <div class="glyph"><svg viewBox="-4 -60 26 64"><path d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="#2B362E" stroke-width="3.4" stroke-linecap="round"/></svg><span class="cap">r – en halv båge</span></div>
+    <div class="glyph"><svg viewBox="-4 -60 44 64"><path d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="#2B362E" stroke-width="3.4" stroke-linecap="round"/><path fill="#9B5E49" transform="translate(18 -8.2) scale(.56)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z"/></svg><span class="cap">u – dalen, med stenen</span></div>
+    <div class="glyph"><svg viewBox="0 0 100 100" style="height:46mm"><g fill="none" stroke="#2B362E" stroke-width="3.4" stroke-linecap="round"><path d="M8 94V52A42 42 0 0 1 92 52V94"/><path d="M19 94V52A31 31 0 0 1 81 52V94"/><path d="M30 94V52A20 20 0 0 1 70 52V94"/></g><path fill="#9B5E49" transform="translate(50 86) scale(.62)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z"/><path d="M0 94H100" stroke="#9B5E49" stroke-width=".6" stroke-dasharray="2 2"/></svg><span class="cap">Märket – tre bågar och baslinjen</span></div>
+  </div>
+  <p class="muted">Ordbilden ska aldrig sättas om i ett typsnitt. Använd alltid originalfilerna.</p>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>4</span></div>
+</section>
+
+<!-- 5 Varianter -->
+<section class="page">
+  <div class="eyebrow">Varianter</div>
+  <h2>Tre format, fyra färgvarianter</h2>
+  <div class="cols-3" style="flex:1;grid-template-rows:1fr 1fr;gap:5mm">
+    <div class="tile" style="background:#FBF8F3;border:1px solid var(--line)"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" style="width:70mm" alt=""></div>
+    <div class="tile" style="background:#FBF8F3;border:1px solid var(--line)"><img src="../logotyp/svg/dalarud-logotyp-staende-farg.svg" style="width:38mm" alt=""></div>
+    <div class="tile" style="background:#FBF8F3;border:1px solid var(--line)"><img src="../logotyp/svg/dalarud-symbol-farg.svg" style="width:30mm" alt=""></div>
+    <div class="tile dark"><img src="../logotyp/svg/dalarud-logotyp-negativ.svg" style="width:70mm" alt=""></div>
+    <div class="tile" style="background:var(--lera)"><img src="../logotyp/svg/dalarud-logotyp-staende-vit.svg" style="width:38mm" alt=""></div>
+    <div class="tile" style="background:#fff;border:1px solid var(--line)"><img src="../logotyp/svg/dalarud-symbol-svart.svg" style="width:30mm" alt=""></div>
+  </div>
+  <div class="cols-3" style="margin-top:4mm;flex:none">
+    <p class="cap"><b>Liggande</b> är huvudlogotypen: hemsida, brevpapper, sociala medier. <b>Färg</b> på ljus botten, <b>negativ</b> på granskog.</p>
+    <p class="cap"><b>Stående</b> passar skyltar, etiketter, förpackningar och visitkort. <b>Vit</b> på lera eller foto.</p>
+    <p class="cap"><b>Symbolen</b> används ensam som profilbild, favicon och stämpel i keramiken. <b>Svart</b> för enfärgstryck och gravyr.</p>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>5</span></div>
+</section>
+
+<!-- 6 Frizon och storlek -->
+<section class="page">
+  <div class="eyebrow">Frizon och minsta storlek</div>
+  <h2>Ge logotypen <em>luft</em></h2>
+  <div class="cols">
+    <div>
+      <div class="clear"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" alt=""><span style="top:4mm;left:50%">X</span><span style="left:4mm;top:50%">X</span></div>
+      <p class="muted">Frizonen X är halva märkets bredd. Inga andra element, ingen text och ingen bildkant får komma närmare logotypen än så.</p>
+    </div>
+    <div>
+      <h3>Minsta storlek</h3>
+      <div class="minsize">
+        <div><img src="../logotyp/svg/dalarud-logotyp-farg.svg" style="width:35mm;display:block" alt=""><span class="cap">Liggande: 35 mm / 140 px</span></div>
+        <div><img src="../logotyp/svg/dalarud-logotyp-staende-farg.svg" style="width:20mm;display:block" alt=""><span class="cap">Stående: 20 mm / 90 px</span></div>
+        <div><img src="../logotyp/svg/dalarud-symbol-farg.svg" style="width:8mm;display:block" alt=""><span class="cap">Symbol: 8 mm / 16 px</span></div>
+      </div>
+      <h3 style="margin-top:12mm">Placering</h3>
+      <ul><li>På lugna ytor i linne, havre, granskog eller lera.</li><li>Gärna i övre vänstra hörnet, eller centrerad på framsidor och omslag.</li><li>På foto bara där bilden är lugn. Använd då den vita varianten.</li></ul>
+    </div>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>6</span></div>
+</section>
+
+<!-- 7 Undvik -->
+<section class="page">
+  <div class="eyebrow">Undvik</div>
+  <h2>Så här ska logotypen <em>inte</em> användas</h2>
+  <div class="cols-3" style="gap:6mm">
+    <div><div class="dont"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" style="transform:scaleX(1.4)" alt=""></div><p class="cap">Sträck eller förvräng den inte.</p></div>
+    <div><div class="dont"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" style="filter:hue-rotate(160deg) saturate(3)" alt=""></div><p class="cap">Byt inte färger utanför profilen.</p></div>
+    <div><div class="dont"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" style="transform:rotate(-12deg)" alt=""></div><p class="cap">Rotera eller luta den inte.</p></div>
+    <div><div class="dont" style="background:url(bilder/brus.png) center/cover"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" alt=""></div><p class="cap">Lägg den inte på oroliga bilder eller akvareller.</p></div>
+    <div><div class="dont"><span style="font:400 30pt 'Instrument Serif'"><span style="display:inline-block;width:12mm;vertical-align:-2mm"><img src="../logotyp/svg/dalarud-symbol-farg.svg" style="width:100%" alt=""></span> Dalarud</span></div><p class="cap">Sätt inte namnet i ett typsnitt.</p></div>
+    <div><div class="dont"><img src="../logotyp/svg/dalarud-logotyp-farg.svg" style="filter:drop-shadow(2mm 2mm 1.5mm rgba(0,0,0,.45))" alt=""></div><p class="cap">Lägg inte till skuggor, konturer eller effekter.</p></div>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>7</span></div>
+</section>
+
+<!-- 8 Färger -->
+<section class="page">
+  <div class="eyebrow">Färger</div>
+  <h2>Lin, lera och <em>skog</em></h2>
+  <div class="swatches">
+    <div class="sw" style="background:var(--linne);border:1px solid var(--line)"><b>Linne</b>HEX #F3EEE6<br>RGB 243 238 230<br>CMYK 3 4 8 0<br><span class="muted">Bakgrund, luft</span></div>
+    <div class="sw dark"><b>Granskog</b>HEX #2B362E<br>RGB 43 54 46<br>CMYK 62 45 58 62<br><span style="opacity:.75">Text, logotyp, mörka ytor</span></div>
+    <div class="sw" style="background:var(--lera);color:var(--linne)"><b>Lera</b>HEX #9B5E49<br>RGB 155 94 73<br>CMYK 22 55 64 20<br><span style="opacity:.8">Accent, stenen, knappar</span></div>
+    <div class="sw" style="background:var(--havre)"><b>Havre</b>HEX #E6DCCB<br>RGB 230 220 203<br>CMYK 8 11 19 0<br><span class="muted">Ytor, kort</span></div>
+    <div class="sw" style="background:var(--mossa);color:var(--linne)"><b>Mossa</b>HEX #6F7D62<br>RGB 111 125 98<br>CMYK 45 30 52 30<br><span style="opacity:.8">Lugna rum, detaljer</span></div>
+  </div>
+  <div class="ratio"><span style="flex:55;background:var(--linne)"></span><span style="flex:15;background:var(--havre)"></span><span style="flex:18;background:var(--granskog)"></span><span style="flex:8;background:var(--lera)"></span><span style="flex:4;background:var(--mossa)"></span></div>
+  <p class="cap">Ungefärlig fördelning: mycket linne och luft, granskog för text, lera sparsamt som accent. Lera ljus (#D49C82, CMYK 12 40 48 4) används för stenen på mörk botten. CMYK-värdena är omräknade för bestruket papper. Stäm av mot ett provtryck.</p>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>8</span></div>
+</section>
+
+<!-- 9 Typografi -->
+<section class="page">
+  <div class="eyebrow">Typografi</div>
+  <h2>Tre röster</h2>
+  <div class="type">
+    <div><span class="cap">RUBRIKER</span><div class="specimen" style="font-family:'Instrument Serif'">Från brus till <em style="color:var(--lera)">ro.</em></div><h3>Instrument Serif</h3><p class="muted">Smal och elegant. Stora rubriker och citat, gärna med ett ord i kursiv lerfärg.</p></div>
+    <div><span class="cap">BRÖDTEXT</span><div class="specimen" style="font-family:'Hanken Grotesk';font-size:30pt;line-height:1.1;font-weight:500">Ett hem som är lätt att leva i.</div><h3>Hanken Grotesk</h3><p class="muted">Ren och lättläst. Brödtext, knappar, priser och etiketter. Regular, Medium och SemiBold.</p></div>
+    <div><span class="cap">ANTECKNINGAR</span><div class="specimen" style="font-family:Caveat;font-size:40pt;color:var(--muted);transform:rotate(-3deg)">vardagsrum</div><h3>Caveat</h3><p class="muted">Handskrift. Används bara i skisser och planritningar, som en anteckning i skissboken.</p></div>
+  </div>
+  <div style="margin-top:auto;padding-top:6mm;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:10mm">
+    <p class="cap"><b>Hierarki:</b> Rubrik Instrument Serif 48–96 pt. Etikett Hanken SemiBold 8 pt, versaler, spärrning 16 %. Brödtext Hanken Regular 10–11 pt, radavstånd 1,5.</p>
+    <p class="cap">Alla typsnitt har fri licens (SIL Open Font License) och finns i <code>profil/typsnitt/</code>. Logotypens ordbild är ritad och använder inget typsnitt.</p>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>9</span></div>
+</section>
+
+<!-- 10 Grafiska element -->
+<section class="page">
+  <div class="eyebrow">Grafiska element</div>
+  <h2>Bågen, stenen och <em>skissboken</em></h2>
+  <div style="display:grid;grid-template-columns:.7fr 1.3fr 1fr;gap:7mm;flex:1;align-items:start">
+    <div class="el"><div class="arch-frame">porträtt</div><h3 style="margin-top:3mm">Rundbågen</h3><p class="cap">Bågen som bildram för porträtt och bilder, och som form för etiketter. Samma proportioner som märket.</p></div>
+    <div class="el"><img src="bilder/ro.png" alt=""><h3 style="margin-top:3mm">Från brus till ro</h3><p class="cap">Föremål som går från kaos till ordning, målade i akvarell. Huvudbilden på hemsidan, och fungerar som före/efter-serie på Instagram.</p>
+      <img src="bilder/plan.png" style="margin-top:4mm" alt=""><h3 style="margin-top:3mm">Planritningen</h3><p class="cap">Ro-modellen förklaras med en skissad planritning i blyerts och akvarell. Samma stil används i åtgärdsplaner till kunder.</p></div>
+    <div class="el"><img src="bilder/hylla.png" alt=""><h3 style="margin-top:3mm">Skissboken</h3><p class="cap">Föremål och miljöer visas som akvarell- och blyertsskisser. Det handgjorda kompletterar logotypens rena linje. På sikt kan Sofias egna skisser och foton ersätta dem.</p><h3 style="margin-top:5mm">Stenen</h3><p class="cap">Den lilla stenen i lera används som punkt, markör och detalj. Den finns i märket, i ordbilden och i keramiken.</p></div>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>10</span></div>
+</section>
+
+<!-- 11 Tillämpningar -->
+<section class="page">
+  <div class="eyebrow">Tillämpningar</div>
+  <h2>Profilen i <em>vardagen</em></h2>
+  <div class="apps">
+    <div><img class="card-img" src="bilder/visitkort-1.png" alt=""><img class="card-img" src="bilder/visitkort-2.png" style="margin-top:5mm" alt=""><p class="cap">Visitkort 85 × 55 mm, framsida i linne och baksida i granskog. Tryckoriginal: <code>visitkort-tryck.pdf</code>.</p></div>
+    <div style="display:grid;gap:8mm;justify-items:center">
+      <div class="ig"><img src="../logotyp/svg/dalarud-symbol-farg.svg" alt=""></div><p class="cap" style="text-align:center">Profilbild för Instagram och Facebook: symbolen på linne.</p>
+      <div class="stamp"><img src="../logotyp/svg/dalarud-symbol-svart.svg" alt=""></div><p class="cap" style="text-align:center">Stämpel i botten på keramiken. Symbolen är symmetrisk och behöver inte spegelvändas.</p>
+    </div>
+    <div style="display:grid;gap:6mm;justify-items:center">
+      <div class="tag"><img src="../logotyp/svg/dalarud-logotyp-staende-farg.svg" alt=""><div style="font:400 15pt 'Instrument Serif'">Skål Mossa</div><div class="cap">Handgjort stengods · Ø 14 cm</div><div style="font-weight:600;margin-top:2mm">395 kr</div></div>
+      <p class="cap" style="text-align:center">Hängetikett för keramiken, gärna på obestruket papper i linne eller havre.</p>
+    </div>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>11</span></div>
+</section>
+
+<!-- 12 Filer -->
+<section class="page dark">
+  <div class="eyebrow">Filer</div>
+  <h2 style="color:var(--linne)">Originalfiler</h2>
+  <div class="cols">
+    <div>
+      <h3>Logotyp: <code>profil/logotyp/</code></h3>
+      <ul>
+        <li><b>pdf/</b>: vektor i CMYK, för tryckeri, skylt, gravyr och skärning.</li>
+        <li><b>svg/</b>: vektor i RGB, för webb, skärm och Canva.</li>
+        <li><b>png/</b>: 300 dpi med genomskinlig bakgrund. Liggande 6000 px (51 cm), stående och symbol 4000 px (34 cm).</li>
+      </ul>
+      <p class="muted" style="margin-top:3mm">Format: <i>logotyp</i> (liggande), <i>logotyp-staende</i> och <i>symbol</i>. Varianter: <i>farg</i>, <i>negativ</i>, <i>svart</i> och <i>vit</i>.</p>
+    </div>
+    <div>
+      <h3>Övrigt</h3>
+      <ul>
+        <li><b>visitkort-tryck.pdf</b>: 85 × 55 mm med 3 mm utfall, CMYK och inbäddade typsnitt. Telefonnummer och adresser är exempel och byts innan tryck.</li>
+        <li><b>typsnitt/</b>: Instrument Serif, Hanken Grotesk och Caveat.</li>
+        <li><b>webb/</b>: logotypen för hemsidan, som följer sidans ljusa och mörka läge.</li>
+        <li><b>bygg-logotyp.py</b> och <b>bygg-tryck.js</b>: bygger om alla filer.</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end"><img src="../logotyp/svg/dalarud-logotyp-negativ.svg" style="width:70mm" alt=""><span class="muted" style="font-size:8pt">Grafisk profil version 1 · 2026</span></div>
+</section>
+
+</body>
+</html>
