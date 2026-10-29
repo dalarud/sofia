@@ -3,7 +3,7 @@
 *Arbetsversion 1 · oktober 2026 · underlag för Sofia Dalarud*
 
 > **Ett hem ska ge ro.**
-> Inredning, homestaging och handgjord keramik med en skandinavisk, naturnära och hemtrevlig känsla – och med kunskap om hur miljön påverkar hur vi mår, fungerar och landar.
+> Inredning, homestaging och handgjorda föremål i lera med en skandinavisk, naturnära och hemtrevlig känsla – och med kunskap om hur miljön påverkar hur vi mår, fungerar och landar.
 
 ---
 
@@ -24,7 +24,7 @@ Det som gör företaget unikt är kombinationen. Det finns många inredare och m
 ### Rekommendation: **Studio Dalarud**
 
 - Bygger på Sofias eget, ovanliga efternamn – personligt, lätt att söka och lätt att skydda.
-- "Studio" rymmer både tjänster och ateljé/keramik och kan växa med företaget.
+- "Studio" rymmer både tjänster och ateljé/lera och kan växa med företaget.
 - Fungerar som domän (`studiodalarud.se`) och Instagram-namn (`@studiodalarud`). *Kontrollera tillgänglighet innan beslut.*
 
 **Undertitel:** *Inredning · Homestaging · Lera*
@@ -42,14 +42,14 @@ Det som gör företaget unikt är kombinationen. Det finns många inredare och m
 ### Undervarumärken (inom Studio Dalarud)
 
 - **Lugna rum** – NPF-medveten inredning för hem, barnrum och förskolor.
-- **Dalarud Lera** – keramiklinjen (stämpel i botten: *SD*).
+- **Dalarud Lera** – föremål i självtorkande lera (stämpel i botten: bågmärket).
 
 ---
 
 ## 3. Affärsidé, vision och löfte
 
 **Affärsidé**
-Studio Dalarud skapar hem och miljöer som är vackra, personliga och lätta att leva i. Vi hjälper privatpersoner att inreda och sälja sina bostäder, hjälper familjer och verksamheter att skapa lugnare miljöer med stöd av specialpedagogisk kunskap och säljer handgjord keramik som för in naturens material i hemmet.
+Studio Dalarud skapar hem och miljöer som är vackra, personliga och lätta att leva i. Vi hjälper privatpersoner att inreda och sälja sina bostäder, hjälper familjer och verksamheter att skapa lugnare miljöer med stöd av specialpedagogisk kunskap och säljer handgjorda föremål i självtorkande lera som för in naturens material i hemmet.
 
 **Vision**
 Att fler människor ska få ett hem där de kan landa – oavsett hur deras hjärna fungerar.
@@ -74,7 +74,7 @@ Att fler människor ska få ett hem där de kan landa – oavsett hur deras hjä
 | **Familjer som vill ha ett hem som fungerar** | Mindre stress, bättre ordning, ett hem man trivs i | Inredningskonsultation, rumsstyling |
 | **Familjer med barn eller vuxna med NPF** | Struktur, färre sinnesintryck, återhämtning | *Lugna rum*-paket, barnrum, hemanalys |
 | **Förskolor och skolor** | Tillgängliga lärmiljöer enligt Skolverkets krav | Lärmiljöanalys, inredning, föreläsning för personal |
-| **Inredningsintresserade** | Fina, unika föremål | Keramik i webbshop, marknader, återförsäljare |
+| **Inredningsintresserade** | Fina, unika föremål | Föremål i lera i webbshop, marknader, återförsäljare |
 
 Primär målgrupp år 1: **bostadssäljare och familjer i närområdet**, eftersom de ger snabba intäkter och referenser. NPF-erbjudandet byggs upp parallellt och blir det som särskiljer varumärket över tid.
 
@@ -100,22 +100,24 @@ Primär målgrupp år 1: **bostadssäljare och familjer i närområdet**, efters
 - **Föreläsning / workshop** – "Miljön som verktyg" för föräldragrupper, förskolor och föreningar.
 
 ### 5.4 Dalarud Lera
-Handgjorda föremål i stengods, enkla former och naturnära glasyrer.
+Handgjorda föremål i **självtorkande lera**, med enkla former och färger från naturen. Leran torkar i luften och behöver ingen ugn. Föremålen målas och lackas, men de tål inte vatten och är inte till för mat eller dryck. Sortimentet är därför dekoration och sådant man håller i.
 
-- **Kärnsortiment:** skålar, muggar, vaser, ljuslyktor, tvålkoppar.
-- **Signaturprodukt: Handsten** – en liten, slät lersten att hålla i handen. En lugnande fidget för barn och vuxna som kopplar keramiken direkt till NPF-delen.
+- **Kärnsortiment:** vaser för torkade blommor, smyckeskålar, brickor, ljuslyktor för LED-ljus, ljusstakar med metallhylsa, väggdekor och julgranshängen.
+- **Signaturprodukt: Handsten** – en liten, slät sten i lera att hålla i handen när tankarna snurrar. Den kopplar leran direkt till NPF-delen.
 - **Små serier och unika exemplar** – lansering i "släpp" 4–6 gånger per år skapar efterfrågan och passar en tillverkning på deltid.
-- **Styling-tillägg** – keramik ingår eller erbjuds i rumsstyling och homestaging.
+- **Styling-tillägg** – föremål i lera ingår eller erbjuds i rumsstyling och homestaging.
 
 ### 5.5 Kurser, öppen ateljé och presentkort
-- **Drejkurs för nybörjare** (4 h, max 6 deltagare, 950 kr) och **säsongskurser** som julverkstad med ljuslyktor (690 kr).
+- **Forma i lera för nybörjare** (3 h, max 8 deltagare, 650 kr). Deltagarna formar i självtorkande lera och tar med sig föremålen hem samma dag. De torkar på några dagar och målas sedan hemma. Ingen ugn behövs, så kurserna kan också hållas hos förskolor, företag och föreningar.
+- **Säsongskurser**, till exempel julverkstad med hängen och ljusstakar (590 kr).
+- **Lera för lugn**, en workshop för förälder och barn (450 kr per par). Att forma lera lugnar många barn, så den knyter ihop leran med NPF-kunskapen.
 - **Workshoppar**, till exempel *Ett lugnare barnrum* (450 kr) och *Homestaging inför försäljning* (550 kr), i ateljén eller digitalt.
-- **Öppen ateljé** vid varje keramiksläpp, med fri entré. Det bygger relationer och ger försäljning.
+- **Öppen ateljé** vid varje släpp av nya föremål, med fri entré. Det bygger relationer och ger försäljning.
 - **Gruppbokningar** för företag, föreningar och förskolor.
-- **Presentkort** för konsultation, drejkurs, rumsstyling eller valfritt belopp från 200 kr. Det skickas som PDF och gäller i två år. Säljer bra kring jul.
+- **Presentkort** för konsultation, kurs i lera, rumsstyling eller valfritt belopp från 200 kr. Det skickas som PDF och gäller i två år. Säljer bra kring jul.
 
 ### 5.6 Gratis guide och nyhetsbrev
-*7 saker för ett lugnare barnrum* är en gratis PDF i utbyte mot e-postadress. Den visar Ro-modellen i praktiken och bygger en egen kundlista. Nyhetsbrevet går ut några gånger per år med tips, kursdatum och keramiksläpp.
+*7 saker för ett lugnare barnrum* är en gratis PDF i utbyte mot e-postadress. Den visar Ro-modellen i praktiken och bygger en egen kundlista. Nyhetsbrevet går ut några gånger per år med tips, kursdatum och nya föremål i lera.
 
 ### 5.7 Indikativ prislista (att justera efter lokal marknad)
 
@@ -130,7 +132,8 @@ Handgjorda föremål i stengods, enkla former och naturnära glasyrer.
 | Barnrum som ger ro | från 4 900 kr |
 | Förskola – lärmiljöanalys | offert (från 8 000 kr exkl. moms) |
 | Föreläsning, 60–90 min | från 5 000 kr exkl. moms |
-| Keramik | 195–795 kr per föremål |
+| Föremål i lera | 195–595 kr per föremål |
+| Kurs i lera | 590–650 kr per deltagare |
 
 *Priserna är startpunkter baserade på vanliga nivåer för soloföretagare inom inredning. Jämför med 3–5 konkurrenter i regionen innan lansering.*
 
@@ -186,7 +189,7 @@ Modern skandinavisk, naturtrogen och hemtrevlig. Ljust och luftigt men aldrig ka
 - Alla har fri licens och ligger i `profil/typsnitt/`.
 
 ### Bildspråk
-**Illustration: skissboken.** Allt illustrerat material görs som akvarell och blyerts, som sidor ur en inredares skissbok: planritningar, föremål och moodboards. Det känns handgjort och personligt och passar ihop med keramiken. På hemsidan målas skisserna i webbläsaren. På sikt kan Sofia måla egna skisser som ersätter dem.
+**Illustration: skissboken.** Allt illustrerat material görs som akvarell och blyerts, som sidor ur en inredares skissbok: planritningar, föremål och moodboards. Det känns handgjort och personligt och passar ihop med leran. På hemsidan målas skisserna i webbläsaren. På sikt kan Sofia måla egna skisser som ersätter dem.
 
 **Foto** (till den skarpa sajten):
 - Dagsljus, gärna snett fönsterljus. Inga hårda blixtar.
@@ -201,7 +204,7 @@ Vald bland sex förslag (se `profil/forslag/index.html`).
 - **Hemmet:** ett välvt fönster eller en dörr in, ett vanligt motiv i skandinaviska hem.
 - **Trygghet och ro:** bågarna ringar in det viktiga, och stenen ligger skyddad längst in.
 - **Namnet:** öppningen är vägen in till gläntan, *dal + rud*.
-- **Leran:** stenen är samma sten som på hela sidan och kopplar till keramiken.
+- **Leran:** stenen är samma sten som på hela sidan och kopplar till leran.
 
 **Ordbilden är egenritad.** *Dalarud* är inte satt i ett typsnitt. Bokstäverna är ritade med samma linje som bågarna, med samma tjocklek och rundade ändar, och formerna är byggda av bågar och raka ben:
 - **D** är en båge på sidan, **r** en halv båge och **u** en båge upp och ner, alltså dalen.
@@ -211,7 +214,7 @@ Vald bland sex förslag (se `profil/forslag/index.html`).
 
 ### Grafiska element
 - **Dalen** från namnet som understrykning av huvudknappar.
-- **Stenen** i lera som punkt och detalj. Den finns i märket, i ordbilden, i keramiken och som reglage på hemsidan.
+- **Stenen** i lera som punkt och detalj. Den finns i märket, i ordbilden, i föremålen i lera och som reglage på hemsidan.
 - **Från brus till ro:** föremål som går från kaos till ordning, i akvarell.
 - **Skissboken:** föremål, planritningar och miljöer i akvarell och blyerts. Skisserna är det handgjorda, och logotypen är den rena linjen.
 
@@ -240,13 +243,13 @@ Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluf
 
 | Kanal | Syfte | Innehåll |
 |---|---|---|
-| **Instagram** (huvudkanal) | Visa stil, bygga förtroende | Före/efter, keramik i ateljén, Ro-modellen-tips, reels från stylinguppdrag |
+| **Instagram** (huvudkanal) | Visa stil, bygga förtroende | Före/efter, lera i ateljén, Ro-modellen-tips, reels från stylinguppdrag |
 | **Pinterest** | Långsiktig trafik till hemsidan | Rumsbilder, moodboards, tips-grafik |
 | **Hemsida + journal** | Sökbarhet och bokningar | Blogginlägg: "Lugnt barnrum – 7 tips", "Homestaging i [ort]" |
 | **Mäklare** | Stadigt flöde av homestaging | Personligt besök, enkel prisfolder, ett pilotuppdrag till rabatt |
 | **Förskolor/kommun** | B2B-uppdrag och föreläsningar | Kontakt via rektorer och specialpedagoger i Sofias nätverk |
-| **Marknader och pop-ups** | Sälja keramik, möta kunder | Julmarknader, hantverksmässor, samarbete med lokala butiker |
-| **Nyhetsbrev** | Lojalitet och keramiksläpp | Tips + förhandsvisning av nästa släpp |
+| **Marknader och pop-ups** | Sälja föremål i lera, möta kunder | Julmarknader, hantverksmässor, samarbete med lokala butiker |
+| **Nyhetsbrev** | Lojalitet och nya släpp | Tips + förhandsvisning av nästa släpp |
 
 **Innehållsrytm:** 3 inlägg/vecka på Instagram (ett tips, ett projekt, ett från ateljén), ett journalinlägg och ett nyhetsbrev per månad.
 
@@ -260,10 +263,11 @@ Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluf
 | Konsultationer & rumsstyling | 25 | 3 200 kr | 80 000 kr |
 | Lugna rum / barnrum | 10 | 4 200 kr | 42 000 kr |
 | Förskola & föreläsningar | 4 | 8 000 kr | 32 000 kr |
-| Keramik | 200 föremål | 350 kr | 70 000 kr |
+| Föremål i lera | 200 föremål | 320 kr | 64 000 kr |
+| Kurser i lera | 6 kurser × 6 deltagare | 620 kr | 22 300 kr |
 | **Totalt (inkl. moms)** | | | **≈ 341 000 kr** |
 
-*Ett försiktigt scenario för en uppstart på deltid. Syftet är att visa fördelningen – tjänsterna står för den största delen, keramiken bygger varumärket och ger en extra intäkt.*
+*Ett försiktigt scenario för en uppstart på deltid. Syftet är att visa fördelningen – tjänsterna står för den största delen, leran och kurserna bygger varumärket och ger en extra intäkt.*
 
 ---
 
@@ -278,12 +282,12 @@ Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluf
 **Månad 3–6 – Synas**
 - Besök 5–10 mäklare. Erbjud ett pilotuppdrag.
 - Starta Instagram-rytmen och Ro-modellen-serien.
-- Första keramiksläppet: 30–50 föremål, inklusive Handstenen.
+- Första släppet av föremål i lera: 30–50 föremål, inklusive Handstenen.
 
 **Månad 6–12 – Växa**
 - Lansera *Lugna rum* tydligt med 2–3 case.
 - Kontakta förskolor och erbjud lärmiljöanalys/föreläsning.
-- Julmarknad och samarbete med en lokal butik för keramiken.
+- Julmarknad och samarbete med en lokal butik för föremålen i lera.
 - Utvärdera priser och vilka tjänster som ger bäst lönsamhet per timme.
 
 ---
@@ -292,7 +296,10 @@ Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluf
 
 - **Företagsform:** enskild firma räcker i början. Ansök om F-skatt och momsregistrering.
 - **Försäkring:** företagsförsäkring med ansvarsförsäkring – viktigt när man hanterar kunders bohag vid homestaging.
-- **Keramik och livsmedel:** föremål för mat och dryck ska tåla användningen och inte avge bly eller kadmium. Använd livsmedelsgodkända glasyrer och dokumentera dem. Se Livsmedelsverkets regler för material i kontakt med livsmedel.
+- **Självtorkande lera:** föremålen tål inte vatten och ska inte användas till mat eller dryck. Skriv det tydligt i produkttexter och på etiketterna, till exempel "Dekoration. Tål inte vatten, torka av med torr trasa." Lacka föremålen så att de håller längre.
+- **Ljus:** sälj ljuslyktor för LED-ljus och sätt metallhylsa i ljusstakar, eftersom lack och torkad lera inte ska utsättas för öppen låga.
+- **Handstenen och barn:** om den marknadsförs som något för barn kan leksaksreglerna gälla, med CE-märkning och krav på bland annat smådelar. Sälj den som ett föremål för vuxna och skriv "Inte en leksak", eller undersök kraven innan den riktas till barn.
+- **Kurser:** använd lera och färg som är märkta för hobby- och barnbruk. Läs säkerhetsbladen och se till att barn deltar tillsammans med en vuxen.
 - **E-handel:** 14 dagars ångerrätt vid distansköp, tydliga köpvillkor, fraktpriser och GDPR-text på hemsidan.
 - **Varumärkesskydd:** överväg att registrera namnet hos PRV när konceptet är bekräftat.
 - **ROT/RUT:** inredning och homestaging omfattas normalt inte – kommunicera priser utan avdrag.
@@ -308,7 +315,7 @@ Prototypen (`index.html` i detta repo) har följande delar:
 3. **Tjänster:** Inredning, Homestaging, Lugna rum och Förskola, med priser och bokning.
 4. **Så går det till:** fyra steg från första samtal till färdigt hem, med tid och kostnad.
 5. **Ro-modellen:** interaktiv planritning med tips för varje hörnsten.
-6. **Ateljén:** keramiken på en ekhylla med varukorg.
+6. **Ateljén:** föremålen i lera på en ekhylla med varukorg.
 7. **Kurser och öppen ateljé:** kalender med filter, platser kvar, anmälan och väntelista.
 8. **Presentkort:** välj typ och belopp, skriv mottagare och hälsning, se kortet medan du fyller i och lägg det i varukorgen.
 9. **Om Sofia:** "Förskola + Inredning + Lera = ro".
@@ -318,4 +325,4 @@ Prototypen (`index.html` i detta repo) har följande delar:
 
 Allt som skickar något, alltså bokningar, anmälningar, presentkort, guiden och formulär, är prototyper. I den skarpa sajten kopplas de till till exempel Shopify (butik och presentkort), ett bokningssystem för kurser och ett nyhetsbrevsverktyg som Mailchimp eller Klaviyo.
 
-**Nästa steg för en skarp sajt:** bygg den i en plattform Sofia själv kan uppdatera. **Shopify** passar om keramiken ska vara en stor del; **Squarespace** eller **Wix** passar om tjänsterna är i fokus och butiken är liten. Byt ut illustrationerna i prototypen mot riktiga foton.
+**Nästa steg för en skarp sajt:** bygg den i en plattform Sofia själv kan uppdatera. **Shopify** passar om föremålen i lera ska vara en stor del; **Squarespace** eller **Wix** passar om tjänsterna är i fokus och butiken är liten. Byt ut illustrationerna i prototypen mot riktiga foton.
