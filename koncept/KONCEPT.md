@@ -205,6 +205,8 @@ Vald bland sex förslag (se `profil/forslag/index.html`).
 - **Från brus till ro:** föremål som går från kaos till ordning, i akvarell.
 - **Skissboken:** föremål, planritningar och miljöer i akvarell och blyerts. Skisserna är det handgjorda, och logotypen är den rena linjen.
 
+**Gränssnitt på hemsidan.** Alla knappar, fält och etiketter följer profilen. Knappar och val har bågform med 1,5 px linje, som i logotypen. Stenen står efter knapptexter och markerar det som är valt. En andra linje visas vid hovring, som de dubbla bågarna. Formulärfält är linjer att skriva på, och textrutor är linjerat papper. Priser står med prickade linjer, prislappar är hängande etiketter med bågtak, och huvudbilden, porträttet och formuläret har välvda tak. Se sidan "Digitalt" i manualen.
+
 **Kontrast mot hemsidan.** Logotypen är tecknad med rena linjer, medan bilderna är målade. Det som binder ihop dem är färgerna (granskog och lera), stenen, bågen och lugnet.
 
 ### Logotypens filer och regler

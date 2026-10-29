@@ -75,6 +75,26 @@ ul { margin: 0; padding-left: 4mm; } li { margin-bottom: 1.6mm; }
 .tag::before { content: ""; position: absolute; top: 2.5mm; left: 50%; width: 2.4mm; height: 2.4mm; margin-left: -1.2mm; border-radius: 50%; border: 1px solid var(--muted); }
 .tag img { width: 24mm; margin: 4mm auto 3mm; display: block; }
 code { font-size: 8pt; }
+/* digitala komponenter */
+.ui-row { display: flex; flex-wrap: wrap; gap: 5mm; align-items: center; margin: 3mm 0 2mm; }
+.ui-btn { display: inline-flex; align-items: center; gap: 2.4mm; font: 600 9.5pt "Hanken Grotesk"; padding: 3.6mm 5.6mm 3.2mm; border-radius: 5.5mm 5.5mm 1.2mm 1.2mm; border: 1.5px solid var(--lera); background: var(--lera); color: var(--linne); }
+.ui-btn::after { content: ""; width: 2mm; height: 1.45mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: currentColor; }
+.ui-btn.hover { outline: 1.5px solid var(--lera); outline-offset: 1mm; }
+.ui-btn.ghost { background: transparent; color: var(--granskog); border-color: var(--granskog); }
+.ui-btn.ghost::after { background: var(--lera); }
+.ui-chip { display: inline-flex; align-items: center; gap: 1.6mm; font: 500 9pt "Hanken Grotesk"; padding: 2mm 3.6mm 1.8mm; border-radius: 3.7mm 3.7mm 1mm 1mm; border: 1.5px solid var(--line); }
+.ui-chip.on { background: var(--granskog); color: var(--linne); border-color: var(--granskog); }
+.ui-chip.on::before { content: ""; width: 1.8mm; height: 1.3mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: var(--lera); }
+.ui-field { width: 70mm; } .ui-field b { display: block; font-size: 6.8pt; letter-spacing: .14em; color: var(--muted); }
+.ui-field span { display: block; border-bottom: 1.5px solid var(--granskog); padding: 1.5mm 0; }
+.ui-lined { width: 70mm; height: 20mm; background: repeating-linear-gradient(transparent 0 calc(7mm - 1.5px), rgba(43,54,46,.28) calc(7mm - 1.5px) 7mm); font: 13pt Caveat; color: var(--muted); padding-top: 1mm; }
+.ui-price { width: 80mm; display: flex; align-items: baseline; gap: 2mm; font-size: 9.5pt; } .ui-price::after { content: ""; order: 1; flex: 1; border-bottom: 2px dotted rgba(43,54,46,.35); }
+.ui-price span:last-child { order: 2; font-weight: 500; }
+.ui-tag { width: 52mm; background: #ECE4D7; border-radius: 50% 50% 1.5mm 1.5mm / 8mm 8mm 1.5mm 1.5mm; padding: 9mm 4mm 4mm; position: relative; }
+.ui-tag::before { content: ""; position: absolute; top: 3.4mm; left: 50%; width: 2.2mm; height: 2.2mm; margin-left: -1.1mm; border-radius: 50%; border: 1.5px solid var(--muted); }
+.ui-tag em { position: absolute; top: 2mm; right: 1mm; font: 600 6pt "Hanken Grotesk"; letter-spacing: .12em; color: var(--linne); background: var(--lera); padding: 1.4mm 2.6mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; transform: rotate(6deg); font-style: normal; }
+.ui-frame { width: 60mm; height: 30mm; background: var(--havre); border-radius: 50% 50% 2mm 2mm / 22% 22% 2mm 2mm; outline: 1.5px solid var(--line); outline-offset: 2.5mm; margin: 3mm; }
+
 </style>
 </head>
 <body>
@@ -235,6 +255,35 @@ code { font-size: 8pt; }
   <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>10</span></div>
 </section>
 
+<!-- Digitalt -->
+<section class="page">
+  <div class="eyebrow">Digitalt</div>
+  <h2>Knappar, fält och <em>etiketter</em></h2>
+  <div class="cols" style="grid-template-columns:1.1fr 1fr">
+    <div>
+      <h3>Knappar har bågform</h3>
+      <p class="cap">Rundade upptill och nästan raka nedtill, som en dörröppning. Linjen är 1,5 px, samma som i logotypen. Efter texten står stenen. När man pekar på knappen visas en andra linje, som märkets dubbla bågar.</p>
+      <div class="ui-row"><span class="ui-btn">Boka ett första samtal</span><span class="ui-btn hover">Vid hovring</span><span class="ui-btn ghost">Så arbetar jag</span></div>
+      <h3 style="margin-top:6mm">Filter och val</h3>
+      <p class="cap">Små bågar. Det som är valt blir granskog och får en sten.</p>
+      <div class="ui-row"><span class="ui-chip on">Morgnarna är stressiga</span><span class="ui-chip">Vi ska sälja</span><span class="ui-chip">Servis</span></div>
+      <h3 style="margin-top:6mm">Bildramar</h3>
+      <p class="cap">Bilder och huvudytor får ett svagt välvt tak och en yttre linje.</p>
+      <div class="ui-frame"></div>
+    </div>
+    <div>
+      <h3>Fält som i en skissbok</h3>
+      <p class="cap">Ingen ruta, bara en linje att skriva på. Textrutor är linjerat papper med handskrivna exempel.</p>
+      <div class="ui-row" style="display:grid;gap:4mm"><div class="ui-field"><b>NAMN</b><span>Anna</span></div><div class="ui-lined">Vilka rum gäller det?</div></div>
+      <h3 style="margin-top:5mm">Priser och etiketter</h3>
+      <p class="cap">Priser står med prickade linjer, som på en meny. Etiketter är hängande lappar med bågtak, och en sten markerar det som är särskilt.</p>
+      <div class="ui-row" style="display:grid;gap:4mm"><div class="ui-price"><span>Konsultation i hemmet, 2 h</span><span>1 995 kr</span></div>
+      <div class="ui-tag"><em>SIGNATUR</em><div style="font:400 14pt 'Instrument Serif'">Handsten</div><div class="cap" style="margin:0">195 kr</div></div></div>
+    </div>
+  </div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>11</span></div>
+</section>
+
 <!-- 11 Tillämpningar -->
 <section class="page">
   <div class="eyebrow">Tillämpningar</div>
@@ -250,7 +299,7 @@ code { font-size: 8pt; }
       <p class="cap" style="text-align:center">Hängetikett för keramiken, gärna på obestruket papper i linne eller havre.</p>
     </div>
   </div>
-  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>11</span></div>
+  <div class="folio"><span>Studio Dalarud · Grafisk profil</span><span>12</span></div>
 </section>
 
 <!-- 12 Filer -->
