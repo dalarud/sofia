@@ -29,6 +29,9 @@
   --clay-soft: #EBD6CA;
   --wood: #B48D66;        /* ek */
   --pencil: #3A3A34;      /* blyerts i skisserna */
+  --clay-light: #D49C82;  /* lera ljus, på mörk botten */
+  --card-bg: #2B362E; --card-fg: #EFE8DC;  /* presentkortet är alltid granskog */
+  --paper: #FBF8F3; --paper-ink: #2B362E;  /* guidens omslag är alltid papper */
   --paper-filter: none;
   --deep: #2B362E;
   --on-deep: #EFE8DC;
@@ -279,13 +282,113 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 @media (max-width: 820px) { .about__grid { grid-template-columns: 1fr; } .portrait { max-width: 380px; } }
 
 /* ---------- Journal som lista ---------- */
-.posts { border-top: 1px solid var(--fg); }
-.post { display: grid; grid-template-columns: 10rem minmax(0, 1fr) auto; gap: .5rem 2rem; align-items: baseline; padding: 1.6rem .25rem; border-bottom: 1px solid var(--line); text-decoration: none; }
-.post__cat { font-size: .8rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--moss); }
-.post h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.1; transition: color .2s; }
-.post__meta { color: var(--muted); font-size: var(--step--1); white-space: nowrap; }
-.post:hover h3 { color: var(--accent); }
-@media (max-width: 640px) { .post { grid-template-columns: 1fr; } }
+/* ---------- Så går det till ---------- */
+.steps { list-style: none; margin: 0 0 3rem; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.2rem 2.4rem; position: relative; }
+.steps::before { content: ""; position: absolute; left: 0; right: 0; top: .3rem; height: 1px; background: var(--line); }
+.steps li { position: relative; display: grid; gap: .55rem; align-content: start; padding-top: 2.1rem; min-width: 0; }
+.steps li::before { content: ""; position: absolute; top: 0; left: 0; width: .85rem; height: .62rem; border-radius: var(--pebble-a); background: var(--accent); }
+.steps__n { font: italic 400 2.6rem/1 var(--font-display); color: var(--accent); }
+.steps h3 { font-size: 1.75rem; }
+.steps p { color: var(--muted); font-size: .98rem; }
+.steps__meta { font-size: .78rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--moss); }
+@media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } .steps::before { display: none; } }
+@media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+
+/* ---------- Kurser och öppen ateljé ---------- */
+.course-filter { margin-bottom: 1.6rem; }
+.events { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--fg); }
+.event { border-bottom: 1px solid var(--line); }
+.event__row { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) auto; gap: 1rem 2.2rem; align-items: start; padding-block: 1.7rem; }
+.event__date { display: grid; justify-items: start; }
+.event__day { font: 400 3.4rem/.85 var(--font-display); }
+.event__month { font-size: .76rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: .55rem; }
+.event__type { font: italic 400 1.1rem var(--font-display); color: var(--accent); }
+.event h3 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.1; margin: .15rem 0 .45rem; }
+.event p { color: var(--muted); max-width: 58ch; }
+.event__meta { margin-top: .6rem; font-size: .9rem; display: flex; flex-wrap: wrap; gap: .2rem 1.4rem; }
+.event__side { display: grid; justify-items: end; gap: .5rem; text-align: right; }
+.event__price { font-weight: 600; font-variant-numeric: tabular-nums; }
+.event__spots { font: italic 400 1.1rem var(--font-display); color: var(--muted); }
+.event__spots.is-few { color: var(--accent); }
+.event__book { font: 500 .95rem var(--font-body); background: none; border: 0; border-bottom: 1px solid currentColor; color: var(--fg); padding: .15rem 0 .2rem; cursor: pointer; display: inline-flex; gap: .4rem; }
+.event__book::after { content: "→"; transition: transform .2s; }
+.event__book:hover { color: var(--accent); } .event__book:hover::after { transform: translateX(4px); }
+.event__book[aria-expanded="true"] { color: var(--accent); } .event__book[aria-expanded="true"]::after { content: "↓"; }
+.event__panel { padding: 0 0 2rem 7.7rem; display: grid; grid-template-columns: 1fr 1fr auto; gap: 1.4rem 1.6rem; align-items: end; }
+.events__note { margin-top: 1.6rem; color: var(--muted); }
+.events__note a { color: var(--fg); }
+@media (max-width: 760px) {
+  .event__row { grid-template-columns: 4rem minmax(0, 1fr); }
+  .event__side { grid-column: 2; justify-items: start; text-align: left; }
+  .event__panel { padding-left: 0; grid-template-columns: 1fr; }
+}
+
+/* ---------- Presentkort ---------- */
+.gift { background: var(--surface-2); }
+.gift__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.gift__form { display: grid; gap: 1.5rem; min-width: 0; }
+.gift__form h2 { font-size: var(--step-3); margin-top: .9rem; }
+.gift__lede { color: var(--muted); max-width: 46ch; }
+.gift__set { border: 0; margin: 0; padding: 0; display: grid; gap: .5rem; min-width: 0; }
+.gift__set legend { font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+.gift__two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+.gift__form textarea { min-height: 4rem; }
+.gift__form input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.gift__form input[type="number"]::-webkit-inner-spin-button, .gift__form input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.gift__foot { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1rem 2rem; }
+.gift__sum { font: italic 400 2.2rem/1 var(--font-display); color: var(--accent); font-variant-numeric: tabular-nums; }
+.gift__preview { display: grid; gap: 1.4rem; justify-items: center; min-width: 0; }
+.giftcard { --accent: var(--clay-light); width: min(100%, 460px); aspect-ratio: 85 / 55; background: var(--card-bg); color: var(--card-fg); border-radius: 12px; padding: 7% 8% 6%;
+  display: grid; grid-template-rows: auto 1fr auto; gap: .6rem; box-shadow: 0 34px 50px -30px rgba(20, 24, 21, .55); transform: rotate(-2deg); }
+.giftcard__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+.giftcard__logo { width: 44%; color: var(--card-fg); }
+.giftcard__label { font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; opacity: .75; }
+.giftcard__mid { display: grid; align-content: center; gap: .3rem; }
+.giftcard__what { font: 400 clamp(1.3rem, 2.4vw, 1.7rem)/1.1 var(--font-display); }
+.giftcard__sum { font: italic 400 clamp(2rem, 4vw, 2.8rem)/1 var(--font-display); color: var(--accent); }
+.giftcard__bottom { display: grid; gap: .1rem; }
+.giftcard__to { font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .75; }
+.giftcard__msg { font: 400 clamp(1.1rem, 2vw, 1.35rem)/1.2 "Caveat", "Segoe Print", cursive; overflow-wrap: anywhere; }
+.gift__note { font-size: var(--step--1); color: var(--muted); text-align: center; max-width: 40ch; }
+@media (max-width: 860px) { .gift__grid { grid-template-columns: 1fr; } .gift__preview { order: -1; } }
+@media (max-width: 520px) { .gift__two { grid-template-columns: 1fr; } }
+
+/* ---------- Tips ---------- */
+.advice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem 2.6rem; border-top: 1px solid var(--fg); padding-top: 2rem; }
+.advice { display: grid; gap: .7rem; align-content: start; min-width: 0; }
+.advice__cat { font-size: .76rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--moss); }
+.advice h3 { font-size: clamp(1.8rem, 3vw, 2.3rem); line-height: 1.05; }
+.advice p { color: var(--muted); }
+.advice-more { margin-top: 2.4rem; }
+@media (max-width: 860px) { .advice-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Gratis guide ---------- */
+.guide__grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+.guide__cover { display: grid; place-items: center; padding: 1rem; }
+.booklet { position: relative; isolation: isolate; width: min(100%, 320px); aspect-ratio: 3 / 4; background: var(--paper); color: var(--paper-ink); border-radius: 3px 8px 8px 3px; padding: 12% 11%;
+  display: grid; grid-template-rows: auto auto 1fr auto; gap: .8rem; transform: rotate(3deg); filter: var(--paper-filter);
+  box-shadow: -6px 0 0 -2px color-mix(in srgb, var(--paper) 85%, #000), 0 30px 45px -28px rgba(20, 24, 21, .55); }
+.booklet canvas.blob { inset: 22% 6% 30% 14%; width: 80%; height: 48%; }
+.booklet__logo { width: 58%; color: var(--paper-ink); --accent: #9B5E49; }
+.booklet__kicker { font-size: .66rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: #6F7D62; margin-top: 1rem; }
+.booklet__title { font: 400 clamp(1.7rem, 3vw, 2.1rem)/1.05 var(--font-display); align-self: center; }
+.booklet__title em { color: #9B5E49; }
+.booklet__foot { font-size: .7rem; color: #5D6458; letter-spacing: .04em; }
+.guide__body { display: grid; gap: 1.4rem; min-width: 0; }
+.guide__body h2 { font-size: var(--step-3); margin-top: .9rem; }
+.guide__lede { color: var(--muted); max-width: 50ch; }
+.guide__list { margin: 0; padding: 0; list-style: none; counter-reset: g; display: grid; gap: .3rem; }
+.guide__list li { counter-increment: g; display: flex; gap: .9rem; align-items: baseline; font: 400 1.35rem var(--font-display); }
+.guide__list li::before { content: counter(g); font-style: italic; color: var(--accent); min-width: 1rem; }
+.guide__list .guide__more { font-style: italic; color: var(--muted); }
+.guide__list .guide__more::before { content: "+"; font-style: normal; }
+.guide__form { display: grid; gap: 1.3rem; max-width: 34rem; }
+.guide__foot { display: flex; flex-wrap: wrap; gap: 1rem 2rem; align-items: baseline; }
+.guide__foot small { color: var(--muted); }
+.toggle { display: inline-flex; align-items: flex-start; gap: .75rem; background: none; border: 0; padding: .1rem 0; color: var(--fg); font: 400 .98rem/1.45 var(--font-body); cursor: pointer; text-align: left; }
+.toggle::before { content: ""; flex: none; width: 1.05rem; height: .78rem; margin-top: .3rem; border-radius: var(--pebble-a); border: 1.5px solid var(--fg); transition: background .2s, border-color .2s; }
+.toggle[aria-pressed="true"]::before { background: var(--accent); border-color: var(--accent); }
+@media (max-width: 820px) { .guide__grid { grid-template-columns: 1fr; } .booklet { width: min(70%, 260px); } }
 
 /* ---------- Kontakt ---------- */
 .contact { background: var(--clay-soft); }
@@ -378,8 +481,9 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
       <a href="#tjanster">Tjänster</a>
       <a href="#ro-modellen">Ro-modellen</a>
       <a href="#ateljen">Ateljén</a>
+      <a href="#kurser">Kurser</a>
       <a href="#om">Om Sofia</a>
-      <a href="#journal">Journal</a>
+      <a href="#tips">Tips</a>
     </nav>
     <div class="header-actions">
       <a class="pill-btn pill-btn--solid book-btn" href="#kontakt">Boka</a>
@@ -468,6 +572,23 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     </div>
   </section>
 
+  <!-- SÅ GÅR DET TILL -->
+  <section class="steps-sec" id="sa-gar-det-till" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Så går det till</p><h2>Från första samtal till <em>ett lugnare hem.</em></h2></div>
+        <p>Du vet alltid vad nästa steg är, vad det kostar och hur lång tid det tar. Det första samtalet är alltid gratis.</p>
+      </div>
+      <ol class="steps">
+        <li><span class="steps__n">1</span><h3>Första samtalet</h3><p>Vi pratar i 20 minuter, i telefon eller på video, om ditt hem och vad som skaver.</p><span class="steps__meta">Gratis · 20 min</span></li>
+        <li><span class="steps__n">2</span><h3>Hembesöket</h3><p>Jag kommer hem till dig, eller så går vi igenom bilder digitalt. Vi tittar på rummen med Ro-modellen.</p><span class="steps__meta">1–2 timmar</span></li>
+        <li><span class="steps__n">3</span><h3>Planen</h3><p>Du får en skriftlig plan med skisser, moodboard och inköpslista, anpassad efter din budget.</p><span class="steps__meta">Inom en vecka</span></li>
+        <li><span class="steps__n">4</span><h3>Förändringen</h3><p>Du genomför planen själv, eller så hjälper jag till hela vägen. Efter en månad hör jag av mig och följer upp.</p><span class="steps__meta">Uppföljning efter 4 veckor</span></li>
+      </ol>
+      <a class="btn" href="#kontakt">Boka ett första samtal</a>
+    </div>
+  </section>
+
   <!-- RO-MODELLEN -->
   <section class="ro" id="ro-modellen">
     <div class="wrap">
@@ -519,6 +640,58 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     </div>
   </section>
 
+  <!-- KURSER -->
+  <section class="courses" id="kurser">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Kurser och öppen ateljé</p><h2>Kom och <em>känn på leran.</em></h2></div>
+        <p>Drejkurser för nybörjare, workshoppar om lugnare hem och öppen ateljé när det är släpp. Små grupper, och kaffe och allt material ingår.</p>
+      </div>
+      <div class="chips course-filter" role="group" aria-label="Filtrera kalendern">
+        <button class="chip" type="button" data-kind="alla" aria-pressed="true">Alla</button>
+        <button class="chip" type="button" data-kind="kurs" aria-pressed="false">Kurser</button>
+        <button class="chip" type="button" data-kind="workshop" aria-pressed="false">Workshoppar</button>
+        <button class="chip" type="button" data-kind="oppen" aria-pressed="false">Öppen ateljé</button>
+      </div>
+      <ul class="events" id="events"></ul>
+      <p class="events__note">Vill du boka en egen kurs för en grupp, ett företag eller en förskola? <a href="#kontakt" data-service="Föreläsning">Hör av dig.</a></p>
+    </div>
+  </section>
+
+  <!-- PRESENTKORT -->
+  <section class="gift" id="presentkort">
+    <div class="wrap gift__grid">
+      <div class="gift__form">
+        <div><p class="eyebrow">Presentkort</p><h2>Ge bort <em>ett lugnare hem.</em></h2></div>
+        <p class="gift__lede">En konsultation, en drejkurs eller ett valfritt belopp att använda i ateljén. Presentkortet skickas som PDF och gäller i två år.</p>
+        <fieldset class="gift__set">
+          <legend>Vad vill du ge?</legend>
+          <div class="chips" id="giftTypes">
+            <button class="chip" type="button" data-gift="Konsultation" data-amount="1995" aria-pressed="true">Konsultation</button>
+            <button class="chip" type="button" data-gift="Drejkurs" data-amount="950" aria-pressed="false">Drejkurs</button>
+            <button class="chip" type="button" data-gift="Rumsstyling" data-amount="5900" aria-pressed="false">Rumsstyling</button>
+            <button class="chip" type="button" data-gift="Valfritt belopp" data-amount="valfritt" aria-pressed="false">Valfritt belopp</button>
+          </div>
+        </fieldset>
+        <div class="field" id="giftCustom" hidden><label for="gift-amount">Belopp (minst 200 kr)</label><input id="gift-amount" type="number" min="200" step="100" value="500" inputmode="numeric"></div>
+        <div class="gift__two">
+          <div class="field"><label for="gift-to">Till</label><input id="gift-to" placeholder="Mottagarens namn"></div>
+          <div class="field"><label for="gift-from">Från</label><input id="gift-from" placeholder="Ditt namn"></div>
+        </div>
+        <div class="field"><label for="gift-msg">Hälsning</label><textarea id="gift-msg" maxlength="120" placeholder="Grattis! Nu får du äntligen ordning i hallen."></textarea></div>
+        <div class="gift__foot"><span class="gift__sum" id="giftSum">1 995 kr</span><button class="btn" type="button" id="giftAdd">Lägg i korgen</button></div>
+      </div>
+      <div class="gift__preview" aria-label="Förhandsvisning av presentkortet">
+        <div class="giftcard">
+          <div class="giftcard__top"><svg class="logo giftcard__logo" aria-hidden="true" focusable="false" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="giftcard__label">Presentkort</span></div>
+          <div class="giftcard__mid"><span class="giftcard__what" id="gcWhat">Konsultation</span><span class="giftcard__sum" id="gcSum">1 995 kr</span></div>
+          <div class="giftcard__bottom"><span class="giftcard__to" id="gcTo">Till dig</span><span class="giftcard__msg" id="gcMsg">Grattis! Nu får du äntligen ordning i hallen.</span></div>
+        </div>
+        <p class="gift__note">Så här ser kortet ut. Det skickas som PDF till dig, så att du kan skriva ut det eller skicka det vidare.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- OM -->
   <section class="about" id="om">
     <div class="wrap">
@@ -549,17 +722,43 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   </section>
 
   <!-- JOURNAL -->
-  <section id="journal">
+  <section id="tips">
     <div class="wrap">
       <div class="head">
-        <div><p class="eyebrow">Journal</p><h2>Små steg mot <em>ett lugnare hem.</em></h2></div>
+        <div><p class="eyebrow">Tips</p><h2>Små steg mot <em>ett lugnare hem.</em></h2></div>
         <p>Konkreta råd om inredning, homestaging och miljöer som hjälper hela familjen. Sådant du kan göra redan i helgen.</p>
       </div>
-      <div class="posts">
-        <a class="post" href="#journal"><span class="post__cat">Lugna rum</span><h3>Ett barnrum som ger ro: sju saker att börja med</h3><span class="post__meta">6 min läsning</span></a>
-        <a class="post" href="#journal"><span class="post__cat">Homestaging</span><h3>Hallen säljer bostaden</h3><span class="post__meta">4 min läsning</span></a>
-        <a class="post" href="#journal"><span class="post__cat">Ro-modellen</span><h3>Ljus i lager, och varför taklampan stressar</h3><span class="post__meta">5 min läsning</span></a>
-        <a class="post" href="#journal"><span class="post__cat">Ateljén</span><h3>Så blir en skål till, från lerklump till glasyr</h3><span class="post__meta">3 min läsning</span></a>
+      <div class="advice-grid">
+        <article class="advice"><span class="advice__cat">Homestaging · Flöde</span><h3>Börja i hallen</h3><p>Hallen är det första köparen ser, och där morgonen startar. Ge varje person en krok och en korg i rätt höjd, och låt ingenting stå på golvet. Det tar en eftermiddag och märks direkt.</p></article>
+        <article class="advice"><span class="advice__cat">Ro-modellen · Sinnesro</span><h3>Ljus i tre höjder</h3><p>Släck taklampan på kvällen. En lampa på golvet, en på bordet och en i fönstret ger ett mjukt ljus som hjälper kroppen att varva ner.</p></article>
+        <article class="advice"><span class="advice__cat">Lugna rum · Överblick</span><h3>En bild på varje låda</h3><p>Sätt en bild på det som finns i varje låda i barnrummet. Barnet hittar själv, och städningen blir en lek i stället för ett tjat.</p></article>
+      </div>
+      <div class="advice-more"><a class="btn btn--ghost" href="#guide">Fler tips i den gratis guiden</a></div>
+    </div>
+  </section>
+
+  <!-- GRATIS GUIDE -->
+  <section class="guide" id="guide">
+    <div class="wrap guide__grid">
+      <div class="guide__cover" aria-hidden="true">
+        <div class="booklet">
+          <canvas class="blob" data-color="--moss-soft" data-seed="61" data-alpha=".1"></canvas>
+          <svg class="logo booklet__logo" aria-hidden="true" focusable="false" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="booklet__kicker">Gratis guide</span>
+          <span class="booklet__title">7 saker för ett <em>lugnare barnrum</em></span>
+          <span class="booklet__foot">Studio Dalarud · 12 sidor</span>
+        </div>
+      </div>
+      <div class="guide__body">
+        <div><p class="eyebrow">Gratis guide</p><h2>7 saker för ett <em>lugnare barnrum.</em></h2></div>
+        <p class="guide__lede">Konkreta tips från Ro-modellen som du kan göra i helgen, utan att köpa nytt. Skrivna utifrån mina år i förskolan och som inredare.</p>
+        <ol class="guide__list"><li>Ljus i tre höjder</li><li>En bild på varje låda</li><li>Färre saker i ögonhöjd</li><li class="guide__more">och fyra till i guiden</li></ol>
+        <form class="guide__form" id="guideForm" novalidate>
+          <div class="field"><label for="guide-email">Din e-post</label><input id="guide-email" type="email" autocomplete="email" placeholder="namn@exempel.se"></div>
+          <button class="toggle" type="button" id="guideNews" aria-pressed="true">Skicka också nyhetsbrevet, några gånger per år, med tips och nya keramiksläpp</button>
+          <div class="guide__foot"><button class="btn" type="submit">Skicka guiden</button><small>Du kan avsluta när du vill.</small></div>
+          <p class="form__done" id="guideDone" hidden></p>
+        </form>
       </div>
     </div>
   </section>
@@ -612,8 +811,8 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     <div class="footer-cols">
       <div><h4>Studio Dalarud</h4><p>Inredning, homestaging och handgjord keramik. Från brus till ro.</p></div>
       <div><h4>Tjänster</h4><ul><li><a href="#tjanster">Inredning</a></li><li><a href="#tjanster">Homestaging</a></li><li><a href="#ro-modellen">Lugna rum</a></li><li><a href="#tjanster">Förskola</a></li></ul></div>
-      <div><h4>Ateljén</h4><ul><li><a href="#ateljen">Dalarud Lera</a></li><li><a href="#ateljen">Köpvillkor</a></li><li><a href="#ateljen">Frakt och retur</a></li></ul></div>
-      <div><h4>Följ</h4><ul><li><a href="#kontakt">Instagram</a></li><li><a href="#kontakt">Pinterest</a></li><li><a href="#kontakt">Nyhetsbrev</a></li></ul></div>
+      <div><h4>Ateljén</h4><ul><li><a href="#ateljen">Dalarud Lera</a></li><li><a href="#kurser">Kurser och öppen ateljé</a></li><li><a href="#presentkort">Presentkort</a></li><li><a href="#ateljen">Köpvillkor</a></li><li><a href="#ateljen">Frakt och retur</a></li></ul></div>
+      <div><h4>Följ</h4><ul><li><a href="#kontakt">Instagram</a></li><li><a href="#kontakt">Pinterest</a></li><li><a href="#guide">Nyhetsbrev</a></li><li><a href="#guide">Gratis guide</a></li></ul></div>
     </div>
     <div class="namestory">
       <svg class="symbol" aria-hidden="true" focusable="false" viewBox="0 0 100 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/></svg>
@@ -937,6 +1136,12 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     { id: "tval-lera", name: "Tvålfat Lera", price: 245, shape: "tval", glaze: "lera", cat: "dekor", text: "Med räfflor så att tvålen torkar. L 12 cm." }
   ];
   var byId = {}; PRODUCTS.forEach(function (p, i) { p.seed = 300 + i * 17; byId[p.id] = p; });
+  // Presentkort i varukorgen: sparas separat så att de finns kvar efter omladdning
+  var symbolEl = document.querySelector(".namestory .symbol");
+  var GIFT_IMG = symbolEl ? "data:image/svg+xml," + encodeURIComponent(symbolEl.outerHTML.replace(/<svg ([^>]*)>/, '<svg xmlns="http://www.w3.org/2000/svg" $1><rect x="-10" y="-10" width="120" height="120" fill="#F3EEE6"/>').replace(/currentColor/g, "#2B362E").replace(/var\(--accent\)/g, "#9B5E49")) : "";
+  var gifts = {};
+  try { gifts = JSON.parse(localStorage.getItem("sd-gifts") || "{}") || {}; } catch (e) { gifts = {}; }
+  Object.keys(gifts).forEach(function (id) { byId[id] = gifts[id]; byId[id].img = GIFT_IMG; });
   var kr = function (n) { return n.toLocaleString("sv-SE") + " kr"; };
   var shelf = $("#shelf");
   shelf.innerHTML = PRODUCTS.map(function (p) {
@@ -1022,6 +1227,111 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && drawer.classList.contains("is-open")) closeCart(); });
   $("#checkoutBtn").addEventListener("click", function () { $("#checkoutNote").hidden = false; });
   renderCart();
+
+  /* ================= Kurser och öppen ateljé ================= */
+  var EVENTS = [
+    { id: "drej-nov", date: "2026-11-14", time: "10.00–14.00", kind: "kurs", label: "Drejkurs", title: "Drejkurs för nybörjare", place: "Ateljén",
+      text: "Du drejar två eller tre skålar som jag sedan glaserar och bränner. De är klara att hämta efter tre veckor.", price: 950, spots: 6, left: 2 },
+    { id: "barnrum", date: "2026-11-19", time: "18.00–20.00", kind: "workshop", label: "Workshop", title: "Ett lugnare barnrum", place: "Ateljén eller digitalt",
+      text: "Ro-modellen i praktiken: överblick, sinnesro och vila i barnrummet. Du går hem med en plan för ditt eget rum.", price: 450, spots: 14, left: 9 },
+    { id: "drej-nov2", date: "2026-11-28", time: "10.00–14.00", kind: "kurs", label: "Drejkurs", title: "Drejkurs för nybörjare", place: "Ateljén",
+      text: "Samma kurs igen, för dig som inte hann med förra gången. Inga förkunskaper behövs.", price: 950, spots: 6, left: 5 },
+    { id: "slapp", date: "2026-12-05", time: "11.00–16.00", kind: "oppen", label: "Öppen ateljé", title: "Vintersläppet", place: "Ateljén",
+      text: "Första chansen att köpa vinterns keramik. Glögg, pepparkakor och drejning att titta på." },
+    { id: "jul", date: "2026-12-10", time: "18.00–21.00", kind: "kurs", label: "Kurs", title: "Julverkstad: ljuslyktor i lera", place: "Ateljén",
+      text: "Forma två egna ljuslyktor. Jag glaserar och bränner dem så att de är klara till jul.", price: 690, spots: 8, left: 0 },
+    { id: "salja", date: "2027-01-23", time: "10.00–13.00", kind: "workshop", label: "Workshop", title: "Homestaging inför försäljning", place: "Ateljén",
+      text: "Så förbereder du bostaden inför fotografering och visning: hallen, ljuset och de sista detaljerna.", price: 550, spots: 12, left: 11 }
+  ];
+  var evById = {}; EVENTS.forEach(function (e) { evById[e.id] = e; });
+  function dateParts(iso) {
+    var d = new Date(iso + "T12:00:00");
+    return { day: d.getDate(), wd: d.toLocaleDateString("sv-SE", { weekday: "short" }).replace(".", ""), mon: d.toLocaleDateString("sv-SE", { month: "short" }).replace(".", "") };
+  }
+  $("#events").innerHTML = EVENTS.map(function (e) {
+    var d = dateParts(e.date), open = e.kind === "oppen", full = !open && e.left === 0, side;
+    if (open) side = '<span class="event__price">Fri entré</span><span class="event__spots">Ingen anmälan</span>';
+    else side = '<span class="event__price">' + kr(e.price) + '</span><span class="event__spots' + (e.left <= 3 ? " is-few" : "") + '">' + (full ? "Fullbokat" : e.left + " av " + e.spots + " platser kvar") + "</span>" +
+      '<button class="event__book" type="button" aria-expanded="false" aria-controls="panel-' + e.id + '" data-event="' + e.id + '">' + (full ? "Väntelista" : "Anmäl dig") + "</button>";
+    var panel = open ? "" : '<form class="event__panel" id="panel-' + e.id + '" data-event="' + e.id + '" hidden novalidate>' +
+      '<div class="field"><label for="ev-' + e.id + '-namn">Namn</label><input id="ev-' + e.id + '-namn" autocomplete="name"></div>' +
+      '<div class="field"><label for="ev-' + e.id + '-epost">E-post</label><input id="ev-' + e.id + '-epost" type="email" autocomplete="email"></div>' +
+      '<button class="btn" type="submit">' + (full ? "Ställ mig i kö" : "Boka platsen") + '</button><p class="form__done" hidden></p></form>';
+    return '<li class="event" data-kind="' + e.kind + '"><div class="event__row"><div class="event__date"><span class="event__day">' + d.day + '</span><span class="event__month">' + d.wd + " " + d.mon + "</span></div>" +
+      '<div><span class="event__type">' + e.label + "</span><h3>" + e.title + "</h3><p>" + e.text + '</p><div class="event__meta"><span>' + e.time + "</span><span>" + e.place + "</span></div></div>" +
+      '<div class="event__side">' + side + "</div></div>" + panel + "</li>";
+  }).join("");
+  document.querySelectorAll("[data-kind]").forEach(function (chip) {
+    if (!chip.classList.contains("chip")) return;
+    chip.addEventListener("click", function () {
+      var k = chip.dataset.kind;
+      document.querySelectorAll(".course-filter .chip").forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
+      document.querySelectorAll(".event").forEach(function (li) { li.hidden = !(k === "alla" || li.dataset.kind === k); });
+    });
+  });
+  document.querySelectorAll(".event__book").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var panel = document.getElementById("panel-" + b.dataset.event), open = panel.hidden;
+      panel.hidden = !open; b.setAttribute("aria-expanded", String(open));
+      if (open) panel.querySelector("input").focus();
+    });
+  });
+  document.querySelectorAll(".event__panel").forEach(function (f) {
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var e = evById[f.dataset.event], inputs = f.querySelectorAll("input"), name = inputs[0].value.trim(), mail = inputs[1].value.trim(), done = f.querySelector(".form__done");
+      done.hidden = false;
+      if (!name || !/^\S+@\S+\.\S+$/.test(mail)) { done.textContent = "Fyll i namn och en giltig e-postadress."; (name ? inputs[1] : inputs[0]).focus(); return; }
+      var d = dateParts(e.date);
+      done.textContent = "Tack " + name.split(" ")[0] + "! " + (e.left === 0 ? "Du står på väntelistan till " : "Din plats på ") + e.title.toLowerCase() + " den " + d.day + " " + d.mon +
+        (e.left === 0 ? " och får besked om någon lämnar återbud." : " är reserverad. I den skarpa sajten kommer en bekräftelse och en betalningslänk via e-post.") + " Det här är en prototyp, så ingen bokning har gjorts.";
+    });
+  });
+
+  /* ================= Presentkort ================= */
+  var gift = { type: "Konsultation", amount: 1995 };
+  function giftUpdate() {
+    var custom = !$("#giftCustom").hidden;
+    if (custom) gift.amount = Math.max(0, Math.round(+$("#gift-amount").value || 0));
+    var to = $("#gift-to").value.trim(), from = $("#gift-from").value.trim(), msg = $("#gift-msg").value.trim();
+    $("#gcWhat").textContent = gift.type === "Valfritt belopp" ? "Att använda i ateljén" : gift.type;
+    $("#gcSum").textContent = kr(gift.amount);
+    $("#giftSum").textContent = kr(gift.amount);
+    $("#gcTo").textContent = to ? "Till " + to + (from ? " från " + from : "") : "Till dig";
+    $("#gcMsg").textContent = msg || $("#gift-msg").placeholder;
+  }
+  document.querySelectorAll("#giftTypes .chip").forEach(function (c) {
+    c.addEventListener("click", function () {
+      document.querySelectorAll("#giftTypes .chip").forEach(function (o) { o.setAttribute("aria-pressed", String(o === c)); });
+      gift.type = c.dataset.gift;
+      var custom = c.dataset.amount === "valfritt";
+      $("#giftCustom").hidden = !custom;
+      if (!custom) gift.amount = +c.dataset.amount;
+      giftUpdate();
+    });
+  });
+  ["#gift-amount", "#gift-to", "#gift-from", "#gift-msg"].forEach(function (s) { $(s).addEventListener("input", giftUpdate); });
+  $("#giftAdd").addEventListener("click", function () {
+    giftUpdate();
+    if (gift.amount < 200) { toast("Välj ett belopp på minst 200 kr"); $("#gift-amount").focus(); return; }
+    var to = $("#gift-to").value.trim(), id = "present-" + Date.now();
+    var item = { id: id, name: "Presentkort" + (gift.type === "Valfritt belopp" ? "" : " · " + gift.type) + (to ? " till " + to : ""), price: gift.amount, gift: true };
+    gifts[id] = item;
+    try { localStorage.setItem("sd-gifts", JSON.stringify(gifts)); } catch (e) {}
+    byId[id] = Object.assign({ img: GIFT_IMG }, item);
+    cart[id] = 1; save(); renderCart(); toast("Presentkortet ligger i korgen");
+  });
+  giftUpdate();
+
+  /* ================= Gratis guide ================= */
+  $("#guideNews").addEventListener("click", function () { var b = $("#guideNews"); b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true")); });
+  $("#guideForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var mail = $("#guide-email").value.trim(), done = $("#guideDone");
+    done.hidden = false;
+    if (!/^\S+@\S+\.\S+$/.test(mail)) { done.textContent = "Skriv en giltig e-postadress, så skickar jag guiden dit."; $("#guide-email").focus(); return; }
+    done.textContent = "Tack! Guiden skickas till " + mail + (($("#guideNews").getAttribute("aria-pressed") === "true") ? ", och du får nyhetsbrevet några gånger per år." : ".") + " Det här är en prototyp, så inget har skickats.";
+  });
 
   /* ================= Meny ================= */
   var nav = $("#nav"), menuBtn = $("#menuBtn");

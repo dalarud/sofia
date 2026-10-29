@@ -107,7 +107,17 @@ Handgjorda föremål i stengods, enkla former och naturnära glasyrer.
 - **Små serier och unika exemplar** – lansering i "släpp" 4–6 gånger per år skapar efterfrågan och passar en tillverkning på deltid.
 - **Styling-tillägg** – keramik ingår eller erbjuds i rumsstyling och homestaging.
 
-### 5.5 Indikativ prislista (att justera efter lokal marknad)
+### 5.5 Kurser, öppen ateljé och presentkort
+- **Drejkurs för nybörjare** (4 h, max 6 deltagare, 950 kr) och **säsongskurser** som julverkstad med ljuslyktor (690 kr).
+- **Workshoppar**, till exempel *Ett lugnare barnrum* (450 kr) och *Homestaging inför försäljning* (550 kr), i ateljén eller digitalt.
+- **Öppen ateljé** vid varje keramiksläpp, med fri entré. Det bygger relationer och ger försäljning.
+- **Gruppbokningar** för företag, föreningar och förskolor.
+- **Presentkort** för konsultation, drejkurs, rumsstyling eller valfritt belopp från 200 kr. Det skickas som PDF och gäller i två år. Säljer bra kring jul.
+
+### 5.6 Gratis guide och nyhetsbrev
+*7 saker för ett lugnare barnrum* är en gratis PDF i utbyte mot e-postadress. Den visar Ro-modellen i praktiken och bygger en egen kundlista. Nyhetsbrevet går ut några gånger per år med tips, kursdatum och keramiksläpp.
+
+### 5.7 Indikativ prislista (att justera efter lokal marknad)
 
 | Tjänst | Riktpris inkl. moms |
 |---|---|
@@ -291,15 +301,21 @@ Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluf
 
 ## 12. Hemsidan
 
-Prototypen (`index.html` i detta repo) visar struktur, tonalitet och visuell identitet:
+Prototypen (`index.html` i detta repo) har följande delar:
 
-1. **Från brus till ro** – rubriken och en interaktiv yta där föremål i kaos ordnar sig. Besökaren kan själv dra reglaget mellan brus och ro.
-2. **Manifest** – ett stort typografiskt påstående om vad ett hem ska vara.
-3. **Tjänster som index** – Inredning, Homestaging, Lugna rum och Förskola som stora rader som fälls ut med pris och bokning.
-4. **Ro-modellen** – interaktiv planritning av ett familjehem. Varje hörnsten visar var i hemmet den gör skillnad, med konkreta tips.
-5. **Ateljén** – keramiken på en ekhylla med prislappar och varukorg (prototyp, ingen riktig betalning).
-6. **Om Sofia** – "Förskola + Inredning + Lera = ro", med porträtt i stenform.
-7. **Journal** – artiklar som en lugn lista (förbereder för SEO).
-8. **Vad skaver hemma?** – kontaktformulär där besökaren väljer det som skaver, vilket sänker tröskeln att höra av sig.
+1. **Från brus till ro:** rubriken och en interaktiv bild där föremål i kaos ordnar sig.
+2. **Manifest:** ett stort påstående om vad ett hem ska vara.
+3. **Tjänster:** Inredning, Homestaging, Lugna rum och Förskola, med priser och bokning.
+4. **Så går det till:** fyra steg från första samtal till färdigt hem, med tid och kostnad.
+5. **Ro-modellen:** interaktiv planritning med tips för varje hörnsten.
+6. **Ateljén:** keramiken på en ekhylla med varukorg.
+7. **Kurser och öppen ateljé:** kalender med filter, platser kvar, anmälan och väntelista.
+8. **Presentkort:** välj typ och belopp, skriv mottagare och hälsning, se kortet medan du fyller i och lägg det i varukorgen.
+9. **Om Sofia:** "Förskola + Inredning + Lera = ro".
+10. **Tips:** tre korta råd direkt på sidan.
+11. **Gratis guide och nyhetsbrev:** *7 saker för ett lugnare barnrum* mot e-postadress.
+12. **Vad skaver hemma?:** kontaktformulär där besökaren väljer det som skaver.
+
+Allt som skickar något, alltså bokningar, anmälningar, presentkort, guiden och formulär, är prototyper. I den skarpa sajten kopplas de till till exempel Shopify (butik och presentkort), ett bokningssystem för kurser och ett nyhetsbrevsverktyg som Mailchimp eller Klaviyo.
 
 **Nästa steg för en skarp sajt:** bygg den i en plattform Sofia själv kan uppdatera. **Shopify** passar om keramiken ska vara en stor del; **Squarespace** eller **Wix** passar om tjänsterna är i fokus och butiken är liten. Byt ut illustrationerna i prototypen mot riktiga foton.
