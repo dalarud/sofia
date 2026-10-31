@@ -1,0 +1,1 @@
+ALTER TABLE "files" ADD COLUMN "is_public" boolean DEFAULT false NOT NULL;

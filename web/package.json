@@ -1,0 +1,41 @@
+{
+  "name": "studio-dalarud",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hemsida, butik och administrationssida för Studio Dalarud",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx src/db/seed.ts",
+    "admin:password": "tsx src/scripts/admin-password.ts"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@pdf-lib/fontkit": "1.1.1",
+    "drizzle-orm": "0.45.0",
+    "iconv-lite": "0.7.0",
+    "jose": "6.1.0",
+    "next": "15.5.27",
+    "pdf-lib": "1.17.1",
+    "pg": "8.16.3",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "stripe": "19.1.0",
+    "zod": "4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "22.18.8",
+    "@types/pg": "8.15.5",
+    "@types/react": "19.1.17",
+    "drizzle-kit": "0.31.5",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "vitest": "3.2.4"
+  }
+}

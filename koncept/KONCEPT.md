@@ -386,6 +386,14 @@ Prototypen (`index.html` i detta repo) har följande delar:
 11. **Gratis guide och nyhetsbrev:** *7 saker för ett lugnare barnrum* mot e-postadress.
 12. **Vad skaver hemma?:** kontaktformulär där besökaren väljer det som skaver.
 
-Allt som skickar något, alltså bokningar, anmälningar, presentkort, guiden och formulär, är prototyper. I den skarpa sajten kopplas de till till exempel Shopify (butik och presentkort), ett bokningssystem för kurser och ett nyhetsbrevsverktyg som Mailchimp eller Klaviyo.
+**Den skarpa sajten** finns i mappen `web/` och bygger vidare på prototypens design. Allt som skickar något fungerar på riktigt: köp, kursbokningar, väntelista, presentkort, guiden och kontaktformuläret. Betalningar går via Stripe (kort, Klarna och Swish), och innehållet ändras i en egen administrationssida på `/admin`.
 
-**Nästa steg för en skarp sajt:** bygg den i en plattform Sofia själv kan uppdatera. **Shopify** passar om föremålen i lera ska vara en stor del; **Squarespace** eller **Wix** passar om tjänsterna är i fokus och butiken är liten. Byt ut illustrationerna i prototypen mot riktiga foton.
+Administrationen är byggd för att göra företaget lätt att sköta, även med ADHD:
+
+- **Idag** visar högst tre saker att göra just nu, med tid och en knapp direkt dit, plus en lista för det man vill komma ihåg.
+- **Kvitton** fotas direkt med mobilen och bokförs senare i ett fokusläge, ett i taget, genom att välja en kategori i vardagsspråk.
+- **Fakturor** skapas med tjänsterna som snabbval, skickas som PDF med betallänk och bokförs när de betalas.
+- **Bokföringen** sker automatiskt för köp, fakturor och Stripe. Momsen visas ruta för ruta som i Skatteverkets deklaration, och allt kan exporteras som SIE-fil till en redovisningskonsult.
+- **Veckans ekonomistund**: 15 minuter med timer, samma tid varje vecka.
+
+Hur sajten sätts i drift (Supabase, Vercel, Stripe) står i `web/README.md`. Byt ut illustrationerna mot riktiga foton när de finns; det görs direkt i administrationen.
