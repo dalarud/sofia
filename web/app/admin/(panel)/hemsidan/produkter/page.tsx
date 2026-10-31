@@ -7,7 +7,7 @@ import { saveFile } from "@/lib/receipts";
 import { kr } from "@/lib/money";
 
 const back = "/admin/hemsidan/produkter";
-const SHAPES = { vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", skylt: "Skylt", hangen: "Hänge", tval: "Tvålkopp" };
+const SHAPES = { vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", skylt: "Skylt", hangen: "Hänge", tval: "Bricka", ask: "Presentask", kit: "Lerpaket med verktyg" };
 const GLAZES = { mossa: "Mossa", lera: "Lera", havre: "Havre", strand: "Strand", kvall: "Kväll", sten: "Sten" };
 const CATS = { dekor: "Dekor", ljus: "Ljus", lugn: "För lugn" };
 const pick = <T extends object>(m: T, v: string, d: keyof T) => (v in m ? v : String(d));

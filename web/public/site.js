@@ -280,10 +280,48 @@
     lykta: { body: profile(100, [[70, 36], [120, 36], [164, 36], [170, 31]]), rims: [[100, 70, 36, 7]], holes: [[84, 104], [100, 96], [116, 104], [92, 128], [108, 128], [100, 150]] },
     sten: { body: ellipse(100, 148, 52, 26, 22, .12, 9) },
     markar: { custom: drawMarkar },
+    ask: { custom: drawAsk },
+    kit: { custom: drawKit },
     skylt: { custom: drawSkylt },
     hangen: { custom: drawHangen, noShadow: true },
     tval: { body: profile(100, [[150, 70], [156, 68], [163, 56], [170, 40]]), rims: [[100, 150, 70, 12]], ridges: true }
   };
+  // Lugna lådan: en öppen presentask med handsten och lådmärken
+  function drawAsk(ctx, c, pen, seed) {
+    ctx.save(); ctx.translate(100, 170); ctx.scale(1.4, 1.4); ctx.translate(-100, -170);
+    var box = rect(52, 128, 96, 42), lid = [[40, 124], [86, 108], [92, 120], [46, 136]];
+    wash(ctx, box, "#D2C2A6", { seed: seed, alpha: .07, layers: 18, spread: .12 });
+    pencil(ctx, box, { seed: seed, color: pen, alpha: .5 });
+    pencil(ctx, [[52, 138], [148, 138]], { seed: seed + 1, closed: false, color: pen, alpha: .35, passes: 1 });
+    [[84, -10], [104, 6]].forEach(function (m, i) {
+      ctx.save(); ctx.translate(m[0], 130); ctx.rotate(m[1] * Math.PI / 180);
+      var t = rect(-11, -30, 22, 30);
+      wash(ctx, t, "#E6DCCB", { seed: seed + 5 + i, alpha: .07, layers: 14, spread: .12 });
+      pencil(ctx, t, { seed: seed + 5 + i, color: pen, alpha: .45 });
+      ctx.restore();
+    });
+    var stone = ellipse(128, 124, 22, 12, 22, .12, seed + 9);
+    wash(ctx, stone, c, { seed: seed + 9, alpha: .08, layers: 20, spread: .12 });
+    pencil(ctx, stone, { seed: seed + 9, color: pen, alpha: .45 });
+    wash(ctx, lid, "#D2C2A6", { seed: seed + 3, alpha: .06, layers: 14, spread: .12 });
+    pencil(ctx, lid, { seed: seed + 3, color: pen, alpha: .45 });
+    ctx.restore();
+  }
+  // Forma hemma-kit: ett paket lera, en kavel och ett verktyg i trä
+  function drawKit(ctx, c, pen, seed) {
+    ctx.save(); ctx.translate(100, 170); ctx.scale(1.4, 1.4); ctx.translate(-100, -170);
+    var clay = [[56, 170], [54, 132], [62, 120], [108, 118], [118, 128], [120, 170]];
+    wash(ctx, clay, c, { seed: seed, alpha: .08, layers: 20, spread: .12 });
+    pencil(ctx, clay, { seed: seed, color: pen, alpha: .5 });
+    pencil(ctx, [[70, 132], [96, 130]], { seed: seed + 1, closed: false, color: pen, alpha: .3, passes: 1 });
+    var tool = [[128, 170], [154, 108], [160, 110], [136, 172]];
+    wash(ctx, tool, "#B8956A", { seed: seed + 2, alpha: .08, layers: 16, spread: .1 });
+    pencil(ctx, tool, { seed: seed + 2, color: pen, alpha: .45 });
+    var roll = rect(60, 160, 74, 10);
+    wash(ctx, roll, "#C9A57A", { seed: seed + 4, alpha: .08, layers: 16, spread: .1 });
+    pencil(ctx, roll, { seed: seed + 4, color: pen, alpha: .45 });
+    ctx.restore();
+  }
   // Lådmärken: tre märken med bildstöd som lutar mot hyllan
   function drawMarkar(ctx, c, pen, seed) {
     [[62, -8, "boll"], [100, 4, "bok"], [138, -4, "strumpa"]].forEach(function (m, i) {
