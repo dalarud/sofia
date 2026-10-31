@@ -66,76 +66,115 @@ Att fler människor ska få ett hem där de kan landa – oavsett hur deras hjä
 
 ---
 
-## 4. Målgrupper
+## 4. Målgrupper och positionering
 
 | Målgrupp | Behov | Erbjudande |
 |---|---|---|
-| **Bostadssäljare** (privat + via mäklare) | Sälja snabbare och till bättre pris | Homestaging, rådgivning inför visning |
-| **Familjer som vill ha ett hem som fungerar** | Mindre stress, bättre ordning, ett hem man trivs i | Inredningskonsultation, rumsstyling |
-| **Familjer med barn eller vuxna med NPF** | Struktur, färre sinnesintryck, återhämtning | *Lugna rum*-paket, barnrum, hemanalys |
-| **Förskolor och skolor** | Tillgängliga lärmiljöer enligt Skolverkets krav | Lärmiljöanalys, inredning, föreläsning för personal |
-| **Inredningsintresserade** | Fina, unika föremål | Föremål i lera i webbshop, marknader, återförsäljare |
+| **Bostadssäljare** (privat och via mäklare) | Sälja snabbare och till bättre pris | Homestaging, fotostyling, rådgivning inför visning |
+| **Mäklare** | Snygga bilder och nöjda säljare utan krångel | Samarbetsavtal med fasta priser |
+| **Inflyttare** | Komma i ordning och känna sig hemma snabbt | Inflyttning: planering och landa-dag |
+| **Familjer som vill ha ett hem som fungerar** | Mindre stress, bättre ordning, ett hem man trivs i | Hembesök, digital rumsplan, rumsstyling, årstidsstyling |
+| **Familjer med barn med NPF** | Struktur, färre sinnesintryck, återhämtning | Lugna rum: hemanalys, barnrum, Lera för lugn |
+| **Vuxna med ADHD eller annan NPF** | Ett hem och ett hemmakontor som stödjer vardagen | Lugna rum för vuxna, digital hemanalys |
+| **Verksamheter** (förskolor, skolor, LSS- och HVB-boenden, arbetsplatser) | Tillgängliga och lugna miljöer, kompetens hos personalen | Lärmiljöanalys, miljöer för boenden, föreläsningar, personalkurser |
+| **Inredningsintresserade och presentköpare** | Unika föremål, upplevelser och presenter | Föremål i lera, kurser, presentkort |
 
-Primär målgrupp år 1: **bostadssäljare och familjer i närområdet**, eftersom de ger snabba intäkter och referenser. NPF-erbjudandet byggs upp parallellt och blir det som särskiljer varumärket över tid.
+Primär målgrupp år 1: **bostadssäljare, inflyttare och familjer i närområdet**, eftersom de ger snabba intäkter och referenser. Lugna rum och verksamheter byggs upp parallellt och blir det som särskiljer varumärket över tid.
+
+### Konkurrenter och hur Studio Dalarud sticker ut
+
+| Konkurrent | Erbjuder | Studio Dalaruds svar |
+|---|---|---|
+| **Lokala homestagers och inredare** | Styling inför försäljning, ofta 5 000–30 000 kr ([Boio](https://boio.se/guide/salja-bostadsratt)) | Konkurrenskraftiga priser, och billigare startalternativ som rådgivning och fotostyling |
+| **Digitala designtjänster**, till exempel Westwing | Rumsdesign för 750–1 700 kr per rum ([Westwing](https://www.westwing.se/p/designservice/)) | Digital rumsplan för 1 495 kr: personlig, med Ro-modellen och skisser för hand |
+| **AI-verktyg för inredning** | Snabba och billiga bilder av rum | Kan inte förstå hur familjen lever. Sofia kan, och har NPF-kunskapen |
+| **NPF-anpassad inredning av hem** | Jag hittade ingen aktör som erbjuder detta | **Sofias unika område.** Här finns plats att bli den som syns först |
+
+**Positionering i en mening:** *Den enda inredaren som inreder för hur du mår och fungerar, inte bara för hur det ser ut.*
 
 ---
 
 ## 5. Erbjudandet
 
 ### 5.1 Inredning
-- **Inredningskonsultation i hemmet** (2 h) – genomgång, idéer och skriftlig sammanfattning.
-- **Rumsstyling** – moodboard, inköpslista, möblering och styling av ett rum.
-- **Digital konsultation** – för kunder i hela landet, via video och foton.
+- **Hembesök med rådgivning** (2 h, 1 995 kr): genomgång, idéer och skriftlig sammanfattning.
+- **Digital rumsplan** (1 495 kr per rum): kunden skickar bilder och mått och får skiss, moodboard och inköpslista. Ett skalbart erbjudande för hela Sverige, som svarar mot digitala designtjänster och AI-verktyg.
+- **Rumsstyling** (från 5 900 kr): moodboard, inköpslista, möblering och styling av ett rum.
+- **Årstidsstyling** (5 500 kr per år): fyra besök per år där hemmet stylas om inför höst, jul, vår och sommar. Ger återkommande intäkter och lojala kunder.
 
 ### 5.2 Homestaging
-- **Rådgivning inför försäljning** – checklista och plan som säljaren genomför själv.
-- **Styling med kundens egna möbler** – vanligast och mest lönsamt i början.
-- **Komplett homestaging** – med inhyrda/egna möbler och textilier (kräver lager; år 2).
-- **Samarbete med mäklare** – fast pris per uppdrag eller provision.
+- **Rådgivning och checklista inför visning** (2 495 kr): en plan som säljaren genomför själv.
+- **Fotostyling på fotodagen** (halvdag, 3 900 kr): Sofia är på plats när fotografen kommer. Ett billigt sätt att få bättre bilder.
+- **Styling med egna möbler** (från 6 900 kr): vanligast och mest lönsamt i början.
+- **Komplett homestaging** (offert): med hyrd inredning. Kräver eget lager och byggs upp år 2.
+- **Samarbetsavtal för mäklare**: fasta priser per uppdrag, så att mäklaren enkelt kan erbjuda styling till sina säljare.
 
-### 5.3 Lugna rum (NPF-medveten inredning)
-- **Lugna rum – hemanalys** – Sofia går igenom hemmet utifrån *Ro-modellen* (se avsnitt 6) och ger en konkret åtgärdsplan.
-- **Barnrum som ger ro** – planering och styling av barnrum med fokus på sömn, lek och överblick.
-- **Lärmiljö för förskolan** – analys, förslag och inredning av avdelningar, vilorum och hallar.
-- **Föreläsning / workshop** – "Miljön som verktyg" för föräldragrupper, förskolor och föreningar.
+### 5.3 Inflyttning: landa i nya hemmet
+- **Planering före flytten** (2 h, 1 995 kr): vart möblerna ska stå och vad som behöver köpas.
+- **Landa-dag** (från 4 900 kr): hall, kök och vardagsrum stylas så att det känns som hemma från första kvällen.
+- **Landa-helg** (från 9 900 kr): hela hemmet.
 
-### 5.4 Dalarud Lera
+Ett naturligt nästa steg för kunder som köper bostad, och mäklare kan rekommendera tjänsten till sina köpare.
+
+### 5.4 Lugna rum (NPF-medveten inredning)
+- **Hemanalys med åtgärdsplan** (3 995 kr i hemmet, 2 495 kr digitalt): Sofia går igenom hemmet utifrån *Ro-modellen* (se avsnitt 6).
+- **Barnrum som ger ro** (från 4 900 kr): planering och styling med fokus på sömn, lek och överblick.
+- **Vardag och hemmakontor för vuxna med ADHD** (från 4 900 kr): struktur, flöde och arbetsro hemma. Det finns många vuxna med diagnos som letar efter konkret hjälp.
+
+### 5.5 Verksamheter
+- **Lärmiljöanalys** för förskolor och skolor (från 8 000 kr exkl. moms).
+- **Miljöer för LSS- och HVB-boenden** (offert): gemensamma utrymmen och boenderum.
+- **Föreläsning: Miljön som verktyg** (från 5 000 kr exkl. moms) för personal, föräldragrupper och föreningar som Attention.
+- **Kurs i lera för personalgruppen** (från 3 500 kr): en kreativ personaldag som också visar hur lera kan användas för att lugna barn.
+
+### 5.6 Dalarud Lera
 Handgjorda föremål i **självtorkande lera**, med enkla former och färger från naturen. Leran torkar i luften och behöver ingen ugn. Föremålen målas och lackas, men de tål inte vatten och är inte till för mat eller dryck. Sortimentet är därför dekoration och sådant man håller i.
 
-- **Kärnsortiment:** vaser för torkade blommor, smyckeskålar, brickor, ljuslyktor för LED-ljus, ljusstakar med metallhylsa, väggdekor och julgranshängen.
-- **Signaturprodukt: Handsten** – en liten, slät sten i lera att hålla i handen när tankarna snurrar. Den kopplar leran direkt till NPF-delen.
-- **Små serier och unika exemplar** – lansering i "släpp" 4–6 gånger per år skapar efterfrågan och passar en tillverkning på deltid.
-- **Styling-tillägg** – föremål i lera ingår eller erbjuds i rumsstyling och homestaging.
+| Föremål | Pris | Varför |
+|---|---|---|
+| **Handsten** | 195 kr | Signaturprodukten. Kopplar leran till NPF-delen |
+| **Lådmärken Överblick, 6 st** | 295 kr | Bildstöd i lera för lådor och korgar. Ro-modellen som produkt |
+| **Dörrskylt med namn** | 345 kr | Personlig och tillverkas på beställning. En populär present |
+| **Vas Strand** | 595 kr (690 kr med glasinsats) | Glasinsatsen gör att vasen klarar färska blommor |
+| **Smyckeskål, bricka, ljuslykta för LED, ljusstake med metallhylsa** | 245–345 kr | Basen i sortimentet |
+| **Säsong**, till exempel julgranshängen | 195 kr | Släpps inför jul och påsk. Ger anledning att komma tillbaka |
 
-### 5.5 Kurser, öppen ateljé och presentkort
-- **Forma i lera för nybörjare** (3 h, max 8 deltagare, 650 kr). Deltagarna formar i självtorkande lera och tar med sig föremålen hem samma dag. De torkar på några dagar och målas sedan hemma. Ingen ugn behövs, så kurserna kan också hållas hos förskolor, företag och föreningar.
+- **Släpp** av små serier 4–6 gånger per år skapar efterfrågan och passar en tillverkning på deltid.
+- **Styling-tillägg:** föremål i lera ingår eller erbjuds i rumsstyling och homestaging.
+- **Återförsäljare:** några lokala inredningsbutiker eller blomsterbutiker kan ta in ett litet sortiment med provision.
+
+### 5.7 Kurser, öppen ateljé och presentkort
+- **Forma i lera för nybörjare** (3 h, max 8 deltagare, 650 kr). Deltagarna formar i självtorkande lera och tar med sig föremålen hem samma dag. De torkar på några dagar och målas sedan hemma.
 - **Säsongskurser**, till exempel julverkstad med hängen och ljusstakar (590 kr).
-- **Lera för lugn**, en workshop för förälder och barn (450 kr per par). Att forma lera lugnar många barn, så den knyter ihop leran med NPF-kunskapen.
+- **Lera för lugn**, en workshop för förälder och barn (450 kr per par).
 - **Workshoppar**, till exempel *Ett lugnare barnrum* (450 kr) och *Homestaging inför försäljning* (550 kr), i ateljén eller digitalt.
-- **Öppen ateljé** vid varje släpp av nya föremål, med fri entré. Det bygger relationer och ger försäljning.
-- **Gruppbokningar** för företag, föreningar och förskolor.
-- **Presentkort** för konsultation, kurs i lera, rumsstyling eller valfritt belopp från 200 kr. Det skickas som PDF och gäller i två år. Säljer bra kring jul.
+- **Egna grupper** (från 3 500 kr för upp till 8 personer): möhippor, kalas och personalgrupper. Eftersom ingen ugn behövs kan kursen hållas hemma hos kunden.
+- **Öppen ateljé** vid varje släpp av nya föremål, med fri entré.
+- **Presentkort** för konsultation, kurs i lera, rumsstyling eller valfritt belopp från 200 kr. Det skickas som PDF och gäller i två år.
 
-### 5.6 Gratis guide och nyhetsbrev
+### 5.8 Gratis guide och nyhetsbrev
 *7 saker för ett lugnare barnrum* är en gratis PDF i utbyte mot e-postadress. Den visar Ro-modellen i praktiken och bygger en egen kundlista. Nyhetsbrevet går ut några gånger per år med tips, kursdatum och nya föremål i lera.
 
-### 5.7 Indikativ prislista (att justera efter lokal marknad)
+### 5.9 Prislista
 
-| Tjänst | Riktpris inkl. moms |
+| Tjänst | Pris |
 |---|---|
-| Inredningskonsultation i hemmet, 2 h | 1 995 kr |
-| Digital konsultation, 60 min | 995 kr |
+| Hembesök med rådgivning, 2 h | 1 995 kr |
+| Digital rumsplan, per rum | 1 495 kr |
 | Rumsstyling, ett rum | från 5 900 kr |
+| Årstidsstyling, fyra besök | 5 500 kr / år |
 | Homestaging – rådgivning | 2 495 kr |
+| Homestaging – fotostyling, halvdag | 3 900 kr |
 | Homestaging – styling med egna möbler, lägenhet | från 6 900 kr |
-| Lugna rum – hemanalys med åtgärdsplan | 3 995 kr |
-| Barnrum som ger ro | från 4 900 kr |
-| Förskola – lärmiljöanalys | offert (från 8 000 kr exkl. moms) |
+| Inflyttning – landa-dag | från 4 900 kr |
+| Lugna rum – hemanalys (i hemmet / digitalt) | 3 995 / 2 495 kr |
+| Barnrum som ger ro / vardag för vuxna med ADHD | från 4 900 kr |
+| Verksamheter – lärmiljöanalys | från 8 000 kr exkl. moms |
 | Föreläsning, 60–90 min | från 5 000 kr exkl. moms |
-| Föremål i lera | 195–595 kr per föremål |
-| Kurs i lera | 590–650 kr per deltagare |
+| Föremål i lera | 195–690 kr |
+| Kurs i lera | 450–650 kr per deltagare, egna grupper från 3 500 kr |
 
-*Priserna är startpunkter baserade på vanliga nivåer för soloföretagare inom inredning. Jämför med 3–5 konkurrenter i regionen innan lansering.*
+*Priserna för privatpersoner är inklusive moms. Resor inom 3 mil ingår, därefter milersättning. Stäm av priserna mot 3–5 konkurrenter i regionen innan lansering.*
 
 ---
 
@@ -259,15 +298,39 @@ Varm, kunnig och lugn. Du-tilltal. Korta meningar. Hellre konkreta tips än fluf
 
 | Intäktsström | Antal per år | Snittpris | Summa |
 |---|---|---|---|
-| Homestaging | 18 | 6 500 kr | 117 000 kr |
-| Konsultationer & rumsstyling | 25 | 3 200 kr | 80 000 kr |
-| Lugna rum / barnrum | 10 | 4 200 kr | 42 000 kr |
-| Förskola & föreläsningar | 4 | 8 000 kr | 32 000 kr |
-| Föremål i lera | 200 föremål | 320 kr | 64 000 kr |
-| Kurser i lera | 6 kurser × 6 deltagare | 620 kr | 22 300 kr |
-| **Totalt (inkl. moms)** | | | **≈ 341 000 kr** |
+| Homestaging och fotostyling | 20 | 5 800 kr | 116 000 kr |
+| Hembesök, digitala rumsplaner och rumsstyling | 35 | 2 600 kr | 91 000 kr |
+| Årstidsstyling | 4 kunder | 5 500 kr | 22 000 kr |
+| Inflyttning | 6 | 5 500 kr | 33 000 kr |
+| Lugna rum (barn och vuxna) | 14 | 3 800 kr | 53 200 kr |
+| Verksamheter och föreläsningar | 5 | 7 000 kr | 35 000 kr |
+| Föremål i lera | 220 föremål | 300 kr | 66 000 kr |
+| Kurser i lera, öppna och egna grupper | 14 kurser | 3 600 kr | 50 400 kr |
+| **Totalt (inkl. moms)** | | | **≈ 467 000 kr** |
 
-*Ett försiktigt scenario för en uppstart på deltid. Syftet är att visa fördelningen – tjänsterna står för den största delen, leran och kurserna bygger varumärket och ger en extra intäkt.*
+*Ett försiktigt scenario för en uppstart på deltid. Tjänsterna står för den största delen, medan leran och kurserna bygger varumärket och sprider intäkterna över året.*
+
+### Framtida intäkter (år 2–3)
+- **Digital kurs eller arbetsbok: Lugnare hem på fyra veckor.** Ro-modellen steg för steg, för cirka 495 kr. Den säljs utan att Sofias tid går åt för varje kund.
+- **Lager för homestaging:** egen inredning att hyra ut vid kompletta uppdrag.
+- **Provision på inköpslistor:** samarbete med möbel- och inredningsbutiker om länkarna i planerna. Var tydlig mot kunden om det.
+- **Utbildning av personal i Ro-modellen**, för förskolor och kommuner som vill använda modellen själva.
+- **Fler återförsäljare** av föremålen i lera, och fler säsongssläpp.
+
+### Samarbeten och partner
+- **Mäklare:** samarbetsavtal för homestaging och tips om Inflyttning till köparna.
+- **Fotografer:** fotostyling på samma dag som fotograferingen.
+- **NPF-föreningar** som Attention, föräldranätverk och habilitering: föreläsningar och spridning av guiden.
+- **Förskolor, skolor och kommuner:** lärmiljöer, föreläsningar och personalkurser.
+- **Lokala butiker och kaféer:** återförsäljning, pop-ups och kurser på plats.
+
+### Risker och hur de möts
+| Risk | Hur den möts |
+|---|---|
+| Bostadsmarknaden går ner och färre säljer | Flera ben att stå på: Lugna rum, verksamheter, kurser och lera. Fotostyling som billigare alternativ |
+| Säsongsvariationer | Kurser och släpp inför jul, årstidsstyling och presentkort |
+| Sofias tid räcker inte | Digitala tjänster med fast pris, paketpriser och på sikt digital kurs |
+| NPF-erbjudandet uppfattas som vård | Tydlig kommunikation: inredning och vardag, inte behandling (se avsnitt 6) |
 
 ---
 
@@ -312,10 +375,10 @@ Prototypen (`index.html` i detta repo) har följande delar:
 
 1. **Från brus till ro:** rubriken och en interaktiv bild där föremål i kaos ordnar sig.
 2. **Manifest:** ett stort påstående om vad ett hem ska vara.
-3. **Tjänster:** Inredning, Homestaging, Lugna rum och Förskola, med priser och bokning.
+3. **Tjänster:** Inredning, Homestaging, Inflyttning, Lugna rum och Verksamheter, med priser och bokning.
 4. **Så går det till:** fyra steg från första samtal till färdigt hem, med tid och kostnad.
 5. **Ro-modellen:** interaktiv planritning med tips för varje hörnsten.
-6. **Ateljén:** föremålen i lera på en ekhylla med varukorg.
+6. **Ateljén:** nio föremål i lera på en ekhylla, med glasinsats som tillval och varukorg.
 7. **Kurser och öppen ateljé:** kalender med filter, platser kvar, anmälan och väntelista.
 8. **Presentkort:** välj typ och belopp, skriv mottagare och hälsning, se kortet medan du fyller i och lägg det i varukorgen.
 9. **Om Sofia:** "Förskola + Inredning + Lera = ro".

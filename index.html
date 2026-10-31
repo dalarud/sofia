@@ -245,6 +245,7 @@ section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
 .tag h3 { font-size: 1.65rem; }
 .tag__price { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
 .tag p { color: var(--muted); font-size: .92rem; line-height: 1.45; }
+.tag__opt { font-size: .9rem; margin-top: .2rem; }
 .tag__badge { order: -1; font: italic 400 1.1rem var(--font-display); color: var(--accent); }
 .add-btn { justify-self: start; margin-top: .5rem; font: 500 .95rem var(--font-body); background: none; border: 0; border-bottom: 1px solid currentColor; color: var(--fg); padding: .15rem 0 .2rem; cursor: pointer; display: inline-flex; align-items: baseline; gap: .4rem; transition: color .2s; }
 .add-btn::after { content: "→"; transition: transform .2s; }
@@ -536,39 +537,47 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
       </div>
       <div class="index">
         <details class="index__row" style="--row: var(--surface-2)" open>
-          <summary><span class="index__name">Inredning</span><span class="index__short">Ett hem som känns helt och som ditt</span><span class="index__price">från 995 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
+          <summary><span class="index__name">Inredning</span><span class="index__short">Ett hem som känns helt och som ditt</span><span class="index__price">från 1 495 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
           <div class="index__body">
-            <p>Jag utgår från det du redan har och bygger vidare med naturliga material, rätt ljus och en tydlig plan. Du får förslag du kan genomföra själv, eller hjälp hela vägen.</p>
-            <ul class="price-list"><li><span>Konsultation i hemmet, 2 h</span><span>1 995 kr</span></li><li><span>Digital konsultation, 60 min</span><span>995 kr</span></li><li><span>Rumsstyling, ett rum</span><span>från 5 900 kr</span></li></ul>
+            <p>Jag utgår från det du redan har och bygger vidare med naturliga material, rätt ljus och en tydlig plan. Du får förslag du kan genomföra själv, eller hjälp hela vägen. Bor du långt bort gör vi det digitalt.</p>
+            <ul class="price-list"><li><span>Hembesök med rådgivning, 2 h</span><span>1 995 kr</span></li><li><span>Digital rumsplan: skiss, moodboard och inköpslista</span><span>1 495 kr / rum</span></li><li><span>Rumsstyling, ett rum</span><span>från 5 900 kr</span></li><li><span>Årstidsstyling, fyra besök per år</span><span>5 500 kr / år</span></li></ul>
             <a class="btn" href="#kontakt" data-service="Inredning">Boka</a>
           </div>
         </details>
         <details class="index__row" style="--row: var(--clay-soft)">
           <summary><span class="index__name">Homestaging</span><span class="index__short">Bostaden som köparen vill flytta in i</span><span class="index__price">från 2 495 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
           <div class="index__body">
-            <p>Ljus, luft och känsla redan på första bilden. Jag arbetar helst med dina egna möbler och samarbetar gärna direkt med din mäklare.</p>
-            <ul class="price-list"><li><span>Rådgivning inför visning</span><span>2 495 kr</span></li><li><span>Styling med egna möbler</span><span>från 6 900 kr</span></li><li><span>Komplett homestaging</span><span>offert</span></li></ul>
+            <p>Ljus, luft och känsla redan på första bilden. Jag arbetar helst med dina egna möbler och samarbetar gärna direkt med din mäklare. Mäklare kan teckna avtal med fasta priser.</p>
+            <ul class="price-list"><li><span>Rådgivning och checklista inför visning</span><span>2 495 kr</span></li><li><span>Fotostyling på fotodagen, halvdag</span><span>3 900 kr</span></li><li><span>Styling med egna möbler, lägenhet</span><span>från 6 900 kr</span></li><li><span>Komplett homestaging med hyrd inredning</span><span>offert</span></li></ul>
             <a class="btn" href="#kontakt" data-service="Homestaging">Boka</a>
           </div>
         </details>
-        <details class="index__row" style="--row: var(--moss-soft)">
-          <summary><span class="index__name">Lugna rum</span><span class="index__short">NPF-medveten inredning för hela familjen</span><span class="index__price">från 3 995 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
+        <details class="index__row" style="--row: var(--surface-2)">
+          <summary><span class="index__name">Inflyttning</span><span class="index__short">Landa i nya hemmet</span><span class="index__price">från 4 900 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
           <div class="index__body">
-            <div><span class="index__badge">Unikt för Studio Dalarud</span><p>Jag går igenom hemmet med Ro-modellen och ger en konkret plan för struktur, sinnesintryck och återhämtning. För familjer med ADHD, autism eller annan NPF, och för alla som vill ha det lugnare.</p></div>
-            <ul class="price-list"><li><span>Hemanalys med åtgärdsplan</span><span>3 995 kr</span></li><li><span>Barnrum som ger ro</span><span>från 4 900 kr</span></li></ul>
+            <p>Nytt hem och flyttkartonger överallt? Vi planerar vart allt ska ta vägen, och jag stylar de rum ni använder mest så att det känns som hemma från första kvällen.</p>
+            <ul class="price-list"><li><span>Planering före flytten, 2 h</span><span>1 995 kr</span></li><li><span>Landa-dag: hall, kök och vardagsrum</span><span>från 4 900 kr</span></li><li><span>Landa-helg: hela hemmet</span><span>från 9 900 kr</span></li></ul>
+            <a class="btn" href="#kontakt" data-service="Inflyttning">Boka</a>
+          </div>
+        </details>
+        <details class="index__row" style="--row: var(--moss-soft)">
+          <summary><span class="index__name">Lugna rum</span><span class="index__short">NPF-medveten inredning för hela familjen</span><span class="index__price">från 2 495 kr</span><span class="index__plus" aria-hidden="true"></span></summary>
+          <div class="index__body">
+            <div><span class="index__badge">Unikt för Studio Dalarud</span><p>Jag går igenom hemmet med Ro-modellen och ger en konkret plan för struktur, sinnesintryck och återhämtning. För barn och vuxna med ADHD, autism eller annan NPF, och för alla som vill ha det lugnare.</p></div>
+            <ul class="price-list"><li><span>Hemanalys med åtgärdsplan, i hemmet</span><span>3 995 kr</span></li><li><span>Digital hemanalys, via bilder och video</span><span>2 495 kr</span></li><li><span>Barnrum som ger ro</span><span>från 4 900 kr</span></li><li><span>Vardag och hemmakontor för vuxna med ADHD</span><span>från 4 900 kr</span></li></ul>
             <a class="btn" href="#kontakt" data-service="Lugna rum">Boka</a>
           </div>
         </details>
         <details class="index__row" style="--row: var(--surface-2)">
-          <summary><span class="index__name">Förskola</span><span class="index__short">Lärmiljöer och föreläsningar för personal</span><span class="index__price">offert</span><span class="index__plus" aria-hidden="true"></span></summary>
+          <summary><span class="index__name">Verksamheter</span><span class="index__short">Förskolor, skolor, boenden och arbetsplatser</span><span class="index__price">offert</span><span class="index__plus" aria-hidden="true"></span></summary>
           <div class="index__body">
-            <p>Jag har arbetat många år i förskolan och vet hur en avdelning används en vanlig tisdag. Jag hjälper er skapa tillgängliga lärmiljöer, från hallen till vilan.</p>
-            <ul class="price-list"><li><span>Lärmiljöanalys av avdelning</span><span>från 8 000 kr</span></li><li><span>Föreläsning: Miljön som verktyg</span><span>från 5 000 kr</span></li></ul>
-            <a class="btn" href="#kontakt" data-service="Lärmiljö för förskola">Kontakta</a>
+            <p>Jag har arbetat många år i förskolan och vet hur en avdelning används en vanlig tisdag. Jag hjälper verksamheter att skapa tillgängliga och lugna miljöer, från hallen till vilan.</p>
+            <ul class="price-list"><li><span>Lärmiljöanalys för förskola eller skola</span><span>från 8 000 kr</span></li><li><span>Miljöer för LSS- och HVB-boenden</span><span>offert</span></li><li><span>Föreläsning: Miljön som verktyg</span><span>från 5 000 kr</span></li><li><span>Kurs i lera för personalgruppen</span><span>från 3 500 kr</span></li></ul>
+            <a class="btn" href="#kontakt" data-service="Verksamhet">Kontakta</a>
           </div>
         </details>
       </div>
-      <p class="index__note">Priser för privatpersoner inklusive moms. Förskola och föreläsningar exklusive moms.</p>
+      <p class="index__note">Priser för privatpersoner inklusive moms. Priser för verksamheter exklusive moms. Resor inom 3 mil ingår.</p>
     </div>
   </section>
 
@@ -654,7 +663,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
         <button class="chip" type="button" data-kind="oppen" aria-pressed="false">Öppen ateljé</button>
       </div>
       <ul class="events" id="events"></ul>
-      <p class="events__note">Vill du boka en egen kurs för en grupp, ett företag eller en förskola? <a href="#kontakt" data-service="Föreläsning">Hör av dig.</a></p>
+      <p class="events__note">Vill du boka en egen kurs för din grupp, hemma hos er eller i ateljén? <a href="#kontakt" data-service="Kurs i lera">Hör av dig.</a> Från 3 500 kr för upp till 8 personer, till exempel möhippa, kalas eller personalgrupp.</p>
     </div>
   </section>
 
@@ -792,7 +801,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
         <div class="field"><label for="f-email">E-post</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
         <div class="field field--full"><label for="f-service">Jag är intresserad av</label>
           <select id="f-service" name="service">
-            <option>Inredning</option><option>Homestaging</option><option>Lugna rum</option><option>Lärmiljö för förskola</option><option>Föreläsning</option><option>Lera / beställning</option>
+            <option>Inredning</option><option>Homestaging</option><option>Inflyttning</option><option>Lugna rum</option><option>Verksamhet</option><option>Föreläsning</option><option>Kurs i lera</option><option>Lera / beställning</option>
           </select>
         </div>
         <div class="field field--full"><label for="f-msg">Berätta mer (frivilligt)</label><textarea id="f-msg" name="message" placeholder="Vilka rum gäller det, och hur vill du att hemmet ska kännas?"></textarea></div>
@@ -810,7 +819,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   <div class="wrap">
     <div class="footer-cols">
       <div><h4>Studio Dalarud</h4><p>Inredning, homestaging och handgjorda föremål i lera. Från brus till ro.</p></div>
-      <div><h4>Tjänster</h4><ul><li><a href="#tjanster">Inredning</a></li><li><a href="#tjanster">Homestaging</a></li><li><a href="#ro-modellen">Lugna rum</a></li><li><a href="#tjanster">Förskola</a></li></ul></div>
+      <div><h4>Tjänster</h4><ul><li><a href="#tjanster">Inredning</a></li><li><a href="#tjanster">Homestaging</a></li><li><a href="#ro-modellen">Lugna rum</a></li><li><a href="#tjanster">Inflyttning</a></li><li><a href="#tjanster">Verksamheter</a></li></ul></div>
       <div><h4>Ateljén</h4><ul><li><a href="#ateljen">Dalarud Lera</a></li><li><a href="#kurser">Kurser och öppen ateljé</a></li><li><a href="#presentkort">Presentkort</a></li><li><a href="#ateljen">Köpvillkor</a></li><li><a href="#ateljen">Frakt och retur</a></li></ul></div>
       <div><h4>Följ</h4><ul><li><a href="#kontakt">Instagram</a></li><li><a href="#kontakt">Pinterest</a></li><li><a href="#guide">Nyhetsbrev</a></li><li><a href="#guide">Gratis guide</a></li></ul></div>
     </div>
@@ -1098,7 +1107,11 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     });
   });
   showPillar("overblick");
-  if (document.fonts && document.fonts.load) document.fonts.load("22px Caveat").then(drawPlan, function () {});
+  if (document.fonts && document.fonts.load) document.fonts.load("22px Caveat").then(function () {
+    drawPlan();
+    var c = document.querySelector('[data-product="skylt"]');
+    if (c) { byId.skylt.img = null; drawProduct(c); }
+  }, function () {});
 
   /* ================= Ateljén ================= */
   var GLAZE = { mossa: "#7E8B6F", lera: "#A9705A", havre: "#D2C2A6", strand: "#C4AF90", kvall: "#8F7F92", sten: "#9A968C" };
@@ -1108,11 +1121,49 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     stake: { body: profile(100, [[64, 14], [70, 12], [78, 8], [148, 8], [156, 15], [163, 26], [170, 29]]), rims: [[100, 64, 14, 3.5]], candle: true },
     lykta: { body: profile(100, [[70, 36], [120, 36], [164, 36], [170, 31]]), rims: [[100, 70, 36, 7]], holes: [[84, 104], [100, 96], [116, 104], [92, 128], [108, 128], [100, 150]] },
     sten: { body: ellipse(100, 148, 52, 26, 22, .12, 9) },
+    markar: { custom: drawMarkar },
+    skylt: { custom: drawSkylt },
+    hangen: { custom: drawHangen, noShadow: true },
     tval: { body: profile(100, [[150, 70], [156, 68], [163, 56], [170, 40]]), rims: [[100, 150, 70, 12]], ridges: true }
   };
+  // Lådmärken: tre märken med bildstöd som lutar mot hyllan
+  function drawMarkar(ctx, c, pen, seed) {
+    [[62, -8, "boll"], [100, 4, "bok"], [138, -4, "strumpa"]].forEach(function (m, i) {
+      ctx.save(); ctx.translate(m[0], 168); ctx.rotate(m[1] * Math.PI / 180);
+      var t = rect(-17, -46, 34, 46);
+      wash(ctx, t, c, { seed: seed + i, alpha: .07, layers: 18, spread: .15 });
+      pencil(ctx, t, { seed: seed + i, color: pen, alpha: .5 });
+      pencil(ctx, ellipse(0, -38, 3, 3, 10, 0, 1), { seed: seed + 9 + i, color: pen, alpha: .45, passes: 1 });
+      pencil(ctx, [[0, -41], [5, -52], [-3, -60], [5, -68]], { seed: seed + 20 + i, closed: false, color: pen, alpha: .4, passes: 1 });
+      if (m[2] === "boll") pencil(ctx, ellipse(0, -16, 8, 8, 16, 0, 2), { seed: seed + 30, color: pen, alpha: .55 });
+      if (m[2] === "bok") { pencil(ctx, rect(-9, -24, 18, 14), { seed: seed + 31, color: pen, alpha: .55 }); pencil(ctx, [[0, -24], [0, -10]], { seed: seed + 32, closed: false, color: pen, alpha: .5, passes: 1 }); }
+      if (m[2] === "strumpa") pencil(ctx, [[-3, -28], [-3, -16], [4, -9], [9, -11], [6, -16], [3, -18], [3, -28]], { seed: seed + 33, closed: false, color: pen, alpha: .55 });
+      ctx.restore();
+    });
+  }
+  // Dörrskylt: oval skylt med namn och snöre
+  function drawSkylt(ctx, c, pen, seed) {
+    var s = ellipse(100, 128, 64, 36, 30, .04, seed);
+    wash(ctx, s, c, { seed: seed, alpha: .065, layers: 22, spread: .2 });
+    pencil(ctx, s, { seed: seed, color: pen, alpha: .55 });
+    pencil(ctx, [[62, 100], [76, 72], [100, 62], [124, 72], [138, 100]], { seed: seed + 3, closed: false, color: pen, alpha: .45, passes: 1 });
+    ctx.save(); ctx.fillStyle = pen; ctx.globalAlpha = .75; ctx.font = "34px Caveat, 'Segoe Print', cursive"; ctx.textAlign = "center"; ctx.fillText("Elsa", 100, 140); ctx.restore();
+  }
+  // Julgranshängen: två stjärnor och ett hjärta på en kvist
+  function drawHangen(ctx, c, pen, seed) {
+    pencil(ctx, [[34, 36], [80, 30], [126, 27], [168, 22]], { seed: seed, closed: false, color: pen, width: 2.2, alpha: .6 });
+    function star(cx, cy, r) { var pts = []; for (var i = 0; i < 10; i++) { var a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * .45 : r; pts.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]); } return pts; }
+    function heart(cx, cy, r) { var pts = []; for (var i = 0; i < 28; i++) { var t = i / 28 * Math.PI * 2; pts.push([cx + r * .06 * 16 * Math.pow(Math.sin(t), 3), cy - r * .06 * (13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t))]); } return pts; }
+    [[64, 32, 98, star(64, 98, 24)], [104, 29, 122, heart(104, 120, 22)], [144, 25, 96, star(144, 96, 22)]].forEach(function (o, i) {
+      pencil(ctx, [[o[0], o[1]], [o[0], o[2] - 22]], { seed: seed + 5 + i, closed: false, color: pen, alpha: .4, passes: 1 });
+      wash(ctx, o[3], i === 1 ? GLAZE.mossa : c, { seed: seed + 10 + i, alpha: .07, layers: 18, spread: .15 });
+      pencil(ctx, o[3], { seed: seed + 10 + i, color: pen, alpha: .5 });
+    });
+  }
   function paintProduct(ctx, p) {
     var o = OBJ[p.shape], c = GLAZE[p.glaze], pen = token("--pencil") || "#3A3A34", seed = p.seed;
-    wash(ctx, ellipse(100, 171, 66, 6, 20, .1, seed), "#6E6352", { seed: seed, alpha: .03, layers: 12, spread: .2, edge: 0 });
+    if (!o.noShadow) wash(ctx, ellipse(100, 171, 66, 6, 20, .1, seed), "#6E6352", { seed: seed, alpha: .03, layers: 12, spread: .2, edge: 0 });
+    if (o.custom) { o.custom(ctx, c, pen, seed); return; }
     if (o.candle) {
       var cd = rect(95, 12, 10, 52);
       wash(ctx, cd, "#EFE7D6", { seed: seed + 5, alpha: .12, layers: 12, spread: .1 }); pencil(ctx, cd, { seed: seed + 5, color: pen, alpha: .4, passes: 1 });
@@ -1128,14 +1179,21 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     if (o.ridges) [[72, 150, 128, 150], [80, 156, 120, 156]].forEach(function (l, i) { pencil(ctx, [[l[0], l[1]], [l[2], l[3]]], { seed: seed + 30 + i, closed: false, color: pen, alpha: .35, passes: 1 }); });
   }
   var PRODUCTS = [
-    { id: "vas-strand", name: "Vas Strand", price: 595, shape: "vas", glaze: "strand", cat: "dekor", text: "Hög vas för kvistar och torkade blommor. H 24 cm.", badge: "Få kvar" },
+    { id: "vas-strand", name: "Vas Strand", price: 595, shape: "vas", glaze: "strand", cat: "dekor", text: "Hög vas för kvistar och torkade blommor. H 24 cm.", badge: "Få kvar",
+      option: { id: "vas-strand-glas", label: "Med glasinsats för färska blommor", price: 95 } },
     { id: "skal-mossa", name: "Smyckeskål Mossa", price: 295, shape: "skal", glaze: "mossa", cat: "dekor", text: "För ringar, nycklar och små skatter. Ø 12 cm." },
     { id: "handsten", name: "Handsten", price: 195, shape: "sten", glaze: "sten", cat: "lugn", text: "Slät sten att hålla i när tankarna snurrar. Lagom stor för handen.", badge: "Signatur" },
+    { id: "markar", name: "Lådmärken Överblick, 6 st", price: 295, shape: "markar", glaze: "havre", cat: "lugn", text: "Märken med bild att hänga på lådor och korgar. Välj bland 24 motiv, till exempel strumpor, lego och böcker.", badge: "Ny" },
     { id: "lykta-kvall", name: "Ljuslykta Kväll", price: 345, shape: "lykta", glaze: "kvall", cat: "ljus", text: "Ger ett mjukt, prickigt ljus. För LED-ljus." },
     { id: "stake-linne", name: "Ljusstake Linne", price: 325, shape: "stake", glaze: "havre", cat: "ljus", text: "För kronljus, med en hylsa av metall. H 10 cm." },
-    { id: "bricka-lera", name: "Bricka Lera", price: 245, shape: "tval", glaze: "lera", cat: "dekor", text: "Liten bricka för ljus, smycken eller nycklar. L 14 cm." }
+    { id: "skylt", name: "Dörrskylt med namn", price: 345, shape: "skylt", glaze: "mossa", cat: "dekor", text: "Med valfritt namn, formad på beställning. Klar inom två veckor.", badge: "Personlig" },
+    { id: "bricka-lera", name: "Bricka Lera", price: 245, shape: "tval", glaze: "lera", cat: "dekor", text: "Liten bricka för ljus, smycken eller nycklar. L 14 cm." },
+    { id: "hangen", name: "Julgranshängen, 3 st", price: 195, shape: "hangen", glaze: "lera", cat: "dekor", text: "Två stjärnor och ett hjärta i lera, med snöre av linne.", badge: "Säsong" }
   ];
-  var byId = {}; PRODUCTS.forEach(function (p, i) { p.seed = 300 + i * 17; byId[p.id] = p; });
+  var byId = {}; PRODUCTS.forEach(function (p, i) {
+    p.seed = 300 + i * 17; byId[p.id] = p;
+    if (p.option) byId[p.option.id] = { id: p.option.id, name: p.name + " med glasinsats", price: p.price + p.option.price, base: p.id };
+  });
   // Presentkort i varukorgen: sparas separat så att de finns kvar efter omladdning
   var symbolEl = document.querySelector(".namestory .symbol");
   var GIFT_IMG = symbolEl ? "data:image/svg+xml," + encodeURIComponent(symbolEl.outerHTML.replace(/<svg ([^>]*)>/, '<svg xmlns="http://www.w3.org/2000/svg" $1><rect x="-10" y="-10" width="120" height="120" fill="#F3EEE6"/>').replace(/currentColor/g, "#2B362E").replace(/var\(--accent\)/g, "#9B5E49")) : "";
@@ -1148,13 +1206,21 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     return '<article class="item" data-cat="' + p.cat + '"><div class="item__art"><canvas width="200" height="175" data-product="' + p.id + '" role="img" aria-label="Akvarellskiss av ' + p.name + '"></canvas></div>' +
       '<div class="tag">' + (p.badge ? '<span class="tag__badge">' + p.badge + "</span>" : "") +
       '<div class="tag__row"><h3>' + p.name + '</h3><span class="tag__price">' + kr(p.price) + "</span></div>" +
-      "<p>" + p.text + '</p><button class="add-btn" type="button" data-add="' + p.id + '">Lägg i korgen</button></div></article>';
+      "<p>" + p.text + "</p>" + (p.option ? '<button class="toggle tag__opt" type="button" aria-pressed="false" data-opt="' + p.id + '">' + p.option.label + ", +" + kr(p.option.price) + "</button>" : "") +
+      '<button class="add-btn" type="button" data-add="' + p.id + '">Lägg i korgen</button></div></article>';
   }).join("");
   function drawProduct(canvas) {
     var p = byId[canvas.dataset.product], ctx = fit(canvas, 200, 175); if (!ctx) return;
     paintProduct(ctx, p);
     if (!p.img) { try { p.img = canvas.toDataURL("image/png"); } catch (e) {} }
   }
+  document.querySelectorAll(".tag__opt").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var on = b.getAttribute("aria-pressed") !== "true", p = byId[b.dataset.opt];
+      b.setAttribute("aria-pressed", String(on));
+      b.closest(".tag").querySelector(".tag__price").textContent = kr(p.price + (on ? p.option.price : 0));
+    });
+  });
   document.querySelectorAll("[data-filter]").forEach(function (chip) {
     chip.addEventListener("click", function () {
       var f = chip.dataset.filter;
@@ -1198,7 +1264,7 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
     $("#cartCount").textContent = count; $("#cartTotal").textContent = kr(total);
     $("#cartItems").innerHTML = ids.length ? ids.map(function (id) {
       var p = byId[id];
-      return '<li class="cart-item"><div class="cart-item__thumb">' + (p.img ? '<img src="' + p.img + '" alt="">' : "") + "</div>" +
+      return '<li class="cart-item"><div class="cart-item__thumb">' + ((p.img || (p.base && byId[p.base].img)) ? '<img src="' + (p.img || byId[p.base].img) + '" alt="">' : "") + "</div>" +
         '<div><div class="cart-item__name">' + p.name + '</div><div class="cart-item__meta">' + kr(p.price) + " / st</div>" +
         '<div class="qty"><button type="button" data-dec="' + id + '" aria-label="Ta bort en ' + p.name + '">−</button><span>' + cart[id] + "</span>" +
         '<button type="button" data-inc="' + id + '" aria-label="Lägg till en ' + p.name + '">+</button></div></div>' +
@@ -1211,7 +1277,9 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
   document.addEventListener("click", function (e) {
     var addB = e.target.closest("[data-add]"), inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
     if (addB) {
-      var id = addB.dataset.add; cart[id] = (cart[id] || 0) + 1; save(); renderCart(); toast(byId[id].name + " ligger i korgen");
+      var id = addB.dataset.add, opt = addB.closest(".tag") && addB.closest(".tag").querySelector(".tag__opt[aria-pressed='true']");
+      if (opt) id = byId[id].option.id;
+      cart[id] = (cart[id] || 0) + 1; save(); renderCart(); toast(byId[id].name + " ligger i korgen");
       var card = addB.closest(".item"); card.classList.add("is-added"); addB.textContent = "Tillagd ✓";
       setTimeout(function () { card.classList.remove("is-added"); addB.textContent = "Lägg i korgen"; }, 1600);
     }
