@@ -153,7 +153,7 @@ Handgjorda föremål i **självtorkande lera**, med enkla former och färger fr�
 - **Presentkort** för konsultation, kurs i lera, rumsstyling eller valfritt belopp från 200 kr. Det skickas som PDF och gäller i två år.
 
 ### 5.8 Gratis guide och nyhetsbrev
-*7 saker för ett lugnare barnrum* är en gratis PDF i utbyte mot e-postadress. Den visar Ro-modellen i praktiken och bygger en egen kundlista. Nyhetsbrevet går ut några gånger per år med tips, kursdatum och nya föremål i lera.
+*7 saker för ett lugnare barnrum* (`guide/7-saker-for-ett-lugnare-barnrum.pdf`, A5, 12 sidor) är en gratis PDF i utbyte mot e-postadress. Den byggs med `node guide/bygg-guide.js`. Den visar Ro-modellen i praktiken och bygger en egen kundlista. Nyhetsbrevet går ut några gånger per år med tips, kursdatum och nya föremål i lera.
 
 ### 5.9 Prislista
 

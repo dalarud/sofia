@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>7 saker för ett lugnare barnrum</title>
+<style>
+@font-face { font-family: "Instrument Serif"; src: url("../profil/typsnitt/InstrumentSerif-Regular.ttf"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url("../profil/typsnitt/InstrumentSerif-Italic.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400; src: url("../profil/typsnitt/HankenGrotesk-Regular.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 500; src: url("../profil/typsnitt/HankenGrotesk-Medium.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 600; src: url("../profil/typsnitt/HankenGrotesk-SemiBold.ttf"); }
+@font-face { font-family: "Caveat"; src: url("../profil/typsnitt/Caveat-Regular.ttf"); }
+@page { size: 148mm 210mm; margin: 0; }
+:root { --linne: #F3EEE6; --havre: #E6DCCB; --lera: #9B5E49; --mossa: #6F7D62; --mossa-ljus: #DCE0D2; --granskog: #2B362E; --muted: #5D6458; --line: #D0C3AF; --accent: #9B5E49; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--linne); color: var(--granskog); font: 400 9.4pt/1.55 "Hanken Grotesk", sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 148mm; height: 210mm; padding: 14mm 13mm 13mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; gap: 4mm; background: var(--linne); }
+.page:last-child { page-break-after: auto; }
+.folio { position: absolute; left: 13mm; right: 13mm; bottom: 7mm; display: flex; justify-content: space-between; font-size: 6.6pt; color: var(--muted); letter-spacing: .04em; }
+h1, h2, h3 { font-family: "Instrument Serif", serif; font-weight: 400; margin: 0; line-height: 1; letter-spacing: -.01em; }
+h1 em, h2 em { color: var(--lera); }
+h2 { font-size: 27pt; }
+h3 { font-size: 12.5pt; margin-bottom: 1mm; }
+p { margin: 0; }
+.kicker { font-size: 6.8pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mossa); display: flex; gap: 2mm; align-items: center; }
+.kicker::before { content: ""; width: 2.2mm; height: 1.6mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: currentColor; }
+.lede { font-size: 10.5pt; line-height: 1.5; color: var(--muted); }
+.muted { color: var(--muted); }
+canvas.art { display: block; width: 100%; height: auto; }
+ul.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.8mm; }
+ul.steps li { display: grid; grid-template-columns: 4mm 1fr; gap: 1.5mm; }
+ul.steps li::before { content: ""; width: 2.2mm; height: 1.6mm; margin-top: 1.4mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; background: var(--lera); }
+.facts { display: flex; gap: 6mm; border-top: 1px solid var(--line); padding-top: 2.5mm; margin-top: auto; margin-bottom: 3mm; font-size: 8.4pt; }
+.facts b { display: block; font-size: 6.4pt; letter-spacing: .16em; text-transform: uppercase; color: var(--mossa); margin-bottom: .5mm; }
+.note { font: italic 400 11pt/1.3 "Instrument Serif", serif; color: var(--lera); }
+.num { font: italic 400 34pt/1 "Instrument Serif", serif; color: var(--lera); }
+.tiphead { display: flex; align-items: baseline; gap: 3mm; }
+.logo { color: var(--granskog); display: block; }
+
+/* omslag */
+.cover { justify-content: space-between; padding: 16mm 14mm 14mm; }
+.cover .logo { width: 44mm; }
+.cover__art { position: relative; flex: 1; display: grid; align-content: center; }
+.cover__art canvas { position: absolute; inset: 8% -6% 4% -6%; width: 112%; height: 88%; }
+.cover h1 { position: relative; font-size: 40pt; line-height: .98; }
+.cover__sub { position: relative; margin-top: 5mm; font-size: 10.5pt; color: var(--muted); max-width: 90mm; }
+.cover__foot { display: flex; justify-content: space-between; align-items: flex-end; font-size: 7pt; color: var(--muted); letter-spacing: .06em; }
+.cover__foot span:first-child { font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mossa); }
+
+/* ro-modellen */
+.pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 6mm; margin-top: 2mm; }
+.pillar { border-top: 1px solid var(--granskog); padding-top: 2.5mm; }
+.pillar p { font-size: 8.6pt; color: var(--muted); }
+.pillar .refs { margin-top: 1.5mm; font: italic 400 10pt "Instrument Serif", serif; color: var(--lera); }
+
+/* checklista */
+.check { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--granskog); }
+.check li { display: grid; grid-template-columns: 6mm 1fr auto; gap: 2mm; align-items: baseline; padding: 2.2mm 0; border-bottom: 1px solid var(--line); }
+.check li::before { content: ""; width: 3.6mm; height: 2.7mm; border-radius: 58% 42% 55% 45% / 52% 60% 40% 48%; border: 1.2px solid var(--granskog); }
+.check li span:last-child { font-size: 7.4pt; color: var(--mossa); letter-spacing: .08em; text-transform: uppercase; font-weight: 600; }
+.questions { display: grid; gap: 2mm; }
+.questions p { font: 400 13pt/1.25 "Caveat", cursive; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 5mm; }
+
+/* nästa steg */
+.dark { background: var(--granskog); color: #EFE8DC; --accent: #D49C82; }
+.dark .muted, .dark .folio { color: #B9BCAD; }
+.dark .kicker { color: #A9B79A; }
+.dark h2 em { color: #D49C82; }
+.dark .logo { color: #EFE8DC; width: 46mm; }
+.offer { display: grid; gap: 0; border-top: 1px solid rgba(239, 232, 220, .35); }
+.offer div { display: flex; justify-content: space-between; gap: 4mm; padding: 2.2mm 0; border-bottom: 1px solid rgba(239, 232, 220, .18); font-size: 9pt; }
+.offer span:last-child { white-space: nowrap; font-weight: 500; }
+.small { font-size: 6.8pt; line-height: 1.5; color: #B9BCAD; }
+</style>
+</head>
+<body>
+
+<!-- 1 Omslag -->
+<section class="page cover">
+  <svg class="logo" aria-hidden="true" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="cover__art">
+    <canvas data-art="omslag" width="1200" height="1100"></canvas>
+    <h1>7 saker för ett <em>lugnare barnrum</em></h1>
+    <p class="cover__sub">Ro-modellen i praktiken. Sådant du kan göra i helgen, utan att köpa nytt.</p>
+  </div>
+  <div class="cover__foot"><span>Gratis guide</span><span>Sofia Dalarud · Studio Dalarud</span></div>
+</section>
+
+<!-- 2 Hej -->
+<section class="page">
+  <span class="kicker">Innan du börjar</span>
+  <h2>Hej och <em>välkommen.</em></h2>
+  <p class="lede">Jag heter Sofia Dalarud. I många år arbetade jag i förskolan och fördjupade mig i specialpedagogik och NPF. Där såg jag varje dag hur mycket miljön betyder. Ett barn som slipper kämpa med rummet runt sig har mer kraft kvar till allt annat.</p>
+  <p>Den här guiden samlar sju saker jag ofta börjar med när ett barnrum ska bli lugnare. De bygger på Ro-modellen, som jag använder i mitt arbete som inredare. Ingen av dem kräver att du köper nytt, och de flesta hinner du göra på en helg.</p>
+  <h3 style="margin-top:2mm">Så använder du guiden</h3>
+  <ul class="steps">
+    <li><span><b>Välj en sak i taget.</b> Små förändringar som får sätta sig ger mer än allt på en gång.</span></li>
+    <li><span><b>Sätt dig på huk.</b> Titta på rummet från barnets höjd, och från sängen.</span></li>
+    <li><span><b>Fråga ditt barn.</b> Vad är skönt och vad är jobbigt? Barn vet ofta mer än vi tror.</span></li>
+    <li><span><b>Prova och justera.</b> Varje barn är olika, med eller utan NPF. Behåll det som fungerar och ändra resten.</span></li>
+  </ul>
+  <p class="note" style="margin-top:auto">Ett lugnt rum är inte ett tomt rum. Det är ett rum där barnet vet var saker finns, vad som händer och var man kan vila.</p>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>2</span></div>
+</section>
+
+<!-- 3 Ro-modellen -->
+<section class="page">
+  <span class="kicker">Ro-modellen</span>
+  <h2>Fyra hörnstenar för <em>ett lugnare hem.</em></h2>
+  <p class="lede">Ro-modellen är mitt sätt att titta på ett rum. Den samlar det jag lärt mig i förskolan och som inredare i fyra hörnstenar. Varje tips i guiden hör till en av dem.</p>
+  <div class="pillars">
+    <div class="pillar"><h3>Överblick</h3><p>En plats för varje sak och tydliga zoner. Mindre letande och färre beslut.</p><p class="refs">Tips 2 och 5</p></div>
+    <div class="pillar"><h3>Sinnesro</h3><p>Ljus, ljud, färg och material i balans. Färre intryck där ögat vilar.</p><p class="refs">Tips 1, 3 och 6</p></div>
+    <div class="pillar"><h3>Flöde</h3><p>Rummet stödjer vardagens rutiner, så att det blir lättare att gå från ett steg till nästa.</p><p class="refs">Tips 7</p></div>
+    <div class="pillar"><h3>Återhämtning</h3><p>Minst en plats som bara är till för vila, varje dag.</p><p class="refs">Tips 4</p></div>
+  </div>
+  <canvas class="art" data-art="plan" width="1200" height="600" style="margin-top:auto"></canvas>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>3</span></div>
+</section>
+
+<!-- Tips 1 -->
+<section class="page">
+  <span class="kicker">Tips 1 av 7 · Sinnesro</span>
+  <div class="tiphead"><span class="num">1</span><h2>Ljus i tre höjder</h2></div>
+  <canvas class="art" data-art="ljus" width="1200" height="500"></canvas>
+  <p class="lede">En stark taklampa lyser upp allt på en gång: varje leksak, varje färg och varje skugga. För ett barn som tar in mycket kan det göra det svårt att varva ner. Flera mjuka ljuskällor på olika höjder ger ett lugnare rum, och ett tydligt tecken på att dagen håller på att ta slut.</p>
+  <h3>Gör så här</h3>
+  <ul class="steps"><li><span>Släck taklampan efter middagen.</span></li><li><span>Tänd tre lägre ljuskällor: en på golvet, en på ett bord eller en hylla och en i fönstret.</span></li><li><span>Välj varmt ljus. På förpackningen står det 2700 K eller lägre.</span></li><li><span>Ha en dimmer eller en lampa med flera lägen nära sängen, så att ljuset kan sänkas steg för steg.</span></li></ul>
+  
+  <div class="facts"><div><b>Kostar</b>0–300 kr</div><div><b>Tid</b>En kväll</div><div style="flex:2"><b>Tänk på</b>Fäst sladdar längs väggen och välj LED-slingor som inte blir varma.</div></div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>4</span></div>
+</section>
+
+<!-- Tips 2 -->
+<section class="page">
+  <span class="kicker">Tips 2 av 7 · Överblick</span>
+  <div class="tiphead"><span class="num">2</span><h2>En bild på varje låda</h2></div>
+  <canvas class="art" data-art="lador" width="1200" height="500"></canvas>
+  <p class="lede">När barnet inte vet var sakerna bor blir både letande och städning svårt. En bild på lådan visar vad som finns i den, även för den som inte kan läsa ännu. Barnet kan hitta och plocka undan själv.</p>
+  <h3>Gör så här</h3>
+  <ul class="steps"><li><span>Sortera leksakerna i 6–8 grupper, till exempel lego, bilar, böcker och pyssel.</span></li><li><span>Ta ett foto av innehållet eller rita en bild, och fäst den på lådan.</span></li><li><span>Låt samma sak alltid bo på samma plats.</span></li><li><span>Ställ det barnet använder mest i barnets höjd, och det som kräver en vuxen högre upp.</span></li></ul>
+  <p class="note">Från förskolan: nästan allt har bildstöd där. Inte för att barnen inte kan, utan för att det sparar kraft åt alla.</p>
+  <div class="facts"><div><b>Kostar</b>0–100 kr</div><div><b>Tid</b>En eftermiddag</div></div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>5</span></div>
+</section>
+
+<!-- Tips 3 -->
+<section class="page">
+  <span class="kicker">Tips 3 av 7 · Sinnesro</span>
+  <div class="tiphead"><span class="num">3</span><h2>Färre saker i ögonhöjd</h2></div>
+  <canvas class="art" data-art="farre" width="1200" height="500"></canvas>
+  <p class="lede">Öppna hyllor fulla av leksaker är som ett rum som pratar hela tiden. Ju fler saker ögat ser, desto mer måste hjärnan sortera bort. Det kan göra det svårare att leka länge med en sak, och svårare att somna.</p>
+  <h3>Gör så här</h3>
+  <ul class="steps"><li><span>Ställ undan ungefär hälften av leksakerna i en låda i förrådet. Byt några varannan vecka, så känns gamla leksaker som nya.</span></li><li><span>Håll väggen vid sängen lugn, utan affischer eller fulla hyllor.</span></li><li><span>Använd lådor med lock, eller häng ett tyg framför öppna hyllor.</span></li><li><span>Välj några få saker att visa upp, som en favoritbok eller något barnet är stolt över.</span></li></ul>
+  
+  <div class="facts"><div><b>Kostar</b>0 kr</div><div><b>Tid</b>En förmiddag, sedan några minuter varannan vecka</div></div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>6</span></div>
+</section>
+
+<!-- Tips 4 -->
+<section class="page">
+  <span class="kicker">Tips 4 av 7 · Återhämtning</span>
+  <div class="tiphead"><span class="num">4</span><h2>En plats för vila</h2></div>
+  <canvas class="art" data-art="vila" width="1200" height="500"></canvas>
+  <p class="lede">Alla behöver någonstans att dra sig undan när det blir för mycket. En liten, avgränsad plats med mjuka material säger till kroppen att här får man bara vara. För många barn med NPF är en sådan plats extra viktig efter skolan eller förskolan.</p>
+  <h3>Gör så här</h3>
+  <ul class="steps"><li><span>Gör en koja i ett hörn: ett tält, ett tyg över ett par stolar eller en madrass under en loftsäng.</span></li><li><span>Fyll den med kuddar, en filt och kanske ett gosedjur eller en slät sten att hålla i.</span></li><li><span>Ha ett dämpat ljus där inne, till exempel en liten LED-lampa.</span></li><li><span>Låt barnet bestämma över platsen. Den ska aldrig användas som straff.</span></li></ul>
+  
+  <div class="facts"><div><b>Kostar</b>0–300 kr</div><div><b>Tid</b>En eftermiddag</div><div style="flex:2"><b>Tänk på</b>Inga snören eller band i kojan för små barn. Tyngdtäcke kan hjälpa en del barn, men rådgör med en arbetsterapeut först.</div></div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>7</span></div>
+</section>
+
+<!-- Tips 5 -->
+<section class="page">
+  <span class="kicker">Tips 5 av 7 · Överblick</span>
+  <div class="tiphead"><span class="num">5</span><h2>Zoner för lek, lugn och sömn</h2></div>
+  <canvas class="art" data-art="zoner" width="1200" height="500"></canvas>
+  <p class="lede">När hela rummet är till för allt på en gång blir det svårt att veta vad som gäller. Tydliga zoner visar utan ord var man leker, ritar och sover. Det gör det lättare att byta från lek till vila.</p>
+  <h3>Gör så här</h3>
+  <ul class="steps"><li><span>Låt en matta visa var lekzonen är.</span></li><li><span>Håll sängen till sömn och vila, och flytta leksakerna därifrån.</span></li><li><span>Ställ skrivbordet så att barnet inte har fönster eller dörr rakt framför sig, om det är lätt att bli distraherad.</span></li><li><span>Ge varje zon sin egen förvaring nära till hands.</span></li></ul>
+  
+  <div class="facts"><div><b>Kostar</b>0 kr om du möblerar om, en matta från cirka 300 kr</div><div><b>Tid</b>En dag</div></div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>8</span></div>
+</section>
+
+<!-- Tips 6 -->
+<section class="page">
+  <span class="kicker">Tips 6 av 7 · Sinnesro</span>
+  <div class="tiphead"><span class="num">6</span><h2>Dämpa ljudet</h2></div>
+  <canvas class="art" data-art="ljud" width="1200" height="500"></canvas>
+  <p class="lede">Ljud studsar mellan hårda golv och kala väggar. Leksaker som ramlar, en stol som skrapar och syskon i rummet bredvid kan bli mycket för ett barn som är känsligt för ljud. Mjuka material tar udden av det.</p>
+  <h3>Gör så här</h3>
+  <ul class="steps"><li><span>Lägg en matta på golvet, gärna i ull eller tjock bomull.</span></li><li><span>Häng gardiner som går ända ner till golvet.</span></li><li><span>Sätt filttassar under stolar och bord.</span></li><li><span>Ge hörselkåpor en fast plats, så att barnet själv kan ta dem när det behövs.</span></li></ul>
+  
+  <div class="facts"><div><b>Kostar</b>50–800 kr</div><div><b>Tid</b>En timme</div></div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>9</span></div>
+</section>
+
+<!-- Tips 7 -->
+<section class="page">
+  <span class="kicker">Tips 7 av 7 · Flöde</span>
+  <div class="tiphead"><span class="num">7</span><h2>Kvällen syns på väggen</h2></div>
+  <canvas class="art" data-art="kvall" width="1200" height="500"></canvas>
+  <p class="lede">Kvällen består av många små steg, och det är lätt att tappa bort sig mellan dem. När stegen syns som bilder vet barnet vad som kommer härnäst, utan att du behöver påminna om allt. Det blir färre diskussioner och mer ro för er båda.</p>
+  <h3>Gör så här</h3>
+  <ul class="steps"><li><span>Gör en bildremsa med kvällens steg, till exempel kvällsmat, pyjamas, tandborstning, saga och släcka.</span></li><li><span>Sätt den i barnets ögonhöjd nära sängen.</span></li><li><span>Gör stegen i samma ordning varje kväll.</span></li><li><span>Låt barnet flytta en klädnypa eller vända en bild när ett steg är klart.</span></li></ul>
+  <p class="note">Från förskolan: det som är förutsägbart blir lugnt. Det gäller små barn, stora barn och oss vuxna.</p>
+  <div class="facts"><div><b>Kostar</b>0–50 kr</div><div><b>Tid</b>En kväll att göra, sedan varje kväll</div></div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>10</span></div>
+</section>
+
+
+<!-- 11 Checklista -->
+<section class="page">
+  <span class="kicker">Checklista</span>
+  <h2>Din <em>helgplan.</em></h2>
+  <p class="muted">Bocka av det du har provat. Börja gärna med det som känns lättast. En lyckad första ändring gör det roligare att fortsätta.</p>
+  <ul class="check">
+    <li><span>Ljus i tre höjder</span><span>Sinnesro</span></li>
+    <li><span>En bild på varje låda</span><span>Överblick</span></li>
+    <li><span>Färre saker i ögonhöjd</span><span>Sinnesro</span></li>
+    <li><span>En plats för vila</span><span>Återhämtning</span></li>
+    <li><span>Zoner för lek, lugn och sömn</span><span>Överblick</span></li>
+    <li><span>Dämpa ljudet</span><span>Sinnesro</span></li>
+    <li><span>Kvällen syns på väggen</span><span>Flöde</span></li>
+  </ul>
+  <h3 style="margin-top:2mm">Tre frågor att ställa i rummet</h3>
+  <div class="questions">
+    <p>Vad ser mitt barn när det ligger i sängen?</p>
+    <p>Var hamnar sakerna när de inte har någon plats?</p>
+    <p>När på dagen blir det oftast stökigt eller bråkigt?</p>
+  </div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>11</span></div>
+</section>
+
+<!-- 12 Nästa steg -->
+<section class="page dark">
+  <span class="kicker">Vill du ha hjälp?</span>
+  <h2>Lugna rum med <em>Studio Dalarud.</em></h2>
+  <p class="lede muted">Varje familj och varje barn är olika. Vill du ha hjälp att se rummet med nya ögon gör jag en hemanalys utifrån Ro-modellen. Du får en konkret plan för just ert hem, som ni kan göra själva eller tillsammans med mig.</p>
+  <div class="offer">
+    <div><span>Hemanalys med åtgärdsplan, i hemmet</span><span>3 995 kr</span></div>
+    <div><span>Digital hemanalys, via bilder och video</span><span>2 495 kr</span></div>
+    <div><span>Barnrum som ger ro, planering och styling</span><span>från 4 900 kr</span></div>
+    <div><span>Workshop: Ett lugnare barnrum</span><span>450 kr</span></div>
+  </div>
+  <p class="muted">Det första samtalet är alltid gratis. Hör av dig på <b style="color:#EFE8DC">hej@studiodalarud.se</b>, via <b style="color:#EFE8DC">studiodalarud.se</b> eller på Instagram, <b style="color:#EFE8DC">@studiodalarud</b>.</p>
+  <div style="margin-top:auto;display:grid;gap:5mm">
+    <svg class="logo" aria-hidden="true" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <p class="small">Råden i guiden är allmänna tips om inredning och vardag. De ersätter inte stöd från vården, habiliteringen eller elevhälsan. Tänk alltid på säkerheten: fäst möbler och sladdar, och låt inte små barn vara ensamma med snören, smådelar eller levande ljus.<br>© 2026 Studio Dalarud. Du får gärna dela guiden vidare i sin helhet.</p>
+  </div>
+  <div class="folio"><span>7 saker för ett lugnare barnrum</span><span>12</span></div>
+</section>
+
+</body>
+</html>
