@@ -69,6 +69,8 @@ Kontrollera att namnet är fritt innan det används offentligt, och registrera d
 
 ## 4. Tio principer
 
+> Varje princip är prövad mot forskningen, med en gradering av hur stark kunskapen är: se `FORSKNING.md`. Föremålen som bygger på principerna finns i `DESIGNOBJEKT.md`.
+
 Principerna är kärnan i designkonceptet. De gäller ett barnrum lika mycket som en förskola eller en lägenhet som ska säljas.
 
 1. **Ögonhöjden är fredad.** Det som syns mellan knä och huvud tar mest uppmärksamhet. Där ska det vara lugnast.

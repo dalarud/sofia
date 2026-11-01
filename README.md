@@ -4,7 +4,7 @@ Företagskoncept, grafisk profil och hemsida för Studio Dalarud: inredning, hom
 
 | Mapp | Innehåll |
 | --- | --- |
-| `koncept/` | Företagskonceptet (`KONCEPT.md`) det övergripande konceptet Människohemmet (`MANNISKOHEMMET.md`), delkonceptet Rohemmet (`ROHEMMET.md`) och livsstilen (`LIVSSTIL.md`). Visuella versioner i `manniskohemmet.html`, `rohemmet.html` och `livsstil.html`, byggs med `python3 koncept/bygg-sidor.py` |
+| `koncept/` | Företagskonceptet (`KONCEPT.md`) det övergripande konceptet Människohemmet (`MANNISKOHEMMET.md`), delkonceptet Rohemmet (`ROHEMMET.md`) livsstilen (`LIVSSTIL.md`), forskningsgrunden (`FORSKNING.md`) och designobjekten (`DESIGNOBJEKT.md`). Visuella versioner i `manniskohemmet.html`, `rohemmet.html`, `livsstil.html` och `bagen.html`, byggs med `python3 koncept/bygg-sidor.py` |
 | `profil/` | Logotyp, typsnitt, grafisk manual och tryckfiler |
 | `skrift/` | Skriften *Rohemmet – Ett snällt hem åt alla* (A5, 28 sidor). Byggs med `node skrift/bygg-skrift.js` |
 | `guide/` | Gratisguiden *7 saker för ett lugnare barnrum* |

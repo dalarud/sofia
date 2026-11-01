@@ -168,6 +168,20 @@ Flöde före form | Rummet formas efter det som händer där varje dag. Hallen e
 Tre av något | Tre färger i ett rum, tre saker på en yta, tre steg i taget. | Låt bara tre saker stå på en yta.
 Det handgjorda är välkommet | En sak gjord av en människa ger mer än tio från ett lager. | Forma något litet i lera, eller ställ fram något som någon har gjort till dig.
 Hemmet följer året | Fyra årstider, fyra små skiften. Det som hör till förra årstiden får vila. | Plocka bort tre saker som hör sommaren till.` },
+  { key: "rohem.forskning.title", label: "Rohemmet: forskningen, rubrik", value: "Det du redan anar. *Det forskningen visar.*" },
+  { key: "rohem.forskning.lede", label: "Rohemmet: forskningen, ingress", multiline: true, value: "Varje princip börjar i något alla känner igen, och prövas sedan mot forskningen. Vi säger hur stark kunskapen är, också när den är tunn." },
+  { key: "rohem.forskning", label: "Rohemmet: forskningen (Princip | vad den visar | källa | grad: Stark, Måttlig, Indirekt eller Sunt förnuft, en per rad)", multiline: true, value: `Ljus i tre höjder | Vanlig rumsbelysning före läggdags försenar sömnhormonet melatonin jämfört med dämpat ljus. | Gooley m.fl. 2011, Journal of Clinical Endocrinology & Metabolism | Stark
+Allt har en plats, och platsen syns | Visuellt stöd, som bilder och scheman, är en evidensbaserad metod vid autism. | NCAEP, Steinbrenner m.fl. 2020 | Stark
+Ögonhöjden är fredad | Barn i kraftigt dekorerade klassrum var mer distraherade och lärde sig mindre än i avskalade. | Fisher, Godwin och Seltman 2014, Psychological Science | Måttlig
+Mjukt dämpar | Buller och efterklang försämrar barns språkliga prestationer, mest för barn med uppmärksamhetssvårigheter. | Klatte, Bergström och Lachmann 2013, Frontiers in Psychology | Måttlig
+Naturens färger och material | Mättade färger ökar upphetsningen, och rum med trä har gett lägre stressreaktioner. | Valdez och Mehrabian 1994; Burnard och Kutnar 2015 | Måttlig
+Det handgjorda är välkommet | Stresshormonet kortisol sjönk hos tre av fyra efter 45 minuters skapande. | Kaimal, Ray och Muniz 2016, Art Therapy | Måttlig
+Bågen | Rundade rum bedöms som vackrare än kantiga. | Vartanian m.fl. 2013, PNAS | Måttlig
+Tre av något | Arbetsminnet rymmer ungefär tre till fem saker åt gången. | Cowan 2001, Behavioral and Brain Sciences | Indirekt
+Ett hörn för vila | Teorierna om återhämtning och skydd har blandat stöd. Rohörnan bygger på förskolans kojor. | Ohly m.fl. 2016; Dosen och Ostwald 2016 | Sunt förnuft
+Flöde före form | Inte prövat i hem. Arbetsterapeuter arbetar på liknande sätt. | | Sunt förnuft
+Hemmet följer året | Inte prövat. | | Sunt förnuft` },
+  { key: "rohem.forskning.not", label: "Rohemmet: forskningen, förbehåll", multiline: true, value: "Vi lovar aldrig effekt på diagnoser. Vi formger miljöer och föremål, vi behandlar inte. Därför står graden av kunskap bredvid varje princip, och vi går igenom ny forskning varje år." },
   { key: "rohem.matten.title", label: "Rohemmet: Ro-måtten, rubrik", value: "Folkhemmet hade köksmått. Rohemmet har *Ro-måtten.*" },
   { key: "rohem.matten.lede", label: "Rohemmet: Ro-måtten, ingress", multiline: true, value: "Konkreta riktvärden som gör principerna lätta att använda, för familjer, förskolor och den som bygger nytt. Prova ritningen: växla mellan vuxen och barn, och tänd kvällsljuset." },
   { key: "rohem.matten", label: "Rohemmet: Ro-måtten (Rubrik | text, en per rad)", multiline: true, value: `Ögonhöjdszonen | 90–160 cm för vuxna, 60–120 cm i barnrum. *Högst en tredjedel* av väggytan där har öppen förvaring eller föremål.

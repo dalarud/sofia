@@ -21,6 +21,8 @@ Studio Dalarud är ett lifestyle-företag som samlar tre saker Sofia redan kan p
 >
 > **Människohemmet** är det övergripande konceptet, en vision i folkhemmets anda: *hemmet format efter människan, inte tvärtom.* Det har fem delkoncept: Ro, Jord, Växt, Bord och År. Se `koncept/MANNISKOHEMMET.md` och `koncept/manniskohemmet.html`.
 >
+> **Forskningen** bakom principerna, med en ärlig gradering från stark till sunt förnuft, finns i `koncept/FORSKNING.md`. **Designobjekten** Dagbågen, Stenbäraren, Nischen, Kvällsljuset, Kroken i tre höjder och Ljudtavlan finns i `koncept/DESIGNOBJEKT.md` och `koncept/bagen.html`.
+>
 > **Rohemmet** är det mest utvecklade delkonceptet: manifestet *Ro åt alla*, tio principer och Ro-måtten. Se `koncept/ROHEMMET.md` och `koncept/rohemmet.html`.
 
 Det som gör företaget unikt är kombinationen. Det finns många inredare och många homestagers, men nästan ingen som kan förklara *varför* ett rum känns lugnt och som kan inreda för familjer där någon har ADHD, autism eller annan NPF. Den kunskapen blir varumärkets kärna – **ro** – och binder ihop tjänster, produkter och innehåll till ett sammanhållet lifestyle-koncept.

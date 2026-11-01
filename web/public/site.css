@@ -697,3 +697,15 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .story-quote { margin: 1.4rem 0 0; display: grid; gap: 1.4rem; max-width: 26ch; }
 .story-quote p { font: 400 clamp(1.7rem, 4vw, 3rem)/1.18 var(--font-display); }
 .story-quote em { color: var(--clay-light); }
+
+/* Forskningen */
+.evidence { border-top: 1px solid color-mix(in srgb, var(--on-deep) 30%, transparent); }
+.evidence__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) 8.5rem; gap: .3rem 1.6rem; padding: 1.1rem 0; border-bottom: 1px solid color-mix(in srgb, var(--on-deep) 15%, transparent); align-items: baseline; }
+.evidence__row b { font: 400 1.4rem/1.15 var(--font-display); grid-row: span 2; }
+.evidence__row span { color: var(--on-deep); }
+.evidence__row small { grid-column: 2; color: var(--on-deep-muted); font-size: .82rem; }
+.evidence__row .grade { grid-column: 3; grid-row: 1; }
+.grade { justify-self: start; font-style: normal; font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: .25rem .65rem; border-radius: 999px; white-space: nowrap; }
+.grade--stark { background: #DCE0D2; color: #2B362E; } .grade--mattlig { background: #E9D9B8; color: #2B362E; } .grade--indirekt { background: #EBD6CA; color: #2B362E; } .grade--sunt { color: var(--on-deep); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--on-deep) 45%, transparent); }
+.evidence__note { margin-top: 2rem; color: var(--on-deep-muted); font-size: .92rem; max-width: 62ch; }
+@media (max-width: 760px) { .evidence__row { grid-template-columns: minmax(0, 1fr); } .evidence__row b { grid-row: auto; } .evidence__row small, .evidence__row .grade { grid-column: 1; grid-row: auto; } }

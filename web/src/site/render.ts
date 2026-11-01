@@ -24,7 +24,7 @@ export const PAGES: Record<PageKey, PageDef> = {
   manniskohemmet: { title: "Människohemmet – Studio Dalarud", description: "Ett hem format efter människan, inte tvärtom. Idén om Människohemmet och dess fem delkoncept: Ro, Jord, Växt, Bord och År.", nav: "manniskohemmet",
     head: { eyebrow: "Efter folkhemmet", heading: "sida.mh.rubrik", lede: "sida.mh.ingress" }, sections: ["mh-folkhemmet", "mh-vision", "mh-modell", "mh-mal", "mh-vidare"] },
   rohemmet: { title: "Rohemmet – Ett snällt hem åt alla", description: "Manifestet Ro åt alla, tio principer och Ro-måtten: riktvärden för ljus, höjder, färg, ljud och vila. Ladda ner skriften gratis.", nav: "manniskohemmet",
-    head: { eyebrow: "Ett delkoncept i Människohemmet", heading: "sida.rohem.rubrik", lede: "sida.rohem.ingress", crumb: ["/manniskohemmet", "Människohemmet"] }, sections: ["rh-manifest", "rh-principer", "rh-matten", "rh-horna", "rh-skriften"] },
+    head: { eyebrow: "Ett delkoncept i Människohemmet", heading: "sida.rohem.rubrik", lede: "sida.rohem.ingress", crumb: ["/manniskohemmet", "Människohemmet"] }, sections: ["rh-manifest", "rh-principer", "rh-forskning", "rh-matten", "rh-horna", "rh-skriften"] },
   "ro-i-vardagen": { title: "Ro i vardagen – Studio Dalarud", description: "Ro-testet, ritualer, årstider, tips och en gratis guide för ett lugnare hem.", nav: "ro-i-vardagen",
     head: { eyebrow: "Ro i vardagen", heading: "sida.liv.rubrik", lede: "sida.liv.ingress" }, sections: ["liv-testet", "liv-ritualer", "liv-arstider", "tips", "liv-ord", "guide", "liv-gemenskap"] },
   om: { title: "Om Sofia – Studio Dalarud", description: "Sofia Dalarud är förskollärare, inredare och formgivare i lera. Om hur Studio Dalarud blev till.", nav: "om",
@@ -52,6 +52,7 @@ function renderRows(value: string, kind: string): string {
       case "measure": return `<div><dt>${rich(a)}</dt><dd>${rich(b)}</dd></div>`;
       case "word": return `<div><dt>${rich(a)}</dt><dd>${rich(b)}</dd></div>`;
       case "type": return `<div><dt>${rich(a)}</dt><dd>${rich(b)}</dd></div>`;
+      case "evidence": { const g = d.toLowerCase(); const cls = g.startsWith("stark") ? "stark" : g.startsWith("måttlig") ? "mattlig" : g.startsWith("indirekt") ? "indirekt" : "sunt"; return `<div class="evidence__row"><b>${rich(a)}</b><span>${rich(b)}</span><small>${rich(c)}</small><i class="grade grade--${cls}">${rich(d)}</i></div>`; }
       case "club": return `<div><h3>${rich(a)}</h3><p>${rich(b)}</p></div>`;
       case "ritual": return `<div class="ritual"><span class="ritual__when">${rich(b)}</span><h3>${rich(a)}</h3><p>${rich(c)}</p></div>`;
       case "season": { const [bg, fg] = SEASON_COLORS[i % 4]; return `<div class="season" style="background:${bg};color:${fg}"><span>${rich(b)}</span><h3>${rich(a)}</h3><p>${rich(c)}</p>${d ? `<p class="season__meta">${rich(d)}</p>` : ""}</div>`; }
