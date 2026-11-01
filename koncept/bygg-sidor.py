@@ -1,4 +1,4 @@
-# Bygger koncept/livsstil.html och koncept/rohemmet.html av *.src.html med logotypen inbäddad.
+# Bygger koncept/livsstil.html, rohemmet.html och manniskohemmet.html av *.src.html med logotypen inbäddad.
 import pathlib, re
 root = pathlib.Path(__file__).resolve().parent.parent
 src = (root / "koncept/livsstil.src.html").read_text()
@@ -20,3 +20,6 @@ print("livsstil", len(out))
 ro = (root / "koncept/rohemmet.src.html").read_text().replace("{{LOGO}}", logo)
 (root / "koncept/rohemmet.html").write_text(ro)
 print("rohemmet", len(ro))
+mh = (root / "koncept/manniskohemmet.src.html").read_text().replace("{{LOGO}}", logo)
+(root / "koncept/manniskohemmet.html").write_text(mh)
+print("manniskohemmet", len(mh))

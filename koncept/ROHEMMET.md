@@ -1,6 +1,8 @@
 # Rohemmet – ett snällt hem åt alla
 
-*Designkoncept · version 1 · november 2026 · bygger på `LIVSSTIL.md` och `KONCEPT.md`*
+*Delkoncept i Människohemmet · version 1 · november 2026 · se `MANNISKOHEMMET.md`*
+
+> Rohemmet är ett av fem delkoncept i det övergripande konceptet **Människohemmet** (Ro, Jord, Växt, Bord och År). Det är det delkoncept som är mest utvecklat och som gör Studio Dalarud unikt.
 
 Folkhemmet var mer än ett politiskt ord. Det blev ett sätt att formge hela Sverige: ljusa lägenheter, standardmått för köket, vackrare vardagsvaror och tanken att ett bra hem inte skulle vara en lyx för få. Rohemmet är Studio Dalaruds försök att göra samma sak för vår tid. Ett designkoncept som sträcker sig längre än ett företag: en hållning, principer, mått och en bild av hur ett hem för människor i dag borde vara.
 

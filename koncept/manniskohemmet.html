@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Människohemmet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root {
+  --bg: #F3EEE6; --surface: #FBF8F3; --havre: #E6DCCB; --fg: #2B362E; --muted: #5D6458; --line: #D0C3AF;
+  --accent: #9B5E49; --accent-soft: #D49C82; --moss: #6F7D62;
+  --c-ro: #8F7F92; --c-jord: #9B5E49; --c-vaxt: #6F7D62; --c-bord: #B88A62; --c-ar: #A8946E;
+  --stone: 58% 42% 55% 45% / 52% 60% 40% 48%;
+  --serif: "Instrument Serif", Georgia, serif; --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif; --hand: "Caveat", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --moss: #A9B79A; --c-ro: #B6A8B8; --c-jord: #D49C82; --c-vaxt: #A9B79A; --c-bord: #D2A87E; --c-ar: #CDB98F; }
+}
+:root[data-theme="dark"] { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --moss: #A9B79A; --c-ro: #B6A8B8; --c-jord: #D49C82; --c-vaxt: #A9B79A; --c-bord: #D2A87E; --c-ar: #CDB98F; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; margin: 0; }
+h2 { font-size: clamp(2.3rem, 6vw, 4.2rem); }
+h3 { font-size: 1.6rem; }
+em { font-style: italic; color: var(--accent); }
+p { margin: 0; }
+.wrap { width: min(100% - 32px, 1120px); margin-inline: auto; }
+section { padding: clamp(4rem, 10vw, 8rem) 0; }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--moss); display: flex; align-items: center; gap: .6rem; margin-bottom: 1.2rem; }
+.eyebrow::before { content: ""; width: .6rem; height: .42rem; border-radius: var(--stone); background: currentColor; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 52ch; margin-top: 1.4rem; }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+.top { padding: 1.4rem 0; }
+.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.logo { width: 150px; color: var(--fg); display: block; }
+.top small { color: var(--muted); font-size: .82rem; }
+@media (max-width: 520px) { .top small { display: none; } }
+
+/* ---------- Hjälte ---------- */
+.hero { padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 7vw, 5rem); }
+.hero h1 { font-size: clamp(3.4rem, 11.5vw, 9.4rem); line-height: .88; letter-spacing: -.03em; }
+.hero__claim { font-family: var(--serif); font-size: clamp(1.6rem, 3.8vw, 2.8rem); line-height: 1.12; margin-top: 1.4rem; max-width: 22ch; }
+.hero__claim em { white-space: nowrap; }
+.hero__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 2rem 4rem; align-items: center; margin-top: clamp(2.4rem, 5vw, 4rem); }
+@media (max-width: 860px) { .hero__grid { grid-template-columns: 1fr; } }
+
+/* Modellen */
+.model { position: relative; }
+.model svg { width: 100%; height: auto; display: block; overflow: visible; }
+.model .arc { fill: none; stroke-width: 14; stroke-linecap: round; cursor: pointer; transition: stroke-width .35s ease, opacity .35s ease; }
+.model .arc-hit { fill: none; stroke: transparent; stroke-width: 30; cursor: pointer; }
+.model.has-pick .arc { opacity: .28; }
+.model.has-pick .arc.on { opacity: 1; stroke-width: 18; }
+.model .lbl { font-family: var(--serif); font-size: 21px; fill: var(--fg); pointer-events: none; transition: opacity .35s; }
+.model.has-pick .lbl { opacity: .35; }
+.model.has-pick .lbl.on { opacity: 1; font-style: italic; }
+.model .draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; animation: draw 1.8s cubic-bezier(.4,.1,.2,1) forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.model .stone { opacity: 0; animation: rest .9s ease 1.9s forwards; }
+@keyframes rest { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
+.panel { min-height: 15rem; }
+.panel__k { font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+.panel h3 { font-size: clamp(2.6rem, 6vw, 4rem); margin-top: .3rem; }
+.panel .need { font-family: var(--serif); font-style: italic; font-size: 1.4rem; margin-top: .4rem; }
+.panel p { color: var(--muted); margin-top: .8rem; max-width: 46ch; }
+.panel .biz { margin-top: 1rem; font-size: .9rem; color: var(--fg); }
+.panel .biz b { font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; margin-top: 1.6rem; }
+.chip { background: none; border: 0; padding: .2rem 0; font: 400 1.2rem var(--serif); color: var(--muted); cursor: pointer; position: relative; }
+.chip[aria-pressed="true"] { color: var(--accent); font-style: italic; }
+.chip[aria-pressed="true"]::after { content: ""; position: absolute; left: 50%; bottom: -.35rem; width: .55rem; height: .38rem; margin-left: -.27rem; border-radius: var(--stone); background: var(--accent); }
+.chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- Vad folkhemmet inte såg ---------- */
+.dark { background: var(--fg); color: var(--bg); }
+.dark .eyebrow { color: var(--accent-soft); }
+.dark h2 em, .dark .big em { color: var(--accent-soft); }
+.dark .lede { color: color-mix(in srgb, var(--bg) 75%, transparent); }
+.quote { font-family: var(--serif); font-size: clamp(1.6rem, 4vw, 2.8rem); line-height: 1.18; max-width: 30ch; }
+.quote cite { display: block; font: 500 .9rem var(--sans); color: color-mix(in srgb, var(--bg) 60%, transparent); margin-top: 1rem; font-style: normal; }
+.blind { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.6rem; margin-top: 3.4rem; }
+.blind div { border-top: 1px solid color-mix(in srgb, var(--bg) 25%, transparent); padding-top: 1rem; }
+.blind b { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; display: block; color: var(--accent-soft); }
+.blind span { font-size: .93rem; color: color-mix(in srgb, var(--bg) 80%, transparent); display: block; margin-top: .4rem; }
+.big { font-family: var(--serif); font-size: clamp(2rem, 5.4vw, 3.8rem); line-height: 1.08; margin-top: 4rem; max-width: 24ch; }
+@media (max-width: 900px) { .blind { grid-template-columns: 1fr 1fr; } }
+
+/* ---------- Vision ---------- */
+.vision { text-align: left; }
+.vision blockquote { margin: 0; font-family: var(--serif); font-size: clamp(2.4rem, 7vw, 5.4rem); line-height: 1; letter-spacing: -.02em; max-width: 16ch; }
+.y2040 { display: grid; grid-template-columns: 10rem 1fr; gap: 2rem; margin-top: 4rem; max-width: 900px; }
+.y2040 .yr { font-family: var(--serif); font-size: 5rem; line-height: .9; color: var(--accent); }
+.y2040 p { font-size: 1.15rem; color: var(--muted); }
+.stepchild { margin-top: 3rem; font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 3.6vw, 2.3rem); color: var(--accent); max-width: 28ch; }
+@media (max-width: 640px) { .y2040 { grid-template-columns: 1fr; gap: .6rem; } }
+
+/* ---------- Namn ---------- */
+.names { margin-top: 3rem; display: grid; }
+.name { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 1rem 2rem; padding: 1.6rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.name:last-child { border-bottom: 1px solid var(--line); }
+.name h3 { font-size: clamp(2rem, 4.4vw, 3.2rem); }
+.name .idea { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.2rem; margin-top: .3rem; }
+.name p { color: var(--muted); font-size: .95rem; }
+.name p b { color: var(--fg); font-weight: 600; }
+.name.is-pick h3::after { content: "rekommenderas"; font-family: var(--hand); font-size: 1.3rem; color: var(--accent); margin-left: .6rem; display: inline-block; transform: rotate(-3deg); }
+@media (max-width: 760px) { .name { grid-template-columns: 1fr; } }
+
+/* ---------- Grundsatser ---------- */
+.tenets { counter-reset: t; margin-top: 3rem; display: grid; }
+.tenet { counter-increment: t; display: grid; grid-template-columns: 4rem 1fr 1.2fr; gap: .4rem 2rem; padding: 1.4rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.tenet:last-child { border-bottom: 1px solid var(--line); }
+.tenet::before { content: counter(t); font: italic 400 2.6rem/1 var(--serif); color: var(--accent); }
+.tenet h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+.tenet p { color: var(--muted); }
+@media (max-width: 760px) { .tenet { grid-template-columns: 3rem 1fr; } .tenet p { grid-column: 2; } }
+
+/* ---------- Delkoncepten ---------- */
+.parts { margin-top: 3rem; display: grid; gap: 0; }
+.part { display: grid; grid-template-columns: 12rem 1fr 1fr; gap: 1rem 2.4rem; padding: 2.2rem 0; border-top: 1px solid var(--line); }
+.part:last-child { border-bottom: 1px solid var(--line); }
+.part h3 { font-size: clamp(3rem, 7vw, 5rem); line-height: .9; }
+.part .sub { font-family: var(--serif); font-style: italic; font-size: 1.3rem; margin-top: .4rem; }
+.part .bar { width: 3rem; height: .5rem; border-radius: var(--stone); margin-top: 1rem; }
+.part dl { margin: 0; display: grid; gap: .8rem; }
+.part dt { font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+.part dd { margin: .15rem 0 0; font-size: .97rem; }
+.part .lead { font-size: 1.08rem; }
+@media (max-width: 860px) { .part { grid-template-columns: 1fr; } }
+
+/* ---------- Jämförelse ---------- */
+.vs { margin-top: 3rem; display: grid; grid-template-columns: 9rem minmax(0,1fr) minmax(0,1fr); }
+.vs > div { padding: .9rem 0; border-top: 1px solid var(--line); }
+.vs .k { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--muted); padding-top: 1.25rem; }
+.vs .a { font-family: var(--serif); font-size: 1.45rem; color: var(--muted); padding-right: 1rem; }
+.vs .b { font-family: var(--serif); font-size: 1.45rem; }
+.vs .head { font-family: var(--sans); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; border-top: 0; }
+.vs .head.b { color: var(--accent); }
+.note { color: var(--muted); margin-top: 2rem; max-width: 60ch; }
+@media (max-width: 760px) { .vs { grid-template-columns: 5rem minmax(0,1fr) minmax(0,1fr); } .vs .a, .vs .b { font-size: 1.05rem; } .vs .k { font-size: .62rem; letter-spacing: .06em; } }
+
+/* ---------- Mål 2040 ---------- */
+.goals { counter-reset: g; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.6rem; margin-top: 3rem; }
+.goals div { counter-increment: g; border-top: 2px solid var(--accent-soft); padding-top: 1rem; }
+.goals div::before { content: counter(g); font: italic 400 2.4rem/1 var(--serif); color: var(--accent-soft); display: block; margin-bottom: .4rem; }
+.goals b { font-family: var(--serif); font-weight: 400; font-size: 1.5rem; line-height: 1.15; display: block; }
+.goals span { font-size: .92rem; color: color-mix(in srgb, var(--bg) 78%, transparent); display: block; margin-top: .5rem; }
+@media (max-width: 900px) { .goals { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .goals { grid-template-columns: 1fr; } }
+
+/* ---------- Nivåer ---------- */
+.levels { margin-top: 3rem; display: grid; }
+.level { display: grid; grid-template-columns: 11rem 1fr 1.2fr; gap: .4rem 2rem; padding: 1.2rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.level:last-child { border-bottom: 1px solid var(--line); }
+.level small { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--moss); }
+.level b { font-family: var(--serif); font-weight: 400; font-size: 1.8rem; }
+.level span { color: var(--muted); font-size: .96rem; }
+.level.top-level b { font-size: 2.4rem; color: var(--accent); font-style: italic; }
+@media (max-width: 760px) { .level { grid-template-columns: 1fr; } }
+.answers { margin-top: 3.6rem; display: grid; gap: 2rem; max-width: 30ch; }
+.answers p { font-family: var(--serif); font-size: clamp(1.6rem, 3.8vw, 2.6rem); line-height: 1.15; }
+.answers small { display: block; font: 600 .74rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+
+.next { counter-reset: n; display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.6rem; margin-top: 3rem; }
+.next div { counter-increment: n; }
+.next div::before { content: counter(n); font: italic 400 2.2rem/1 var(--serif); color: var(--accent); display: block; margin-bottom: .5rem; }
+.next b { font-weight: 600; display: block; }
+.next p { color: var(--muted); font-size: .93rem; margin-top: .3rem; }
+@media (max-width: 900px) { .next { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .next { grid-template-columns: 1fr; } }
+
+footer { padding: 3rem 0 5rem; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem 3rem; justify-content: space-between; align-items: end; }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.on { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="logo" aria-label="Studio Dalarud"><svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <small>Övergripande koncept · version 1</small>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow">Efter folkhemmet</p>
+    <h1 id="h1">Människohemmet</h1>
+    <p class="hero__claim">Ett hem format efter människan, <em>inte tvärtom.</em></p>
+    <div class="hero__grid">
+      <div class="model" id="model">
+        <svg viewBox="0 0 520 330" role="img" aria-labelledby="model-t">
+          <title id="model-t">Modellen: fem bågar runt en sten. Bågarna är delkoncepten År, Bord, Växt, Jord och Ro, och stenen innerst är människan.</title>
+          <g id="arcs"></g>
+          <line x1="20" y1="310" x2="500" y2="310" stroke="currentColor" stroke-width="2" opacity=".3"/>
+          <g class="stone"><path d="M232 300 C232 284 288 280 290 296 C292 312 233 314 232 300Z" fill="#9B5E49"/>
+          <text x="261" y="328" text-anchor="middle" font-family="Caveat, cursive" font-size="20" fill="#9B5E49">människan</text></g>
+        </svg>
+        <div class="chips" role="group" aria-label="Välj delkoncept" id="chips"></div>
+      </div>
+      <div class="panel" id="panel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" aria-labelledby="blind-h">
+  <div class="wrap">
+    <p class="eyebrow" id="blind-h">Vad folkhemmet inte såg</p>
+    <p class="quote">"Det goda hemmet känner icke till några privilegierade eller tillbakasatta, inga kelgrisar och inga styvbarn."<cite>Per Albin Hansson, 1928</cite></p>
+    <p class="lede">Folkhemmet byggdes för folket: det gemensamma och det genomsnittliga. Köksmåtten utgick från en genomsnittlig kropp, lägenheterna från en genomsnittlig familj. Det gav ljus, luft och värdighet åt miljoner. Men genomsnittet finns inte.</p>
+    <div class="blind">
+      <div class="reveal"><b>Hjärnor</b><span>fungerar olika. Det som ger lugn åt en ger kaos åt en annan.</span></div>
+      <div class="reveal"><b>Barn</b><span>ser rummet från en annan höjd, med andra behov än vuxna.</span></div>
+      <div class="reveal"><b>Händer</b><span>behöver naturen och att göra saker, inte bara ljus och luft.</span></div>
+      <div class="reveal"><b>Ensamheten</b><span>har vuxit. Hemmet har slutat vara en plats där man samlas.</span></div>
+      <div class="reveal"><b>Livet</b><span>skiftar. Hemmet behöver följa flytt, barn, separation och ålder.</span></div>
+    </div>
+    <p class="big">Folkhemmet gav alla samma goda hem. Nästa steg är att ge var och en <em>sitt goda hem.</em></p>
+  </div>
+</section>
+
+<section class="vision" aria-labelledby="vis-h">
+  <div class="wrap">
+    <p class="eyebrow" id="vis-h">Visionen</p>
+    <blockquote>Ett hem format efter människan, <em>inte en människa formad efter hemmet.</em></blockquote>
+    <div class="y2040">
+      <span class="yr">2040</span>
+      <p>Varje barn har en plats i sin förskola där det kan vila. Varje familj vet hur hallen blir en plats som fungerar en stressig morgon. Den som har ADHD eller autism får hjälp att forma sitt hem utan att behöva förklara sig. Nya bostäder byggs med nischer, dämpade rum och plats för gemenskap. Och i varje hem finns något gjort av människohänder.</p>
+    </div>
+    <p class="stepchild">Det goda människohemmet känner inga styvbarn, inte heller bland hjärnorna.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section aria-labelledby="name-h">
+  <div class="wrap">
+    <p class="eyebrow">Namnet · tre förslag</p>
+    <h2 id="name-h">Ett namn som kan bära <em>en vision.</em></h2>
+    <div class="names">
+      <div class="name is-pick reveal"><div><h3>Människohemmet</h3><p class="idea">Från folket till människan</p></div><p><b>Styrka:</b> tydligast steg vidare från folkhemmet. Rymmer hjärnor, barn, natur, gemenskap och livets skeden.</p><p><b>Svaghet:</b> långt ord som behöver förklaras första gången.</p></div>
+      <div class="name reveal"><div><h3>Det levande hemmet</h3><p class="idea">Ett hem som lever med dem som bor där</p></div><p><b>Styrka:</b> varmt och lätt att förstå. Passar årstiderna och leran.</p><p><b>Svaghet:</b> säger mindre om människan och olikheterna, och används redan i andra sammanhang.</p></div>
+      <div class="name reveal"><div><h3>Omsorgshemmet</h3><p class="idea">Hemmet som tar hand om</p></div><p><b>Styrka:</b> nära Sofias bakgrund i förskolan.</p><p><b>Svaghet:</b> kan låta som vård eller äldreomsorg.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="ten-h">
+  <div class="wrap">
+    <p class="eyebrow">Grundsatserna</p>
+    <h2 id="ten-h">Fem saker som gäller <em>för allt.</em></h2>
+    <div class="tenets">
+      <div class="tenet reveal"><h3>Människan först, rummet sedan</h3><p>Varje uppdrag börjar med hur någon lever, inte med vad de tycker är snyggt.</p></div>
+      <div class="tenet reveal"><h3>Olika är normalt</h3><p>Det finns ingen genomsnittlig människa. Det som hjälper den som har det svårast, hjälper ofta alla.</p></div>
+      <div class="tenet reveal"><h3>Hemmet är en relation</h3><p>Det påverkar oss varje dag, och vi påverkar det. Det ska ge mer än det tar.</p></div>
+      <div class="tenet reveal"><h3>Händer och natur hör hemma</h3><p>Det gjorda och det växande gör hemmet mänskligt.</p></div>
+      <div class="tenet reveal"><h3>Det goda hemmet är för alla</h3><p>Kunskapen delas fritt, och de första stegen ska kunna tas utan pengar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface); border-block: 1px solid var(--line);" aria-labelledby="parts-h">
+  <div class="wrap">
+    <p class="eyebrow">Fem delkoncept</p>
+    <h2 id="parts-h">Ro är en av fem. <em>Människan behöver mer.</em></h2>
+    <p class="lede">Folkhemmet bestod av många delar: bostadspolitik, funktionalism, barnavård och egnahem. Människohemmet har fem delkoncept. Vart och ett svarar mot ett mänskligt behov, har ett eget kort ord och motsvarar en del av företaget.</p>
+    <div class="parts" id="parts"></div>
+  </div>
+</section>
+
+<section aria-labelledby="vs-h">
+  <div class="wrap">
+    <p class="eyebrow">Från folkhemmet till människohemmet</p>
+    <h2 id="vs-h">Inte ett avsked. <em>Ett nästa steg.</em></h2>
+    <div class="vs" role="table" aria-label="Folkhemmet och människohemmet">
+      <div class="k head"></div><div class="a head">Folkhemmet</div><div class="b head">Människohemmet</div>
+      <div class="k">Utgår från</div><div class="a">Folket, det gemensamma</div><div class="b">Människan, var och en</div>
+      <div class="k">Måttstock</div><div class="a">Genomsnittet</div><div class="b">Olikheten</div>
+      <div class="k">Behovet</div><div class="a">Kroppens</div><div class="b">Hela människans</div>
+      <div class="k">Metoden</div><div class="a">Standarder för alla</div><div class="b">Principer för alla, anpassade till var och en</div>
+      <div class="k">Rummet</div><div class="a">Funktionellt</div><div class="b">Mänskligt</div>
+      <div class="k">Löftet</div><div class="a">Skönhet för alla</div><div class="b">Ett eget gott hem för alla</div>
+      <div class="k">Bilden</div><div class="a">Det ljusa köket</div><div class="b">Bågen med stenen innerst</div>
+    </div>
+    <p class="note">Allt gott i folkhemmet finns kvar: jämlikheten, tanken att god form inte ska vara lyx, och att man tar vardagen på allvar.</p>
+  </div>
+</section>
+
+<section class="dark" aria-labelledby="goal-h">
+  <div class="wrap">
+    <p class="eyebrow">Samhällsvisionen</p>
+    <h2 id="goal-h">Fem mål <em>för 2040.</em></h2>
+    <p class="lede">Studio Dalarud kan inte nå dem själv. Men det är visionen som gör att andra vill vara med: föräldrar, förskolor, bostadsbolag, kommuner och journalister.</p>
+    <div class="goals">
+      <div class="reveal"><b>En vilplats för varje barn</b><span>i förskola och skola.</span></div>
+      <div class="reveal"><b>Hem för alla hjärnor</b><span>med kunskap som är fri att använda.</span></div>
+      <div class="reveal"><b>Hantverk i vardagen</b><span>Att forma med händerna ska vara lika självklart som att läsa.</span></div>
+      <div class="reveal"><b>Bostäder som samlar</b><span>Nya hus med plats för möten, inte bara förvaring.</span></div>
+      <div class="reveal"><b>Stöd i livets övergångar</b><span>från första lägenheten till den sista.</span></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="lev-h">
+  <div class="wrap">
+    <p class="eyebrow">Hur allt hänger ihop</p>
+    <h2 id="lev-h">Från vision till <em>vardag.</em></h2>
+    <div class="levels">
+      <div class="level top-level reveal"><small>Visionen</small><b>Människohemmet</b><span>Hemmet format efter människan.</span></div>
+      <div class="level reveal"><small>Delkoncepten</small><b>Ro · Jord · Växt · Bord · År</b><span>Fem mänskliga behov, vart och ett med principer.</span></div>
+      <div class="level reveal"><small>Mest utvecklat</small><b>Rohemmet</b><span>Manifestet Ro åt alla, tio principer och Ro-måtten.</span></div>
+      <div class="level reveal"><small>Livsstilen</small><b>Ett snällt hem</b><span>Språket, ritualerna och gemenskapen i vardagen.</span></div>
+      <div class="level reveal"><small>Företaget</small><b>Studio Dalarud</b><span>Studion som formger människohem.</span></div>
+      <div class="level reveal"><small>Erbjudandet</small><b>Tjänster, lera och kurser</b><span>Det kunderna köper.</span></div>
+    </div>
+    <div class="answers">
+      <p><small>Vad gör du?</small>"Jag formger människohem. Hem som utgår från de människor som bor där."</p>
+      <p><small>Vad är ett människohem?</small>"Ett hem som <em>ger ro</em>, har något <em>gjort av händer</em>, <em>ser barnen</em>, <em>samlar människor</em> och <em>följer livet</em>."</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="next-h">
+  <div class="wrap">
+    <p class="eyebrow" id="next-h">Nästa steg</p>
+    <div class="next">
+      <div><b>Välj namn</b><p>Människohemmet eller ett av alternativen, och kontrollera att det är fritt.</p></div>
+      <div><b>Låt Ro leda</b><p>Ro är det unika. De andra fyra växer fram och stärker helheten.</p></div>
+      <div><b>Skriv föredraget</b><p><i>Från folkhemmet till människohemmet</i>, det bästa sättet att pröva visionen.</p></div>
+      <div><b>Hela Ro-kartan</b><p>Låt hemanalysen och Ro-kartan spegla alla fem delkoncepten.</p></div>
+      <div><b>Modellen överallt</b><p>Bågarna och stenen på hemsidan och i den grafiska manualen.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" aria-hidden="true" style="width:120px"><svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <p>Människohemmet, övergripande koncept för Studio Dalarud. Hela texten finns i <code>koncept/MANNISKOHEMMET.md</code>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var P = [
+    { id: "ar", name: "År", sub: "Det föränderliga hemmet", need: "Behovet av att hemmet följer livet och årstiderna", color: "var(--c-ar)",
+      idea: "Ett hem blir aldrig klart, eftersom livet aldrig blir klart. Hemmet ska följa övergångarna, att flytta ihop eller isär, få barn, sälja, landa och åldras, och skifta med de fyra årstiderna.",
+      principles: "Möblera för livet nu, inte för en bild. Planera för att förändra. Markera övergångar med små ritualer.",
+      biz: "Homestaging, Inflyttning, Sälj och landa, årstidsbesök och släppen." },
+    { id: "bord", name: "Bord", sub: "Det samlande hemmet", need: "Behovet av andra människor", color: "var(--c-bord)",
+      idea: "Hemmet har blivit en plats där var och en sitter med sin skärm. Människohemmet har en plats där man möts: bordet.",
+      principles: "Ett bord där alla får plats och som inte är fullt av saker. En hall som välkomnar. Kvällar då man gör något tillsammans med händerna.",
+      biz: "Ro-kvällar, kurser, gemenskapen och Stenbärarna." },
+    { id: "vaxt", name: "Växt", sub: "Barnets hem", need: "Barnets behov av att växa, klara själv och leka", color: "var(--c-vaxt)",
+      idea: "Barn bor i nästan varje hem men formger nästan inget av dem. Rummet ska ses från barnets höjd: vad kan barnet nå, förstå och klara själv?",
+      principles: "Förvaring i barnets höjd med bilder. En koja för varje barn. Leksaker som vilar och byts. Barnet får vara med och bestämma.",
+      biz: "Barnrum som ger ro, förskolor och Lera för lugn." },
+    { id: "jord", name: "Jord", sub: "Det gjorda hemmet", need: "Behovet av natur, material och att göra med händerna", color: "var(--c-jord)",
+      idea: "Människan behöver ta i saker, och se saker som någon har gjort. Industrins likriktade föremål gör hemmet anonymt.",
+      principles: "Naturmaterial som åldras vackert. Minst ett föremål gjort för hand i varje rum. Laga hellre än byta. Växter och naturfynd har en självklar plats.",
+      biz: "Dalarud Lera, kurserna och Forma hemma-kit." },
+    { id: "ro", name: "Ro", sub: "Rohemmet", need: "Nervsystemets behov av vila och färre intryck", color: "var(--c-ro)",
+      idea: "Ett hem som är snällt mot hjärnan. Det delkoncept som gör Studio Dalarud unikt, och det som syns mest i början.",
+      principles: "Fredad ögonhöjd, ljus i tre höjder, allt har en plats som syns och en rohörna i varje hem. Ro-måtten gör principerna mätbara.",
+      biz: "Lugna rum, hemanalysen, Ro-kartan och föreläsningarna." }
+  ];
+  // Bågar: yttersta först. Mittpunkt (261, 310).
+  var arcs = document.getElementById("arcs"), chips = document.getElementById("chips"), panel = document.getElementById("panel"), model = document.getElementById("model");
+  var NS = "http://www.w3.org/2000/svg";
+  P.forEach(function (p, i) {
+    var r = 230 - i * 40, cx = 261, base = 310, top = base - 70;
+    var d = "M" + (cx - r) + " " + base + " V" + top + " A" + r + " " + r + " 0 0 1 " + (cx + r) + " " + top + " V" + base;
+    var path = document.createElementNS(NS, "path");
+    path.setAttribute("d", d); path.setAttribute("class", "arc" + (reduce ? "" : " draw")); path.setAttribute("stroke", p.color); path.style.animationDelay = (i * 0.18) + "s";
+    path.dataset.id = p.id;
+    var hit = document.createElementNS(NS, "path"); hit.setAttribute("d", d); hit.setAttribute("class", "arc-hit"); hit.dataset.id = p.id;
+    var t = document.createElementNS(NS, "text");
+    t.setAttribute("x", cx); t.setAttribute("y", top - r + 30); t.setAttribute("text-anchor", "middle"); t.setAttribute("class", "lbl"); t.dataset.id = p.id; t.textContent = p.name;
+    arcs.appendChild(path); arcs.appendChild(t); arcs.appendChild(hit);
+    hit.addEventListener("click", function () { pick(p.id); });
+    var b = document.createElement("button"); b.className = "chip"; b.type = "button"; b.textContent = p.name; b.dataset.id = p.id; b.setAttribute("aria-pressed", "false");
+    b.addEventListener("click", function () { pick(p.id); });
+    chips.appendChild(b);
+  });
+  // Etiketterna läggs ovanför respektive båge, men den yttersta bågens topp är högst.
+  function pick(id) {
+    var p = P.filter(function (x) { return x.id === id; })[0];
+    model.classList.add("has-pick");
+    arcs.querySelectorAll(".arc, .lbl").forEach(function (el) { el.classList.toggle("on", el.dataset.id === id); });
+    chips.querySelectorAll(".chip").forEach(function (c) { c.setAttribute("aria-pressed", String(c.dataset.id === id)); });
+    panel.innerHTML = '<p class="panel__k">Delkoncept</p><h3 style="color:' + p.color + '">' + p.name + '</h3><p class="need">' + p.sub + '</p><p>' + p.idea + '</p><p class="biz"><b>I företaget:</b> ' + p.biz + '</p>';
+  }
+  function intro() {
+    panel.innerHTML = '<p class="panel__k">Modellen</p><h3>Bågen är hemmet. <em>Stenen är människan.</em></h3><p>Samma båge som i logotypen. Människan står innerst, som stenen i märket. Runt henne finns fem delkoncept: Ro, Jord, Växt, Bord och År. Välj en båge för att läsa mer.</p>';
+  }
+  intro();
+
+  // Delkoncepten i listan
+  var parts = document.getElementById("parts");
+  P.slice().reverse().forEach(function (p) {
+    var el = document.createElement("article"); el.className = "part reveal";
+    el.innerHTML = '<div><h3>' + p.name + '</h3><p class="sub">' + p.sub + '</p><div class="bar" style="background:' + p.color + '"></div></div>' +
+      '<div><p class="lead">' + p.idea + '</p></div>' +
+      '<dl><div><dt>Behovet</dt><dd>' + p.need + '</dd></div><div><dt>Principer</dt><dd>' + p.principles + '</dd></div><div><dt>I företaget</dt><dd>' + p.biz + '</dd></div></dl>';
+    parts.appendChild(el);
+  });
+
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: .15 }) : null;
+  document.querySelectorAll(".reveal").forEach(function (el) { if (!io || reduce) el.classList.add("on"); else io.observe(el); });
+})();
+</script>
+</body>
+</html>
