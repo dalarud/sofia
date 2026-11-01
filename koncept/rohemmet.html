@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rohemmet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root {
+  --bg: #F3EEE6; --surface: #FBF8F3; --havre: #E6DCCB; --fg: #2B362E; --muted: #5D6458; --line: #D0C3AF;
+  --accent: #9B5E49; --accent-soft: #D49C82; --moss: #6F7D62; --kvall: #8F7F92; --strand: #C4AF90;
+  --stone: 58% 42% 55% 45% / 52% 60% 40% 48%;
+  --serif: "Instrument Serif", Georgia, serif; --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif; --hand: "Caveat", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --accent-soft: #E2AE95; --moss: #A9B79A; }
+}
+:root[data-theme="dark"] { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --accent-soft: #E2AE95; --moss: #A9B79A; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; margin: 0; }
+h2 { font-size: clamp(2.3rem, 6vw, 4.2rem); }
+h3 { font-size: 1.6rem; }
+em { font-style: italic; color: var(--accent); }
+p { margin: 0; }
+.wrap { width: min(100% - 32px, 1120px); margin-inline: auto; }
+section { padding: clamp(4rem, 10vw, 8rem) 0; }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--moss); display: flex; align-items: center; gap: .6rem; margin-bottom: 1.2rem; }
+.eyebrow::before { content: ""; width: .6rem; height: .42rem; border-radius: var(--stone); background: currentColor; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 50ch; margin-top: 1.4rem; }
+.hand { font-family: var(--hand); font-size: 1.5rem; color: var(--accent); line-height: 1.2; }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+.note { font-size: .88rem; color: var(--muted); margin-top: 1.2rem; max-width: 60ch; }
+
+.top { padding: 1.4rem 0; }
+.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.logo { width: 150px; color: var(--fg); display: block; }
+.top small { color: var(--muted); font-size: .82rem; }
+
+/* ---------- Hjälte ---------- */
+.hero { padding: clamp(2rem, 6vw, 4rem) 0 clamp(4rem, 8vw, 6rem); }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem 4rem; align-items: end; }
+.hero__pre { font-family: var(--serif); font-size: clamp(1.4rem, 3vw, 2.1rem); line-height: 1.15; max-width: 20ch; }
+.hero__pre s { text-decoration-color: var(--accent); text-decoration-thickness: 2px; color: var(--muted); }
+.hero h1 { font-size: clamp(4.4rem, 15vw, 12rem); line-height: .85; margin-top: 1.4rem; letter-spacing: -.03em; }
+.hero__sub { font-family: var(--serif); font-style: italic; font-size: clamp(1.5rem, 3.4vw, 2.4rem); color: var(--accent); margin-top: .8rem; }
+.arch { position: relative; aspect-ratio: 4 / 5; max-width: 420px; justify-self: end; width: 100%; }
+.arch svg { width: 100%; height: 100%; display: block; }
+.arch .draw { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 2.4s cubic-bezier(.4,.1,.2,1) forwards; }
+.arch .draw:nth-of-type(2) { animation-delay: .25s; } .arch .draw:nth-of-type(3) { animation-delay: .5s; }
+.arch .rest { opacity: 0; animation: rest .9s ease 2.2s forwards; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes rest { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+@media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; } .arch { justify-self: start; max-width: 300px; } }
+
+/* ---------- Jämförelse ---------- */
+.then { background: var(--fg); color: var(--bg); }
+.then .eyebrow { color: var(--accent-soft); }
+.then h2 em { color: var(--accent-soft); }
+.then p.lede { color: color-mix(in srgb, var(--bg) 75%, transparent); }
+.history { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; margin-top: 3rem; }
+.history div { border-top: 1px solid color-mix(in srgb, var(--bg) 30%, transparent); padding-top: 1rem; }
+.history b { font-family: var(--serif); font-weight: 400; font-size: 2.2rem; display: block; color: var(--accent-soft); line-height: 1; }
+.history span { font-size: .95rem; color: color-mix(in srgb, var(--bg) 82%, transparent); display: block; margin-top: .5rem; }
+.vs { margin-top: 4rem; display: grid; grid-template-columns: 9rem 1fr 1fr; }
+.vs > div { padding: .9rem 0; border-top: 1px solid color-mix(in srgb, var(--bg) 18%, transparent); }
+.vs .k { font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: color-mix(in srgb, var(--bg) 60%, transparent); padding-top: 1.25rem; }
+.vs .a { font-family: var(--serif); font-size: 1.5rem; color: color-mix(in srgb, var(--bg) 62%, transparent); padding-right: 1rem; }
+.vs .b { font-family: var(--serif); font-size: 1.5rem; }
+.vs .head { font-family: var(--sans); font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; border-top: 0; }
+.vs .head.b { color: var(--accent-soft); }
+@media (max-width: 760px) { .history { grid-template-columns: 1fr 1fr; } .vs { grid-template-columns: 5rem minmax(0,1fr) minmax(0,1fr); } .vs .a, .vs .b { font-size: 1.1rem; overflow-wrap: anywhere; } .vs .k { font-size: .66rem; letter-spacing: .08em; } }
+
+/* ---------- Namn ---------- */
+.names { margin-top: 3rem; display: grid; }
+.name { display: grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 1rem 2rem; padding: 1.6rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.name:last-child { border-bottom: 1px solid var(--line); }
+.name h3 { font-size: clamp(2rem, 4.4vw, 3.2rem); }
+.name p { color: var(--muted); font-size: .96rem; }
+.name p b { color: var(--fg); font-weight: 600; }
+.name.is-pick h3::after { content: "rekommenderas"; font-family: var(--hand); font-size: 1.3rem; color: var(--accent); margin-left: .6rem; display: inline-block; transform: rotate(-3deg); }
+@media (max-width: 760px) { .name { grid-template-columns: 1fr; } }
+
+/* ---------- Manifest ---------- */
+.manifest { background: var(--havre); }
+.manifest .lines { margin-top: 2.6rem; display: grid; gap: 1.6rem; max-width: 36ch; }
+.manifest .lines p { font-family: var(--serif); font-size: clamp(1.5rem, 3.6vw, 2.5rem); line-height: 1.18; }
+.manifest .lines p:first-child { font-size: clamp(2rem, 5.4vw, 3.6rem); }
+.manifest .sig { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: clamp(1.8rem, 4.4vw, 3rem); margin-top: 2.6rem; }
+
+/* ---------- Principer ---------- */
+.principles { counter-reset: p; margin-top: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
+.pr { counter-increment: p; display: grid; grid-template-columns: 3.4rem 1fr; gap: 0 1rem; padding: 1.4rem 0; border-top: 1px solid var(--line); }
+.pr::before { content: counter(p); font: italic 400 2.6rem/1 var(--serif); color: var(--accent); }
+.pr h3 { font-size: 1.7rem; }
+.pr p { color: var(--muted); font-size: .96rem; margin-top: .35rem; grid-column: 2; }
+@media (max-width: 760px) { .principles { grid-template-columns: 1fr; } }
+
+/* ---------- Ro-måtten ---------- */
+.measures { background: var(--surface); border-block: 1px solid var(--line); }
+.mgrid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 3rem; margin-top: 2.6rem; align-items: start; }
+.wall { position: relative; }
+.wall svg { width: 100%; height: auto; display: block; border-radius: 6px; }
+.controls { display: flex; flex-wrap: wrap; gap: .4rem 1.6rem; margin-top: 1.2rem; }
+.tg { background: none; border: 0; padding: .2rem 0; font: 400 1.05rem var(--serif); color: var(--muted); cursor: pointer; position: relative; }
+.tg[aria-pressed="true"] { color: var(--accent); font-style: italic; }
+.tg[aria-pressed="true"]::after { content: ""; position: absolute; left: 50%; bottom: -.35rem; width: .55rem; height: .38rem; margin-left: -.27rem; border-radius: var(--stone); background: var(--accent); }
+.tg:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.ctl-label { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--moss); width: 100%; margin-top: .6rem; }
+.mtable { display: grid; gap: 0; }
+.mrow { display: grid; grid-template-columns: 8.5rem 1fr; gap: .4rem 1rem; padding: .8rem 0; border-top: 1px solid var(--line); }
+.mrow:last-child { border-bottom: 1px solid var(--line); }
+.mrow b { font-family: var(--serif); font-weight: 400; font-size: 1.25rem; line-height: 1.2; }
+.mrow span { font-size: .93rem; color: var(--muted); }
+.mrow span strong { color: var(--fg); font-weight: 600; }
+@media (max-width: 900px) { .mgrid { grid-template-columns: 1fr; } }
+#room .ceiling-glow, #room .lamp-glow { transition: opacity .9s ease; }
+#room .zone { transition: y .7s ease, height .7s ease; }
+#room .eyeLbl { transition: transform .7s ease; }
+#room .figure { transition: opacity .5s ease; }
+
+/* ---------- Rum ---------- */
+.rooms { margin-top: 3rem; display: grid; }
+.room { display: grid; grid-template-columns: 11rem 1fr 1.3fr; gap: .4rem 2rem; padding: 1.3rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.room:last-child { border-bottom: 1px solid var(--line); }
+.room h3 { font-size: 1.9rem; }
+.room q { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.3rem; quotes: none; }
+.room p { color: var(--muted); font-size: .96rem; }
+@media (max-width: 760px) { .room { grid-template-columns: 1fr; } }
+
+/* ---------- Formspråk ---------- */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+.niche svg { width: 100%; max-width: 380px; height: auto; display: block; }
+.palette { display: flex; height: 7rem; border-radius: 4px; overflow: hidden; margin-top: 1.4rem; border: 1px solid var(--line); }
+.palette div { display: flex; align-items: flex-end; padding: .6rem; font-size: .76rem; font-weight: 600; letter-spacing: .06em; }
+.pal-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: .8rem; font-size: .88rem; color: var(--muted); }
+.pal-legend b { display: block; font-family: var(--serif); font-weight: 400; font-size: 1.6rem; color: var(--fg); }
+.mats { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; }
+.mats span { font-family: var(--serif); font-size: 1.35rem; }
+.mats span::after { content: " ·"; color: var(--line); }
+.mats span:last-child::after { content: ""; }
+@media (max-width: 820px) { .form-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Ro åt alla ---------- */
+.forall { background: var(--fg); color: var(--bg); }
+.forall .eyebrow { color: var(--accent-soft); }
+.forall h2 em { color: var(--accent-soft); }
+.forall .lede { color: color-mix(in srgb, var(--bg) 75%, transparent); }
+.levels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.levels div { border-top: 2px solid var(--accent-soft); padding-top: 1rem; }
+.levels h3 { font-size: 1.9rem; }
+.levels ul { list-style: none; padding: 0; margin: .9rem 0 0; display: grid; gap: .55rem; font-size: .96rem; color: color-mix(in srgb, var(--bg) 82%, transparent); }
+.levels li b { color: var(--bg); font-weight: 600; }
+.mark { margin-top: 4rem; display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: center; max-width: 760px; }
+.mark svg { width: 120px; height: 120px; color: var(--bg); }
+.mark p { color: color-mix(in srgb, var(--bg) 80%, transparent); }
+.mark h3 { color: var(--bg); margin-bottom: .5rem; }
+@media (max-width: 820px) { .levels { grid-template-columns: 1fr; } .mark { grid-template-columns: 1fr; } }
+
+/* ---------- Spridning ---------- */
+.spread { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.4rem 2rem; margin-top: 3rem; }
+.spread div h3 { font-size: 1.7rem; }
+.spread div p { color: var(--muted); font-size: .95rem; margin-top: .4rem; }
+.spread div small { display: block; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--moss); margin-bottom: .4rem; }
+@media (max-width: 860px) { .spread { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .spread { grid-template-columns: 1fr; } }
+
+/* ---------- Trappan ---------- */
+.ladder { margin-top: 3rem; display: grid; }
+.step { display: grid; grid-template-columns: 9rem 1fr 1.2fr; gap: .4rem 2rem; padding: 1.2rem 0; border-top: 1px solid var(--line); align-items: baseline; }
+.step:last-child { border-bottom: 1px solid var(--line); }
+.step small { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--moss); }
+.step b { font-family: var(--serif); font-weight: 400; font-size: 1.7rem; }
+.step span { color: var(--muted); font-size: .95rem; }
+@media (max-width: 760px) { .step { grid-template-columns: 1fr; } }
+.answer { margin-top: 3.4rem; font-family: var(--serif); font-size: clamp(1.8rem, 4.6vw, 3.2rem); line-height: 1.15; max-width: 24ch; }
+
+.next { counter-reset: n; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.next div { counter-increment: n; }
+.next div::before { content: counter(n); font: italic 400 2.4rem/1 var(--serif); color: var(--accent); display: block; margin-bottom: .5rem; }
+.next b { font-weight: 600; display: block; }
+.next p { color: var(--muted); font-size: .94rem; margin-top: .3rem; }
+@media (max-width: 820px) { .next { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .next { grid-template-columns: 1fr; } }
+
+footer { padding: 3rem 0 5rem; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem 3rem; justify-content: space-between; align-items: end; }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.on { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="logo" aria-label="Studio Dalarud"><svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <small>Designkoncept · version 1</small>
+  </div>
+</header>
+
+<section class="hero" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <p class="hero__pre">Folkhemmet gav oss ljus och luft. <s>Mer saker.</s> Nu behöver vi ro.</p>
+      <h1 id="h1">Rohemmet</h1>
+      <p class="hero__sub">Ett snällt hem åt alla.</p>
+    </div>
+    <div class="arch" aria-hidden="true">
+      <svg viewBox="0 0 400 500" fill="none">
+        <path class="draw" d="M30 480 V200 A170 170 0 0 1 370 200 V480" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path class="draw" d="M75 480 V205 A125 125 0 0 1 325 205 V480" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path class="draw" d="M120 480 V210 A80 80 0 0 1 280 210 V480" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+        <path d="M10 482 H390" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".35"/>
+        <g class="rest"><path d="M168 470 C168 448 232 444 236 466 C238 482 170 486 168 470Z" fill="#9B5E49"/></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="then" aria-labelledby="then-h">
+  <div class="wrap">
+    <p class="eyebrow">Från folkhemmet till rohemmet</p>
+    <h2 id="then-h">Folkhemmet tog hand om kroppen. Rohemmet tar hand om <em>nervsystemet.</em></h2>
+    <p class="lede">Folkhemmet var mer än ett politiskt ord. Det blev ett sätt att formge hela Sverige: ljusa lägenheter, standardmått för köket och tanken att ett bra hem inte skulle vara en lyx för få. I dag har de flesta ljus och luft. Det som saknas är ro.</p>
+    <div class="history">
+      <div class="reveal"><b>1899</b><span>Ellen Key skriver <i>Skönhet för alla</i>.</span></div>
+      <div class="reveal"><b>1919</b><span>Gregor Paulsson skriver <i>Vackrare vardagsvara</i>.</span></div>
+      <div class="reveal"><b>1928–30</b><span>Per Albin Hansson talar om folkhemmet, och funktionalismen slår igenom på Stockholmsutställningen.</span></div>
+      <div class="reveal"><b>1944</b><span>Hemmens forskningsinstitut börjar mäta vardagen. Måtten styr fortfarande svenska kök.</span></div>
+    </div>
+    <div class="vs" role="table" aria-label="Folkhemmet och rohemmet">
+      <div class="k head" role="columnheader"></div><div class="a head" role="columnheader">Folkhemmet</div><div class="b head" role="columnheader">Rohemmet</div>
+      <div class="k">Problemet</div><div class="a">Trångt, mörkt, ohälsosamt</div><div class="b">Brus, överstimulering, prestation</div>
+      <div class="k">Behovet</div><div class="a">Kroppens</div><div class="b">Nervsystemets</div>
+      <div class="k">Idealet</div><div class="a">Ljus, luft, funktion</div><div class="b">Ro, överblick, återhämtning</div>
+      <div class="k">Metoden</div><div class="a">Mäta vardagen</div><div class="b">Ro-modellen och Ro-måtten</div>
+      <div class="k">Löftet</div><div class="a">Skönhet för alla</div><div class="b">Ro åt alla</div>
+      <div class="k">Symbolen</div><div class="a">Det rationella köket</div><div class="b">Rohörnan</div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="name-h">
+  <div class="wrap">
+    <p class="eyebrow">Namnet · tre förslag</p>
+    <h2 id="name-h">Ett namn som <em>andra kan använda.</em></h2>
+    <p class="lede">Ett designkoncept behöver ett namn som fungerar i en artikel, på en utställning eller i ett bostadsbolags broschyr, inte bara på Studio Dalaruds hemsida.</p>
+    <div class="names">
+      <div class="name is-pick reveal"><h3>Rohemmet</h3><p><b>Styrka:</b> rimmar på folkhemmet och bär Ro-modellen. Kort, svenskt och lätt att säga.</p><p><b>Svaghet:</b> kan uppfattas som en produkt om det inte används konsekvent som idé.</p></div>
+      <div class="name reveal"><h3>Det snälla hemmet</h3><p><b>Styrka:</b> varmt och begripligt för alla, hör ihop med livsstilen.</p><p><b>Svaghet:</b> svårare att äga, låter mer som en slogan än en rörelse.</p></div>
+      <div class="name reveal"><h3>Lugnhemmet</h3><p><b>Styrka:</b> rakt och tydligt.</p><p><b>Svaghet:</b> mindre eget och mindre kopplat till varumärkets ord.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="manifest" aria-labelledby="man-h">
+  <div class="wrap">
+    <p class="eyebrow" id="man-h">Manifestet · Ro åt alla</p>
+    <div class="lines">
+      <p>Folkhemmet gav oss ljus och luft. <em>Nu behöver vi ro.</em></p>
+      <p>Ett hem ska vara snällt mot den som bor där. Det ska inte kräva energi, det ska ge energi.</p>
+      <p>Ro är inte lyx. Den ska inte vara förbehållen de som har råd med en inredare.</p>
+      <p>Varje hjärna förtjänar ett hem som fungerar för den. Det som hjälper den som har det svårast, hjälper alla.</p>
+      <p>Vi tar bort innan vi lägger till. Vi dämpar innan vi pyntar. Vi frågar hur ni lever innan vi frågar vad ni gillar.</p>
+      <p>Det handgjorda får vara ojämnt. Hemmet blir aldrig klart. Små steg räknas.</p>
+    </div>
+    <p class="sig">Rohemmet: ett snällt hem åt alla.</p>
+  </div>
+</section>
+
+<section aria-labelledby="pr-h">
+  <div class="wrap">
+    <p class="eyebrow">Tio principer</p>
+    <h2 id="pr-h">Lika för ett barnrum som för <em>en förskola.</em></h2>
+    <div class="principles">
+      <div class="pr reveal"><h3>Ögonhöjden är fredad</h3><p>Det som syns mellan knä och huvud tar mest uppmärksamhet. Där ska det vara lugnast.</p></div>
+      <div class="pr reveal"><h3>Ljus i tre höjder</h3><p>Golv, bord och fönster. Taklampan är aldrig den enda ljuskällan, och på kvällen är den släckt.</p></div>
+      <div class="pr reveal"><h3>Allt har en plats, och platsen syns</h3><p>Mycket bakom luckor, lite på öppna hyllor. Det som ligger i lådor och korgar är märkt.</p></div>
+      <div class="pr reveal"><h3>Ett hörn för vila i varje hem</h3><p>Rohörnan är lika självklar som en säng.</p></div>
+      <div class="pr reveal"><h3>Mjukt dämpar</h3><p>Varje rum har minst en stor mjuk yta som tar ljud: matta, gardiner eller textil på väggen.</p></div>
+      <div class="pr reveal"><h3>Naturens färger och material</h3><p>Låg färgmättnad, trä, lin, ull, sten och lera. Material som åldras vackert.</p></div>
+      <div class="pr reveal"><h3>Flöde före form</h3><p>Rummet formas efter det som händer där varje dag. Hallen efter morgonen, sovrummet efter kvällen.</p></div>
+      <div class="pr reveal"><h3>Tre av något</h3><p>Tre färger i ett rum, tre saker på en yta, tre steg i taget.</p></div>
+      <div class="pr reveal"><h3>Det handgjorda är välkommet</h3><p>En sak gjord av en människa ger mer än tio från ett lager.</p></div>
+      <div class="pr reveal"><h3>Hemmet följer året</h3><p>Fyra årstider, fyra små skiften. Det som hör till förra årstiden får vila.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="measures" id="matten" aria-labelledby="m-h">
+  <div class="wrap">
+    <p class="eyebrow">Ro-måtten</p>
+    <h2 id="m-h">Folkhemmet hade köksmått. Rohemmet har <em>Ro-måtten.</em></h2>
+    <p class="lede">Konkreta riktvärden som gör principerna lätta att använda för familjer, förskolor och bostadsbolag. Prova ritningen: växla mellan vuxen och barn, och tänd kvällsljuset.</p>
+    <div class="mgrid">
+      <div class="wall">
+        <svg id="room" viewBox="0 0 640 440" role="img" aria-labelledby="room-t">
+          <title id="room-t">Ritning av en vägg med Ro-måtten: ögonhöjdszonen, krokar i tre höjder och ljus i tre höjder.</title>
+          <defs>
+            <radialGradient id="g1"><stop offset="0" stop-color="#FFD9A0" stop-opacity=".95"/><stop offset="1" stop-color="#F6C98A" stop-opacity="0"/></radialGradient>
+            <radialGradient id="g2"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+            <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#9B5E49" stroke-width="1" opacity=".35"/></pattern>
+          </defs>
+          <rect x="0" y="0" width="640" height="440" fill="#EFE7DA" id="wallbg"/>
+          <rect class="night" x="0" y="0" width="640" height="440" fill="#1A201C" opacity="0" style="transition: opacity .9s ease"/>
+          <ellipse class="ceiling-glow" cx="320" cy="40" rx="300" ry="200" fill="url(#g2)" opacity=".85"/>
+          <!-- ögonhöjdszon: 1 cm = 1.5 px, golv vid y=400 -->
+          <rect class="zone" x="40" y="160" width="560" height="105" fill="url(#hatch)"/>
+          <g class="eyeLbl"><text x="404" y="257" text-anchor="end" font-family="Hanken Grotesk, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#9B5E49" id="zoneTxt">ÖGONHÖJDSZON 90–160 CM</text></g>
+          <line x1="20" y1="400" x2="620" y2="400" stroke="#2B362E" stroke-width="3"/>
+          <line x1="20" y1="20" x2="620" y2="20" stroke="#2B362E" stroke-width="2" opacity=".5"/>
+          <!-- taklampa -->
+          <line x1="320" y1="20" x2="320" y2="48" stroke="#2B362E" stroke-width="1.5"/>
+          <path d="M300 48 H340 L334 62 H306Z" fill="#2B362E" opacity=".75"/>
+          <!-- skala -->
+          <g font-family="Hanken Grotesk, sans-serif" font-size="11" fill="#5D6458">
+            <line x1="28" y1="400" x2="28" y2="100" stroke="#5D6458" stroke-width="1"/>
+            <line x1="24" y1="265" x2="32" y2="265" stroke="#5D6458"/><text x="8" y="268">90</text>
+            <line x1="24" y1="160" x2="32" y2="160" stroke="#5D6458"/><text x="2" y="163">160</text>
+            <line x1="24" y1="325" x2="32" y2="325" stroke="#5D6458"/><text x="8" y="328">50</text>
+          </g>
+          <!-- krokrad: barn 3-5 (95 cm), barn 6-9 (115 cm), vuxen (165 cm) -->
+          <g stroke="#2B362E" stroke-width="2.4" fill="none" stroke-linecap="round">
+            <path d="M120 257.5 v6 a5 5 0 0 0 10 0"/><path d="M150 227.5 v6 a5 5 0 0 0 10 0"/><path d="M180 152.5 v6 a5 5 0 0 0 10 0"/>
+          </g>
+          <g font-family="Caveat, cursive" font-size="17" fill="#9B5E49" class="hookLbl">
+            <text x="96" y="290">3–5 år</text><text x="140" y="214">6–9 år</text><text x="196" y="146">vuxen</text>
+          </g>
+          <!-- bänk och korgar -->
+          <rect x="90" y="345" width="140" height="10" rx="2" fill="#B88A62"/>
+          <rect x="96" y="355" width="6" height="45" fill="#B88A62"/><rect x="218" y="355" width="6" height="45" fill="#B88A62"/>
+          <rect x="108" y="365" width="38" height="30" rx="6" fill="#C4AF90"/><rect x="156" y="365" width="38" height="30" rx="6" fill="#9DA88F"/>
+          <!-- rohörna: nisch med båge -->
+          <path d="M420 400 V230 A55 55 0 0 1 530 230 V400" fill="#E3D7C4" stroke="#2B362E" stroke-width="2"/>
+          <path d="M432 400 V300 Q475 285 518 300 V400Z" fill="#6F7D62" opacity=".85"/>
+          <ellipse cx="475" cy="296" rx="26" ry="9" fill="#C4AF90"/>
+          <text x="475" y="222" text-anchor="middle" font-family="Caveat, cursive" font-size="18" fill="#9B5E49">rohörna</text>
+          <!-- golvlampa, bordslampa, fönsterljus -->
+          <g class="lamps">
+            <ellipse class="lamp-glow" cx="575" cy="300" rx="70" ry="70" fill="url(#g1)" opacity="0"/>
+            <line x1="575" y1="400" x2="575" y2="310" stroke="#2B362E" stroke-width="2"/>
+            <path d="M560 310 H590 L584 290 H566Z" fill="#E6DCCB" stroke="#2B362E" stroke-width="1.5"/>
+            <ellipse class="lamp-glow" cx="300" cy="320" rx="60" ry="55" fill="url(#g1)" opacity="0"/>
+            <rect x="262" y="350" width="80" height="8" fill="#B88A62"/><rect x="268" y="358" width="5" height="42" fill="#B88A62"/><rect x="331" y="358" width="5" height="42" fill="#B88A62"/>
+            <line x1="300" y1="350" x2="300" y2="330" stroke="#2B362E" stroke-width="2"/>
+            <path d="M287 330 H313 L308 314 H292Z" fill="#E6DCCB" stroke="#2B362E" stroke-width="1.5"/>
+            <rect x="345" y="90" width="50" height="70" fill="#DCE3E6" stroke="#2B362E" stroke-width="2"/>
+            <line x1="370" y1="90" x2="370" y2="160" stroke="#2B362E" stroke-width="1.5"/>
+            <ellipse class="lamp-glow" cx="370" cy="150" rx="45" ry="35" fill="url(#g1)" opacity="0"/>
+            <path d="M360 160 H380 L376 148 H364Z" fill="#9B5E49"/>
+          </g>
+          <g font-family="Hanken Grotesk, sans-serif" font-size="11" font-weight="600" letter-spacing="1" fill="#5D6458" class="lightLbl" opacity="0">
+            <text x="575" y="420" text-anchor="middle">GOLV</text><text x="300" y="420" text-anchor="middle">BORD</text><text x="370" y="180" text-anchor="middle">FÖNSTER</text>
+          </g>
+        </svg>
+        <div class="controls">
+          <span class="ctl-label">Vems ögonhöjd?</span>
+          <button class="tg" type="button" data-zone="adult" aria-pressed="true">Vuxen</button>
+          <button class="tg" type="button" data-zone="child" aria-pressed="false">Barn</button>
+          <span class="ctl-label">Vilket ljus?</span>
+          <button class="tg" type="button" data-light="day" aria-pressed="true">Taklampan</button>
+          <button class="tg" type="button" data-light="night" aria-pressed="false">Kvällsljus i tre höjder</button>
+        </div>
+      </div>
+      <div class="mtable">
+        <div class="mrow reveal"><b>Ögonhöjdszonen</b><span>90–160 cm för vuxna, 60–120 cm i barnrum. <strong>Högst en tredjedel</strong> av väggytan där har öppen förvaring eller föremål.</span></div>
+        <div class="mrow reveal"><b>Krokar</b><span>Barn 3–5 år <strong>90–100 cm</strong>, barn 6–9 år <strong>110–120 cm</strong>, vuxna <strong>160–170 cm</strong>.</span></div>
+        <div class="mrow reveal"><b>Ljus</b><span><strong>Tre ljuskällor</strong> i olika höjder i varje rum där man är på kvällen. Varmt vitt, cirka <strong>2 700 K</strong>, dimbart. Ingen synlig ljuskälla i ögonhöjd.</span></div>
+        <div class="mrow reveal"><b>Färg</b><span><strong>Högst tre färger</strong> utöver trä, ungefär 60, 30 och 10 procent. Högst ett tydligt mönster per rum.</span></div>
+        <div class="mrow reveal"><b>Ytor</b><span>Minst <strong>en fri yta</strong> per rum där ingenting står.</span></div>
+        <div class="mrow reveal"><b>Ljud</b><span>Minst <strong>en stor mjuk yta</strong> per rum. En plats i hemmet utan skärm.</span></div>
+        <div class="mrow reveal"><b>Förvaring</b><span>En krok, en korg och en hyllplats <strong>per person</strong> i hallen. En märkt låda per sorts sak. Ungefär en tredjedel av leksakerna framme.</span></div>
+        <div class="mrow reveal"><b>Rohörnan</b><span>Minst <strong>en per hem</strong>, gärna en per barn. Ungefär en kvadratmeter, med ryggskydd, mjukt material och eget ljus.</span></div>
+      </div>
+    </div>
+    <p class="note">Ro-måtten är riktvärden från Sofias erfarenhet som inredare och från förskolan. De prövas och justeras i uppdragen och är inte forskningsresultat.</p>
+  </div>
+</section>
+
+<section aria-labelledby="rum-h">
+  <div class="wrap">
+    <p class="eyebrow">Rum för rum</p>
+    <h2 id="rum-h">Varje rum börjar med <em>en fråga.</em></h2>
+    <div class="rooms">
+      <div class="room reveal"><h3>Hallen</h3><q>Hur ser morgonen ut?</q><p>En plats per person, krokar i rätt höjd, en bänk att sitta på, ingenting på golvet.</p></div>
+      <div class="room reveal"><h3>Köket</h3><q>Var landar det som kommer in?</q><p>En fri bänk, en bestämd plats för post, nycklar och laddare, ljus under skåpen.</p></div>
+      <div class="room reveal"><h3>Vardagsrummet</h3><q>Var vilar ögat?</q><p>Ljus i tre höjder, en stor matta, förvaring bakom luckor, en rohörna.</p></div>
+      <div class="room reveal"><h3>Sovrummet</h3><q>Vad behöver kroppen för att sova?</q><p>Mörker, inga skärmar, mjuka material, inget som påminner om att något ska göras.</p></div>
+      <div class="room reveal"><h3>Barnrummet</h3><q>Vad kan barnet klara själv?</q><p>Märkt förvaring i barnets höjd, en koja, en lugn vägg vid sängen, leksaker som vilar.</p></div>
+      <div class="room reveal"><h3>Arbetsplatsen</h3><q>Hur börjar och slutar dagen?</q><p>En avskärmad plats, en låda där allt kan stängas in, ljus från sidan.</p></div>
+      <div class="room reveal"><h3>Badrummet</h3><q>Vad behövs morgon och kväll?</q><p>Det dagliga framme, resten bakom lucka, mjuk handduk och varmt ljus på kvällen.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section aria-labelledby="form-h">
+  <div class="wrap">
+    <p class="eyebrow">Formspråket</p>
+    <h2 id="form-h">Bågen ringar in. <em>Stenen vilar.</em></h2>
+    <div class="form-grid">
+      <div class="niche">
+        <svg viewBox="0 0 380 420" aria-hidden="true">
+          <rect x="0" y="0" width="380" height="420" fill="#E6DCCB"/>
+          <path d="M70 400 V170 A120 120 0 0 1 310 170 V400" fill="#F3EEE6" stroke="#2B362E" stroke-width="2.5"/>
+          <path d="M90 400 V180 A100 100 0 0 1 290 180 V400" fill="none" stroke="#2B362E" stroke-width="1.2" opacity=".35"/>
+          <rect x="96" y="310" width="188" height="90" rx="16" fill="#6F7D62"/>
+          <rect x="108" y="282" width="70" height="40" rx="14" fill="#C4AF90"/><rect x="196" y="286" width="76" height="36" rx="14" fill="#D2C2A6"/>
+          <path d="M120 300 C150 270 260 270 276 300" fill="none" stroke="#9B5E49" stroke-width="10" stroke-linecap="round" opacity=".55"/>
+          <line x1="250" y1="200" x2="250" y2="236" stroke="#2B362E" stroke-width="1.5"/>
+          <path d="M236 236 H264 L258 252 H242Z" fill="#F3EEE6" stroke="#2B362E" stroke-width="1.5"/>
+          <ellipse cx="250" cy="262" rx="50" ry="34" fill="#F6C98A" opacity=".25"/>
+          <path d="M140 304 C140 296 160 294 162 302 C163 309 141 310 140 304Z" fill="#9B5E49"/>
+          <line x1="20" y1="400" x2="360" y2="400" stroke="#2B362E" stroke-width="3"/>
+          <text x="190" y="34" text-anchor="middle" font-family="Caveat, cursive" font-size="24" fill="#9B5E49">rohörnan i en båge</text>
+        </svg>
+      </div>
+      <div>
+        <p class="lede" style="margin-top:0">Bågen från logotypen blir Rohemmets arkitektoniska tecken: välvda nischer, rundade öppningar, bågformade speglar och hyllor. En nisch med båge är den självklara formen för en rohörna. Stenen är det mjuka föremålet i rummet: rundade former och saker som är sköna att hålla i.</p>
+        <div class="palette" aria-label="Färgfördelning 60, 30 och 10 procent">
+          <div style="flex:30;background:#F3EEE6;color:#5D6458">Linne</div><div style="flex:30;background:#E6DCCB;color:#5D6458">Havre</div>
+          <div style="flex:10;background:#6F7D62;color:#F3EEE6">Mossa</div><div style="flex:10;background:#C4AF90;color:#2B362E">Strand</div><div style="flex:10;background:#8F7F92;color:#F3EEE6">Kväll</div>
+          <div style="flex:5;background:#9B5E49;color:#F3EEE6"></div><div style="flex:5;background:#2B362E"></div>
+        </div>
+        <div class="pal-legend"><div><b>60 %</b>Linne och Havre på väggar och stora ytor</div><div><b>30 %</b>Mossa, Strand och Kväll i textil och möbler</div><div><b>10 %</b>Lera och Granskog i detaljer och föremål</div></div>
+        <div class="mats"><span>ek</span><span>ask</span><span>björk</span><span>lin</span><span>ull</span><span>sten</span><span>lera</span><span>papper</span><span>opalglas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="forall" aria-labelledby="all-h">
+  <div class="wrap">
+    <p class="eyebrow">Samhällsidén</p>
+    <h2 id="all-h">Ro är inte lyx. <em>Ro åt alla.</em></h2>
+    <p class="lede">Folkhemmet byggdes i allmännyttan, i skolor och i standarder som alla byggare följde. Rohemmet har samma ambition, i Studio Dalaruds skala.</p>
+    <div class="levels">
+      <div class="reveal"><h3>För alla, gratis</h3><ul><li><b>Ro-måtten</b> på ett kort att ladda ner och dela.</li><li><b>Ro-testet</b> och guiden.</li><li><b>Söndagsbrevet.</b></li><li><b>Tre steg</b> som oftast kostar ingenting: flytta, ta bort, släck.</li></ul></div>
+      <div class="reveal"><h3>För verksamheter</h3><ul><li><b>Rohemmet i förskolan:</b> hallen, vilan och avdelningen enligt Ro-måtten.</li><li><b>LSS- och HVB-boenden:</b> boenderum och gemensamma rum.</li><li><b>Föreläsningen</b> <i>Från folkhemmet till rohemmet</i>.</li></ul></div>
+      <div class="reveal"><h3>För bostadsbolag</h3><ul><li><b>Rohemmet i allmännyttan:</b> en visningslägenhet eller ett trapphus.</li><li><b>Råd vid nybygge:</b> ljus, hallförvaring, nischer och akustik är billigt att göra rätt från början.</li><li>Från år 2–3.</li></ul></div>
+    </div>
+    <div class="mark">
+      <svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2"/><path d="M34 92 V60 A26 26 0 0 1 86 60 V92" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M44 92 V62 A16 16 0 0 1 76 62 V92" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M52 88 C52 82 68 81 69 86 C70 91 52 92 52 88Z" fill="#D49C82"/><text x="60" y="30" text-anchor="middle" font-family="Hanken Grotesk, sans-serif" font-size="9" font-weight="600" letter-spacing="2" fill="currentColor">RO-MÄRKT</text></svg>
+      <div><h3>Ro-märkt</h3><p>På sikt kan rum, lägenheter och förskolor som följer Ro-måtten få märket. Det är en enkel granskning mot måtten, inte en certifiering med forskningskrav. Märket gör idén synlig i samhället och kan säljas till verksamheter och bostadsbolag.</p></div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="spr-h">
+  <div class="wrap">
+    <p class="eyebrow">Hur idén sprids</p>
+    <h2 id="spr-h">Som folkhemmet, <em>i mindre skala.</em></h2>
+    <div class="spread">
+      <div class="reveal"><small>Utställningen</small><h3>Rohemmet – en lägenhet</h3><p>En visningslägenhet eller pop-up en helg, där varje rum visar en princip. Med Ro-kvällar och kurser.</p></div>
+      <div class="reveal"><small>Skriften</small><h3>Ett snällt hem åt alla</h3><p>Manifestet, principerna och Ro-måtten i en liten bok. Först som PDF, sedan tryckt.</p></div>
+      <div class="reveal"><small>Måttkortet</small><h3>Ro-måtten i plånboken</h3><p>Gratis att ladda ner och dela. Ju fler som använder måtten, desto starkare blir idén.</p></div>
+      <div class="reveal"><small>Föredraget</small><h3>Från folkhemmet till rohemmet</h3><p>För föreningar, bibliotek, mässor och företag.</p></div>
+      <div class="reveal"><small>Pressen</small><h3>En berättelse att skriva om</h3><p>Förskoleläraren som tar folkhemmets idé vidare till vår tid.</p></div>
+      <div class="reveal"><small>Följarna</small><h3>#rohemmet</h3><p>Egna rum som följer principerna, delade av följarna.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section aria-labelledby="hang-h">
+  <div class="wrap">
+    <p class="eyebrow">Hur det hänger ihop</p>
+    <h2 id="hang-h">Rohemmet är idén. Studio Dalarud <em>formger efter den.</em></h2>
+    <div class="ladder">
+      <div class="step reveal"><small>Idén</small><b>Rohemmet</b><span>Manifestet, principerna och Ro-måtten. Delas fritt.</span></div>
+      <div class="step reveal"><small>Metoden</small><b>Ro-modellen och Ro-kartan</b><span>Hembesök, hemanalyser och lärmiljöanalyser.</span></div>
+      <div class="step reveal"><small>Livsstilen</small><b>Ett snällt hem</b><span>Språket, ritualerna, Söndagsbrevet och Ro-testet.</span></div>
+      <div class="step reveal"><small>Formgivningen</small><b>Studio Dalarud</b><span>Inredning, homestaging, Lugna rum och verksamheter.</span></div>
+      <div class="step reveal"><small>Föremålen</small><b>Rohemmets föremål</b><span>Leran i dag, textilier och belysning på sikt.</span></div>
+    </div>
+    <p class="answer">"Vad gör du?" <em>"Jag formger rohem. Hem som är snälla mot den som bor där."</em></p>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="next-h">
+  <div class="wrap">
+    <p class="eyebrow" id="next-h">Nästa steg</p>
+    <div class="next">
+      <div><b>Bestäm namnet</b><p>Rohemmet eller något av alternativen, och kontrollera att det är fritt.</p></div>
+      <div><b>Pröva Ro-måtten</b><p>I de första tio uppdragen, och justera dem efter vad som fungerar.</p></div>
+      <div><b>Gör måttkortet</b><p>I profilens stil, gratis på hemsidan tillsammans med Ro-testet.</p></div>
+      <div><b>Skriv föredraget</b><p><i>Från folkhemmet till rohemmet</i>. Grunden för skriften, pressen och verksamheterna.</p></div>
+      <div><b>En egen sida på hemsidan</b><p>Manifestet, principerna och måtten.</p></div>
+      <div><b>År 2: allmännyttan</b><p>Kontakta ett kommunalt bostadsbolag om en visningslägenhet.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" aria-hidden="true" style="width:120px"><svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 100"><path transform="matrix(1 0 0 1 0 0)" d="M8 94V52A42 42 0 0 1 92 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M19 94V52A31 31 0 0 1 81 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 0 0)" d="M30 94V52A20 20 0 0 1 70 52V94" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.62 0 0 0.62 50 86)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 124 94)" d="M0 0V-56H6A28 28 0 0 1 6 0Z" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 168 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 215 94)" d="M0 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 225 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 272 94)" d="M0 0V-18A18 18 0 0 1 18 -36" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 302 94)" d="M0 -36V-18A18 18 0 0 0 36 -18M36 -36V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(0.56 0 0 0.56 320 85.8)" d="M-9.8 .6c-.4-5 4.3-8.4 10.1-8.5 6-.1 10.2 3.1 10 7.9-.2 4.9-4.6 7.9-10.2 7.9-5.4 0-9.6-2.6-9.9-7.3Z" fill="var(--accent)"/><path transform="matrix(1 0 0 1 348 94)" d="M36 -18A18 18 0 1 0 0 -18A18 18 0 1 0 36 -18M36 -56V0" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 124 26)" d="M6.11 -8.56A3.1 2.5 0 1 0 3.3 -5A3.1 2.5 0 1 1 .49 -1.44" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 138.1 26)" d="M0 -10H7M3.5 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 152.6 26)" d="M0 -10V-3.5A3.5 3.5 0 0 0 7 -3.5V-10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 167.1 26)" d="M0 0V-10H2A5 5 0 0 1 2 0Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 181.6 26)" d="M0 -10V0" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path transform="matrix(1 0 0 1 189.1 26)" d="M5 -10A5 5 0 1 0 5 0A5 5 0 1 0 5 -10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <p>Rohemmet, designkoncept för Studio Dalarud. Hela texten finns i <code>koncept/ROHEMMET.md</code>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: .15 }) : null;
+  document.querySelectorAll(".reveal").forEach(function (el) { if (!io || reduce) el.classList.add("on"); else io.observe(el); });
+
+  // Ritningen: ögonhöjdszon och ljus. Golv vid y=400, 1 cm = 1.5 px.
+  var room = document.getElementById("room");
+  var zone = room.querySelector(".zone"), zoneTxt = document.getElementById("zoneTxt"), eyeLbl = room.querySelector(".eyeLbl");
+  function setZone(kind) {
+    var lo = kind === "child" ? 60 : 90, hi = kind === "child" ? 120 : 160;
+    zone.setAttribute("y", 400 - hi * 1.5); zone.setAttribute("height", (hi - lo) * 1.5);
+    zoneTxt.textContent = "ÖGONHÖJDSZON " + lo + "–" + hi + " CM";
+    zoneTxt.setAttribute("y", 400 - lo * 1.5 - 8);
+  }
+  function setLight(kind) {
+    var night = kind === "night";
+    room.querySelector(".night").setAttribute("opacity", night ? ".62" : "0");
+    room.querySelector(".ceiling-glow").style.opacity = night ? "0" : ".85";
+    room.querySelectorAll(".lamp-glow").forEach(function (g) { g.style.opacity = night ? "1" : "0"; });
+    room.querySelector(".lightLbl").setAttribute("opacity", night ? "1" : "0");
+    room.querySelector(".lightLbl").setAttribute("fill", night ? "#E6DCCB" : "#5D6458");
+    room.querySelector(".hookLbl").setAttribute("fill", night ? "#EAC2AE" : "#9B5E49");
+    zoneTxt.setAttribute("fill", night ? "#EAC2AE" : "#9B5E49");
+  }
+  document.querySelectorAll(".tg").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var group = b.dataset.zone ? "zone" : "light";
+      document.querySelectorAll(".tg[data-" + group + "]").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+      if (group === "zone") setZone(b.dataset.zone); else setLight(b.dataset.light);
+    });
+  });
+})();
+</script>
+</body>
+</html>

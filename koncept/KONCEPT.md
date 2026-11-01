@@ -18,6 +18,8 @@ Studio Dalarud är ett lifestyle-företag som samlar tre saker Sofia redan kan p
 3. **Hantverk i lera** – egentillverkade föremål som bär samma uttryck som inredningen.
 
 > **Livsstilen** – vad varumärket står för, vem som känner igen sig, ritualer, symboler, språk och gemenskap – beskrivs i `koncept/LIVSSTIL.md`, med en visuell version i `koncept/livsstil.html`. Idén i en mening: *Ett hem som är snällt mot dig.*
+>
+> **Rohemmet** är det övergripande designkonceptet, en motsvarighet till folkhemmet för vår tid: manifest, tio principer, Ro-måtten och samhällsidén *Ro åt alla*. Se `koncept/ROHEMMET.md` och den visuella versionen `koncept/rohemmet.html`.
 
 Det som gör företaget unikt är kombinationen. Det finns många inredare och många homestagers, men nästan ingen som kan förklara *varför* ett rum känns lugnt och som kan inreda för familjer där någon har ADHD, autism eller annan NPF. Den kunskapen blir varumärkets kärna – **ro** – och binder ihop tjänster, produkter och innehåll till ett sammanhållet lifestyle-koncept.
 

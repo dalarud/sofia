@@ -4,7 +4,7 @@ Företagskoncept, grafisk profil och hemsida för Studio Dalarud: inredning, hom
 
 | Mapp | Innehåll |
 | --- | --- |
-| `koncept/` | Företagskonceptet (`KONCEPT.md`) och livsstilskonceptet (`LIVSSTIL.md`, visuellt i `livsstil.html`) |
+| `koncept/` | Företagskonceptet (`KONCEPT.md`) livsstilskonceptet (`LIVSSTIL.md`) och designkonceptet Rohemmet (`ROHEMMET.md`). Visuella versioner i `livsstil.html` och `rohemmet.html`, byggs med `python3 koncept/bygg-sidor.py` |
 | `profil/` | Logotyp, typsnitt, grafisk manual och tryckfiler |
 | `guide/` | Gratisguiden *7 saker för ett lugnare barnrum* |
 | `index.html` | Den klickbara prototypen av hemsidan |

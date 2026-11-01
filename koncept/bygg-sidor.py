@@ -1,4 +1,4 @@
-# Bygger koncept/livsstil.html av livsstil.src.html med logotypen inbäddad.
+# Bygger koncept/livsstil.html och koncept/rohemmet.html av *.src.html med logotypen inbäddad.
 import pathlib, re
 root = pathlib.Path(__file__).resolve().parent.parent
 src = (root / "koncept/livsstil.src.html").read_text()
@@ -16,4 +16,7 @@ art = ('<svg viewBox="0 0 370 360" xmlns="http://www.w3.org/2000/svg" style="col
        '<text x="185" y="355" text-anchor="middle" font-family="Caveat, cursive" font-size="20" fill="#9B5E49">en sten för varje litet steg</text></svg>')
 out = src.replace("{{LOGO}}", logo).replace("{{STONES}}", art)
 (root / "koncept/livsstil.html").write_text(out)
-print("ok", len(out))
+print("livsstil", len(out))
+ro = (root / "koncept/rohemmet.src.html").read_text().replace("{{LOGO}}", logo)
+(root / "koncept/rohemmet.html").write_text(ro)
+print("rohemmet", len(ro))
