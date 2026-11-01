@@ -2,6 +2,8 @@
 
 *Version 2 · november 2026 · bygger på `ROHEMMET.md` och `FORSKNING.md`*
 
+> **Ersätts av formspråket.** Tre nya riktningar med en egen grundform, Röset, Dalen och Valvet, finns i `FORMSPRAK.md` och `formsprak.html`. När en riktning är vald byggs föremålen om efter den.
+
 ## Grundregeln: inga nya behov
 
 Rohemmet ska inte skapa nya prylar för nya behov. Det finns redan tillräckligt med saker i våra hem, och det är en del av bruset. I stället tar vi föremål som redan finns i nästan varje hem, och ger dem en ny, snällare funktion som känns självklar när man ser den.

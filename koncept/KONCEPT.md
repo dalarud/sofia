@@ -21,6 +21,8 @@ Studio Dalarud är ett lifestyle-företag som samlar tre saker Sofia redan kan p
 >
 > **Människohemmet** är det övergripande konceptet, en vision i folkhemmets anda: *hemmet format efter människan, inte tvärtom.* Det har fem delkoncept: Ro, Jord, Växt, Bord och År. Se `koncept/MANNISKOHEMMET.md` och `koncept/manniskohemmet.html`.
 >
+> **Formspråket** för Rohemmets föremål, tre riktningar att välja mellan (Röset, Dalen och Valvet), finns i `koncept/FORMSPRAK.md` och `koncept/formsprak.html`.
+>
 > **Forskningen** bakom principerna, med en ärlig gradering från stark till sunt förnuft, finns i `koncept/FORSKNING.md`. **Designobjekten**, vardagens föremål omtänkta (Stenlampan, Trehöjdsstaken, Stenbäraren, Landningsskålen, Kroken, Sänghimmeln och Valvet), finns i `koncept/DESIGNOBJEKT.md` och `koncept/bagen.html`.
 >
 > **Rohemmet** är det mest utvecklade delkonceptet: manifestet *Ro åt alla*, tio principer och Ro-måtten. Se `koncept/ROHEMMET.md` och `koncept/rohemmet.html`.
