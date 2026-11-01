@@ -1,98 +1,102 @@
-# Bågen – designobjekt för ett snällt hem
+# Bågen – vardagens föremål, omtänkta
 
-*Version 1 · november 2026 · bygger på `ROHEMMET.md` och `FORSKNING.md`*
+*Version 2 · november 2026 · bygger på `ROHEMMET.md` och `FORSKNING.md`*
 
-Folkhemmet fick sina ikoner: köksmåtten, Lilla Åland-stolen, den randiga trasmattan. Rohemmet behöver sina. Målet är föremål som är vackra nog att man vill ha dem för formens skull, och hjälpsamma nog att de gör vardagen lättare. De ska gå att känna igen på håll, och de ska bära en berättelse man gärna återberättar.
+## Grundregeln: inga nya behov
 
-## Grundidén: två former, en familj
+Rohemmet ska inte skapa nya prylar för nya behov. Det finns redan tillräckligt med saker i våra hem, och det är en del av bruset. I stället tar vi föremål som redan finns i nästan varje hem, och ger dem en ny, snällare funktion som känns självklar när man ser den.
 
-Alla objekt byggs av samma två former som logotypen:
+> **Samma föremål. Snällare mot den som bor där.**
 
-- **Bågen** är hemmet: det som ringar in, skyddar och ramar in.
-- **Stenen** är människan: det som vilar, går att hålla i och flytta.
+Det är också så folkhemmets ikoner uppstod: köket, stolen och mattan fanns redan. De blev ikoner för att någon tänkte om dem.
 
-Det gör dem till en familj. Den som ser en båge med en sten i vet att det är Rohemmet, på samma sätt som man känner igen ett varumärke på en enda linje. Rundade former upplevs dessutom som vackrare än kantiga (se `FORSKNING.md`), så formen är både igenkänning och skäl.
+Alla objekt bygger på logotypens två former: **bågen** är hemmet och **stenen** är människan. Stenen har dessutom en uppgift i varje föremål. Den är aldrig bara dekoration.
 
-## Sex objekt
+## Signaturobjektet: tre förslag
 
-### 1. Dagbågen *(signaturobjektet)*
-**Vad:** En båge i massiv ek, 40 cm bred, att hänga på väggen eller ställa på en byrå. I bågen löper ett spår, och i spåret ligger en sten i lera med magnet. Längs bågen sitter små brickor med bilder eller ord för dagens delar: morgon, förskola, mellanmål, lek, middag, kväll, sova. Man flyttar stenen när dagen går vidare.
+### 1. Stenlampan · taklampan, omtänkt *(rekommenderas)*
+**Det vedertagna föremålet:** Taklampan över köks- eller matbordet. Den finns i nästan varje hem och lyser lika starkt hela dagen och kvällen.
 
-**Varför den hjälper:** Den gör dagen synlig. Visuellt stöd är en evidensbaserad metod för barn med autism, och många med ADHD har svårt att uppfatta tid (se `FORSKNING.md`). Bågen visar dagen som en solbana: den börjar, når sin topp och landar.
+**Det vi ändrar:** Stenlampan är en hissbar taklampa, en klassisk skandinavisk typ, där motvikten på sladden är en sten. Drar man ner lampan mot bordet blir ljuset varmare och svagare. Skjuter man upp den igen blir det dagsljus. Höjden styr ljuset, så det behövs ingen app och ingen dimmer att leta efter. Skärmen är en båge i opalglas eller lin.
 
-**Varför den blir ikonisk:** Det är logotypen som föremål. Den är ett möbelobjekt snarare än ett hjälpmedel, och ser lika rätt ut i ett vardagsrum som i en förskola. Ingen skärm och inga ljud.
+**Varför det hjälper:** Det är den princip som har starkast stöd: dämpat ljus på kvällen är bättre för sömnen än vanlig rumsbelysning (se `FORSKNING.md`). Lampan gör *Kvällsljuset* till en enda rörelse: när det mörknar drar man ner lampan.
 
-**Varianter:** *Dagbågen* för barn, *Veckobågen* med sju stenar, *Kvällsbågen* med bara kvällens steg.
-**Material och pris:** Ek eller ask, stenar i lera, brickor i trä eller papp. Cirka 1 495–1 995 kr.
-**Tillverkning:** Ett lokalt snickeri eller en CNC-verkstad gör bågarna i serie. Sofia gör stenarna och ritar brickorna.
+**Varför den blir ikonisk:** Stenen som hänger på sladden syns på håll och berättar vilken tid på dagen det är: högt upp på kvällen, långt ner på dagen. Det är logotypen som fungerar. Och berättelsen är lätt att återge: *"Vi gjorde om taklampan, den som alla har."*
 
-### 2. Stenbäraren *(smycket)*
-**Vad:** Ett hänge i återvunnet silver eller mässing: tre små bågar, och i den innersta en liten sten i lera, glas eller sten som rör sig fritt i en liten dal. Man kan rulla stenen fram och tillbaka med tummen, tyst och diskret. Finns också som ring.
+**Tillverkning och pris:** Cirka 3 995–5 995 kr. Kräver CE-märkning och elsäkerhet, så den tas fram tillsammans med en svensk belysningsproducent, som samarbete eller licens. Stenen kan Sofia göra.
 
-**Varför den hjälper:** Något att göra med händerna när tankarna snurrar, utan att det syns. Forskningen om fingerobjekt för vuxna är tunn, så smycket säljs för att det är vackert och skönt att röra vid, inte som hjälpmedel.
+### 2. Valvet · öronlappsfåtöljen, omtänkt
+**Det vedertagna föremålet:** Öronlappsfåtöljen. Öronlapparna kom till för att skydda mot drag och kyla.
 
-**Varför den blir ikonisk:** Den är tecknet för att höra till: smycket för *Stenbärarna*. Den som bär den vet vad den betyder, och den som frågar får höra berättelsen. Stenen kan ha säsongens färg och samlas.
-**Pris:** Cirka 695 kr i mässing, 1 295 kr i silver. Ett första släpp numreras.
-**Tillverkning:** Samarbete med en svensk silversmed. Kontrollera nickelregler och material.
+**Det vi ändrar:** Valvet skyddar mot något annat: ljud och intryck. Ryggen är en hög båge som ramar in huvudet, klädd med ullfilt på insidan som dämpar ljud. En liten läslampa sitter i bågen, och i armstödet finns en sten i lera att vila handen på.
 
-### 3. Nischen *(möbeln)*
-**Vad:** En fristående båge i björkplywood, 140 cm hög, klädd med ullfilt på insidan. Den ställs bakom en fåtölj, vid sängen eller i ett hörn, och gör vilken plats som helst till en rohörna. En liten hylla och en lampsladd ryms i bågens fot. Viks ihop platt.
+**Varför det hjälper:** Det är rohörnan som möbel. Mjuka ytor dämpar ljud (måttligt stöd), trä och ull är varma material, och känslan av skydd i ryggen bygger på erfarenhet från förskolans kojor.
 
-**Varför den hjälper:** Den ger ryggskydd och avgränsning, filten dämpar ljud och träet är varmt. Det är rohörnan som möbel, för den som inte kan bygga en nisch.
+**Varför den blir ikonisk:** Silhuetten. En fåtölj med en båge som rygg känns igen på varje bild.
 
-**Varför den blir ikonisk:** Silhuetten. En båge i ett rum syns på varje bild, och är lätt att känna igen i inredningsflöden. Den fungerar i både hem, förskolor och väntrum.
-**Pris:** Cirka 6 900–9 900 kr. Förskoleversion i tåligare filt.
-**Tillverkning:** Svensk plywood och svensk ullfilt, gärna i samarbete med en etablerad möbelproducent.
+**Tillverkning och pris:** Cirka 14 900–24 900 kr, med en svensk möbelproducent.
 
-### 4. Kvällsljuset *(lampan)*
-**Vad:** En låg bordslampa: en båge i ek eller lera med en skärm av opalglas eller papper i öppningen. Stenen på foten är strömbrytaren och dimmern. Ljuset är varmt vitt och går ner till ett glödande ljus när man vrider stenen.
+### 3. Trehöjdsstaken · ljusstaken, omtänkt
+**Det vedertagna föremålet:** Ljusstaken, som finns i varje svenskt hem.
 
-**Varför den hjälper:** Det finns starkt stöd för att dämpat ljus på kvällen är bättre för sömnen än vanlig rumsbelysning. Lampan gör ritualen *Kvällsljuset* till ett föremål.
+**Det vi ändrar:** En ljusstake för tre ljus på tre olika höjder, längs en låg båge i lera eller ek. Den gör *ljus i tre höjder* till ett enda föremål på bordet eller i fönstret. Den är gjord för LED-ljus eller har hylsor av metall, eftersom torkad lera inte tål öppen låga.
 
-**Varför den blir ikonisk:** Bågen som lyser. Den är vacker även släckt.
-**Pris:** Cirka 2 495–3 495 kr.
-**Tillverkning:** Kräver CE-märkning och elsäkerhet, så den görs bäst tillsammans med en svensk belysningsproducent, som licens eller samarbete.
+**Varför det hjälper:** Dämpat, varmt ljus på kvällen har starkt stöd.
 
-### 5. Kroken i tre höjder *(hallen)*
-**Vad:** Krokar i ek med en bågformad bricka för namn eller bild, att sätta på tre höjder enligt Ro-måtten: 95 cm för barn 3–5 år, 115 cm för barn 6–9 år och 165 cm för vuxna. Säljs en och en, så att familjen kan växa.
+**Varför den blir ikonisk:** Den är enkel, prisvärd och lätt att ge bort. Den passar som det första föremålet man köper, och den kan Sofia göra själv redan i dag.
 
-**Varför den hjälper:** En plats per person i rätt höjd är det snabbaste sättet att göra morgnarna lugnare i hallen.
-**Varför den blir ikonisk:** Den är Ro-måtten i trä. Ett enkelt och prisvärt föremål som syns i hallen, där alla gäster kommer in.
+**Tillverkning och pris:** Cirka 595–895 kr.
+
+**Förslaget:** **Stenlampan** som signaturobjekt. Den tänker om det föremål som Rohemmet kritiserar mest, taklampan, med den princip som har starkast stöd i forskningen, och stenen får en verklig uppgift. **Trehöjdsstaken** passar som första föremål att sälja, eftersom Sofia kan göra den nu medan Stenlampan tas fram med en tillverkare.
+
+## Fler föremål i familjen
+
+### Landningsskålen · nyckelskålen, omtänkt
+**Det vi ändrar:** Skålen i hallen där nycklarna landar får en andra del: en liten båge i lera med plats för mobilen, som laddar där under natten. *Telefonen sover i hallen.* Skålen är formad efter det som ska landa: nycklar, plånbok och lappar från skolan.
+**Varför det hjälper:** Ett fast ställe för det som kommer in och går ut (flöde före form). Mobilen ligger utanför sovrummet, vilket betyder mindre ljus och färre störningar på kvällen.
+**Pris:** Cirka 695–995 kr. Lera och ek, går att göra lokalt.
+
+### Sänghimmeln · sänghimmeln, omtänkt
+**Det vi ändrar:** En båge i trä som fästs på väggen ovanför sängen, med ett draperi i lin som går att dra för. Den gör sängen till en koja, för barn och vuxna.
+**Varför det hjälper:** En avgränsad plats för vila (rohörnan), dämpat ljus och ett mjukt material som tar ljud.
+**Pris:** Cirka 1 995–2 995 kr.
+
+### Kroken · klädkroken, omtänkt
+**Det vi ändrar:** Krokar i ek med en bågformad bricka för namn eller bild, att sätta på tre höjder enligt Ro-måtten: 95, 115 och 165 cm. Säljs en och en, så att familjen kan växa.
+**Varför det hjälper:** En plats per person i rätt höjd. Barnen klarar själva, och golvet blir fritt.
 **Pris:** Cirka 295 kr per krok, 795 kr för tre.
 
-### 6. Ljudtavlan *(konsten)*
-**Vad:** En tavla i tjock ullfilt med ett motiv av bågar i årstidens färger: Landa, Ljuset, Lufta och Vila. Den dämpar ljud samtidigt som den är konst på väggen.
+### Stenbäraren · smycket, omtänkt
+**Det vi ändrar:** Människor har alltid haft något att röra vid i fickan eller runt halsen: radband, oroskulor, en slät sten. Stenbäraren är ett hänge eller en ring med tre bågar, där en liten sten rullar fritt i den innersta. Den blir tecknet för *Stenbärarna*, Studio Dalaruds gemenskap, med en ny färg på stenen varje årstid.
+**Varför det hjälper:** Något att göra med händerna, tyst och diskret. Forskningen om fingerobjekt för vuxna är tunn, så smycket säljs för att det är vackert och skönt att röra vid.
+**Pris:** Cirka 695 kr i mässing, 1 295 kr i silver.
 
-**Varför den hjälper:** Mjuka ytor dämpar efterklang, och buller påverkar barns koncentration. Ljudtavlan ger ett rum en mjuk yta utan att det ser ut som en ljudabsorbent.
-**Varför den blir ikonisk:** Fyra motiv som samlas, ett per årstid, i begränsade upplagor.
-**Pris:** Cirka 1 995–3 495 kr beroende på storlek.
+## Översikt
 
-## Vilket objekt först?
-
-| Objekt | Ikonisk | Hjälpsam | Svår att göra | Pris | Rekommendation |
+| Föremål | Det vedertagna | Princip | Stöd | Att göra | Förslag |
 |---|---|---|---|---|---|
-| **Dagbågen** | Mycket | Mycket | Ganska lätt | Mellan | **Först.** Signaturen |
-| **Stenbäraren** | Mycket | Lite (upplevt) | Lätt med silversmed | Lågt | **Först.** Ingången och gemenskapen |
-| Kroken i tre höjder | Ganska | Mycket | Lätt | Lågt | Andra släppet |
-| Ljudtavlan | Ganska | Ganska | Lätt | Mellan | Andra släppet |
-| Nischen | Mycket | Ganska | Svårare | Högt | Med en möbelproducent |
-| Kvällsljuset | Ganska | Mycket | Svårast (el) | Mellan | Som licens |
+| **Stenlampan** | Taklampan | Ljus i tre höjder | Stark | Med belysningsproducent | **Signaturobjektet** |
+| **Trehöjdsstaken** | Ljusstaken | Ljus i tre höjder | Stark | Sofia, nu | **Första föremålet** |
+| **Stenbäraren** | Smycket | Det handgjorda, gemenskapen | Tunt | Med silversmed | Första släppet |
+| Landningsskålen | Nyckelskålen | Flöde, kvällsljus | Indirekt | Sofia och snickare | Andra släppet |
+| Kroken | Klädkroken | Allt har en plats | Stark (visuellt stöd) | Snickare | Andra släppet |
+| Sänghimmeln | Sänghimmeln | Rohörnan, mjukt dämpar | Måttligt | Snickare och sömmerska | Andra släppet |
+| Valvet | Öronlappsfåtöljen | Rohörnan, mjukt dämpar | Måttligt | Med möbelproducent | På sikt |
 
-**Förslaget:** Börja med **Dagbågen** och **Stenbäraren**. De är lätta att tillverka i små serier, de kostar inte mycket att ta fram, de syns och de bär hela berättelsen: Dagbågen är Rohemmet i vardagen, och Stenbäraren är tecknet för att höra till. Nischen och Kvällsljuset passar bäst att ta fram tillsammans med en etablerad tillverkare när varumärket är känt.
+## Så blir ett föremål ikoniskt
 
-## Så blir ett objekt ikoniskt
-
-- **En enda siluett.** Bågen med stenen ska synas på varje bild, i varje objekt.
-- **En berättelse som går att återberätta.** *"Folkhemmet hade köksmåttet. Rohemmet har Dagbågen."*
-- **Små numrerade släpp.** Första serien av Dagbågen i 100 exemplar, numrerade i botten. Stenbäraren i en ny färg varje årstid.
-- **Rätt plats.** Dagbågen i en välkänd förskola eller hos en inredningsprofil, Nischen på en designmässa, Stenbäraren på någon som pratar öppet om sin ADHD.
-- **Samarbeten** med svenska tillverkare av trä, filt, glas och silver. Det ger kvalitet och trovärdighet.
-- **Ärlighet.** Varje objekt säger vad det gör och inte gör. Det är ovanligt och därför minnesvärt.
+- **Ett föremål alla redan har.** Då behöver ingen förklara behovet, bara skillnaden.
+- **Stenen har en uppgift.** Motvikt, handstöd, plats för mobilen. Det är det som gör formen meningsfull och lätt att känna igen.
+- **En mening att återberätta.** *"Vi gjorde om taklampan."* *"Öronlapparna skyddade mot drag. Valvet skyddar mot brus."*
+- **Små numrerade släpp** och stenar i årstidens färg.
+- **Samarbeten** med svenska tillverkare av belysning, möbler, textil och silver.
+- **Ärlighet:** varje föremål säger vad det gör och inte gör.
 
 ## Att tänka på
 
-- **Inga medicinska påståenden.** Objekten är inredning och smycken, inte hjälpmedel. Det gäller både marknadsföring och produkttexter.
-- **Barn:** Dagbågen och stenarna kan omfattas av leksaksreglerna om de riktas till barn, särskilt de små stenarna. Fäst stenarna eller gör dem tillräckligt stora, och undersök CE-märkning innan Dagbågen säljs för barnrum.
-- **Elektricitet:** Kvällsljuset kräver CE-märkning och elsäkerhetsprovning.
+- **Inga medicinska påståenden.** Föremålen är inredning och smycken, inte hjälpmedel.
+- **Elektricitet:** Stenlampan, och lampan i Valvet, kräver CE-märkning och elsäkerhetsprovning.
+- **Lera och värme:** Trehöjdsstaken görs för LED eller med metallhylsor.
+- **Barn:** Små stenar kan omfattas av leksaksreglerna om föremålet riktas till barn. Fäst stenarna eller gör dem tillräckligt stora.
 - **Smycken:** Kontrollera regler för nickel och andra metaller.
-- **Skydd:** Formen på Dagbågen och Stenbäraren kan registreras som design hos PRV, och namnen som varumärken.
+- **Skydd:** Formerna kan registreras som design hos PRV, och namnen som varumärken. Kontrollera att den hissbara mekanismen inte gör intrång i någons patent eller design.
