@@ -10,7 +10,7 @@ W = round(math.pi * R_MID)        # bågens längd utvikt: cirka 542 mm
 SOCKET = 40                       # hål för lamphållaren, anpassa efter den du köper
 SCREWS_X = [100, 250, 450, 600]   # skruvnitar längs toppen
 ROD_X, ROD_EDGE, ROD_D = 40, 20, 4.5
-SPINE_L, SPINE_W, SPINE_INSET = L - 50, 60, 25
+SPINE_L, SPINE_W, SPINE_INSET = L - 50, 70, 25
 
 def svg(w, h, body, name, note):
     pad = 15
@@ -54,6 +54,6 @@ def to_svg(ents):
 
 svg(L, W, to_svg(felt), "filt-70", f"Filtvalvet 70 cm · filt 5 mm · {L} x {W} mm · hål Ø{SOCKET} för lamphållare, Ø5 för skruvnitar, Ø{ROD_D} för stängerna · skala 1:1")
 dxf(felt, "filt-70")
-svg(SPINE_L, SPINE_W, to_svg(spine), "ryggstod-70", f"Ryggstöd i ek · {SPINE_L} x {SPINE_W} x 10 mm · samma hål som filten · skala 1:1")
+svg(SPINE_L, SPINE_W, to_svg(spine), "ryggstod-70", f"Ryggstöd i ek · {SPINE_L} x {SPINE_W} x 21 mm · samma hål som filten · skala 1:1")
 dxf(spine, "ryggstod-70")
 print("filt", L, "x", W, "mm")

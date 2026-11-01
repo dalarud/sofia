@@ -31,9 +31,9 @@ Ingen sömnad, inget lim och inga specialverktyg. Allt hålls ihop av skruvnitar
 
 | Del | Specifikation | Antal |
 |---|---|---|
-| **Ullfilt** | 100 % ull, 5 mm tjock, gärna kring 1 400 g/m². Skärs 700 × 542 mm | 1 bit |
-| **Ekribba** | 60 × 10 mm, 650 mm lång | 1 st |
-| **Skruvnitar** i mässing | Ø 5 mm, 15 mm lång (för 5 mm filt + 10 mm ek) | 4 st |
+| **Ullfilt** | 100 % ull, 5 mm tjock. Skärs 700 × 542 mm | 1 bit (2 för dubbel filt) |
+| **Ekribba** | Planhyvlad ek 21 × 70 mm, 650 mm lång | 1 st |
+| **Skruvnitar** i mässing | Ø 5 mm, 25 mm lång (för 5 mm filt + 21 mm ek) | 4 st |
 | **Gängstång** i mässing | M4, 370 mm lång | 2 st |
 | **Hattmuttrar** i mässing | M4 | 4 st |
 | **Brickor** i mässing | M4, gärna med stor ytterdiameter | 4 st |
@@ -42,7 +42,27 @@ Ingen sömnad, inget lim och inga specialverktyg. Allt hålls ihop av skruvnitar
 
 Filten för en lampa väger ungefär ett halvt kilo, och hela skärmen under ett kilo.
 
-**Ullfilt** finns hos specialister på designfilt, ofta i 180 cm bredd. En bit på 70 cm längd i 180 cm bredd räcker till tre lampor (3 × 542 mm = 163 cm). Be om varuprover i flera färger: mossa, kväll, havre och lera passar profilen.
+**Ullfilt:** Den enklaste att köpa är nålfilt, 5 mm, 140 cm bred, från Korps för 425 kr/m. En meter räcker till två skärmar. Den väger bara cirka 350 g/m² och är ganska mjuk. Prova därför först om bågen håller formen med ett lager. Om den sviktar kan du lägga två lager, gärna med en kontrastfärg på insidan. Det andra alternativet är pressad designfilt, cirka 1,5 kg/m², som är styvare och ser mer exklusiv ut men kostar mer; den köps via offert från en filtgrossist. Be om varuprover i flera färger: mossa, kväll, havre och lera passar profilen.
+
+## Kostnad och pris
+
+Den visuella guiden `guide.html` (byggs med `python3 koncept/bygg-sidor.py`) visar stegen i 3D och hela kalkylen. Kortfattat, priser inklusive moms från november 2026:
+
+| | Kronor |
+|---|---|
+| Ullfilt, en halv meter | 149 |
+| Ekribba 21 × 70 × 1000 mm (Bauhaus) | 249 |
+| Gängstång mässing M4 × 1000 mm | 63 |
+| Hattmuttrar, brickor, skruvnitar, olja (uppskattat) | 75 |
+| Förpackning (uppskattat) | 60 |
+| **Summa per skärm, ett lager filt** | **≈ 596** |
+| Med två lager filt | ≈ 745 |
+
+Startkostnad: cirka 1 800 kr, varav verktyg cirka 670 kr och material till två provlampor.
+
+**Föreslaget pris: 1 795 kr för skärmen.** Efter moms (359 kr), material exklusive moms (477 kr) och kortavgift (cirka 45 kr) blir cirka 900 kr kvar per skärm, eller cirka 800 kr med dubbel filt. På 45 minuter blir det ungefär 1 200 kr i timmen före skatt. Kunden lägger till en upphängning (cirka 100–200 kr) och en LED-lampa (cirka 60–80 kr).
+
+Som jämförelse kostar Belid Soft i ull, Ø 40, cirka 2 100 DKK. Muuto Under the Bell kostar cirka 450 euro och Le Klint Softly Pleated cirka 480 euro. Ekribban är den största posten, och den blir billigare om eken köps i längre plankor eller om ryggstöden görs i serie av ett snickeri.
 
 ### Verktyg
 

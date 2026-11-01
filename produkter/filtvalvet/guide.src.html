@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filtvalvet – bygg och kalkyl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root {
+  --bg: #F3EEE6; --surface: #FBF8F3; --havre: #E6DCCB; --fg: #2B362E; --muted: #5D6458; --line: #D0C3AF;
+  --accent: #9B5E49; --accent-soft: #D49C82; --moss: #6F7D62;
+  --stone: 58% 42% 55% 45% / 52% 60% 40% 48%;
+  --serif: "Instrument Serif", Georgia, serif; --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif; --hand: "Caveat", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --moss: #A9B79A; }
+}
+:root[data-theme="dark"] { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --moss: #A9B79A; }
+* { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; margin: 0; }
+em { font-style: italic; color: var(--accent); }
+p { margin: 0; }
+a { color: inherit; }
+.wrap { width: min(100% - 32px, 1180px); margin-inline: auto; }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--moss); display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem; }
+.eyebrow::before { content: ""; width: .6rem; height: .42rem; border-radius: var(--stone); background: currentColor; }
+.top { padding: 1.2rem 0; }
+.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.logo { width: 140px; color: var(--fg); display: block; }
+.top small { color: var(--muted); font-size: .82rem; }
+section { padding: clamp(2.6rem, 6vw, 4.6rem) 0; }
+
+/* Siffrorna */
+.hero h1 { font-size: clamp(3rem, 9vw, 6.6rem); line-height: .9; letter-spacing: -.025em; }
+.hero__lede { color: var(--muted); font-size: 1.1rem; max-width: 50ch; margin-top: 1rem; }
+.keys { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; border-top: 1.5px solid var(--fg); }
+.keys div { padding-top: 1rem; }
+.keys b { display: block; font: 400 clamp(2rem, 4.4vw, 3rem)/1 var(--serif); }
+.keys span { color: var(--muted); font-size: .9rem; }
+.keys .hl b { color: var(--accent); font-style: italic; }
+@media (max-width: 720px) { .keys { grid-template-columns: 1fr 1fr; } }
+
+/* Byggaren */
+.builder { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 1.6rem 2.6rem; align-items: start; }
+.viewer { position: sticky; top: 1rem; }
+.stage { position: relative; aspect-ratio: 4 / 3; border-radius: 6px; overflow: hidden; background: #ECE5D9; touch-action: pan-y; cursor: grab; }
+.stage canvas { width: 100%; height: 100%; display: block; }
+.stage__n { position: absolute; left: 1rem; top: .8rem; font: italic 400 3rem/1 var(--serif); color: var(--accent); pointer-events: none; }
+.stage__dim { position: absolute; font: 400 1.15rem/1 var(--hand); color: #9B5E49; pointer-events: none; transition: opacity .4s; white-space: nowrap; }
+.nav { display: flex; align-items: center; gap: 1rem; margin-top: 1rem; }
+.nav button { font: 400 1.15rem var(--serif); background: none; border: 0; border-bottom: 1px solid var(--accent); color: var(--fg); padding: .2rem 0; cursor: pointer; }
+.nav button[disabled] { opacity: .3; cursor: default; }
+.dots { display: flex; gap: .35rem; flex: 1; justify-content: center; }
+.dots button { width: .7rem; height: .5rem; border-radius: var(--stone); border: 0; background: var(--line); padding: 0; cursor: pointer; }
+.dots button[aria-current="step"] { background: var(--accent); }
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: s; }
+.step { counter-increment: s; padding: 1.2rem 0 1.3rem; border-top: 1px solid var(--line); cursor: pointer; opacity: .45; transition: opacity .3s; }
+.step:last-child { border-bottom: 1px solid var(--line); }
+.step.is-on { opacity: 1; }
+.step h3 { font-size: 1.6rem; display: flex; gap: .7rem; align-items: baseline; }
+.step h3::before { content: counter(s); font: italic 400 1.6rem var(--serif); color: var(--accent); }
+.step p { color: var(--muted); font-size: .97rem; margin-top: .5rem; }
+.step ul { margin: .6rem 0 0; padding-left: 1.1rem; color: var(--muted); font-size: .95rem; }
+.step .tip { margin-top: .6rem; font: 400 1.15rem/1.25 var(--hand); color: var(--accent); }
+.step .time { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; color: var(--moss); margin-top: .6rem; display: block; }
+@media (max-width: 900px) { .builder { grid-template-columns: 1fr; } .viewer { position: sticky; top: 0; z-index: 2; background: var(--bg); padding-bottom: .4rem; } .stage { aspect-ratio: 16 / 10; } }
+
+/* Tabeller */
+table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+th { text-align: left; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: .55rem .6rem .55rem 0; border-bottom: 1.5px solid var(--fg); }
+td { padding: .7rem .6rem .7rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+td.n, th.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+tr.sum td { font-weight: 600; border-bottom: 1.5px solid var(--fg); }
+td small { color: var(--muted); display: block; font-size: .82rem; }
+.est { display: inline-block; font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: .05rem .4rem; border-radius: 999px; background: var(--havre); color: var(--muted); margin-left: .3rem; vertical-align: middle; }
+.tablewrap { overflow-x: auto; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem; }
+@media (max-width: 900px) { .two { grid-template-columns: 1fr; } }
+h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 1.4rem; }
+h2 em { color: var(--accent); }
+.note { color: var(--muted); font-size: .9rem; margin-top: 1rem; max-width: 70ch; }
+
+/* Pris */
+.price { background: var(--fg); color: var(--bg); }
+.price .eyebrow { color: var(--accent-soft); }
+.price h2 em { color: var(--accent-soft); }
+.price table th { color: rgba(243,238,230,.6); border-color: rgba(243,238,230,.4); }
+.price table td { border-color: rgba(243,238,230,.15); color: rgba(243,238,230,.88); }
+.price tr.sum td { border-color: rgba(243,238,230,.5); color: #F3EEE6; }
+.price td small { color: rgba(243,238,230,.6); }
+.big-price { font: 400 clamp(3.4rem, 9vw, 6rem)/1 var(--serif); color: var(--accent-soft); font-style: italic; }
+.price .note { color: rgba(243,238,230,.65); }
+.compare li { padding: .55rem 0; border-bottom: 1px solid rgba(243,238,230,.15); display: flex; justify-content: space-between; gap: 1rem; }
+.compare { list-style: none; margin: 0; padding: 0; }
+.compare li span:last-child { white-space: nowrap; color: rgba(243,238,230,.75); }
+.compare li.ours { color: var(--accent-soft); font-weight: 600; }
+.compare li.ours span:last-child { color: var(--accent-soft); }
+.choice { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-top: 2rem; }
+.choice div { border-top: 2px solid var(--fg); padding-top: .9rem; }
+.choice h3 { font-size: 1.5rem; }
+.choice p { color: var(--muted); font-size: .94rem; margin-top: .4rem; }
+@media (max-width: 820px) { .choice { grid-template-columns: 1fr; } }
+footer { padding: 2.4rem 0 4rem; color: var(--muted); font-size: .85rem; }
+footer ul { padding-left: 1rem; }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Taklampan i ullfilt · version 1</small></div></header>
+
+<section class="hero" style="padding-top:1.4rem">
+  <div class="wrap">
+    <p class="eyebrow">Bygg den själv</p>
+    <h1>Filtvalvet</h1>
+    <p class="hero__lede">En båge av ullfilt över matbordet. Fyra delar, inget lim och ingen sömnad. Följ stegen i bilden, se vad det kostar och vad den kan säljas för.</p>
+    <div class="keys">
+      <div><b>~600 kr</b><span>material per skärm</span></div>
+      <div><b>45 min</b><span>att bygga, när du har gjort en</span></div>
+      <div class="hl"><b>1 795 kr</b><span>förslag på pris för skärmen</span></div>
+      <div><b>~900 kr</b><span>kvar per skärm efter material och moms</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" aria-labelledby="bygg-h">
+  <div class="wrap">
+    <h2 id="bygg-h">Steg för steg, <em>i bild.</em></h2>
+    <div class="builder">
+      <div class="viewer">
+        <div class="stage" id="stage"><span class="stage__n" id="stageN">1</span>
+          <span class="stage__dim" id="dimL">70 cm</span><span class="stage__dim" id="dimW">54,2 cm</span>
+        </div>
+        <div class="nav"><button type="button" id="prev">← Föregående</button><div class="dots" id="dots"></div><button type="button" id="next">Nästa →</button></div>
+      </div>
+      <ol class="steps" id="steps">
+        <li class="step"><h3>Prova med kartong</h3><p>Skär ut en kartongbit på <b>70 × 54,2 cm</b>, böj den till en båge och håll den över bordet. Ändra längden nu om det behövs, innan du skär i filten.</p><span class="time">15 minuter</span></li>
+        <li class="step"><h3>Skär filten och slå hålen</h3><p>Lägg filten på skärmattan och skär med flera lätta drag längs stållinjalen. Slå sedan hålen enligt mallen:</p><ul><li>ett hål Ø 40 mm i mitten, för lamphållaren</li><li>fyra hål Ø 5 mm längs mittlinjen, för skruvnitarna</li><li>fyra hål Ø 4,5 mm nära hörnen, 2 cm från långsidan och 4 cm från kortsidan</li></ul><p class="tip">Mät gängan på din lamphållare innan du gör det stora hålet.</p><span class="time">30 minuter</span></li>
+        <li class="step"><h3>Gör ryggstödet</h3><p>Såga ekribban (21 × 70 mm) till <b>65 cm</b>. Slipa kanterna mjuka, borra samma hål som i filtens mittlinje och olja eken.</p><span class="time">20 minuter, plus torktid</span></li>
+        <li class="step"><h3>Skruva fast ryggstödet</h3><p>Lägg filten med insidan uppåt och ryggstödet längs mittlinjen, 2,5 cm in från varje kortsida. Skruva fast med de fyra skruvnitarna. Mässingshuvudena syns på utsidan som fyra prickar längs toppen.</p><span class="time">5 minuter</span></li>
+        <li class="step"><h3>Böj bågen</h3><p>Lyft långsidorna och böj filten till en båge runt ryggstödet. Filten är mjuk, så det går lätt.</p><p class="tip">Känns filten för mjuk? Lägg två lager.</p><span class="time">1 minut</span></li>
+        <li class="step"><h3>Sätt i stängerna</h3><p>För en mässingsstång genom hålen vid varje ände, med en bricka och en hattmutter på båda sidor. Dra åt tills bågen är <b>34 cm bred</b> mätt på insidan. Stängerna håller bågen i form, som strängen på en pilbåge.</p><span class="time">10 minuter</span></li>
+        <li class="step"><h3>Montera ljuset och vänd</h3><p>Trä sladden från upphängningen genom hålet, inifrån. Skruva fast lamphållaren med skärmringen så att filten och eken kläms fast. Skruva i en LED-lampa på högst 10 W, och kontrollera att det är minst 5 cm till filten. Vänd lampan.</p><span class="time">10 minuter</span></li>
+        <li class="step"><h3>Häng upp</h3><p>Låt lampan lysa ett par timmar och känn att filten inte blir varm. Häng den sedan cirka <b>60–70 cm över bordet</b>. Att ansluta i takdosan i ett torrt rum får man oftast göra själv, men kontrollera hos Elsäkerhetsverket.</p><span class="time">15 minuter</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);border-block:1px solid var(--line)" aria-labelledby="kost-h">
+  <div class="wrap">
+    <h2 id="kost-h">Vad det <em>kostar.</em></h2>
+    <div class="two">
+      <div>
+        <h3 style="font-size:1.5rem;margin-bottom:.8rem">Material per skärm</h3>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Del</th><th class="n">Kronor</th></tr></thead>
+          <tbody>
+            <tr><td>Ullfilt 5 mm, 35 cm av en 140 cm bred våd<small>425 kr/m, Korps. En meter ger två skärmar</small></td><td class="n">149</td></tr>
+            <tr><td>Ekribba 21 × 70 × 1000 mm<small>249 kr, Bauhaus. Ger ett ryggstöd</small></td><td class="n">249</td></tr>
+            <tr><td>Gängstång mässing M4 × 1000 mm<small>62,95 kr ordinarie, Bauhaus. Räcker till båda stängerna</small></td><td class="n">63</td></tr>
+            <tr><td>4 hattmuttrar och 4 brickor i mässing<span class="est">uppskattat</span></td><td class="n">40</td></tr>
+            <tr><td>4 skruvnitar 5 × 25 mm<span class="est">uppskattat</span></td><td class="n">20</td></tr>
+            <tr><td>Olja och sandpapper<span class="est">uppskattat</span></td><td class="n">15</td></tr>
+            <tr><td>Platt kartong, silkespapper och kort<span class="est">uppskattat</span></td><td class="n">60</td></tr>
+            <tr class="sum"><td>Summa, ett lager filt</td><td class="n">596</td></tr>
+            <tr><td>Med två lager filt</td><td class="n">745</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Priser inklusive moms, hämtade i november 2026. Ekribban är den största posten: i serie blir ryggstödet billigare om det skärs ur en längre planka eller ur björkplywood hos en laserskärare.</p>
+      </div>
+      <div>
+        <h3 style="font-size:1.5rem;margin-bottom:.8rem">Elen, som kunden köper själv</h3>
+        <div class="tablewrap"><table>
+          <tbody>
+            <tr><td>Upphängning med textilsladd och E27-lamphållare<small>Från cirka 98 kr hos Hornbach (Cottex). Med takkopp och dimmer något dyrare</small></td><td class="n">98–200</td></tr>
+            <tr><td>LED-lampa E27, 2 700 K, dimbar<small>59,90–79,90 kr, Clas Ohlson</small></td><td class="n">60–80</td></tr>
+          </tbody>
+        </table></div>
+        <h3 style="font-size:1.5rem;margin:2rem 0 .8rem">En gång, för att komma igång</h3>
+        <div class="tablewrap"><table>
+          <tbody>
+            <tr><td>Skärmatta, vass kniv och stållinjal 1 m<span class="est">uppskattat</span></td><td class="n">400</td></tr>
+            <tr><td>Hålpipor 5 och 4,5 mm, och en hammare<span class="est">uppskattat</span></td><td class="n">150</td></tr>
+            <tr><td>Hålsåg 40 mm till borrmaskinen<span class="est">uppskattat</span></td><td class="n">120</td></tr>
+            <tr><td>Material till två provlampor, med el</td><td class="n">≈ 1 100</td></tr>
+            <tr class="sum"><td>Ungefär, för att komma igång</td><td class="n">≈ 1 800</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Har ni redan verktyg sjunker summan. Priser markerade <span class="est">uppskattat</span> har jag inte kunnat kontrollera i en svensk butik.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="price" aria-labelledby="pris-h">
+  <div class="wrap">
+    <p class="eyebrow">Vad den kan säljas för</p>
+    <h2 id="pris-h">Skärmen för <em>1 795 kr.</em></h2>
+    <div class="two">
+      <div>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Kalkyl per skärm</th><th class="n">Kronor</th></tr></thead>
+          <tbody>
+            <tr><td>Pris till kund, inklusive moms</td><td class="n">1 795</td></tr>
+            <tr><td>Moms 25 %</td><td class="n">−359</td></tr>
+            <tr><td>Material, exklusive moms<small>596 kr inklusive moms</small></td><td class="n">−477</td></tr>
+            <tr><td>Kortavgift, ungefär 2,5 %</td><td class="n">−45</td></tr>
+            <tr class="sum"><td>Kvar till Sofia</td><td class="n">≈ 914</td></tr>
+            <tr><td>Med två lager filt</td><td class="n">≈ 795</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">Med 45 minuters arbete blir det runt 1 200 kr i timmen, före skatt. Frakten betalar kunden: ett platt paket på cirka 75 × 58 cm kostar mer än vanlig frakt, så kontrollera priset hos PostNord och lägg det på ordern.</p>
+      </div>
+      <div>
+        <p class="big-price">1 795 kr</p>
+        <p style="color:rgba(243,238,230,.8);margin-top:.6rem;max-width:44ch">Med upphängning och lampa blir det cirka 2 000 kr för kunden, vilket är tydligt under de etablerade lamporna i filt, men ändå en handgjord designlampa.</p>
+        <ul class="compare" style="margin-top:1.4rem">
+          <li><span>Belid Soft i ull, Ø 40 cm</span><span>2 082 DKK</span></li>
+          <li><span>Belid Soft i ull, Ø 57 cm</span><span>2 895 DKK</span></li>
+          <li><span>Muuto Under the Bell, PET-filt</span><span>€ 449</span></li>
+          <li><span>Le Klint Softly Pleated, liten</span><span>€ 478</span></li>
+          <li class="ours"><span>Filtvalvet, skärm och upphängning</span><span>≈ 2 000 kr</span></li>
+        </ul>
+        <p class="note">Jämförelsepriserna är återförsäljares listpriser i andra valutor och kan ha ändrats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="salj-h">
+  <div class="wrap">
+    <h2 id="salj-h">Tre sätt <em>att sälja.</em></h2>
+    <div class="choice">
+      <div><h3>Bara skärmen <em>(börja här)</em></h3><p>Sofia säljer filt, ryggstöd, stänger och skruvnitar, platt i paket. Kunden köper en färdig, CE-märkt upphängning. Ingen elutrustning, och troligen ingen CE-märkning. Fråga Elsäkerhetsverket för att vara säker. Cirka 900 kr kvar per skärm.</p></div>
+      <div><h3>Hel lampa med el</h3><p>Sofia monterar el och säljer en färdig lampa. Då blir hon tillverkare: CE-märkning, och anmälan om producentansvar till Naturvårdsverket. Mer arbete för ungefär 250 kr mer per lampa. Vänta med detta.</p></div>
+      <div><h3>Via butiker</h3><p>En butik tar ofta 40–50 % av priset. Då blir det kvar cirka 250–400 kr per skärm, så sälj själv i början och använd butiker för att synas.</p></div>
+    </div>
+    <p class="note">Snabbare i serie: när formen är klar kan en laserskärare skära filt och ryggstöd efter DXF-filerna. Då tar monteringen ungefär en kvart per skärm. Be om offert, eftersom priset beror på mängd och material.</p>
+  </div>
+</section>
+
+<footer><div class="wrap"><p>Källor för priserna:</p><ul>
+  <li><a href="https://www.korps.se/produkt/garn-ull/nalltovning-och-vattovning/tovningsull/ullfilt-nalfilt-5mm">Korps: Ullfilt nålfilt 5 mm</a></li>
+  <li><a href="https://www.bauhaus.se/planhyvlad-ek-moelven-obehandlad-21x70x1000mm">Bauhaus: planhyvlad ek 21 × 70 × 1000 mm</a></li>
+  <li><a href="https://www.bauhaus.se/gangstang-suki-ac57-m4x1000mm-massing">Bauhaus: gängstång M4 mässing</a></li>
+  <li><a href="https://www.hornbach.se/c/el-belysning/inomhusbelysning/tillbehor-lampor/S17621/f/Varumärke=Cottex">Hornbach: Cottex lamphållare med textilsladd</a></li>
+  <li><a href="https://www.clasohlson.com/se/p/36-6845">Clas Ohlson: dimbar LED E27</a></li>
+  <li><a href="https://www.kitchentime.dk/varemarker/belid/soft-pendel-o40-cm">Kitchentime: Belid Soft</a>, <a href="https://no-ga.com/en-fr/muuto/under-the-bell-pendant-lamp">Nordiska Galleriet: Muuto Under the Bell</a>, <a href="https://www.interiordaily.com/article/9781343/le-klint-unveils-softly-pleated-a-contemporary-take-on-classic-danish-craftsmanship">Le Klint Softly Pleated</a></li>
+</ul></div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  var stepsEl = document.getElementById("steps"), items = stepsEl.querySelectorAll(".step"), N = items.length;
+  var dots = document.getElementById("dots"), prev = document.getElementById("prev"), next = document.getElementById("next"), nEl = document.getElementById("stageN");
+  for (var i = 0; i < N; i++) { var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-label", "Steg " + (i + 1)); (function (k) { b.addEventListener("click", function () { go(k); }); })(i); dots.appendChild(b); }
+  items.forEach(function (li, k) { li.addEventListener("click", function () { go(k); }); });
+  prev.addEventListener("click", function () { go(cur - 1); }); next.addEventListener("click", function () { go(cur + 1); });
+  var cur = 0, onStep = function () {};
+  function go(k) {
+    cur = Math.max(0, Math.min(N - 1, k));
+    items.forEach(function (li, j) { li.classList.toggle("is-on", j === cur); });
+    dots.querySelectorAll("button").forEach(function (b, j) { if (j === cur) b.setAttribute("aria-current", "step"); else b.removeAttribute("aria-current"); });
+    prev.disabled = cur === 0; next.disabled = cur === N - 1; nEl.textContent = cur + 1;
+    onStep(cur);
+  }
+
+  if (!window.THREE) { go(0); return; }
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function lin(c) { return new THREE.Color(c).convertSRGBToLinear(); }
+  function rng(seed) { return function () { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; }; }
+  function canvasTex(w, h, paint) { var c = document.createElement("canvas"); c.width = w; c.height = h; paint(c.getContext("2d"), w, h); var t = new THREE.CanvasTexture(c); t.wrapS = t.wrapT = THREE.RepeatWrapping; return t; }
+  var wood = canvasTex(512, 128, function (x, w, h) { x.fillStyle = "#C9A57A"; x.fillRect(0, 0, w, h); var r = rng(3); for (var i = 0; i < 70; i++) { x.strokeStyle = "rgba(120,80,40," + (0.05 + r() * 0.1) + ")"; x.lineWidth = 1 + r() * 2; x.beginPath(); var y = r() * h; x.moveTo(0, y); for (var k = 0; k <= w; k += 32) x.lineTo(k, y + Math.sin(k / 60 + i) * 3); x.stroke(); } }); wood.encoding = THREE.sRGBEncoding;
+  var noise = canvasTex(256, 256, function (x, w, h) { var d = x.createImageData(w, h), r = rng(7); for (var i = 0; i < d.data.length; i += 4) { var v = 200 + r() * 55; d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 255; } x.putImageData(d, 0, 0); });
+  noise.repeat.set(3, 3);
+  function M(c, o) { o = Object.assign({ roughness: 0.85 }, o || {}); o.color = lin(c); if (o.emissive !== undefined) o.emissive = lin(o.emissive); return new THREE.MeshStandardMaterial(o); }
+
+  var el = document.getElementById("stage");
+  var renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1)); renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 0.95;
+  el.insertBefore(renderer.domElement, el.firstChild);
+  var scene = new THREE.Scene(); scene.background = lin(0xECE5D9);
+  var cam = new THREE.PerspectiveCamera(32, 4 / 3, 0.05, 30);
+  var hemi = new THREE.HemisphereLight(lin(0xFFF8EE), lin(0x9C8E78), 0.6); scene.add(hemi);
+  var key = new THREE.DirectionalLight(lin(0xFFF1DE), 1.0); key.position.set(-1.5, 3, 2); key.castShadow = true; key.shadow.mapSize.set(2048, 2048);
+  ["left", "right", "top", "bottom"].forEach(function (s, i) { key.shadow.camera[s] = [-3.5, 3.5, 3.5, -3.5][i]; }); key.shadow.radius = 5; key.shadow.camera.near = 0.1; key.shadow.camera.far = 12; key.shadow.bias = -0.0006; scene.add(key);
+  var floor = new THREE.Mesh(new THREE.PlaneGeometry(20, 20), M(0xE6DDCF, { roughness: 1 })); floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; scene.add(floor);
+
+  // Mått i meter
+  var L = 0.70, W = 0.542, R = 0.1725, SEG = 72;
+  var feltMat = M(0x6F7D62, { roughness: 1, bumpMap: noise, bumpScale: 0.006, side: THREE.DoubleSide });
+  var feltGeo = new THREE.PlaneGeometry(L, W, 4, SEG);
+  var base = feltGeo.attributes.position.array.slice();
+  var felt = new THREE.Mesh(feltGeo, feltMat); felt.castShadow = true; felt.receiveShadow = true;
+  var pivot = new THREE.Group(); var lamp = new THREE.Group(); pivot.add(lamp); lamp.add(felt); scene.add(pivot);
+  // Läge på bågen: s längs bredden. bend 0 = plan, 1 = halvcirkel (tråg, öppning uppåt)
+  function shape(s, bend) {
+    if (bend < 0.001) return [0, s];
+    var rho = R / bend, a = s / rho;
+    return [rho * (1 - Math.cos(a)), rho * Math.sin(a)];
+  }
+  function bendFelt(b) {
+    var p = feltGeo.attributes.position;
+    for (var i = 0; i < p.count; i++) { var x = base[i * 3], s = base[i * 3 + 1]; var q = shape(s, b); p.setXYZ(i, x, q[0], q[1]); }
+    p.needsUpdate = true; feltGeo.computeVertexNormals();
+  }
+  // Hål som små mörka prickar på filten
+  var holeMat = new THREE.MeshBasicMaterial({ color: lin(0x2B362E) }), holes = [];
+  function addHole(x, s, r) { var h = new THREE.Mesh(new THREE.CircleGeometry(r, 24), holeMat); h.userData = { x: x, s: s }; lamp.add(h); holes.push(h); }
+  addHole(0, 0, 0.02); [-0.25, -0.1, 0.1, 0.25].forEach(function (x) { addHole(x, 0, 0.004); });
+  [-(L / 2 - 0.04), L / 2 - 0.04].forEach(function (x) { [-(W / 2 - 0.02), W / 2 - 0.02].forEach(function (s) { addHole(x, s, 0.0035); }); });
+  function placeHoles(b) {
+    holes.forEach(function (h) {
+      var q = shape(h.userData.s, b), y = q[0], z = q[1], a = b < 0.001 ? 0 : h.userData.s / (R / b);
+      h.position.set(h.userData.x, y + 0.0015 * Math.cos(a), z - 0.0015 * Math.sin(a));
+      h.rotation.set(-Math.PI / 2 + a, 0, 0);
+    });
+  }
+  // Ryggstöd i ek
+  var spineMat = new THREE.MeshStandardMaterial({ map: wood, roughness: 0.7 });
+  var spine = new THREE.Mesh(new THREE.BoxGeometry(0.65, 0.021, 0.07), spineMat); spine.castShadow = true; lamp.add(spine);
+  var screws = []; [-0.25, -0.1, 0.1, 0.25].forEach(function (x) { var s = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.004, 20), M(0xC2A15A, { metalness: 0.8, roughness: 0.3 })); s.userData.x = x; lamp.add(s); screws.push(s); });
+  // Stänger och muttrar
+  var brass = M(0xC2A15A, { metalness: 0.85, roughness: 0.3 }), rods = [];
+  [-(L / 2 - 0.04), L / 2 - 0.04].forEach(function (x) {
+    var g = new THREE.Group(); var rod = new THREE.Mesh(new THREE.CylinderGeometry(0.0022, 0.0022, 0.37, 12), brass); rod.rotation.x = Math.PI / 2; g.add(rod);
+    [-0.177, 0.177].forEach(function (z) { var n = new THREE.Mesh(new THREE.SphereGeometry(0.0055, 16, 12), brass); n.position.z = z; g.add(n); });
+    g.position.x = x; lamp.add(g); rods.push(g);
+  });
+  // Lamphållare, lampa och sladd (i trågets koordinater: inåt = uppåt)
+  var elec = new THREE.Group(); lamp.add(elec);
+  var sock = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.05, 24), M(0xF3EEE6, { roughness: 0.5 })); sock.position.y = 0.05; elec.add(sock);
+  var bulbMat = new THREE.MeshStandardMaterial({ color: lin(0xFFF6E6), emissive: lin(0xFFD9A0), emissiveIntensity: 0 });
+  var bulb = new THREE.Mesh(new THREE.SphereGeometry(0.03, 24, 16), bulbMat); bulb.position.y = 0.1; elec.add(bulb);
+  var cord = new THREE.Mesh(new THREE.CylinderGeometry(0.0025, 0.0025, 2.4, 8), M(0x2B362E)); cord.position.y = -1.2; elec.add(cord);
+  var glow = new THREE.SpotLight(lin(0xFFD3A0), 0, 3, Math.PI / 3, 0.7, 1.4); glow.castShadow = true; glow.position.set(0, 0.1, 0); var gt = new THREE.Object3D(); gt.position.set(0, 1, 0); elec.add(glow); elec.add(gt); glow.target = gt;
+  // Bordet och kartongen
+  var table = new THREE.Group(); var top = new THREE.Mesh(new THREE.BoxGeometry(1.4, 0.035, 0.8), new THREE.MeshStandardMaterial({ map: wood, roughness: 0.7 })); top.position.y = 0.74; top.castShadow = top.receiveShadow = true; table.add(top);
+  [[-0.62, -0.34], [0.62, -0.34], [-0.62, 0.34], [0.62, 0.34]].forEach(function (p) { var l = new THREE.Mesh(new THREE.BoxGeometry(0.045, 0.72, 0.045), new THREE.MeshStandardMaterial({ map: wood, roughness: 0.7 })); l.position.set(p[0], 0.36, p[1]); l.castShadow = true; table.add(l); });
+  scene.add(table);
+
+  // Tillstånd per steg
+  var S = [
+    { bend: 0, felt: 0xB9A07A, holes: 0, spine: [0, 0.12, 0.55], spineV: 0, screws: 0, rods: 0, elec: 0, flip: 0, y: 0.003, table: 0, light: 0, cam: [0.25, 1.0, 1.05], look: [0, 0, 0] },
+    { bend: 0, felt: 0x6F7D62, holes: 1, spine: [0, 0.12, 0.55], spineV: 0, screws: 0, rods: 0, elec: 0, flip: 0, y: 0.003, table: 0, light: 0, cam: [0.25, 1.0, 1.05], look: [0, 0, 0] },
+    { bend: 0, felt: 0x6F7D62, holes: 1, spine: [0, 0.03, 0.4], spineV: 1, screws: 0, rods: 0, elec: 0, flip: 0, y: 0.003, table: 0, light: 0, cam: [0.4, 0.9, 1.15], look: [0, 0, 0.15] },
+    { bend: 0, felt: 0x6F7D62, holes: 1, spine: [0, 0.0135, 0], spineV: 1, screws: 1, rods: 0, elec: 0, flip: 0, y: 0.003, table: 0, light: 0, cam: [0.3, 0.8, 0.9], look: [0, 0, 0] },
+    { bend: 1, felt: 0x6F7D62, holes: 1, spine: [0, 0.0135, 0], spineV: 1, screws: 1, rods: 0, elec: 0, flip: 0, y: 0.003, table: 0, light: 0, cam: [0.85, 0.75, 0.95], look: [0, 0.12, 0] },
+    { bend: 1, felt: 0x6F7D62, holes: 1, spine: [0, 0.0135, 0], spineV: 1, screws: 1, rods: 1, elec: 0, flip: 0, y: 0.003, table: 0, light: 0, cam: [0.95, 0.6, 0.75], look: [0.2, 0.15, 0] },
+    { bend: 1, felt: 0x6F7D62, holes: 1, spine: [0, 0.0135, 0], spineV: 1, screws: 1, rods: 1, elec: 1, flip: 1, y: 0.75, table: 0, light: 1, cam: [0.8, 0.85, 1.3], look: [0, 0.6, 0] },
+    { bend: 1, felt: 0x6F7D62, holes: 1, spine: [0, 0.0135, 0], spineV: 1, screws: 1, rods: 1, elec: 1, flip: 1, y: 1.58, table: 1, light: 1, cam: [1.6, 1.55, 2.6], look: [0, 1.0, 0] }
+  ];
+  var st = JSON.parse(JSON.stringify(S[0])), target = S[0];
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  var feltColor = new THREE.Color(lin(S[0].felt));
+  var yaw = 0, drag = null, dimL = document.getElementById("dimL"), dimW = document.getElementById("dimW");
+  function size() { var w = el.clientWidth, h = el.clientHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); }
+  size(); addEventListener("resize", size);
+  el.addEventListener("pointerdown", function (e) { drag = { x: e.clientX, y: yaw }; el.setPointerCapture(e.pointerId); });
+  el.addEventListener("pointermove", function (e) { if (drag) yaw = Math.max(-1.2, Math.min(1.2, drag.y + (e.clientX - drag.x) * 0.006)); });
+  el.addEventListener("pointerup", function () { drag = null; });
+  var v = new THREE.Vector3();
+  function project(x, y, z) { v.set(x, y, z).project(cam); return [(v.x * 0.5 + 0.5) * el.clientWidth, (-v.y * 0.5 + 0.5) * el.clientHeight]; }
+  function frame() {
+    var k = reduce ? 1 : 0.08;
+    ["bend", "holes", "spineV", "screws", "rods", "elec", "flip", "y", "table", "light"].forEach(function (key) { st[key] = lerp(st[key], target[key], k); });
+    for (var i = 0; i < 3; i++) { st.spine[i] = lerp(st.spine[i], target.spine[i], k); st.cam[i] = lerp(st.cam[i], target.cam[i], k); st.look[i] = lerp(st.look[i], target.look[i], k); }
+    feltColor.lerp(lin(target.felt), k); feltMat.color.copy(feltColor);
+    bendFelt(st.bend); placeHoles(st.bend);
+    holes.forEach(function (h) { h.visible = st.holes > 0.5; });
+    spine.visible = st.spineV > 0.05; spine.position.set(st.spine[0], st.spine[1], st.spine[2]);
+    screws.forEach(function (s) { s.visible = st.screws > 0.5; s.position.set(s.userData.x, 0.026, 0); });
+    var rz = shape(W / 2 - 0.02, st.bend);
+    rods.forEach(function (g) { g.visible = st.rods > 0.5; g.position.y = rz[0]; g.scale.z = Math.max(0.01, Math.abs(rz[1]) / 0.177); });
+    elec.visible = st.elec > 0.5; bulbMat.emissiveIntensity = 2.2 * st.light; glow.intensity = 2.4 * st.light;
+    table.visible = st.table > 0.5; table.position.y = -0.8 * (1 - st.table);
+    // vänd lampan: tråget roteras ett halvt varv runt längdaxeln
+    pivot.rotation.x = Math.PI * st.flip; pivot.position.y = st.y + 2 * R * st.flip * 0;
+    lamp.position.y = 0;
+    if (st.flip > 0.01) pivot.position.y = st.y;
+    var r = Math.hypot(st.cam[0], st.cam[2]), a0 = Math.atan2(st.cam[0], st.cam[2]) + yaw;
+    cam.position.set(Math.sin(a0) * r + st.look[0], st.cam[1], Math.cos(a0) * r + st.look[2]); cam.lookAt(st.look[0], st.look[1], st.look[2]);
+    var showDims = cur < 2 ? 1 : 0;
+    dimL.style.opacity = dimW.style.opacity = showDims;
+    if (showDims) { var p1 = project(0, 0.003, W / 2 + 0.04), p2 = project(L / 2 + 0.06, 0.003, 0); dimL.style.left = (p1[0] - 22) + "px"; dimL.style.top = (p1[1] - 6) + "px"; dimW.style.left = (p2[0] - 10) + "px"; dimW.style.top = (p2[1] - 10) + "px"; }
+    renderer.render(scene, cam);
+    requestAnimationFrame(frame);
+  }
+  onStep = function (k) { target = S[k]; };
+  go(0); requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
