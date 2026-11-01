@@ -4,7 +4,7 @@ Företagskoncept, grafisk profil och hemsida för Studio Dalarud: inredning, hom
 
 | Mapp | Innehåll |
 | --- | --- |
-| `koncept/` | Företagskonceptet (`KONCEPT.md`) |
+| `koncept/` | Företagskonceptet (`KONCEPT.md`) och livsstilskonceptet (`LIVSSTIL.md`, visuellt i `livsstil.html`) |
 | `profil/` | Logotyp, typsnitt, grafisk manual och tryckfiler |
 | `guide/` | Gratisguiden *7 saker för ett lugnare barnrum* |
 | `index.html` | Den klickbara prototypen av hemsidan |

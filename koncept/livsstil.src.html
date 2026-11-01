@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ett snällt hem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+:root {
+  --bg: #F3EEE6; --surface: #FBF8F3; --havre: #E6DCCB; --fg: #2B362E; --muted: #5D6458; --line: #D0C3AF;
+  --accent: #9B5E49; --accent-soft: #D49C82; --moss: #6F7D62; --kvall: #8F7F92; --strand: #C4AF90;
+  --stone: 58% 42% 55% 45% / 52% 60% 40% 48%;
+  --serif: "Instrument Serif", Georgia, serif; --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif; --hand: "Caveat", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --accent-soft: #E2AE95; --moss: #A9B79A; --kvall: #B6A8B8; --strand: #D8C6A8; }
+}
+:root[data-theme="dark"] { --bg: #1E2420; --surface: #252C27; --havre: #2E3630; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --accent-soft: #E2AE95; --moss: #A9B79A; --kvall: #B6A8B8; --strand: #D8C6A8; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 17px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; margin: 0; }
+h2 { font-size: clamp(2.3rem, 6vw, 4.2rem); }
+h3 { font-size: 1.6rem; }
+em { font-style: italic; color: var(--accent); }
+p { margin: 0; }
+.wrap { width: min(100% - 32px, 1120px); margin-inline: auto; }
+section { padding: clamp(4rem, 10vw, 8rem) 0; }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--moss); display: flex; align-items: center; gap: .6rem; margin-bottom: 1.2rem; }
+.eyebrow::before { content: ""; width: .6rem; height: .42rem; border-radius: var(--stone); background: currentColor; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 46ch; margin-top: 1.4rem; }
+.hand { font-family: var(--hand); font-size: 1.55rem; color: var(--accent); line-height: 1.2; }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+
+/* ---------- Topp ---------- */
+.top { padding: 1.4rem 0; }
+.top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.logo { width: 150px; color: var(--fg); display: block; }
+.top small { color: var(--muted); font-size: .82rem; }
+
+/* ---------- Hjälte: bruset lägger sig ---------- */
+.hero { padding: clamp(3rem, 9vw, 7rem) 0 clamp(4rem, 9vw, 7rem); position: relative; overflow: hidden; }
+.hero h1 { font-size: clamp(3rem, 10vw, 8.4rem); line-height: .95; max-width: 11ch; }
+.hero h1 .w { display: inline-block; transition: transform 1.6s cubic-bezier(.2,.7,.2,1), opacity 1.6s ease, filter 1.6s ease; }
+.hero.is-noisy h1 .w { opacity: .35; filter: blur(1.5px); }
+.hero .sub { font-size: clamp(1.3rem, 3vw, 1.9rem); font-family: var(--serif); margin-top: 1.6rem; max-width: 26ch; opacity: 0; transform: translateY(8px); transition: opacity 1s ease 1.5s, transform 1s ease 1.5s; }
+.hero:not(.is-noisy) .sub { opacity: 1; transform: none; }
+.hero .meta { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: .4rem 2rem; color: var(--muted); font-size: .92rem; }
+.hero .meta a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+.hero .meta a:hover { color: var(--accent); border-color: var(--accent); }
+.calm-btn { position: absolute; right: 16px; top: 1rem; font: 500 .85rem var(--sans); background: none; border: 0; color: var(--muted); cursor: pointer; padding: .4rem; }
+.calm-btn:hover { color: var(--accent); }
+
+/* ---------- Insikt ---------- */
+.insight { background: var(--fg); color: var(--bg); }
+.insight .wrap { display: grid; gap: 3rem; grid-template-columns: 1.2fr 1fr; align-items: end; }
+.insight h2 em { color: var(--accent-soft); }
+.insight p { color: color-mix(in srgb, var(--bg) 78%, transparent); font-size: 1.1rem; max-width: 44ch; }
+.insight .eyebrow { color: var(--accent-soft); }
+@media (max-width: 820px) { .insight .wrap { grid-template-columns: 1fr; } }
+
+/* ---------- Vem ---------- */
+.people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2.4rem 2rem; margin-top: 3.4rem; }
+.person q { display: block; font-family: var(--serif); font-size: 1.55rem; line-height: 1.15; quotes: "”" "”"; }
+.person q::before { content: open-quote; color: var(--accent); }
+.person q::after { content: close-quote; color: var(--accent); }
+.person b { display: block; margin-top: 1rem; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--moss); font-weight: 600; }
+.person p { color: var(--muted); font-size: .95rem; margin-top: .4rem; }
+@media (max-width: 900px) { .people { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .people { grid-template-columns: 1fr; } }
+
+/* ---------- Tre vägar ---------- */
+.ways { margin-top: 3.4rem; }
+.way { display: grid; grid-template-columns: 4rem 1fr 1.1fr; gap: 1rem 2rem; padding: 2rem 0; border-top: 1px solid var(--line); align-items: start; }
+.way:last-child { border-bottom: 1px solid var(--line); }
+.way__l { font-family: var(--serif); font-size: 3rem; line-height: 1; color: var(--line); }
+.way.is-pick .way__l { color: var(--accent); }
+.way h3 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); }
+.way .claim { font-family: var(--serif); font-style: italic; color: var(--accent); font-size: 1.35rem; margin-top: .6rem; }
+.way ul { margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .96rem; display: grid; gap: .4rem; }
+.way li b { color: var(--fg); font-weight: 600; }
+.pick { font-family: var(--hand); font-size: 1.4rem; color: var(--accent); display: inline-block; margin-left: .4rem; transform: rotate(-3deg); }
+@media (max-width: 760px) { .way { grid-template-columns: 3rem 1fr; } .way ul { grid-column: 2; } }
+
+/* ---------- Manifest ---------- */
+.manifest { background: var(--havre); }
+.manifest ol { list-style: none; padding: 0; margin: 2.4rem 0 0; display: grid; gap: .2rem; }
+.manifest li { font-family: var(--serif); font-size: clamp(1.6rem, 4.4vw, 3rem); line-height: 1.15; padding: .5rem 0; border-bottom: 1px solid color-mix(in srgb, var(--fg) 12%, transparent); opacity: .25; transition: opacity .8s ease; }
+.manifest li.on { opacity: 1; }
+.manifest .sign { margin-top: 2rem; }
+
+/* ---------- Ordlista ---------- */
+.words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 2.4rem; margin-top: 3rem; }
+.word { padding: 1.3rem 0; border-top: 1px solid var(--line); }
+.word dt { font-family: var(--serif); font-size: 1.9rem; line-height: 1.1; }
+.word dd { margin: .3rem 0 0; color: var(--muted); font-size: .95rem; }
+@media (max-width: 860px) { .words { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .words { grid-template-columns: 1fr; } }
+.say { margin-top: 2.6rem; display: flex; flex-wrap: wrap; gap: .6rem 1.6rem; }
+
+/* ---------- Stenen ---------- */
+.stone-sec .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.stone-art { aspect-ratio: 1; position: relative; display: grid; place-items: center; }
+.stone-art svg { width: 100%; height: auto; }
+.stone-list { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.1rem; }
+.stone-list li { padding-left: 1.8rem; position: relative; }
+.stone-list li::before { content: ""; position: absolute; left: 0; top: .55em; width: .8rem; height: .55rem; border-radius: var(--stone); background: var(--accent); }
+.stone-list b { font-weight: 600; }
+@media (max-width: 820px) { .stone-sec .wrap { grid-template-columns: 1fr; } .stone-art { max-width: 320px; } }
+
+/* ---------- Ritualer ---------- */
+.rituals { margin-top: 3rem; display: grid; }
+.ritual { display: grid; grid-template-columns: 9rem 1fr 1fr; gap: .6rem 2rem; padding: 1.6rem 0; border-top: 1px solid var(--line); }
+.ritual:last-child { border-bottom: 1px solid var(--line); }
+.ritual__when { font-family: var(--hand); font-size: 1.4rem; color: var(--accent); line-height: 1.2; }
+.ritual h3 { font-size: 2rem; }
+.ritual p { color: var(--muted); }
+.ritual small { display: block; margin-top: .4rem; color: var(--moss); font-weight: 500; font-size: .86rem; }
+@media (max-width: 760px) { .ritual { grid-template-columns: 1fr; } }
+
+/* ---------- Året ---------- */
+.year { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 3rem; }
+.season { padding: 2rem 1.4rem 2.2rem; color: #FBF7F1; min-height: 22rem; display: flex; flex-direction: column; gap: .8rem; }
+.season span { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+.season h3 { font-size: 3rem; }
+.season p { font-size: .95rem; opacity: .92; }
+.season ul { list-style: none; padding: 0; margin: auto 0 0; display: grid; gap: .3rem; font-size: .9rem; }
+.season li { border-top: 1px solid rgba(255,255,255,.25); padding-top: .35rem; }
+.s1 { background: #6F7D62; } .s2 { background: #6E5F72; } .s3 { background: #B9A584; color: #2B362E; } .s4 { background: #A88E6C; }
+.s3 li { border-color: rgba(43,54,46,.2); }
+@media (max-width: 900px) { .year { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .year { grid-template-columns: 1fr; } .season { min-height: 0; } }
+
+/* ---------- Ro-testet ---------- */
+.quiz-sec { background: var(--surface); border-block: 1px solid var(--line); }
+.quiz-sec .wrap { display: grid; grid-template-columns: 1fr 1.25fr; gap: 3rem; align-items: start; }
+.quiz { min-height: 24rem; }
+.q__n { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.q__bar { height: 3px; background: var(--line); margin: .8rem 0 1.6rem; border-radius: 3px; overflow: hidden; }
+.q__bar span { display: block; height: 100%; background: var(--accent); transition: width .5s ease; }
+.q__text { font-family: var(--serif); font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.12; }
+.q__opts { display: grid; gap: .2rem; margin-top: 1.6rem; }
+.opt { text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: .95rem 2rem .95rem 0; font: 400 1.05rem/1.4 var(--sans); color: var(--fg); cursor: pointer; position: relative; }
+.opt::after { content: "→"; position: absolute; right: .2rem; top: .95rem; color: var(--line); transition: color .2s, transform .2s; }
+.opt:hover, .opt:focus-visible { color: var(--accent); outline: none; }
+.opt:hover::after, .opt:focus-visible::after { color: var(--accent); transform: translateX(3px); }
+.result h3 { font-size: clamp(2.6rem, 6vw, 4rem); margin-top: .4rem; }
+.result .hand { margin-top: .8rem; }
+.result p { margin-top: 1rem; color: var(--muted); max-width: 46ch; }
+.result .tips { margin-top: 1.4rem; display: grid; gap: .5rem; }
+.result .tips div { padding-left: 1.6rem; position: relative; }
+.result .tips div::before { content: ""; position: absolute; left: 0; top: .6em; width: .7rem; height: .48rem; border-radius: var(--stone); background: var(--accent); }
+.again { margin-top: 1.8rem; background: none; border: 0; padding: 0 0 .2rem; font: italic 400 1.4rem var(--serif); color: var(--fg); border-bottom: 1px solid var(--accent); cursor: pointer; }
+.types { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem 1.6rem; margin-top: 2rem; }
+.types div b { font-family: var(--serif); font-size: 1.35rem; font-weight: 400; display: block; }
+.types div span { font-size: .9rem; color: var(--muted); }
+@media (max-width: 860px) { .quiz-sec .wrap { grid-template-columns: 1fr; } }
+
+/* ---------- Gemenskap ---------- */
+.club { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+.club div { border-top: 2px solid var(--fg); padding-top: 1rem; }
+.club h3 { font-size: 1.7rem; }
+.club p { color: var(--muted); font-size: .95rem; margin-top: .5rem; }
+@media (max-width: 900px) { .club { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .club { grid-template-columns: 1fr; } }
+
+/* ---------- Mötet ---------- */
+.journey { margin-top: 3rem; display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.4rem; counter-reset: j; }
+.journey div { counter-increment: j; }
+.journey div::before { content: counter(j); font: italic 400 2.4rem/1 var(--serif); color: var(--accent); display: block; margin-bottom: .6rem; }
+.journey b { display: block; font-weight: 600; }
+.journey p { color: var(--muted); font-size: .92rem; margin-top: .3rem; }
+@media (max-width: 960px) { .journey { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .journey { grid-template-columns: 1fr 1fr; } }
+.senses { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1rem 3rem; color: var(--muted); }
+.senses b { color: var(--fg); font-weight: 600; }
+
+/* ---------- Berättelsen ---------- */
+.story { background: var(--fg); color: var(--bg); }
+.story blockquote { margin: 0; font-family: var(--serif); font-size: clamp(1.7rem, 4.2vw, 3rem); line-height: 1.2; max-width: 26ch; }
+.story blockquote p + p { margin-top: 1.4rem; }
+.story blockquote em { color: var(--accent-soft); }
+.story .note { margin-top: 2.6rem; max-width: 52ch; color: color-mix(in srgb, var(--bg) 72%, transparent); font-size: .98rem; }
+.story .note b { color: var(--bg); }
+.story .eyebrow { color: var(--accent-soft); }
+
+/* ---------- Innehåll ---------- */
+.posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; margin-top: 3rem; }
+.post { aspect-ratio: 4 / 5; padding: 1.6rem; display: flex; flex-direction: column; justify-content: space-between; }
+.post small { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; opacity: .8; }
+.post strong { font-family: var(--serif); font-weight: 400; font-size: clamp(1.6rem, 2.6vw, 2.1rem); line-height: 1.1; }
+.post span { font-family: var(--hand); font-size: 1.3rem; }
+.p1 { background: var(--havre); } .p2 { background: #2B362E; color: #F3EEE6; } .p3 { background: #DCE0D2; color: #2B362E; }
+.p4 { background: #EBD6CA; color: #2B362E; } .p5 { background: var(--surface); border: 1px solid var(--line); } .p6 { background: #9B5E49; color: #FBF7F1; }
+.p2 em, .p6 em { color: #EAC2AE; }
+@media (max-width: 860px) { .posts { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .posts { grid-template-columns: 1fr; } .post { aspect-ratio: auto; min-height: 16rem; } }
+
+/* ---------- Är / är inte ---------- */
+.isnot { display: grid; grid-template-columns: 1fr 1fr; margin-top: 2.6rem; max-width: 760px; }
+.isnot div { padding: .8rem 0; border-top: 1px solid var(--line); font-family: var(--serif); font-size: 1.6rem; }
+.isnot div:nth-child(even) { color: var(--muted); text-decoration: line-through; text-decoration-color: var(--accent); text-decoration-thickness: 1px; }
+.isnot .h { font-family: var(--sans); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--moss); text-decoration: none !important; border-top: 0; }
+
+footer { padding: 4rem 0 5rem; color: var(--muted); font-size: .9rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 1rem 3rem; justify-content: space-between; align-items: end; }
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .9s ease, transform .9s ease; }
+.reveal.on { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span>
+    <small>Livsstilskonceptet · version 1</small>
+  </div>
+</header>
+
+<section class="hero is-noisy" id="topp" aria-labelledby="h1">
+  <div class="wrap">
+    <p class="eyebrow">Studio Dalarud som livsstil</p>
+    <h1 id="h1"><span class="w">Ett</span> <span class="w">hem</span> <span class="w">som</span> <span class="w">är</span> <em class="w">snällt</em> <span class="w">mot</span> <span class="w">dig.</span></h1>
+    <p class="sub">Ro är något du behöver, inte något du förtjänar. Hemmet är det enklaste stället att börja.</p>
+    <div class="meta">
+      <a href="#insikt">Insikten</a><a href="#vem">Vem</a><a href="#ide">Idén</a><a href="#manifest">Manifestet</a><a href="#ritualer">Ritualer</a><a href="#aret">Året</a><a href="#testet">Ro-testet</a><a href="#gemenskap">Gemenskapen</a><a href="#berattelsen">Berättelsen</a>
+    </div>
+  </div>
+  <button class="calm-btn" type="button" id="noise">Visa bruset igen</button>
+</section>
+
+<section class="insight" id="insikt">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Insikten</p>
+      <h2>Det är inte du som är rörig. Ditt hem är <em>för högljutt.</em></h2>
+    </div>
+    <p>Många tror att deras hem är stökigt. Egentligen bullrar det: för många saker i ögonhöjd, taklampor som bländar, ljud som studsar och morgnar som spårar ur i hallen. Samtidigt visar sociala medier perfekta hem som ingen bor i. Studio Dalarud tar ställning mot båda, och flyttar skulden från människan till rummet. Det är precis vad Sofia såg i förskolan: barnen landade när rummet blev lugnare.</p>
+  </div>
+</section>
+
+<section id="vem" aria-labelledby="vem-h">
+  <div class="wrap">
+    <p class="eyebrow">Vem känner igen sig?</p>
+    <h2 id="vem-h">Inte en ålder. <em>En känsla.</em></h2>
+    <p class="lede">De är trötta på att prestera och vill ha ro utan att det blir ännu ett projekt. De köper hellre en sak som håller än tio som är trendiga.</p>
+    <div class="people">
+      <div class="person reveal"><q>Jag plockar undan hela dagarna och det ser ändå ut så här.</q><b>Småbarnsföräldern på reserv</b><p>Längtar efter en kväll då huset är tyst och allt har en plats.</p></div>
+      <div class="person reveal"><q>Jag blir trött av mitt eget vardagsrum.</q><b>Den med ADHD, autism eller hög känslighet</b><p>Vill ha ett hem som inte kräver energi, och höra att det inte är ett misslyckande.</p></div>
+      <div class="person reveal"><q>Morgnarna är ett krig.</q><b>Föräldern till ett barn med NPF</b><p>Vill ha färre konflikter, och någon som förstår utan att man behöver förklara.</p></div>
+      <div class="person reveal"><q>Jag vill ha mindre, men finare.</q><b>Den som vill leva långsammare</b><p>Söker det handgjorda, naturmaterial och ritualer som saktar ner.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="ide" aria-labelledby="ide-h">
+  <div class="wrap">
+    <p class="eyebrow">Varumärkets idé · tre vägar</p>
+    <h2 id="ide-h">Tanken som <em>allt annat</em> byggs på.</h2>
+    <p class="lede">Tre möjliga vägar. Jag rekommenderar den första, med värmen från den andra och övertygelsen från den tredje.</p>
+    <div class="ways">
+      <article class="way is-pick reveal">
+        <span class="way__l">A</span>
+        <div><h3>Ro är något du behöver, inte något du förtjänar <span class="pick">rekommenderas</span></h3><p class="claim">Ett hem som är snällt mot dig.</p></div>
+        <ul><li><b>Känsla:</b> omtanke, lättnad, tillåtelse.</li><li><b>Styrka:</b> talar till alla målgrupper och rymmer NPF utan att bli smal.</li><li><b>Skiljer sig:</b> andra inredare säljer stil och status. Studio Dalarud säljer lättnad.</li></ul>
+      </article>
+      <article class="way reveal">
+        <span class="way__l">B</span>
+        <div><h3>Det ofullkomliga hemmet</h3><p class="claim">Fint nog. Ditt.</p></div>
+        <ul><li><b>Känsla:</b> befrielse, värme, humor.</li><li><b>Styrka:</b> passar leran och det handgjorda perfekt.</li><li><b>Risk:</b> säger mindre om kunskapen, och homestaging ska ju bli snyggt.</li></ul>
+      </article>
+      <article class="way reveal">
+        <span class="way__l">C</span>
+        <div><h3>Hem för alla sorters hjärnor</h3><p class="claim">Din hjärna, ditt hem.</p></div>
+        <ul><li><b>Känsla:</b> stolthet, gemenskap, förändring.</li><li><b>Styrka:</b> starkast för Lugna rum och föreläsningar.</li><li><b>Risk:</b> mäklare och säljare känner inte igen sig, och Sofia blir en offentlig röst i frågan.</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="manifest" id="manifest" aria-labelledby="man-h">
+  <div class="wrap">
+    <p class="eyebrow">Manifestet</p>
+    <h2 id="man-h" class="sr" style="position:absolute;left:-9999px">Manifestet</h2>
+    <ol id="manifestList">
+      <li>Vi tror att ro är en grund, <em>inte en belöning.</em></li>
+      <li>Att ett hem ska vara snällt mot den som bor där.</li>
+      <li>Att det inte är du som är rörig. Ditt hem är bara för högljutt.</li>
+      <li>Att mjukare ljus och fler hörn för vila hjälper alla hjärnor.</li>
+      <li>Att det handgjorda får vara ojämnt.</li>
+      <li>Att ett hem aldrig blir klart, och att det är fint.</li>
+      <li>Att små steg räknas. <em>Tre i veckan räcker.</em></li>
+    </ol>
+    <p class="sign hand">Från brus till ro. / Sofia</p>
+  </div>
+</section>
+
+<section id="personlighet" aria-labelledby="pers-h">
+  <div class="wrap">
+    <p class="eyebrow">Personligheten</p>
+    <h2 id="pers-h">Vännen som sätter på <em>tevatten.</em></h2>
+    <p class="lede">Om varumärket var en person skulle hon komma över, flytta en lampa och säga "så, nu andas vi". Hon har aldrig bråttom och dömer aldrig. Hon vet mycket om hur hjärnan reagerar på ljus och ljud, men förklarar det enkelt.</p>
+    <div class="isnot">
+      <div class="h">Vi är</div><div class="h">Vi är inte</div>
+      <div>Lugna</div><div>Tråkiga</div>
+      <div>Kunniga</div><div>Besserwissrar</div>
+      <div>Varma</div><div>Söta</div>
+      <div>Ärliga om vardagen</div><div>Perfekta</div>
+      <div>Inkluderande</div><div>Diagnosfokuserade</div>
+      <div>Naturnära</div><div>Moraliserande</div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="sprak" aria-labelledby="sprak-h">
+  <div class="wrap">
+    <p class="eyebrow">Ett eget språk</p>
+    <h2 id="sprak-h">Ord som följarna <em>börjar använda.</em></h2>
+    <dl class="words">
+      <div class="word reveal"><dt>Brus</dt><dd>Allt i hemmet som tar energi utan att ge något tillbaka.</dd></div>
+      <div class="word reveal"><dt>Ro</dt><dd>Känslan när kroppen slappnar av i ett rum.</dd></div>
+      <div class="word reveal"><dt>Landa</dt><dd>Att komma hem och faktiskt komma fram.</dd></div>
+      <div class="word reveal"><dt>Ett snällt hem</dt><dd>Ett hem som hjälper dig i stället för att kräva saker av dig.</dd></div>
+      <div class="word reveal"><dt>Rohörna</dt><dd>Ett hörn som bara är till för vila.</dd></div>
+      <div class="word reveal"><dt>Brusfritt</dt><dd>Utan stök i ögonhöjd. En brusfri hall, en brusfri bänk.</dd></div>
+      <div class="word reveal"><dt>Kvällsljus</dt><dd>Ljus i tre höjder när det mörknar, i stället för taklampan.</dd></div>
+      <div class="word reveal"><dt>Tre steg</dt><dd>Max tre saker i taget. Det som står först på Ro-kartan.</dd></div>
+      <div class="word reveal"><dt>Hörnstenarna</dt><dd>Överblick, sinnesro, flöde och återhämtning.</dd></div>
+    </dl>
+    <div class="say"><span class="hand">"Vilket rum bullrar mest hos dig?"</span><span class="hand">"Den här veckan: gör hallen brusfri."</span><span class="hand">"Ett snällt hem behöver inte vara stort."</span></div>
+  </div>
+</section>
+
+<section class="stone-sec" id="stenen" aria-labelledby="sten-h" style="background: var(--surface); border-block: 1px solid var(--line);">
+  <div class="wrap">
+    <div class="stone-art" aria-hidden="true">{{STONES}}</div>
+    <div>
+      <p class="eyebrow">Symbolen</p>
+      <h2 id="sten-h">Stenen går att <em>hålla i.</em></h2>
+      <p class="lede">Starka livsstilsvarumärken har en symbol man kan ta på. Stenen finns redan i logotypen, i ordbilden, i föremålen och på hemsidan.</p>
+      <ul class="stone-list">
+        <li><b>Handstenen är totemet.</b> Något att hålla i när tankarna snurrar. Billig nog att köpa på impuls, personlig nog att ge bort.</li>
+        <li><b>Varje kund får en liten sten</b> efter första besöket, med bågen i botten. Ett minne av att något förändrades.</li>
+        <li><b>"Lägg en sten."</b> En sten på hyllan för varje litet steg mot ro. Följare visar sina stenar.</li>
+        <li><b>Säsongens färg.</b> Små serier i årstidens färg blir något att samla.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="ritualer" aria-labelledby="rit-h">
+  <div class="wrap">
+    <p class="eyebrow">Ritualer</p>
+    <h2 id="rit-h">Livsstilen i <em>vardagen.</em></h2>
+    <p class="lede">Ritualer gör livsstilen konkret. De är gratis, lätta att dela och kopplar vardagen till varumärket varje gång någon gör dem.</p>
+    <div class="rituals">
+      <div class="ritual reveal"><span class="ritual__when">när det mörknar</span><h3>Kvällsljuset</h3><p>Släck taklampan. Tänd en lampa på golvet, en på bordet och en i fönstret.<small>Ljuslyktan Kväll · #kvällsljus</small></p></div>
+      <div class="ritual reveal"><span class="ritual__when">söndag, 15 min</span><h3>Söndagsåterställningen</h3><p>Varje sak tillbaka till sin plats, och hallen redo för måndagen.<small>Lådmärkena · Söndagsbrevet</small></p></div>
+      <div class="ritual reveal"><span class="ritual__when">när det behövs</span><h3>Handen i leran</h3><p>Forma något litet med händerna, utan mål. Det lugnar.<small>Forma hemma-kit · kurserna · Lera för lugn</small></p></div>
+      <div class="ritual reveal"><span class="ritual__when">varje dag, en stund</span><h3>Rohörnan</h3><p>Sitt i hörnet som bara är till för vila. Utan mobil.<small>Hemanalysen · Barnrum som ger ro</small></p></div>
+      <div class="ritual reveal"><span class="ritual__when">fyra gånger per år</span><h3>Säsongsskiftet</h3><p>Plocka bort det som hörde förra säsongen till, och ta fram det nya.<small>Släppen · Årstidsbesöken</small></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="aret" aria-labelledby="ar-h" style="padding-bottom: 0">
+  <div class="wrap">
+    <p class="eyebrow">Året</p>
+    <h2 id="ar-h">Fyra årstider, <em>fyra namn.</em></h2>
+    <p class="lede">Säsongerna ger varumärket rytm, och gör företaget lättare att driva: varje årstid har sitt tema, sitt släpp och sin ritual.</p>
+  </div>
+  <div class="year">
+    <div class="season s1"><span>Sep–nov · Mossa</span><h3>Landa</h3><p>Komma tillbaka efter sommaren. Hallen och morgnarna.</p><ul><li>Höstsläppet</li><li>Ritual: Rohörnan</li></ul></div>
+    <div class="season s2"><span>Dec–feb · Kväll</span><h3>Ljuset</h3><p>Ljus, vila och en lugnare jul.</p><ul><li>Vintersläppet och julgranshängen</li><li>Ritual: Kvällsljuset</li></ul></div>
+    <div class="season s3"><span>Mar–maj · Havre</span><h3>Lufta</h3><p>Rensa, sälja och flytta. Homestagingens tid.</p><ul><li>Vårsläppet</li><li>Ritual: Söndagsåterställningen</li></ul></div>
+    <div class="season s4"><span>Jun–aug · Strand</span><h3>Vila</h3><p>Sommarhuset, ledighet och lera med barnen.</p><ul><li>Sommarsläppet</li><li>Ritual: Handen i leran</li></ul></div>
+  </div>
+</section>
+
+<section class="quiz-sec" id="testet" aria-labelledby="test-h">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Gemenskapen · Ro-testet</p>
+      <h2 id="test-h">Vad bullrar i <em>ditt hem?</em></h2>
+      <p class="lede">Ett kort test på hemsidan som ger en av fyra rotyper. Det är roligt att dela, får folk att känna igen sig och leder vidare till guiden, Söndagsbrevet och rätt tjänst. Prova själv.</p>
+      <div class="types">
+        <div><b>Överblickaren</b><span>Mår bäst när allt har en plats</span></div>
+        <div><b>Den känsliga</b><span>Blir trött av ljud, ljus och intryck</span></div>
+        <div><b>Flödaren</b><span>Behöver att morgnar och kvällar flyter</span></div>
+        <div><b>Vilaren</b><span>Glömmer att återhämta sig</span></div>
+      </div>
+    </div>
+    <div class="quiz" id="quiz" aria-live="polite"></div>
+  </div>
+</section>
+
+<section id="gemenskap" aria-labelledby="gem-h">
+  <div class="wrap">
+    <p class="eyebrow">Att höra till</p>
+    <h2 id="gem-h">Från kund till <em>stenbärare.</em></h2>
+    <div class="club">
+      <div class="reveal"><h3>Söndagsbrevet</h3><p>Varje söndag eftermiddag: ett tips, en ritual och vad som händer i ateljén. Som ett brev från en vän. Prenumeranter ser släppen en dag före alla andra.</p></div>
+      <div class="reveal"><h3>Ro-kvällar</h3><p>En kväll i månaden i ateljén: lera, te och ett kort samtal om ljus, morgnar eller barnrum. Här möts gemenskapen på riktigt.</p></div>
+      <div class="reveal"><h3>Stenbärarna</h3><p>Alla som köpt, gått en kurs eller haft Sofia hemma. Förtur till släpp och kurser, en sten i säsongens färg och ibland en hälsning för hand.</p></div>
+      <div class="reveal"><h3>#ettsnällthem</h3><p>Följare delar sin rohörna eller sina före- och efterbilder. Sofia lyfter fram några varje månad.</p></div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="motet" aria-labelledby="mot-h">
+  <div class="wrap">
+    <p class="eyebrow">Upplevelsen</p>
+    <h2 id="mot-h">Lika lugnt i <em>varje möte.</em></h2>
+    <div class="journey">
+      <div class="reveal"><b>Hemsidan</b><p>Lugnt tempo, få val, inga popup-fönster. Ro-testet välkomnar.</p></div>
+      <div class="reveal"><b>Första samtalet</b><p>Börjar alltid med: "Vilket rum bullrar mest?"</p></div>
+      <div class="reveal"><b>Hembesöket</b><p>Termos med te, en liten sten, och Ro-kartan i ett kuvert med bågen.</p></div>
+      <div class="reveal"><b>Paketet</b><p>Silkespapper i havre, linnesnöre och ett kort skrivet för hand. Ingen plast.</p></div>
+      <div class="reveal"><b>Ateljén</b><p>Dämpat ljus, ett bord att samlas kring och lera att känna på.</p></div>
+      <div class="reveal"><b>Efteråt</b><p>Efter fyra veckor ett kort: "Hur bullrar det nu?"</p></div>
+    </div>
+    <div class="senses">
+      <p><b>Ljud:</b> spellistan <i>Ro i hemmet</i>, i ateljén och för följarna.</p>
+      <p><b>Doft:</b> på sikt en egen textildoft av lin, trä och lera.</p>
+      <p><b>Känsel:</b> lera, lin, ull och trä i allt som följer med hem.</p>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="berattelsen" aria-labelledby="ber-h">
+  <div class="wrap">
+    <p class="eyebrow" id="ber-h">Berättelsen</p>
+    <blockquote>
+      <p>I många år arbetade jag i förskolan. Jag såg barn som inte kunde sitta still, och som landade när vi dämpade ljuset och byggde en koja i hörnet.</p>
+      <p>Det var inte barnen som var fel. <em>Det var rummet som var för högljutt.</em></p>
+    </blockquote>
+    <p class="note"><b>Om Sofia själv vill</b> kan hon också berätta att hon har ADHD och vet hur det känns när hemmet tar energi i stället för att ge. Det gör varumärket starkare och mer äkta, men det är helt hennes beslut. Konceptet fungerar också utan den delen.</p>
+  </div>
+</section>
+
+<section id="innehall" aria-labelledby="inn-h">
+  <div class="wrap">
+    <p class="eyebrow">Innehåll som får folk att känna igen sig</p>
+    <h2 id="inn-h">Så kan <em>flödet</em> se ut.</h2>
+    <div class="posts">
+      <div class="post p1"><small>Brus eller ro?</small><strong>Samma hall. Tre krokar i barnhöjd. <em>Ingen tjatar längre.</em></strong><span>före / efter →</span></div>
+      <div class="post p2"><small>Det är inte du</small><strong>Du är inte lat. <em>Din hall saknar en plats för skorna.</em></strong><span>dela med någon som behöver höra det</span></div>
+      <div class="post p3"><small>Sofia förklarar varför</small><strong>Varför taklampan gör dig rastlös på kvällen.</strong><span>30 sekunder</span></div>
+      <div class="post p4"><small>Händer i lera</small><strong>Ingen musik. Bara händer och lera.</strong><span>andas ut</span></div>
+      <div class="post p5"><small>Veckans tre steg</small><strong>1. Töm bänken. 2. Tänd i tre höjder. 3. En korg per person.</strong><span>Ro-kartan i liten skala</span></div>
+      <div class="post p6"><small>Ett hörn i veckan</small><strong>Annas rohörna: <em>en fåtölj, en pläd och ingen mobil.</em></strong><span>#ettsnällthem</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" aria-hidden="true" style="width:120px">{{LOGO}}</span>
+    <p>Livsstilskonceptet för Studio Dalarud. Hela texten finns i <code>koncept/LIVSSTIL.md</code>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Hjälten: orden börjar utspridda (brus) och lägger sig på plats (ro).
+  var hero = document.querySelector(".hero");
+  var words = hero.querySelectorAll("h1 .w");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function scatter() {
+    words.forEach(function (w, i) {
+      var x = (Math.sin(i * 12.9 + Date.now() % 97) * 60) | 0, y = (Math.cos(i * 7.3 + Date.now() % 53) * 40) | 0, r = (Math.sin(i * 3.1) * 14) | 0;
+      w.style.transition = "none"; w.style.transform = "translate(" + x + "px," + y + "px) rotate(" + r + "deg)";
+    });
+    hero.classList.add("is-noisy");
+  }
+  function settle() {
+    words.forEach(function (w, i) { w.style.transition = ""; w.style.transitionDelay = (i * 0.09) + "s"; w.style.transform = "none"; });
+    hero.classList.remove("is-noisy");
+  }
+  if (reduce) { hero.classList.remove("is-noisy"); }
+  else { scatter(); requestAnimationFrame(function () { requestAnimationFrame(function () { setTimeout(settle, 350); }); }); }
+  document.getElementById("noise").addEventListener("click", function () { scatter(); setTimeout(settle, 700); });
+
+  // Visa saker när de kommer in i bild.
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); } });
+  }, { threshold: .2 }) : null;
+  document.querySelectorAll(".reveal, #manifestList li").forEach(function (el, i) {
+    if (!io || reduce) { el.classList.add("on"); return; }
+    if (el.tagName === "LI") el.style.transitionDelay = (i % 7) * 0.12 + "s";
+    io.observe(el);
+  });
+
+  // Ro-testet
+  var Q = [
+    { q: "Du kommer hem efter en lång dag. Vad märker du först?", o: [["Allt som ligger framme", "o"], ["Ljuset, ljuden, att det är för mycket", "k"], ["Att det inte finns någonstans att ställa väskan", "f"], ["Att jag inte har satt mig ner på hela dagen", "v"]] },
+    { q: "Hur ser morgnarna ut?", o: [["Vi letar efter saker", "o"], ["Någon blir överväldigad redan vid frukosten", "k"], ["Det korkar igen i hallen", "f"], ["Jag springer, och fortsätter springa", "v"]] },
+    { q: "Vilket rum bullrar mest hos dig?", o: [["Barnrummet, eller förrådet", "o"], ["Vardagsrummet med taklampan och tv:n", "k"], ["Hallen", "f"], ["Sovrummet, som har blivit en förvaringsplats", "v"]] },
+    { q: "Om du fick en ledig söndag, vad skulle du helst göra hemma?", o: [["Rensa en låda och känna mig klar", "o"], ["Ha det tyst, med en pläd och mjukt ljus", "k"], ["Göra om så att vardagen går smidigare", "f"], ["Sova, läsa, ingenting", "v"]] },
+    { q: "Vad skulle kännas som störst lättnad?", o: [["Att hitta det jag letar efter direkt", "o"], ["Färre intryck överallt", "k"], ["Att morgnar och kvällar flöt på", "f"], ["En plats som bara är min", "v"]] },
+    { q: "Vilken sak i ateljén lockar mest?", o: [["Lådmärkena", "o"], ["Ljuslyktan Kväll", "k"], ["Dörrskylten med namn", "f"], ["Handstenen", "v"]] }
+  ];
+  var R = {
+    o: { name: "Överblickaren", hand: "en plats för varje sak", text: "Du mår bäst när du ser vad som finns och var det hör hemma. Synligt stök tar mer energi för dig än för de flesta.", tips: ["Gör en bänk eller hylla helt brusfri, och håll den så en vecka.", "En korg per person i hallen.", "Bilder eller lådmärken på det som ligger i lådorna."] },
+    k: { name: "Den känsliga", hand: "färre intryck, mjukare ljus", text: "Ljud, ljus och visuella intryck märks mer för dig. Det är inte du som är för känslig, det är rummet som ger för mycket.", tips: ["Släck taklampan på kvällen och tänd i tre höjder.", "En matta eller gardin som dämpar ljudet i det rum där ni är mest.", "Färre saker i ögonhöjd, fler bakom luckor."] },
+    f: { name: "Flödaren", hand: "när vardagen flyter", text: "Du märker direkt när rutinerna hakar upp sig. Ett hem som stödjer morgnar och kvällar gör störst skillnad för dig.", tips: ["Gå igenom morgonen steg för steg och se var det stannar.", "Krokar och korgar i rätt höjd för alla i familjen.", "En fast plats för det som ska med ut genom dörren."] },
+    v: { name: "Vilaren", hand: "en plats bara för vila", text: "Du tar hand om allt och alla, men glömmer att landa själv. Du behöver ett hörn som säger: här får du sitta ner.", tips: ["Välj ett hörn och gör det till en rohörna: en stol, en pläd och en lampa.", "Inga skärmar och inget som ska fixas i det hörnet.", "Börja med fem minuter om dagen."] }
+  };
+  var box = document.getElementById("quiz"), i = 0, score = {};
+  function render() {
+    if (i >= Q.length) return result();
+    var item = Q[i];
+    box.innerHTML = '<p class="q__n">Fråga ' + (i + 1) + " av " + Q.length + '</p><div class="q__bar"><span style="width:' + (i / Q.length * 100) + '%"></span></div>' +
+      '<p class="q__text">' + item.q + '</p><div class="q__opts">' + item.o.map(function (o, k) { return '<button class="opt" type="button" data-k="' + o[1] + '">' + o[0] + "</button>"; }).join("") + "</div>";
+    box.querySelectorAll(".opt").forEach(function (b) { b.addEventListener("click", function () { score[b.dataset.k] = (score[b.dataset.k] || 0) + 1; i++; render(); var f = box.querySelector(".opt"); if (f) f.focus({ preventScroll: true }); }); });
+  }
+  function result() {
+    var best = Object.keys(R).sort(function (a, b) { return (score[b] || 0) - (score[a] || 0); })[0], r = R[best];
+    box.innerHTML = '<div class="result"><p class="q__n">Din rotyp</p><div class="q__bar"><span style="width:100%"></span></div><h3>' + r.name + '</h3><p class="hand">' + r.hand + "</p><p>" + r.text + '</p><div class="tips">' + r.tips.map(function (t) { return "<div>" + t + "</div>"; }).join("") +
+      '</div><p style="margin-top:1.4rem">På hemsidan leder resultatet vidare till guiden, Söndagsbrevet och den tjänst som passar. Testet ger tips, det säger ingenting om hur din hjärna fungerar.</p><button class="again" type="button">Gör testet igen</button></div>';
+    box.querySelector(".again").addEventListener("click", function () { i = 0; score = {}; render(); });
+  }
+  render();
+})();
+</script>
+</body>
+</html>

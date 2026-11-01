@@ -17,6 +17,8 @@ Studio Dalarud är ett lifestyle-företag som samlar tre saker Sofia redan kan p
 2. **Specialpedagogik och NPF** – lång erfarenhet från förskolan och fördjupad kompetens om hur struktur, sinnesintryck och förutsägbarhet påverkar barn och vuxna.
 3. **Hantverk i lera** – egentillverkade föremål som bär samma uttryck som inredningen.
 
+> **Livsstilen** – vad varumärket står för, vem som känner igen sig, ritualer, symboler, språk och gemenskap – beskrivs i `koncept/LIVSSTIL.md`, med en visuell version i `koncept/livsstil.html`. Idén i en mening: *Ett hem som är snällt mot dig.*
+
 Det som gör företaget unikt är kombinationen. Det finns många inredare och många homestagers, men nästan ingen som kan förklara *varför* ett rum känns lugnt och som kan inreda för familjer där någon har ADHD, autism eller annan NPF. Den kunskapen blir varumärkets kärna – **ro** – och binder ihop tjänster, produkter och innehåll till ett sammanhållet lifestyle-koncept.
 
 ---
