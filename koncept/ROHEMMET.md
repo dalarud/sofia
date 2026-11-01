@@ -206,7 +206,7 @@ Folkhemmet spreds genom utställningar, böcker, tidningar och möbelkataloger. 
 | Kanal | Rohemmets version |
 |---|---|
 | **Utställningen** | *Rohemmet – en lägenhet:* en visningslägenhet eller pop-up en helg, där varje rum visar en princip. Öppen för alla, med Ro-kvällar och kurser |
-| **Skriften** | *Rohemmet: ett snällt hem åt alla*, en liten bok eller tidning med manifestet, principerna och Ro-måtten. Först som PDF, sedan tryckt |
+| **Skriften** | *Rohemmet – Ett snällt hem åt alla*, en liten bok med manifestet, principerna och Ro-måtten. Finns som PDF i `skrift/rohemmet-ett-snallt-hem-at-alla.pdf` (A5, 28 sidor) |
 | **Måttkortet** | Ro-måtten på ett A4 eller ett kort i plånboksformat, gratis att ladda ner och dela |
 | **Föredraget** | *Från folkhemmet till rohemmet*, för föreningar, bibliotek, mässor och företag |
 | **Pressen** | Berättelsen om förskoleläraren som tar folkhemmets idé vidare till vår tid är lätt för journalister att skriva om |

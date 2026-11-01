@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<title>Rohemmet – Ett snällt hem åt alla</title>
+<style>
+@font-face { font-family: "Instrument Serif"; src: url("../profil/typsnitt/InstrumentSerif-Regular.ttf"); }
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url("../profil/typsnitt/InstrumentSerif-Italic.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 400; src: url("../profil/typsnitt/HankenGrotesk-Regular.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 500; src: url("../profil/typsnitt/HankenGrotesk-Medium.ttf"); }
+@font-face { font-family: "Hanken Grotesk"; font-weight: 600; src: url("../profil/typsnitt/HankenGrotesk-SemiBold.ttf"); }
+@font-face { font-family: "Caveat"; src: url("../profil/typsnitt/Caveat-Regular.ttf"); }
+@page { size: 148mm 210mm; margin: 0; }
+:root { --linne: #F3EEE6; --havre: #E6DCCB; --lera: #9B5E49; --lera-ljus: #D49C82; --mossa: #6F7D62; --mossa-ljus: #DCE0D2; --granskog: #2B362E; --muted: #5D6458; --line: #D0C3AF; --kvall: #8F7F92; --strand: #C4AF90; --accent: #9B5E49;
+  --stone: 58% 42% 55% 45% / 52% 60% 40% 48%; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--linne); color: var(--granskog); font: 400 10.2pt/1.56 "Hanken Grotesk", sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; hyphens: auto; }
+.page { width: 148mm; height: 210mm; padding: 15mm 14mm 16mm; position: relative; overflow: hidden; page-break-after: always; display: flex; flex-direction: column; gap: 4mm; background: var(--linne); }
+.page:last-child { page-break-after: auto; }
+.folio { position: absolute; left: 14mm; right: 14mm; bottom: 8mm; display: flex; justify-content: space-between; font-size: 7pt; color: var(--muted); letter-spacing: .06em; }
+.even .folio { flex-direction: row-reverse; }
+h1, h2, h3 { font-family: "Instrument Serif", serif; font-weight: 400; margin: 0; line-height: 1; letter-spacing: -.01em; hyphens: manual; }
+.big, .blurb, .lede, .manifest p { hyphens: manual; }
+h1 em, h2 em, h3 em, .big em { color: var(--lera); }
+h2 { font-size: 28pt; }
+h3 { font-size: 13pt; }
+p { margin: 0; }
+p + p { margin-top: 2.6mm; }
+.kicker { font-size: 6.6pt; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mossa); display: flex; gap: 2mm; align-items: center; }
+.kicker::before { content: ""; width: 2.2mm; height: 1.6mm; border-radius: var(--stone); background: currentColor; }
+.lede { font-size: 11.6pt; line-height: 1.5; color: var(--muted); }
+.muted { color: var(--muted); }
+.small { font-size: 8pt; color: var(--muted); line-height: 1.5; }
+.hand { font: 400 14pt/1.15 "Caveat", cursive; color: var(--lera); }
+.big { font: 400 17pt/1.2 "Instrument Serif", serif; }
+.logo { color: var(--granskog); display: block; }
+.logo svg, svg.logo { display: block; width: 100%; height: auto; }
+.rule { border: 0; border-top: 1px solid var(--line); margin: 0; }
+.stone { display: inline-block; width: 3mm; height: 2.1mm; border-radius: var(--stone); background: var(--lera); }
+ul.dots { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.6mm; }
+ul.dots li { display: grid; grid-template-columns: 4mm 1fr; }
+ul.dots li::before { content: ""; width: 2.2mm; height: 1.6mm; margin-top: 1.8mm; border-radius: var(--stone); background: var(--lera); }
+
+/* mörka och färgade sidor */
+.dark { background: var(--granskog); color: #EFE8DC; }
+.dark .muted, .dark .folio, .dark .small, .dark .lede { color: #B9BCAD; }
+.dark .kicker { color: #A9B79A; }
+.dark h1 em, .dark h2 em, .dark .big em { color: var(--lera-ljus); }
+.dark .logo { color: #EFE8DC; }
+.havre { background: var(--havre); }
+
+/* omslag */
+.cover { padding: 16mm 14mm 13mm; justify-content: space-between; }
+.cover .logo { width: 40mm; }
+.cover__arch { width: 74mm; align-self: center; margin-top: 4mm; }
+.cover h1 { font-size: 46pt; line-height: .9; letter-spacing: -.02em; }
+.cover .sub { font: italic 400 19pt/1.1 "Instrument Serif", serif; color: var(--lera); margin-top: 2.5mm; }
+.cover__foot { display: flex; justify-content: space-between; align-items: flex-end; font-size: 6.8pt; letter-spacing: .06em; color: var(--muted); }
+.cover__foot b { font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mossa); }
+
+/* innehåll */
+.toc { list-style: none; padding: 0; margin: 4mm 0 0; display: grid; }
+.toc li { display: grid; grid-template-columns: 8mm 1fr auto; align-items: baseline; padding: 3.2mm 0; border-bottom: 1px solid var(--line); }
+.toc li:first-child { border-top: 1px solid var(--granskog); }
+.toc .n { font: italic 400 12pt "Instrument Serif", serif; color: var(--lera); }
+.toc .t { font: 400 15pt "Instrument Serif", serif; }
+.toc .p { font-size: 7.6pt; color: var(--muted); }
+
+/* kapitelöppning */
+.opener { justify-content: flex-end; padding-bottom: 22mm; }
+.opener .num { font: italic 400 70pt/0.8 "Instrument Serif", serif; color: var(--lera); }
+.opener h2 { font-size: 38pt; line-height: .95; }
+.dark.opener .num { color: var(--lera-ljus); }
+
+/* tabeller */
+.vs { display: grid; grid-template-columns: 19mm 1fr 1fr; font-size: 9pt; }
+.vs > div { padding: 2mm 0; border-top: 1px solid var(--line); }
+.vs .k { font-size: 6.2pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--muted); padding-top: 2.6mm; }
+.vs .a { font: 400 12pt/1.2 "Instrument Serif", serif; color: var(--muted); padding-right: 3mm; }
+.vs .b { font: 400 12pt/1.2 "Instrument Serif", serif; }
+.vs .h { font: 600 6.2pt "Hanken Grotesk", sans-serif; letter-spacing: .14em; text-transform: uppercase; border-top: 0; }
+.vs .h.b { color: var(--lera); }
+.timeline { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 5mm; }
+.timeline div { border-top: 1px solid var(--line); padding-top: 1.6mm; font-size: 9pt; color: var(--muted); }
+.timeline b { display: block; font: 400 15pt/1 "Instrument Serif", serif; color: var(--lera); margin-bottom: .8mm; }
+
+/* manifest */
+.manifest { justify-content: center; gap: 4.2mm; }
+.manifest p { font: 400 16.5pt/1.18 "Instrument Serif", serif; margin: 0; }
+.manifest p.first { font-size: 22pt; line-height: 1.05; }
+.manifest .sig { font: italic 400 17pt "Instrument Serif", serif; color: var(--lera); margin-top: 4mm; }
+
+/* principer */
+.principle { display: grid; grid-template-columns: 26mm 1fr; gap: 0 5mm; padding: 7mm 0; border-top: 1px solid var(--line); }
+.principle:last-of-type { border-bottom: 1px solid var(--line); }
+.principle .pn { font: italic 400 36pt/0.9 "Instrument Serif", serif; color: var(--lera); }
+.principle svg { width: 24mm; height: 17mm; margin-top: 2mm; display: block; }
+.principle h3 { font-size: 19pt; margin-bottom: 1.6mm; }
+.principle p { font-size: 10.2pt; }
+.principle .try { margin-top: 3mm; font-size: 9.2pt; color: var(--mossa); }
+.principle .try b { font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: 6.2pt; margin-right: 1.5mm; }
+
+/* mått */
+.mt { display: grid; gap: 0; }
+.mt > div { display: grid; grid-template-columns: 31mm 1fr; gap: 3mm; padding: 2.4mm 0; border-top: 1px solid var(--line); font-size: 9.4pt; }
+.mt > div:last-child { border-bottom: 1px solid var(--line); }
+.mt b { font: 400 12.5pt/1.15 "Instrument Serif", serif; }
+.mt strong { font-weight: 600; }
+.wall { width: 100%; height: auto; display: block; }
+.disclaimer { font-size: 8.4pt; color: var(--muted); border-left: 2px solid var(--lera); padding-left: 3mm; }
+
+/* rum */
+.room { padding: 4.5mm 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 27mm 1fr; gap: 1mm 4mm; }
+.room:last-child { border-bottom: 1px solid var(--line); }
+.room h3 { font-size: 17pt; }
+.room q { grid-column: 2; font: italic 400 13.5pt "Instrument Serif", serif; color: var(--lera); quotes: none; }
+.room ul { grid-column: 2; margin-top: 1mm; }
+.room ul li { font-size: 9.8pt; }
+
+/* fyra veckor */
+.weeks { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm 6mm; }
+.week { border-top: 1.5px solid var(--granskog); padding-top: 2mm; }
+.week .wn { font: italic 400 20pt/1 "Instrument Serif", serif; color: var(--lera); }
+.week h3 { font-size: 15pt; margin: 1mm 0 1.5mm; }
+.check { list-style: none; margin: 0; padding: 0; display: grid; gap: 2mm; font-size: 9.4pt; }
+.check li { display: grid; grid-template-columns: 5mm 1fr; align-items: baseline; }
+.check li::before { content: ""; width: 3.2mm; height: 2.4mm; border-radius: var(--stone); border: 1.1px solid var(--granskog); }
+
+/* ordlista */
+.glossary { display: grid; grid-template-columns: 1fr 1fr; gap: 0 6mm; }
+.glossary div { padding: 3.4mm 0; border-top: 1px solid var(--line); }
+.glossary dt { font: 400 16pt "Instrument Serif", serif; }
+.glossary dd { margin: .8mm 0 0; font-size: 9.2pt; color: var(--muted); line-height: 1.45; }
+
+/* fem bågar */
+.five { display: grid; gap: 0; }
+.five div { display: grid; grid-template-columns: 6mm 16mm 1fr; align-items: baseline; gap: 2mm; padding: 3mm 0; border-top: 1px solid rgba(239,232,220,.22); font-size: 9.4pt; color: #CFCFC2; }
+.five i { width: 3.4mm; height: 2.4mm; border-radius: var(--stone); display: inline-block; }
+.five b { font: 400 17pt "Instrument Serif", serif; color: #EFE8DC; }
+
+/* baksida */
+.back { justify-content: space-between; }
+.back .blurb { font: 400 22pt/1.15 "Instrument Serif", serif; }
+.back .logo { width: 44mm; }
+</style>
+</head>
+<body>
+
+<!-- 1 Omslag -->
+<section class="page cover">
+  <div class="logo">{{LOGO}}</div>
+  <svg class="cover__arch" viewBox="0 0 400 420" aria-hidden="true" fill="none">
+    <path d="M30 400 V200 A170 170 0 0 1 370 200 V400" stroke="#2B362E" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M75 400 V205 A125 125 0 0 1 325 205 V400" stroke="#2B362E" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M120 400 V210 A80 80 0 0 1 280 210 V400" stroke="#2B362E" stroke-width="3.2" stroke-linecap="round"/>
+    <path d="M10 402 H390" stroke="#2B362E" stroke-width="2" opacity=".3"/>
+    <path d="M168 392 C168 370 232 366 236 388 C238 404 170 408 168 392Z" fill="#9B5E49"/>
+  </svg>
+  <div>
+    <h1>Rohemmet</h1>
+    <p class="sub">Ett snällt hem åt alla</p>
+  </div>
+  <div class="cover__foot"><b>Sofia Dalarud</b><span>Manifest, principer och Ro-måtten</span></div>
+</section>
+
+<!-- 2 Insida -->
+<section class="page" style="justify-content:flex-end; gap: 6mm;">
+  <p class="big" style="max-width: 92mm;">Till dig som plockar undan hela dagarna och ändå inte får ro. Till barnen som inte kunde sitta still, och som landade när rummet blev lugnare. Och till alla som har fått höra att de är röriga, när det egentligen var hemmet som var för högljutt.</p>
+  <hr class="rule">
+  <p class="small">Rohemmet – Ett snällt hem åt alla<br>Text och idé: Sofia Dalarud, Studio Dalarud<br>Första utgåvan, 2026<br><br>Ro-måtten i den här skriften är riktvärden från erfarenhet som inredare och förskollärare. De är inte forskningsresultat och ersätter inte råd från vården. Skriften får gärna delas och citeras med angivande av källa.</p>
+  <div class="folio"><span>2</span><span></span></div>
+</section>
+
+<!-- 3 Innehåll -->
+<section class="page">
+  <p class="kicker">Innehåll</p>
+  <h2>Det här är <em>en början.</em></h2>
+  <ol class="toc">
+    <li><span class="n"></span><span class="t">Förord</span><span class="p">4</span></li>
+    <li><span class="n">1</span><span class="t">Från folkhemmet till rohemmet</span><span class="p">6</span></li>
+    <li><span class="n">2</span><span class="t">Brus</span><span class="p">8</span></li>
+    <li><span class="n">3</span><span class="t">Manifestet: Ro åt alla</span><span class="p">10</span></li>
+    <li><span class="n">4</span><span class="t">Tio principer</span><span class="p">11</span></li>
+    <li><span class="n">5</span><span class="t">Ro-måtten</span><span class="p">17</span></li>
+    <li><span class="n">6</span><span class="t">Rum för rum</span><span class="p">22</span></li>
+    <li><span class="n">7</span><span class="t">Fyra veckor till ett snällare hem</span><span class="p">25</span></li>
+    <li><span class="n">8</span><span class="t">Ro åt alla</span><span class="p">26</span></li>
+    <li><span class="n"></span><span class="t">Ord att leva med</span><span class="p">27</span></li>
+  </ol>
+  <p class="hand" style="margin-top:auto">Läs i vilken ordning du vill. Börja gärna med ett rum.</p>
+  <div class="folio"><span></span><span>3</span></div>
+</section>
+
+<!-- 4 Förord -->
+<section class="page">
+  <p class="kicker">Förord</p>
+  <h2>Det var inte <em>barnen.</em></h2>
+  <p class="lede">I många år arbetade jag i förskolan. Varje höst kom det barn som inte kunde sitta still, som blev ledsna i hallen och som inte hittade vila på eftermiddagen.</p>
+  <p>Ofta handlade det inte om barnen. Det handlade om rummet. Taklamporna lyste lika starkt hela dagen. Hallen var full av ljud och skor. Leksakerna stod framme i alla hyllor, och det fanns ingen plats där man kunde vara ifred.</p>
+  <p>När vi dämpade ljuset, tog bort hälften av leksakerna, satte bilder på lådorna och byggde en koja i ett hörn, hände något. Barnen landade. Inte alla, och inte varje dag, men tillräckligt ofta för att jag aldrig har glömt det.</p>
+  <p>Sedan dess har jag sett samma sak i hem. Vuxna som tror att de är röriga, slarviga eller lata, och som egentligen bor i ett hem som kräver mer energi än det ger. Familjer där morgnarna är en kamp, inte för att någon gör fel, utan för att hallen inte är byggd för hur de lever.</p>
+  <div class="folio"><span>4</span><span>Förord</span></div>
+</section>
+
+<!-- 5 Förord forts -->
+<section class="page">
+  <p>Den här skriften samlar det jag har lärt mig, som förskollärare med specialpedagogisk inriktning och som inredare. Den heter <em>Rohemmet</em>, och den är ett av fem delkoncept i en större idé som jag kallar <em>Människohemmet</em>: hemmet format efter människan, inte tvärtom.</p>
+  <p>Ro är där jag börjar, eftersom det är det jag vet mest om och det som så många saknar. Men ro är inte lyx, och det ska inte vara förbehållet dem som har råd med en inredare. Därför får allt i den här skriften användas fritt. De flesta stegen kostar ingenting: det handlar om att flytta, ta bort och släcka.</p>
+  <p>Du behöver inte göra allt. Ett hem blir aldrig klart, och det är fint. Börja med tre saker. Tre i veckan räcker.</p>
+  <div style="margin-top:auto; display:flex; justify-content:space-between; align-items:flex-end;">
+    <p class="hand" style="font-size:20pt">Sofia</p>
+    <svg viewBox="0 0 120 80" style="width:30mm" aria-hidden="true" fill="none"><path d="M10 76 V44 A30 30 0 0 1 70 44 V76" stroke="#2B362E" stroke-width="2.4" stroke-linecap="round"/><path d="M20 76 V46 A20 20 0 0 1 60 46 V76" stroke="#2B362E" stroke-width="2.4" stroke-linecap="round"/><path d="M33 72 C33 66 47 65 48 70 C49 75 33 76 33 72Z" fill="#9B5E49"/><path d="M80 76 C80 70 104 68 106 74 C107 80 81 81 80 76Z" fill="#6F7D62"/><path d="M90 66 C90 61 104 60 105 65 C106 70 91 70 90 66Z" fill="#C4AF90"/></svg>
+  </div>
+  <div class="folio"><span></span><span>5</span></div>
+</section>
+
+<!-- 6 Kapitel 1 -->
+<section class="page dark">
+  <p class="kicker">1 · Från folkhemmet till rohemmet</p>
+  <h2>Folkhemmet gav oss ljus och luft. <em>Nu behöver vi ro.</em></h2>
+  <p class="lede">I början av 1900-talet bodde många trångt, mörkt och fuktigt. Under några årtionden förändrades det, och sättet det gjordes på är värt att minnas.</p>
+  <div class="timeline" style="--line: rgba(239,232,220,.25)">
+    <div style="border-color: rgba(239,232,220,.25); color:#CFCFC2"><b style="color:#D49C82">1899</b>Ellen Key skriver <i>Skönhet för alla</i>: vackra och goda hem ska inte vara förbehållna de rika.</div>
+    <div style="border-color: rgba(239,232,220,.25); color:#CFCFC2"><b style="color:#D49C82">1919</b>Gregor Paulsson skriver <i>Vackrare vardagsvara</i>, om god form i vanliga saker.</div>
+    <div style="border-color: rgba(239,232,220,.25); color:#CFCFC2"><b style="color:#D49C82">1928–1930</b>Per Albin Hansson beskriver samhället som ett hem, och funktionalismen slår igenom på Stockholmsutställningen.</div>
+    <div style="border-color: rgba(239,232,220,.25); color:#CFCFC2"><b style="color:#D49C82">1944</b>Hemmens forskningsinstitut börjar mäta hur folk lagar mat och förvarar saker. Måtten styr fortfarande svenska kök.</div>
+  </div>
+  <p style="margin-top:auto">Folkhemmet tog vardagen på allvar. Det mätte, prövade och gjorde det goda till standard för alla. Det löste kroppens behov: ljus, luft, hygien, utrymme och funktion.</p>
+  <div class="folio"><span>6</span><span>Från folkhemmet till rohemmet</span></div>
+</section>
+
+<!-- 7 Kapitel 1 forts -->
+<section class="page">
+  <p>I dag har de flesta av oss ljus, luft och rinnande vatten. Det som saknas är något annat. Hemmen är fulla av saker, skärmar, ljud och ljus som aldrig släcks. Fler och fler, barn som vuxna, beskriver sig som stressade, överväldigade eller trötta på ett sätt som sömnen inte botar. Och samtidigt ska hemmet se perfekt ut på bild.</p>
+  <p>Rohemmet tar hand om <b>nervsystemets</b> behov, på samma sätt som folkhemmet tog hand om kroppens. Metoden är densamma: ta vardagen på allvar, formulera principer och mått, och gör det goda tillgängligt för alla.</p>
+  <div class="vs" style="margin-top: 3mm;">
+    <div class="k h"></div><div class="a h">Folkhemmet</div><div class="b h">Rohemmet</div>
+    <div class="k">Problemet</div><div class="a">Trångt, mörkt, ohälsosamt</div><div class="b">Brus, överstimulering, prestation</div>
+    <div class="k">Behovet</div><div class="a">Kroppens</div><div class="b">Nervsystemets</div>
+    <div class="k">Idealet</div><div class="a">Ljus, luft, funktion</div><div class="b">Ro, överblick, återhämtning</div>
+    <div class="k">Metoden</div><div class="a">Mäta vardagen</div><div class="b">Ro-modellen och Ro-måtten</div>
+    <div class="k">Löftet</div><div class="a">Skönhet för alla</div><div class="b">Ro åt alla</div>
+    <div class="k">Symbolen</div><div class="a">Det rationella köket</div><div class="b">Rohörnan</div>
+  </div>
+  <p class="small" style="margin-top:auto">Rohemmet tar inte avstånd från folkhemmet. Det bygger vidare på det. Allt gott i folkhemmet finns kvar: jämlikheten, tanken att god form inte ska vara lyx, och att man tar vardagen på allvar.</p>
+  <div class="folio"><span></span><span>7</span></div>
+</section>
+
+<!-- 8 Brus -->
+<section class="page havre">
+  <p class="kicker">2 · Brus</p>
+  <h2>Det är inte du som är rörig. <em>Ditt hem är för högljutt.</em></h2>
+  <p class="lede">Brus är allt i hemmet som tar energi utan att ge något tillbaka. Det är inte samma sak som stök. Ett stökigt rum kan vara lugnt, och ett städat rum kan brusa.</p>
+  <p>Hjärnan tar hela tiden in det vi ser, hör och känner, och sorterar det. Det mesta märker vi aldrig. Men allt som sorteras kostar lite energi, och i ett hem med mycket brus kostar det mycket. Den som har ADHD, autism eller är högkänslig märker det tidigare och tydligare, men det gäller alla.</p>
+  <p>Brus känns inte alltid som brus. Det känns som att man är trött, lättirriterad, inte hittar saker, inte kommer igång eller inte kan varva ner. Därför tror så många att felet sitter i dem själva.</p>
+  <p class="big" style="margin-top:auto">Att flytta skulden från människan till rummet är det första steget mot ro.</p>
+  <div class="folio"><span>8</span><span>Brus</span></div>
+</section>
+
+<!-- 9 Brus forts -->
+<section class="page">
+  <h3 style="font-size:18pt">Vanligt brus i ett hem</h3>
+  <div class="mt" style="margin-top:3mm">
+    <div><b>För ögat</b><span>Saker i ögonhöjd, öppna hyllor som är fulla, många mönster och starka färger, sladdar, papper på ytor, skärmar som lyser.</span></div>
+    <div><b>För örat</b><span>Hårda ytor som ekar, tv eller radio som går i bakgrunden, apparater som piper och surrar, ljud från andra rum.</span></div>
+    <div><b>Ljuset</b><span>En stark taklampa som enda ljuskälla, kallt vitt ljus på kvällen, lampor som bländar, skärmar sent på kvällen.</span></div>
+    <div><b>Vardagen</b><span>En hall utan plats för det som ska in och ut, saker utan en bestämd plats, morgnar som hakar upp sig på samma ställe varje dag.</span></div>
+    <div><b>Kraven</b><span>Saker som påminner om att något ska göras: tvätt, papper, projekt, och bilden av hur hemmet borde se ut.</span></div>
+  </div>
+  <div style="margin-top:auto" class="disclaimer">Gör så här: gå runt i hemmet med en penna. Stanna i varje rum och fråga dig vad du ser, hör och känner först. Det som kommer först brusar mest.</div>
+  <div class="folio"><span></span><span>9</span></div>
+</section>
+
+<!-- 10 Manifest -->
+<section class="page dark manifest">
+  <p class="kicker">3 · Manifestet</p>
+  <p class="first">Folkhemmet gav oss ljus och luft. <em style="color:#D49C82">Nu behöver vi ro.</em></p>
+  <p>Ett hem ska vara snällt mot den som bor där. Det ska inte kräva energi, det ska ge energi.</p>
+  <p>Ro är inte lyx. Den ska inte vara förbehållen dem som har råd med en inredare.</p>
+  <p>Varje hjärna förtjänar ett hem som fungerar för den. Det som hjälper den som har det svårast, hjälper alla.</p>
+  <p>Vi tar bort innan vi lägger till. Vi dämpar innan vi pyntar. Vi frågar hur ni lever innan vi frågar vad ni gillar.</p>
+  <p>Det handgjorda får vara ojämnt. Hemmet blir aldrig klart. Små steg räknas.</p>
+  <p class="sig" style="color:#D49C82">Rohemmet: ett snällt hem åt alla.</p>
+  <div class="folio"><span>10</span><span>Manifestet</span></div>
+</section>
+
+<!-- 11 Principer 1 -->
+<section class="page">
+  <p class="kicker">4 · Tio principer</p>
+  <h2 style="font-size:24pt">Lika för ett barnrum som för <em>en förskola.</em></h2>
+  {{P1}}{{P2}}
+  <div class="folio"><span></span><span>11</span></div>
+</section>
+<!-- 12 -->
+<section class="page" style="justify-content:center">{{P3}}{{P4}}<div class="folio"><span>12</span><span>Tio principer</span></div></section>
+<!-- 13 -->
+<section class="page" style="justify-content:center">{{P5}}{{P6}}<div class="folio"><span></span><span>13</span></div></section>
+<!-- 14 -->
+<section class="page" style="justify-content:center">{{P7}}{{P8}}<div class="folio"><span>14</span><span>Tio principer</span></div></section>
+<!-- 15 -->
+<section class="page" style="justify-content:center">{{P9}}{{P10}}<div class="folio"><span></span><span>15</span></div></section>
+
+<!-- 16 Rohörnan -->
+<section class="page havre">
+  <p class="kicker">Rohemmets symbol</p>
+  <h2>Rohörnan</h2>
+  <p class="lede">Folkhemmet hade sitt rationella kök. Rohemmet har rohörnan: en plats i hemmet som bara är till för vila.</p>
+  <svg viewBox="0 0 380 300" style="width:100%; height:auto; display:block" aria-hidden="true">
+    <path d="M90 290 V120 A100 100 0 0 1 290 120 V290" fill="#F3EEE6" stroke="#2B362E" stroke-width="2.4"/>
+    <rect x="110" y="215" width="160" height="75" rx="14" fill="#6F7D62"/>
+    <rect x="120" y="190" width="62" height="36" rx="13" fill="#C4AF90"/><rect x="196" y="194" width="66" height="32" rx="13" fill="#D2C2A6"/>
+    <path d="M128 210 C160 182 246 182 262 210" fill="none" stroke="#9B5E49" stroke-width="9" stroke-linecap="round" opacity=".55"/>
+    <line x1="245" y1="126" x2="245" y2="156" stroke="#2B362E" stroke-width="1.5"/>
+    <path d="M232 156 H258 L252 170 H238Z" fill="#F3EEE6" stroke="#2B362E" stroke-width="1.5"/>
+    <ellipse cx="245" cy="178" rx="44" ry="28" fill="#F6C98A" opacity=".3"/>
+    <path d="M140 212 C140 205 158 203 160 210 C161 216 141 217 140 212Z" fill="#9B5E49"/>
+    <line x1="20" y1="290" x2="360" y2="290" stroke="#2B362E" stroke-width="3"/>
+    <g font-family="Caveat" font-size="18" fill="#9B5E49"><text x="300" y="150">eget ljus</text><text x="20" y="200">ryggskydd</text><text x="296" y="246">mjukt</text><text x="296" y="282">ingen skärm</text></g>
+  </svg>
+  <ul class="dots">
+    <li>Ungefär en kvadratmeter räcker: ett hörn, en nisch, en stor stol eller en koja.</li>
+    <li>Ryggskydd, så att kroppen känner sig trygg. Väggen, en skärm eller ett draperi.</li>
+    <li>Något mjukt: en pläd, en kudde, en matta.</li>
+    <li>Eget ljus, lågt och varmt.</li>
+    <li>Ingen skärm och inget som ska fixas. Börja med fem minuter om dagen.</li>
+  </ul>
+  <div class="folio"><span>16</span><span>Rohörnan</span></div>
+</section>
+
+<!-- 17 Ro-måtten öppning -->
+<section class="page dark opener">
+  <p class="num">5</p>
+  <h2>Ro-måtten</h2>
+  <p class="lede" style="max-width: 96mm;">Folkhemmet hade standardmått för köksbänkar och skåp. Rohemmet har Ro-måtten: konkreta riktvärden som gör principerna lätta att använda, för familjer, förskolor och den som bygger nytt.</p>
+  <p class="small" style="max-width: 96mm;">Måtten är riktvärden från erfarenhet, inte forskningsresultat. De ska prövas, och de kommer att justeras. Använd dem som en hjälp, inte som en regel.</p>
+  <div class="folio"><span></span><span>17</span></div>
+</section>
+
+<!-- 18 Väggen -->
+<section class="page">
+  <p class="kicker">Ro-måtten · höjder</p>
+  <h3 style="font-size:19pt">En vägg, <em>tre höjder.</em></h3>
+  <svg class="wall" viewBox="0 0 640 430" aria-hidden="true">
+    <defs><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#9B5E49" stroke-width="1" opacity=".4"/></pattern>
+    <radialGradient id="glow"><stop offset="0" stop-color="#F6C98A" stop-opacity=".7"/><stop offset="1" stop-color="#F6C98A" stop-opacity="0"/></radialGradient></defs>
+    <rect x="0" y="0" width="640" height="430" fill="#EFE7DA"/>
+    <rect x="40" y="160" width="560" height="105" fill="url(#hatch)"/>
+    <text x="404" y="257" text-anchor="end" font-family="Hanken Grotesk" font-size="12" font-weight="600" letter-spacing="1.5" fill="#9B5E49">ÖGONHÖJDSZON 90–160 CM</text>
+    <line x1="20" y1="400" x2="620" y2="400" stroke="#2B362E" stroke-width="3"/>
+    <g font-family="Hanken Grotesk" font-size="11" fill="#5D6458"><line x1="28" y1="400" x2="28" y2="100" stroke="#5D6458"/><line x1="24" y1="265" x2="32" y2="265" stroke="#5D6458"/><text x="6" y="268">90</text><line x1="24" y1="160" x2="32" y2="160" stroke="#5D6458"/><text x="0" y="163">160</text></g>
+    <g stroke="#2B362E" stroke-width="2.4" fill="none" stroke-linecap="round"><path d="M120 257.5 v6 a5 5 0 0 0 10 0"/><path d="M150 227.5 v6 a5 5 0 0 0 10 0"/><path d="M180 152.5 v6 a5 5 0 0 0 10 0"/></g>
+    <g font-family="Caveat" font-size="18" fill="#9B5E49"><text x="96" y="290">3–5 år</text><text x="140" y="214">6–9 år</text><text x="196" y="146">vuxen</text></g>
+    <rect x="90" y="345" width="140" height="10" rx="2" fill="#B88A62"/><rect x="96" y="355" width="6" height="45" fill="#B88A62"/><rect x="218" y="355" width="6" height="45" fill="#B88A62"/>
+    <rect x="108" y="365" width="38" height="30" rx="6" fill="#C4AF90"/><rect x="156" y="365" width="38" height="30" rx="6" fill="#9DA88F"/>
+    <path d="M420 400 V230 A55 55 0 0 1 530 230 V400" fill="#E3D7C4" stroke="#2B362E" stroke-width="2"/>
+    <path d="M432 400 V300 Q475 285 518 300 V400Z" fill="#6F7D62"/>
+    <text x="475" y="222" text-anchor="middle" font-family="Caveat" font-size="18" fill="#9B5E49">rohörna</text>
+    <ellipse cx="575" cy="300" rx="60" ry="60" fill="url(#glow)"/><line x1="575" y1="400" x2="575" y2="310" stroke="#2B362E" stroke-width="2"/><path d="M560 310 H590 L584 290 H566Z" fill="#E6DCCB" stroke="#2B362E" stroke-width="1.5"/>
+    <ellipse cx="300" cy="320" rx="50" ry="45" fill="url(#glow)"/><rect x="262" y="350" width="80" height="8" fill="#B88A62"/><rect x="268" y="358" width="5" height="42" fill="#B88A62"/><rect x="331" y="358" width="5" height="42" fill="#B88A62"/><line x1="300" y1="350" x2="300" y2="330" stroke="#2B362E" stroke-width="2"/><path d="M287 330 H313 L308 314 H292Z" fill="#E6DCCB" stroke="#2B362E" stroke-width="1.5"/>
+    <rect x="345" y="90" width="50" height="70" fill="#DCE3E6" stroke="#2B362E" stroke-width="2"/><line x1="370" y1="90" x2="370" y2="160" stroke="#2B362E" stroke-width="1.5"/><ellipse cx="370" cy="150" rx="40" ry="30" fill="url(#glow)"/><path d="M360 160 H380 L376 148 H364Z" fill="#9B5E49"/>
+    <g font-family="Hanken Grotesk" font-size="11" font-weight="600" letter-spacing="1" fill="#5D6458"><text x="575" y="420" text-anchor="middle">GOLV</text><text x="300" y="420" text-anchor="middle">BORD</text><text x="370" y="180" text-anchor="middle">FÖNSTER</text></g>
+  </svg>
+  <div class="mt">
+    <div><b>Ögonhöjdszonen</b><span>90–160 cm från golvet för vuxna, 60–120 cm i barnrum. <strong>Högst en tredjedel</strong> av väggytan där har öppen förvaring eller föremål.</span></div>
+    <div><b>Krokar</b><span>Barn 3–5 år <strong>90–100 cm</strong>. Barn 6–9 år <strong>110–120 cm</strong>. Vuxna <strong>160–170 cm</strong>.</span></div>
+    <div><b>Det barnet når</b><span>Det barnet ska klara själv: under barnets axelhöjd. Det barnet inte ska nå: över huvudhöjd eller bakom lucka.</span></div>
+  </div>
+  <div class="folio"><span>18</span><span>Ro-måtten</span></div>
+</section>
+
+<!-- 19 Ljus -->
+<section class="page">
+  <p class="kicker">Ro-måtten · ljus</p>
+  <h3 style="font-size:19pt">Släck taklampan. <em>Tänd i tre höjder.</em></h3>
+  <p>Ljus är det snabbaste sättet att ändra hur ett rum känns. Ett starkt ljus uppifrån säger till kroppen att det är mitt på dagen. Flera låga, varma ljus säger att det är kväll och att den kan varva ner.</p>
+  <div class="mt">
+    <div><b>Ljuskällor</b><span>Minst <strong>tre</strong> i varje rum där man är på kvällen, i olika höjder: golv (0–60 cm), bord (60–120 cm), fönster eller vägg.</span></div>
+    <div><b>Färgtemperatur</b><span>Varmt vitt, cirka <strong>2 700 kelvin</strong>, i allt som tänds på kvällen. Det står på förpackningen. Dimbart där det går.</span></div>
+    <div><b>Bländning</b><span>Ingen synlig glödtråd eller lysdiod i ögonhöjd. Skärmar i tyg, papper eller opalglas.</span></div>
+    <div><b>Taklampan</b><span>Får finnas för städning och arbete, men är aldrig den enda ljuskällan och är släckt på kvällen.</span></div>
+  </div>
+  <p class="hand" style="margin-top:auto; font-size:17pt">Kvällsljuset: när det mörknar, släck i taket och tänd en lampa på golvet, en på bordet och en i fönstret.</p>
+  <div class="folio"><span></span><span>19</span></div>
+</section>
+
+<!-- 20 Färg ljud -->
+<section class="page">
+  <p class="kicker">Ro-måtten · färg och ljud</p>
+  <h3 style="font-size:19pt">Färre intryck, <em>mjukare rum.</em></h3>
+  <div style="display:flex; height:16mm; border-radius:2mm; overflow:hidden; border:1px solid var(--line)">
+    <div style="flex:30;background:#F3EEE6"></div><div style="flex:30;background:#E6DCCB"></div><div style="flex:10;background:#6F7D62"></div><div style="flex:10;background:#C4AF90"></div><div style="flex:10;background:#8F7F92"></div><div style="flex:5;background:#9B5E49"></div><div style="flex:5;background:#2B362E"></div>
+  </div>
+  <p class="small">Ett exempel på fördelningen 60, 30 och 10 procent: ljusa väggar, dämpade textilier och möbler, och små detaljer i starkare färg.</p>
+  <div class="mt">
+    <div><b>Färger per rum</b><span>Högst <strong>tre färger</strong> utöver trä, ungefär 60, 30 och 10 procent.</span></div>
+    <div><b>Mättnad</b><span>Dämpade, naturliga kulörer. Starka färger i små ytor, gärna under ögonhöjd.</span></div>
+    <div><b>Mönster</b><span>Högst <strong>ett tydligt mönster</strong> per rum, och helst inte på den största väggen.</span></div>
+    <div><b>Fria ytor</b><span>Minst <strong>en fri yta</strong> per rum: en bänk, ett bord eller en hylla där ingenting står.</span></div>
+    <div><b>Mjuka ytor</b><span>Minst <strong>en stor mjuk yta</strong> per rum som tar ljud: matta, gardiner eller textil på väggen.</span></div>
+    <div><b>Tystnad</b><span>Minst <strong>en plats</strong> i hemmet utan skärm och utan ljud som går av sig själva.</span></div>
+  </div>
+  <div class="folio"><span>20</span><span>Ro-måtten</span></div>
+</section>
+
+<!-- 21 Förvaring vila -->
+<section class="page">
+  <p class="kicker">Ro-måtten · förvaring och vila</p>
+  <h3 style="font-size:19pt">Allt har en plats, <em>och platsen syns.</em></h3>
+  <div class="mt">
+    <div><b>Hallen</b><span>En krok, en korg och en hyllplats <strong>per person</strong>, i rätt höjd. En bänk att sitta på. Ingenting på golvet.</span></div>
+    <div><b>Kategorier</b><span>En låda eller korg <strong>per sorts sak</strong>, märkt med ord eller bild.</span></div>
+    <div><b>Öppet och stängt</b><span>Mycket bakom luckor, lite på öppna hyllor. Det som står öppet är det man vill se.</span></div>
+    <div><b>Leksaker</b><span>Ungefär <strong>en tredjedel</strong> framme. Resten vilar och byts ut efter några veckor.</span></div>
+    <div><b>Rohörnan</b><span>Minst <strong>en per hem</strong>, gärna en per barn. Ungefär en kvadratmeter, med ryggskydd, mjukt material och eget ljus.</span></div>
+    <div><b>Sovrummet</b><span>Ingen arbetsplats och ingen synlig förvaring av sådant som ska fixas.</span></div>
+  </div>
+  <div class="disclaimer" style="margin-top:auto">Ro-måtten finns också som ett kort att skriva ut och sätta på kylskåpet, och som en lista att ta med till byggvaruhuset.</div>
+  <div class="folio"><span></span><span>21</span></div>
+</section>
+
+<!-- 22 Rum 1 -->
+<section class="page">
+  <p class="kicker">6 · Rum för rum</p>
+  <h2 style="font-size:24pt">Varje rum börjar med <em>en fråga.</em></h2>
+  <div>
+    <div class="room"><h3>Hallen</h3><q>Hur ser morgonen ut?</q><ul class="dots"><li>En plats per person: krok, korg och hyllplats, i rätt höjd.</li><li>En bänk att sitta på när skorna ska på.</li><li>Ingenting på golvet som inte används i dag.</li><li>En fast plats för det som ska med ut: nycklar, väskor, lappar från skolan.</li></ul></div>
+    <div class="room"><h3>Köket</h3><q>Var landar det som kommer in?</q><ul class="dots"><li>En fri bänk, alltid.</li><li>En bestämd plats för post, nycklar och laddare.</li><li>Ljus under skåpen i stället för taklampan på kvällen.</li></ul></div>
+  </div>
+  <div class="folio"><span>22</span><span>Rum för rum</span></div>
+</section>
+
+<!-- 23 Rum 2 -->
+<section class="page">
+  <div class="room"><h3>Vardags&shy;rummet</h3><q>Var vilar ögat?</q><ul class="dots"><li>Ljus i tre höjder.</li><li>En stor matta och gardiner som dämpar.</li><li>Förvaring bakom luckor, och några få saker framme.</li><li>En rohörna, även om den är liten.</li></ul></div>
+  <div class="room"><h3>Sovrummet</h3><q>Vad behöver kroppen för att sova?</q><ul class="dots"><li>Mörker: gardiner som stänger ute ljuset.</li><li>Inga skärmar, och laddaren i ett annat rum.</li><li>Mjuka material och dämpade färger.</li><li>Inget som påminner om att något ska göras.</li></ul></div>
+  <div class="room"><h3>Barnrummet</h3><q>Vad kan barnet klara själv?</q><ul class="dots"><li>Märkt förvaring i barnets höjd, med bilder.</li><li>En koja eller rohörna.</li><li>En lugn vägg vid sängen, utan mönster och saker.</li><li>Leksaker som vilar och byts.</li></ul></div>
+  <div class="folio"><span></span><span>23</span></div>
+</section>
+
+<!-- 24 Rum 3 -->
+<section class="page">
+  <div class="room"><h3>Arbets&shy;platsen</h3><q>Hur börjar och slutar arbetsdagen?</q><ul class="dots"><li>En avskärmad plats, gärna med ryggen mot väggen.</li><li>En låda eller ett skåp där allt kan stängas in när dagen är slut.</li><li>Ljus från sidan, inte rakt framifrån.</li></ul></div>
+  <div class="room"><h3>Badrummet</h3><q>Vad behövs morgon och kväll?</q><ul class="dots"><li>Det som används varje dag framme, resten bakom lucka.</li><li>Mjuka handdukar och en matta.</li><li>Varmt ljus på kvällen, gärna en liten lampa i stället för taklampan.</li></ul></div>
+  <div class="room"><h3>Förskolan</h3><q>Var vilar barnen?</q><ul class="dots"><li>En vilplats som alltid finns, inte bara efter lunch.</li><li>Hallen formad efter hämtning och lämning.</li><li>Ljuset dämpat under eftermiddagen.</li><li>Leksaker i färre, märkta lådor.</li></ul></div>
+  <div class="folio"><span>24</span><span>Rum för rum</span></div>
+</section>
+
+<!-- 25 Fyra veckor -->
+<section class="page havre">
+  <p class="kicker">7 · Fyra veckor till ett snällare hem</p>
+  <h2 style="font-size:24pt">Tre steg i veckan. <em>Det räcker.</em></h2>
+  <div class="weeks">
+    <div class="week"><span class="wn">1</span><h3>Ljuset</h3><ul class="check"><li>Byt till varmt vitt, 2 700 K, i kvällslamporna.</li><li>Tänd i tre höjder i vardagsrummet.</li><li>Släck taklampan efter middagen.</li></ul></div>
+    <div class="week"><span class="wn">2</span><h3>Hallen</h3><ul class="check"><li>En krok per person, i rätt höjd.</li><li>En korg per person för vantar och mössor.</li><li>Töm golvet.</li></ul></div>
+    <div class="week"><span class="wn">3</span><h3>Ögonhöjden</h3><ul class="check"><li>Välj en yta och gör den helt fri.</li><li>Flytta saker från öppna hyllor in bakom luckor.</li><li>Låt en tredjedel av leksakerna vila.</li></ul></div>
+    <div class="week"><span class="wn">4</span><h3>Vilan</h3><ul class="check"><li>Välj ett hörn till rohörna.</li><li>Lägg dit något mjukt och en lampa.</li><li>Sitt där fem minuter om dagen, utan mobil.</li></ul></div>
+  </div>
+  <p class="hand" style="margin-top:auto; font-size:16pt">Lägg en sten på hyllan för varje vecka du klarar. Det gör inget om det tar längre tid.</p>
+  <div class="folio"><span></span><span>25</span></div>
+</section>
+
+<!-- 26 Ro åt alla -->
+<section class="page dark">
+  <p class="kicker">8 · Ro åt alla</p>
+  <h2>Ro är en av fem. <em>Människan behöver mer.</em></h2>
+  <p>Rohemmet är ett delkoncept i <b>Människohemmet</b>, idén om hemmet format efter människan, inte tvärtom. Folkhemmet byggde för genomsnittet. Människohemmet utgår från att vi är olika: våra hjärnor, våra kroppar och våra liv.</p>
+  <div class="five">
+    <div><i style="background:#8F7F92"></i><b>Ro</b><span>Nervsystemets behov av vila och färre intryck.</span></div>
+    <div><i style="background:#9B5E49"></i><b>Jord</b><span>Behovet av natur, material och att göra med händerna.</span></div>
+    <div><i style="background:#6F7D62"></i><b>Växt</b><span>Barnets behov av att växa, klara själv och leka.</span></div>
+    <div><i style="background:#B88A62"></i><b>Bord</b><span>Behovet av att mötas.</span></div>
+    <div><i style="background:#A8946E"></i><b>År</b><span>Behovet av att hemmet följer livet och årstiderna.</span></div>
+  </div>
+  <p class="big" style="margin-top:auto">Det goda hemmet känner inga styvbarn, <em>inte heller bland hjärnorna.</em></p>
+  <div class="folio"><span>26</span><span>Ro åt alla</span></div>
+</section>
+
+<!-- 27 Ordlista -->
+<section class="page">
+  <p class="kicker">Ord att leva med</p>
+  <h2 style="font-size:24pt">Ett eget <em>språk.</em></h2>
+  <dl class="glossary">
+    <div><dt>Brus</dt><dd>Allt i hemmet som tar energi utan att ge något tillbaka.</dd></div>
+    <div><dt>Ro</dt><dd>Känslan när kroppen slappnar av i ett rum.</dd></div>
+    <div><dt>Landa</dt><dd>Att komma hem och faktiskt komma fram.</dd></div>
+    <div><dt>Ett snällt hem</dt><dd>Ett hem som hjälper dig i stället för att kräva saker av dig.</dd></div>
+    <div><dt>Rohörna</dt><dd>Ett hörn som bara är till för vila.</dd></div>
+    <div><dt>Brusfritt</dt><dd>Utan stök i ögonhöjd. En brusfri hall, en brusfri bänk.</dd></div>
+    <div><dt>Kvällsljus</dt><dd>Ljus i tre höjder när det mörknar, i stället för taklampan.</dd></div>
+    <div><dt>Tre steg</dt><dd>Högst tre saker i taget.</dd></div>
+    <div><dt>Hörnstenarna</dt><dd>Överblick, sinnesro, flöde och återhämtning: Ro-modellens fyra delar.</dd></div>
+    <div><dt>Ro-måtten</dt><dd>Riktvärden som gör principerna mätbara.</dd></div>
+  </dl>
+  <div class="folio"><span></span><span>27</span></div>
+</section>
+
+<!-- 28 Baksida -->
+<section class="page dark back">
+  <div class="logo">{{LOGO}}</div>
+  <div>
+    <p class="blurb">Folkhemmet gav oss ljus och luft. Nu behöver vi ro.</p>
+    <p class="lede" style="margin-top:4mm">I <i>Rohemmet</i> samlar Sofia Dalarud, förskollärare och inredare, det hon har lärt sig om hur hemmet påverkar hur vi mår. Ett manifest, tio principer och Ro-måtten: konkreta riktvärden för ljus, höjder, färg, ljud och vila, för familjer, förskolor och alla som vill ha ett hem som är snällt mot dem.</p>
+  </div>
+  <div class="small" style="display:flex; justify-content:space-between; align-items:flex-end;"><span>Studio Dalarud · Från brus till ro</span><span>studiodalarud.se</span></div>
+</section>
+
+</body>
+</html>
