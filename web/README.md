@@ -2,7 +2,16 @@
 
 Hemsidan för Studio Dalarud, med webbutik, kurser, presentkort och en administrationssida där Sofia sköter innehåll, ordrar, fakturor, kvitton och bokföring.
 
-- **Hemsidan** (`/`) är designen från prototypen, men allt innehåll kommer från databasen och kan ändras i administrationen.
+- **Hemsidan** har sju sidor med fem menyval, så att sajten själv följer Ro-principen om färre intryck:
+  - `/` Start: från brus till ro, tre vägar in och Människohemmet i korthet
+  - `/hjalp` Hjälp hemma: tjänster, Ro-kartan, så går det till, Ro-modellen och bokning
+  - `/ateljen` Ateljén: föremål i lera, kurser och presentkort
+  - `/manniskohemmet` Människohemmet: visionen och de fem delkoncepten
+  - `/rohemmet` Rohemmet: manifestet, tio principer, Ro-måtten, rohörnan och skriften som PDF
+  - `/ro-i-vardagen` Ro i vardagen: Ro-testet, ritualer, årstider, tips, ord, guiden och gemenskapen
+  - `/om` Om Sofia
+
+  Sidorna byggs av sektioner i `src/site/sections/` och ramen i `src/site/layout.html`. Vilka sektioner varje sida har står i `PAGES` i `src/site/render.ts`. Allt innehåll kommer från databasen och kan ändras i administrationen.
 - **Betalningar** går via Stripe Checkout: kort, Klarna och Swish (om det är påslaget i Stripe).
 - **Administrationen** (`/admin`) är byggd för att vara lätt att använda även med ADHD: en startsida som visar max tre saker att göra just nu, ett fokusläge för kvitton, stora knappar, klarspråk och inga kontonummer om man inte vill.
 - **Bokföringen** sker automatiskt för köp, betalda fakturor, Stripe-avgifter och utbetalningar. Kvitton bokförs genom att välja en kategori. Momsrapporten visar rutorna i Skatteverkets deklaration, och allt kan exporteras som SIE-fil till en redovisningsbyrå eller ett bokföringsprogram.

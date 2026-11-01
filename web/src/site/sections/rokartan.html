@@ -1,0 +1,20 @@
+  <section class="rokartan" id="ro-kartan" aria-labelledby="rk-h">
+    <div class="wrap rokartan__grid">
+      <div class="rokartan__art" aria-hidden="true">
+        <svg viewBox="0 0 420 300" fill="none">
+          <rect x="10" y="10" width="400" height="280" rx="4" fill="var(--paper)" stroke="var(--line)" stroke-width="1.5"/>
+          <path d="M40 60 H240 V250 H40Z M240 60 H380 V170 H240 M240 170 V250 H380 V170" stroke="var(--fg)" stroke-width="3" stroke-linejoin="round"/>
+          <ellipse cx="110" cy="110" rx="46" ry="30" fill="#6F7D62" opacity=".25"/><ellipse cx="310" cy="115" rx="40" ry="28" fill="#8F7F92" opacity=".25"/><ellipse cx="160" cy="205" rx="50" ry="28" fill="#C4AF90" opacity=".35"/><ellipse cx="320" cy="215" rx="36" ry="24" fill="#9B5E49" opacity=".22"/>
+          <g font-family="Caveat, cursive" font-size="20" fill="#9B5E49"><text x="72" y="116">överblick</text><text x="282" y="121">sinnesro</text><text x="140" y="211">flöde</text><text x="292" y="221">vila</text></g>
+          <g font-family="Caveat, cursive" font-size="17" fill="var(--fg)"><text x="40" y="44">1. hallen: krokar i barnhöjd</text><text x="230" y="44">2. släck taklampan</text><text x="40" y="282">3. en rohörna vid fönstret</text></g>
+        </svg>
+      </div>
+      <div>
+        <p class="eyebrow">Ro-kartan</p>
+        <h2 id="rk-h">{{t:hjalp.rokartan.title}}</h2>
+        <p class="rokartan__lede">{{t:hjalp.rokartan.text}}</p>
+        <ul class="stone-list">{{rows:hjalp.rokartan.punkter:li}}</ul>
+        <a class="btn" href="/hjalp?tjanst=Inredning#kontakt" data-service="Inredning">Boka ett hembesök</a>
+      </div>
+    </div>
+  </section>

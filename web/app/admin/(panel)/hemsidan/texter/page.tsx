@@ -6,6 +6,7 @@ import { Done, Head, type SP } from "@/admin/ui";
 import Link from "next/link";
 
 const GROUPS: Record<string, string> = {
+  sida: "Sidhuvuden på alla sidor", start: "Startsidan: tre vägar in", hjalp: "Hjälp hemma: Ro-kartan", mh: "Människohemmet", rohem: "Rohemmet", liv: "Ro i vardagen",
   hero: "Startsidan", manifest: "Manifestet", tjanster: "Tjänster", steg: "Så går det till", ro: "Ro-modellen", ateljen: "Ateljén",
   kurser: "Kurser", present: "Presentkort", om: "Om mig", tips: "Tips", guide: "Gratis guiden", kontakt: "Kontakt", sidfot: "Sidfoten",
   villkor: "Köpvillkor", integritet: "Integritetspolicy",
@@ -37,7 +38,7 @@ export default async function Texts({ searchParams }: { searchParams: SP }) {
   return (
     <>
       <Done sp={sp} />
-      <Head eyebrow="Hemsidan · Texter" title={<>Säg det med <em>dina ord.</em></>} lede="Ändra så mycket eller lite du vill. *Ord inom stjärnor* blir kursiva i lerfärg. I de långa texterna blir en rad som börjar med ## en mellanrubrik.">
+      <Head eyebrow="Hemsidan · Texter" title={<>Säg det med <em>dina ord.</em></>} lede="Ändra så mycket eller lite du vill. *Ord inom stjärnor* blir kursiva i lerfärg. I listor står en sak per rad, och delarna skiljs åt med | (ett lodrätt streck). I köpvillkoren blir en rad som börjar med ## en mellanrubrik.">
         <Link className="a-btn a-btn--quiet" href="/admin/hemsidan">Tillbaka</Link>
       </Head>
       <nav className="a-row a-small" aria-label="Avsnitt" style={{ marginBottom: "1.4rem" }}>

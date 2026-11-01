@@ -470,7 +470,7 @@ Prototypen (`index.html` i detta repo) har följande delar:
 11. **Gratis guide och nyhetsbrev:** *7 saker för ett lugnare barnrum* mot e-postadress.
 12. **Vad skaver hemma?:** kontaktformulär där besökaren väljer det som skaver.
 
-**Den skarpa sajten** finns i mappen `web/` och bygger vidare på prototypens design. Allt som skickar något fungerar på riktigt: köp, kursbokningar, väntelista, presentkort, guiden och kontaktformuläret. Betalningar går via Stripe (kort, Klarna och Swish), och innehållet ändras i en egen administrationssida på `/admin`.
+**Den skarpa sajten** finns i mappen `web/`. Den har sju sidor med fem menyval: Hjälp hemma, Ateljén, Människohemmet, Ro i vardagen och Om Sofia. Startsidan visar tre vägar in, och Rohemmet nås från Människohemmet, Ro i vardagen och sidfoten. På så sätt följer sajten själv Ro-principen om färre intryck. Där finns Ro-testet, ritningen av Ro-måtten, bågmodellen med de fem delkoncepten, skriften att ladda ner och Söndagsbrevet. Allt som skickar något fungerar på riktigt: köp, kursbokningar, väntelista, presentkort, guiden och kontaktformuläret. Betalningar går via Stripe (kort, Klarna och Swish), och innehållet ändras i en egen administrationssida på `/admin`.
 
 Administrationen är byggd för att göra företaget lätt att sköta, även med ADHD:
 

@@ -1,0 +1,47 @@
+  <section class="matten" id="matten" aria-labelledby="m-h">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Ro-måtten</p><h2 id="m-h">{{t:rohem.matten.title}}</h2></div>
+        <p>{{t:rohem.matten.lede}}</p>
+      </div>
+      <div class="matten__grid">
+        <div class="wall">
+          <svg id="room" viewBox="0 0 640 440" role="img" aria-labelledby="room-t">
+            <title id="room-t">Ritning av en vägg med Ro-måtten: ögonhöjdszonen, krokar i tre höjder och ljus i tre höjder.</title>
+            <defs>
+              <radialGradient id="g1"><stop offset="0" stop-color="#FFD9A0" stop-opacity=".95"/><stop offset="1" stop-color="#FFD9A0" stop-opacity="0"/></radialGradient>
+              <radialGradient id="g2"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+              <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#9B5E49" stroke-width="1" opacity=".35"/></pattern>
+            </defs>
+            <rect x="0" y="0" width="640" height="440" fill="#EFE7DA"/>
+            <rect class="night" x="0" y="0" width="640" height="440" fill="#1A201C" opacity="0"/>
+            <ellipse class="ceiling-glow" cx="320" cy="40" rx="300" ry="200" fill="url(#g2)" opacity=".85"/>
+            <rect class="zone" x="40" y="160" width="560" height="105" fill="url(#hatch)"/>
+            <text id="zoneTxt" x="404" y="257" text-anchor="end" font-family="Hanken Grotesk, sans-serif" font-size="12" font-weight="600" letter-spacing="1.5" fill="#9B5E49">ÖGONHÖJDSZON 90–160 CM</text>
+            <line x1="20" y1="400" x2="620" y2="400" stroke="#2B362E" stroke-width="3"/>
+            <line x1="20" y1="20" x2="620" y2="20" stroke="#2B362E" stroke-width="2" opacity=".5"/>
+            <line x1="320" y1="20" x2="320" y2="48" stroke="#2B362E" stroke-width="1.5"/><path d="M300 48 H340 L334 62 H306Z" fill="#2B362E" opacity=".75"/>
+            <g font-family="Hanken Grotesk, sans-serif" font-size="11" fill="#5D6458"><line x1="28" y1="400" x2="28" y2="100" stroke="#5D6458"/><line x1="24" y1="265" x2="32" y2="265" stroke="#5D6458"/><text x="6" y="268">90</text><line x1="24" y1="160" x2="32" y2="160" stroke="#5D6458"/><text x="0" y="163">160</text></g>
+            <g stroke="#2B362E" stroke-width="2.4" fill="none" stroke-linecap="round"><path d="M120 257.5 v6 a5 5 0 0 0 10 0"/><path d="M150 227.5 v6 a5 5 0 0 0 10 0"/><path d="M180 152.5 v6 a5 5 0 0 0 10 0"/></g>
+            <g class="hookLbl" font-family="Caveat, cursive" font-size="18" fill="#9B5E49"><text x="96" y="290">3–5 år</text><text x="140" y="214">6–9 år</text><text x="196" y="146">vuxen</text></g>
+            <rect x="90" y="345" width="140" height="10" rx="2" fill="#B88A62"/><rect x="96" y="355" width="6" height="45" fill="#B88A62"/><rect x="218" y="355" width="6" height="45" fill="#B88A62"/>
+            <rect x="108" y="365" width="38" height="30" rx="6" fill="#C4AF90"/><rect x="156" y="365" width="38" height="30" rx="6" fill="#9DA88F"/>
+            <path d="M420 400 V230 A55 55 0 0 1 530 230 V400" fill="#E3D7C4" stroke="#2B362E" stroke-width="2"/><path d="M432 400 V300 Q475 285 518 300 V400Z" fill="#6F7D62" opacity=".85"/><ellipse cx="475" cy="296" rx="26" ry="9" fill="#C4AF90"/>
+            <text x="475" y="222" text-anchor="middle" font-family="Caveat, cursive" font-size="18" fill="#9B5E49">rohörna</text>
+            <ellipse class="lamp-glow" cx="575" cy="300" rx="70" ry="70" fill="url(#g1)" opacity="0"/><line x1="575" y1="400" x2="575" y2="310" stroke="#2B362E" stroke-width="2"/><path d="M560 310 H590 L584 290 H566Z" fill="#E6DCCB" stroke="#2B362E" stroke-width="1.5"/>
+            <ellipse class="lamp-glow" cx="300" cy="320" rx="60" ry="55" fill="url(#g1)" opacity="0"/><rect x="262" y="350" width="80" height="8" fill="#B88A62"/><rect x="268" y="358" width="5" height="42" fill="#B88A62"/><rect x="331" y="358" width="5" height="42" fill="#B88A62"/><line x1="300" y1="350" x2="300" y2="330" stroke="#2B362E" stroke-width="2"/><path d="M287 330 H313 L308 314 H292Z" fill="#E6DCCB" stroke="#2B362E" stroke-width="1.5"/>
+            <rect x="345" y="90" width="50" height="70" fill="#DCE3E6" stroke="#2B362E" stroke-width="2"/><line x1="370" y1="90" x2="370" y2="160" stroke="#2B362E" stroke-width="1.5"/><ellipse class="lamp-glow" cx="370" cy="150" rx="45" ry="35" fill="url(#g1)" opacity="0"/><path d="M360 160 H380 L376 148 H364Z" fill="#9B5E49"/>
+            <g class="lightLbl" font-family="Hanken Grotesk, sans-serif" font-size="11" font-weight="600" letter-spacing="1" fill="#E6DCCB" opacity="0"><text x="575" y="420" text-anchor="middle">GOLV</text><text x="300" y="420" text-anchor="middle">BORD</text><text x="370" y="180" text-anchor="middle">FÖNSTER</text></g>
+          </svg>
+          <div class="wall__controls">
+            <span class="wall__label">Vems ögonhöjd?</span>
+            <div class="chips"><button class="chip" type="button" data-zone="adult" aria-pressed="true">Vuxen</button><button class="chip" type="button" data-zone="child" aria-pressed="false">Barn</button></div>
+            <span class="wall__label">Vilket ljus?</span>
+            <div class="chips"><button class="chip" type="button" data-light="day" aria-pressed="true">Taklampan</button><button class="chip" type="button" data-light="night" aria-pressed="false">Kvällsljus i tre höjder</button></div>
+          </div>
+        </div>
+        <dl class="measures">{{rows:rohem.matten:measure}}</dl>
+      </div>
+      <p class="matten__note">{{t:rohem.matten.not}}</p>
+    </div>
+  </section>

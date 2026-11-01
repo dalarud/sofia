@@ -88,6 +88,148 @@ Betalningar hanteras av Stripe. Hemsidan och databasen drivs hos Vercel och Supa
 
 ## Dina rättigheter
 Du har rätt att få veta vilka uppgifter vi har om dig, att få dem rättade eller raderade, och att klaga hos Integritetsskyddsmyndigheten. Kontakta oss på e-post.` },
+  // ---- Sidornas huvuden ----
+  { key: "sida.hjalp.rubrik", label: "Sidhuvud Hjälp hemma: rubrik", value: "Ett hem som *ger ro.*" },
+  { key: "sida.hjalp.ingress", label: "Sidhuvud Hjälp hemma: ingress", value: "Inredning, homestaging och lugna rum. Varje uppdrag börjar med hur du lever, och första steget är alltid ett hembesök med Ro-kartan.", multiline: true },
+  { key: "sida.ateljen.rubrik", label: "Sidhuvud Ateljén: rubrik", value: "Format för hand, *i lera.*" },
+  { key: "sida.ateljen.ingress", label: "Sidhuvud Ateljén: ingress", value: "Föremål i självtorkande lera, kurser där du formar själv och presentkort. Allt är gjort för att titta på och hålla i.", multiline: true },
+  { key: "sida.mh.rubrik", label: "Sidhuvud Människohemmet: rubrik", value: "Människohemmet" },
+  { key: "sida.mh.ingress", label: "Sidhuvud Människohemmet: ingress", value: "Ett hem format efter människan, inte tvärtom. Idén som allt i Studio Dalarud bygger på, i folkhemmets anda men för vår tid.", multiline: true },
+  { key: "sida.rohem.rubrik", label: "Sidhuvud Rohemmet: rubrik", value: "Rohemmet" },
+  { key: "sida.rohem.ingress", label: "Sidhuvud Rohemmet: ingress", value: "Ett snällt hem åt alla. Folkhemmet gav oss ljus och luft. Nu behöver vi ro.", multiline: true },
+  { key: "sida.liv.rubrik", label: "Sidhuvud Ro i vardagen: rubrik", value: "Ro i *vardagen.*" },
+  { key: "sida.liv.ingress", label: "Sidhuvud Ro i vardagen: ingress", value: "Små steg, ritualer och ord att leva med. Börja med testet, eller välj en ritual för den här veckan.", multiline: true },
+  { key: "sida.om.rubrik", label: "Sidhuvud Om Sofia: rubrik", value: "Det var inte *barnen.*" },
+  { key: "sida.om.ingress", label: "Sidhuvud Om Sofia: ingress", value: "Förskollärare, inredare och formgivare i lera. Om hur Studio Dalarud blev till.", multiline: true },
+
+  // ---- Startsidan ----
+  { key: "start.title", label: "Startsidan: tre vägar, rubrik", value: "Tre vägar *in.*" },
+  { key: "start.lede", label: "Startsidan: tre vägar, ingress", value: "Vill du ha hjälp hemma, något gjort för hand, eller bara börja själv? Välj det som passar dig i dag.", multiline: true },
+  { key: "start.dorr1", label: "Startsidan: väg 1, rubrik", value: "Ett hem som ger ro" },
+  { key: "start.dorr1.text", label: "Startsidan: väg 1, text", value: "Inredning, homestaging och Lugna rum. Första steget är ett hembesök med Ro-kartan." },
+  { key: "start.dorr2", label: "Startsidan: väg 2, rubrik", value: "Format för hand" },
+  { key: "start.dorr2.text", label: "Startsidan: väg 2, text", value: "Föremål i lera, kurser och presentkort." },
+  { key: "start.dorr3", label: "Startsidan: väg 3, rubrik", value: "Börja själv i dag" },
+  { key: "start.dorr3.text", label: "Startsidan: väg 3, text", value: "Ro-testet, ritualer och en gratis guide." },
+
+  // ---- Hjälp hemma ----
+  { key: "hjalp.rokartan.title", label: "Ro-kartan: rubrik", value: "Du får Ro-kartan *innan jag går.*" },
+  { key: "hjalp.rokartan.text", label: "Ro-kartan: text", value: "Efter varje hembesök och hemanalys ritar jag Ro-kartan för hand, på plats. Ett A3-ark som visar ditt hem med Ro-modellens fyra hörnstenar, och vad du kan göra först.", multiline: true },
+  { key: "hjalp.rokartan.punkter", label: "Ro-kartan: punkter (en per rad)", multiline: true, value: `En planritning av rummen, med överblick, sinnesro, flöde och återhämtning markerade.
+De tre första stegen, i ordning, som du kan göra själv redan i veckan.
+Resten av listan, högst tio punkter, med ungefärlig kostnad.
+Bokar du ett större uppdrag inom 30 dagar dras hembesöket av.` },
+
+  // ---- Människohemmet ----
+  { key: "mh.claim", label: "Människohemmet: påstående", value: "Ett hem format efter människan, *inte tvärtom.*" },
+  { key: "mh.teaser", label: "Människohemmet: kort text på startsidan", multiline: true, value: "Folkhemmet byggde för genomsnittet. Människohemmet utgår från att vi är olika: våra hjärnor, våra barn, våra händer och våra liv. Fem delar, och ro är där vi börjar." },
+  { key: "mh.citat", label: "Människohemmet: citat", multiline: true, value: "”Det goda hemmet känner icke till några privilegierade eller tillbakasatta, inga kelgrisar och inga styvbarn.”" },
+  { key: "mh.citat.kalla", label: "Människohemmet: citatets källa", value: "Per Albin Hansson, 1928" },
+  { key: "mh.folkhemmet", label: "Människohemmet: om folkhemmet", multiline: true, value: "Folkhemmet byggdes för folket: det gemensamma och det genomsnittliga. Köksmåtten utgick från en genomsnittlig kropp, lägenheterna från en genomsnittlig familj. Det gav ljus, luft och värdighet åt miljoner. Men genomsnittet finns inte." },
+  { key: "mh.blinda", label: "Människohemmet: det folkhemmet inte såg (Ord | text, en per rad)", multiline: true, value: `Hjärnor | fungerar olika. Det som ger lugn åt en ger kaos åt en annan.
+Barn | ser rummet från en annan höjd, med andra behov än vuxna.
+Händer | behöver naturen och att göra saker, inte bara ljus och luft.
+Ensamheten | har vuxit. Hemmet har slutat vara en plats där man samlas.
+Livet | skiftar. Hemmet behöver följa flytt, barn, separation och ålder.` },
+  { key: "mh.nasta", label: "Människohemmet: nästa steg", multiline: true, value: "Folkhemmet gav alla samma goda hem. Nästa steg är att ge var och en *sitt goda hem.*" },
+  { key: "mh.vision", label: "Människohemmet: visionen", multiline: true, value: "Ett hem format efter människan, *inte en människa formad efter hemmet.*" },
+  { key: "mh.2040", label: "Människohemmet: bilden av 2040", multiline: true, value: "Varje barn har en plats i sin förskola där det kan vila. Varje familj vet hur hallen blir en plats som fungerar en stressig morgon. Den som har ADHD eller autism får hjälp att forma sitt hem utan att behöva förklara sig. Nya bostäder byggs med nischer, dämpade rum och plats för gemenskap. Och i varje hem finns något gjort av människohänder." },
+  { key: "mh.styvbarn", label: "Människohemmet: avslutning", value: "Det goda människohemmet känner inga styvbarn, inte heller bland hjärnorna." },
+  { key: "mh.delar.title", label: "Människohemmet: delkoncepten, rubrik", value: "Ro är en av fem. *Människan behöver mer.*" },
+  { key: "mh.delar.lede", label: "Människohemmet: delkoncepten, ingress", multiline: true, value: "Bågen är hemmet, och stenen är människan. Runt henne finns fem delkoncept, vart och ett för ett mänskligt behov. Välj en båge för att läsa mer." },
+  { key: "mh.delar", label: "Människohemmet: delkoncepten (Namn | Undertitel | Behov | Idé | I företaget, en per rad)", multiline: true, value: `Ro | Rohemmet | Nervsystemets behov av vila och färre intryck | Ett hem som är snällt mot hjärnan: fredad ögonhöjd, ljus i tre höjder, allt har en plats och en rohörna i varje hem. | Lugna rum, hemanalysen, Ro-kartan och föreläsningarna.
+Jord | Det gjorda hemmet | Behovet av natur, material och att göra med händerna | Människan behöver ta i saker, och se saker som någon har gjort. Minst ett föremål gjort för hand i varje rum. | Dalarud Lera, kurserna och Forma hemma-kit.
+Växt | Barnets hem | Barnets behov av att växa, klara själv och leka | Rummet sett från barnets höjd: vad kan barnet nå, förstå och klara själv? | Barnrum som ger ro, förskolor och Lera för lugn.
+Bord | Det samlande hemmet | Behovet av andra människor | Ett bord där alla får plats, en hall som välkomnar och kvällar då man gör något tillsammans. | Ro-kvällar, kurser och gemenskapen.
+År | Det föränderliga hemmet | Behovet av att hemmet följer livet och årstiderna | Ett hem blir aldrig klart. Det ska följa flytt, barn, försäljning och ålder, och skifta med årstiderna. | Homestaging, Inflyttning, Sälj och landa och årstidsbesöken.` },
+  { key: "mh.mal.lede", label: "Människohemmet: målen, ingress", multiline: true, value: "Studio Dalarud kan inte nå dem själv. Men det är visionen som gör att andra vill vara med: föräldrar, förskolor, bostadsbolag och kommuner." },
+  { key: "mh.mal", label: "Människohemmet: mål för 2040 (Rubrik | text, en per rad)", multiline: true, value: `En vilplats för varje barn | i förskola och skola.
+Hem för alla hjärnor | med kunskap som är fri att använda.
+Hantverk i vardagen | Att forma med händerna ska vara lika självklart som att läsa.
+Bostäder som samlar | Nya hus med plats för möten, inte bara förvaring.
+Stöd i livets övergångar | från första lägenheten till den sista.` },
+
+  // ---- Rohemmet ----
+  { key: "rohem.manifest", label: "Rohemmet: manifestet (ett stycke per rad)", multiline: true, value: `Folkhemmet gav oss ljus och luft. *Nu behöver vi ro.*
+Ett hem ska vara snällt mot den som bor där. Det ska inte kräva energi, det ska ge energi.
+Ro är inte lyx. Den ska inte vara förbehållen dem som har råd med en inredare.
+Varje hjärna förtjänar ett hem som fungerar för den. Det som hjälper den som har det svårast, hjälper alla.
+Vi tar bort innan vi lägger till. Vi dämpar innan vi pyntar. Vi frågar hur ni lever innan vi frågar vad ni gillar.
+Det handgjorda får vara ojämnt. Hemmet blir aldrig klart. Små steg räknas.` },
+  { key: "rohem.principer.title", label: "Rohemmet: principerna, rubrik", value: "Lika för ett barnrum som för *en förskola.*" },
+  { key: "rohem.principer.lede", label: "Rohemmet: principerna, ingress", multiline: true, value: "Tio principer som gör ett hem snällare mot den som bor där. Till varje finns något du kan prova redan i dag." },
+  { key: "rohem.principer", label: "Rohemmet: tio principer (Rubrik | text | prova, en per rad)", multiline: true, value: `Ögonhöjden är fredad | Det som syns mellan knä och huvud tar mest uppmärksamhet. Där ska det vara lugnast. | Ställ dig i dörren och titta rakt fram. Ta bort hälften av det du ser.
+Ljus i tre höjder | Golv, bord och fönster. Taklampan är aldrig den enda ljuskällan, och på kvällen är den släckt. | Släck taklampan i kväll och tänd tre andra lampor.
+Allt har en plats, och platsen syns | Mycket bakom luckor, lite på öppna hyllor. Det som ligger i lådor och korgar är märkt. | Sätt en bild på en låda som visar vad som ska ligga där.
+Ett hörn för vila i varje hem | Rohörnan är lika självklar som en säng. | Välj ett hörn och lägg dit en pläd.
+Mjukt dämpar | Varje rum har minst en stor mjuk yta som tar ljud: matta, gardiner eller textil. | Lägg en matta i det rum där ni är mest.
+Naturens färger och material | Låg färgmättnad, trä, lin, ull, sten och lera. | Byt en sak i plast mot en i trä, lin eller lera.
+Flöde före form | Rummet formas efter det som händer där varje dag. Hallen efter morgonen, sovrummet efter kvällen. | Gå igenom morgonen steg för steg. Var stannar det?
+Tre av något | Tre färger i ett rum, tre saker på en yta, tre steg i taget. | Låt bara tre saker stå på en yta.
+Det handgjorda är välkommet | En sak gjord av en människa ger mer än tio från ett lager. | Forma något litet i lera, eller ställ fram något som någon har gjort till dig.
+Hemmet följer året | Fyra årstider, fyra små skiften. Det som hör till förra årstiden får vila. | Plocka bort tre saker som hör sommaren till.` },
+  { key: "rohem.matten.title", label: "Rohemmet: Ro-måtten, rubrik", value: "Folkhemmet hade köksmått. Rohemmet har *Ro-måtten.*" },
+  { key: "rohem.matten.lede", label: "Rohemmet: Ro-måtten, ingress", multiline: true, value: "Konkreta riktvärden som gör principerna lätta att använda, för familjer, förskolor och den som bygger nytt. Prova ritningen: växla mellan vuxen och barn, och tänd kvällsljuset." },
+  { key: "rohem.matten", label: "Rohemmet: Ro-måtten (Rubrik | text, en per rad)", multiline: true, value: `Ögonhöjdszonen | 90–160 cm för vuxna, 60–120 cm i barnrum. *Högst en tredjedel* av väggytan där har öppen förvaring eller föremål.
+Krokar | Barn 3–5 år *90–100 cm*, barn 6–9 år *110–120 cm*, vuxna *160–170 cm*.
+Ljus | *Tre ljuskällor* i olika höjder i varje rum där man är på kvällen. Varmt vitt, cirka *2 700 K*, dimbart. Ingen synlig ljuskälla i ögonhöjd.
+Färg | *Högst tre färger* utöver trä, ungefär 60, 30 och 10 procent. Högst ett tydligt mönster per rum.
+Ytor | Minst *en fri yta* per rum där ingenting står.
+Ljud | Minst *en stor mjuk yta* per rum. En plats i hemmet utan skärm.
+Förvaring | En krok, en korg och en hyllplats *per person* i hallen. En märkt låda per sorts sak. Ungefär en tredjedel av leksakerna framme.
+Rohörnan | Minst *en per hem*, gärna en per barn. Ungefär en kvadratmeter, med ryggskydd, mjukt material och eget ljus.` },
+  { key: "rohem.matten.not", label: "Rohemmet: Ro-måtten, förbehåll", multiline: true, value: "Ro-måtten är riktvärden från erfarenhet som inredare och förskollärare. De prövas och justeras i uppdragen och är inte forskningsresultat." },
+  { key: "rohem.horna.title", label: "Rohemmet: rohörnan, rubrik", value: "Rohörnan" },
+  { key: "rohem.horna.text", label: "Rohemmet: rohörnan, text", multiline: true, value: "Folkhemmet hade sitt rationella kök. Rohemmet har rohörnan: en plats i hemmet som bara är till för vila." },
+  { key: "rohem.horna.punkter", label: "Rohemmet: rohörnan, punkter (en per rad)", multiline: true, value: `Ungefär en kvadratmeter räcker: ett hörn, en nisch, en stor stol eller en koja.
+Ryggskydd, så att kroppen känner sig trygg.
+Något mjukt: en pläd, en kudde, en matta.
+Eget ljus, lågt och varmt.
+Ingen skärm och inget som ska fixas. Börja med fem minuter om dagen.` },
+  { key: "rohem.skrift.title", label: "Rohemmet: skriften, rubrik", value: "Ett snällt hem åt alla. *Gratis.*" },
+  { key: "rohem.skrift.text", label: "Rohemmet: skriften, text", multiline: true, value: "Allt om Rohemmet samlat i en liten bok på 28 sidor: förord, manifestet, tio principer, Ro-måtten med ritningar, rum för rum och fyra veckor till ett snällare hem. Ladda ner, skriv ut och dela med den som behöver." },
+
+  // ---- Ro i vardagen ----
+  { key: "liv.test.title", label: "Ro-testet: rubrik", value: "Vad bullrar i *ditt hem?*" },
+  { key: "liv.test.lede", label: "Ro-testet: ingress", multiline: true, value: "Sex frågor, en minut. Du får veta vilken rotyp du är och vad du kan börja med. Testet ger tips, det säger ingenting om hur din hjärna fungerar." },
+  { key: "liv.rotyper", label: "Ro-testet: rotyperna (Namn | kännetecken, en per rad)", multiline: true, value: `Överblickaren | Mår bäst när allt har en plats
+Den känsliga | Blir trött av ljud, ljus och intryck
+Flödaren | Behöver att morgnar och kvällar flyter
+Vilaren | Glömmer att återhämta sig` },
+  { key: "liv.ritualer.title", label: "Ritualer: rubrik", value: "Livsstilen i *vardagen.*" },
+  { key: "liv.ritualer.lede", label: "Ritualer: ingress", multiline: true, value: "Fem små ritualer som gör hemmet snällare. De är gratis och tar några minuter." },
+  { key: "liv.ritualer", label: "Ritualer (Namn | när | vad man gör, en per rad)", multiline: true, value: `Kvällsljuset | när det mörknar | Släck taklampan. Tänd en lampa på golvet, en på bordet och en i fönstret.
+Söndagsåterställningen | söndag, 15 minuter | Varje sak tillbaka till sin plats, och hallen redo för måndagen.
+Handen i leran | när det behövs | Forma något litet med händerna, utan mål. Det lugnar.
+Rohörnan | varje dag, en stund | Sitt i hörnet som bara är till för vila. Utan mobil.
+Säsongsskiftet | fyra gånger per år | Plocka bort det som hörde förra säsongen till, och ta fram det nya.` },
+  { key: "liv.arstider.title", label: "Årstiderna: rubrik", value: "Fyra årstider, *fyra namn.*" },
+  { key: "liv.arstider.lede", label: "Årstiderna: ingress", multiline: true, value: "Varje årstid har sitt tema, sitt släpp i ateljén och sin ritual." },
+  { key: "liv.arstider", label: "Årstiderna (Namn | månader | text | släpp och ritual, en per rad, i ordningen höst, vinter, vår, sommar)", multiline: true, value: `Landa | september–november | Komma tillbaka efter sommaren. Hallen och morgnarna. | Höstsläppet · Rohörnan
+Ljuset | december–februari | Ljus, vila och en lugnare jul. | Vintersläppet · Kvällsljuset
+Lufta | mars–maj | Rensa, sälja och flytta. Homestagingens tid. | Vårsläppet · Söndagsåterställningen
+Vila | juni–augusti | Sommarhuset, ledighet och lera med barnen. | Sommarsläppet · Handen i leran` },
+  { key: "liv.ord.title", label: "Orden: rubrik", value: "Ord att *leva med.*" },
+  { key: "liv.ord.lede", label: "Orden: ingress", multiline: true, value: "Ett eget språk för ett lugnare hem." },
+  { key: "liv.ord", label: "Orden (Ord | betydelse, en per rad)", multiline: true, value: `Brus | Allt i hemmet som tar energi utan att ge något tillbaka.
+Ro | Känslan när kroppen slappnar av i ett rum.
+Landa | Att komma hem och faktiskt komma fram.
+Ett snällt hem | Ett hem som hjälper dig i stället för att kräva saker av dig.
+Rohörna | Ett hörn som bara är till för vila.
+Brusfritt | Utan stök i ögonhöjd. En brusfri hall, en brusfri bänk.
+Kvällsljus | Ljus i tre höjder när det mörknar, i stället för taklampan.
+Tre steg | Högst tre saker i taget.
+Hörnstenarna | Överblick, sinnesro, flöde och återhämtning.` },
+  { key: "liv.gemenskap.title", label: "Gemenskapen: rubrik", value: "Från kund till *stenbärare.*" },
+  { key: "liv.gemenskap.lede", label: "Gemenskapen: ingress", multiline: true, value: "Du är inte ensam om att vilja ha det lugnare. Här möts vi." },
+  { key: "liv.gemenskap", label: "Gemenskapen (Namn | text, en per rad)", multiline: true, value: `Söndagsbrevet | Varje söndag eftermiddag: ett tips, en ritual och vad som händer i ateljén. Som ett brev från en vän.
+Ro-kvällar | En kväll i månaden i ateljén: lera, te och ett kort samtal om ljus, morgnar eller barnrum.
+Stenbärarna | Alla som köpt, gått en kurs eller haft mig hemma. Förtur till släpp och kurser, och en sten i säsongens färg.
+#ettsnällthem | Dela din rohörna eller dina före- och efterbilder. Jag lyfter fram några varje månad.` },
+
+  // ---- Om Sofia ----
+  { key: "om.berattelse", label: "Om Sofia: berättelsen (ett stycke per rad)", multiline: true, value: `I många år arbetade jag i förskolan. Jag såg barn som inte kunde sitta still, och som landade när vi dämpade ljuset och byggde en koja i hörnet.
+Det var inte barnen som var fel. *Det var rummet som var för högljutt.*` },
 ];
 
 export const SETTINGS: Record<string, unknown> = {

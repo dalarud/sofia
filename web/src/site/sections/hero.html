@@ -1,0 +1,21 @@
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__top">
+        <h1><span class="line">{{t:hero.line1}}</span><span class="line line--indent">{{t:hero.line2}}</span></h1>
+        <div class="hero__aside">
+          <p>{{t:hero.lede}}</p>
+          <div class="hero__actions">
+            <a class="btn" href="/hjalp#kontakt">{{t:hero.cta}}</a>
+            <a class="btn btn--ghost" href="/hjalp#ro-modellen">Så arbetar jag</a>
+          </div>
+        </div>
+      </div>
+      <div class="stage">
+        <canvas id="stageCanvas" width="1000" height="500" role="img" aria-label="Föremål som ligger huller om buller och sedan ordnar sig i lugna rader, målat i akvarell, som en bild av hur ett hem kan gå från brus till ro"></canvas>
+      </div>
+      <div class="stage__ui">
+        <p class="stage__caption" id="stageCaption" aria-live="polite">Så känns det i många hem: allt på en gång.</p>
+        <label class="slider" for="roSlider"><span>Brus</span><input id="roSlider" type="range" min="0" max="100" value="0" aria-label="Från brus till ro"><span>Ro</span></label>
+      </div>
+    </div>
+  </section>

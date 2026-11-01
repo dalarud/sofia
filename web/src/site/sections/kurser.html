@@ -1,0 +1,16 @@
+  <section class="courses" id="kurser">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Kurser och öppen ateljé</p><h2>{{t:kurser.title}}</h2></div>
+        <p>{{t:kurser.lede}}</p>
+      </div>
+      <div class="chips course-filter" role="group" aria-label="Filtrera kalendern">
+        <button class="chip" type="button" data-kind="alla" aria-pressed="true">Alla</button>
+        <button class="chip" type="button" data-kind="kurs" aria-pressed="false">Kurser</button>
+        <button class="chip" type="button" data-kind="workshop" aria-pressed="false">Workshoppar</button>
+        <button class="chip" type="button" data-kind="oppen" aria-pressed="false">Öppen ateljé</button>
+      </div>
+      <ul class="events" id="events"></ul>
+      <p class="events__note">{{t:kurser.note}} <a href="/hjalp#kontakt" data-service="Kurs i lera">Hör av dig.</a></p>
+    </div>
+  </section>

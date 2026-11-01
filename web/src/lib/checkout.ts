@@ -115,7 +115,7 @@ export async function startCheckout(cart: Cart): Promise<string> {
     metadata: { checkout_id: co.id },
     payment_intent_data: { metadata: { checkout_id: co.id }, description: "Studio Dalarud" },
     success_url: `${siteUrl()}/tack?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${siteUrl()}/#ateljen`,
+    cancel_url: `${siteUrl()}/ateljen`,
   });
   await db.update(schema.checkouts).set({ stripeSessionId: session.id }).where(eq(schema.checkouts.id, co.id));
   if (!session.url) throw new Error("Stripe gav ingen betalningslänk");

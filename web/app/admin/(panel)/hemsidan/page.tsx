@@ -14,7 +14,8 @@ export default async function Site({ searchParams }: { searchParams: SP }) {
     (select count(*) from subscribers where unsubscribed_at is null)::int as subs`);
   const n = res.rows[0] as Record<string, number>;
   const cards = [
-    { href: "/admin/hemsidan/texter", title: "Texter", text: "Rubriker och texter på hela sidan, från startsidan till sidfoten." },
+    { href: "/admin/hemsidan/texter", title: "Texter", text: "Rubriker och texter på alla sidor, från startsidan till sidfoten." },
+    { href: "/admin/hemsidan/texter#mh", title: "Idéerna", text: "Människohemmet, Rohemmet med principerna och Ro-måtten, och Ro i vardagen med ritualer, årstider och ord." },
     { href: "/admin/hemsidan/produkter", title: "Ateljén", text: `${n.products} produkter till salu${n.low ? `, ${n.low} har snart slut` : ""}. Priser, lager och bilder.` },
     { href: "/admin/hemsidan/kurser", title: "Kurser och öppet hus", text: `${n.events} kommande tillfällen. Se vilka som har bokat.` },
     { href: "/admin/hemsidan/tjanster", title: "Tjänster", text: `${n.services} tjänster med priser och vad som ingår.` },

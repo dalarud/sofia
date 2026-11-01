@@ -1,0 +1,29 @@
+  <section class="ro" id="ro-modellen">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Ro-modellen</p><h2>{{t:ro.title}}</h2></div>
+        <p>{{t:ro.lede}}</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Ro-modellens hörnstenar">
+        <button class="tab" role="tab" type="button" id="tab-overblick" data-pillar="overblick" aria-selected="true" aria-controls="roPanel">Överblick</button>
+        <button class="tab" role="tab" type="button" id="tab-sinnesro" data-pillar="sinnesro" aria-selected="false" aria-controls="roPanel" tabindex="-1">Sinnesro</button>
+        <button class="tab" role="tab" type="button" id="tab-flode" data-pillar="flode" aria-selected="false" aria-controls="roPanel" tabindex="-1">Flöde</button>
+        <button class="tab" role="tab" type="button" id="tab-aterhamtning" data-pillar="aterhamtning" aria-selected="false" aria-controls="roPanel" tabindex="-1">Återhämtning</button>
+      </div>
+      <div class="ro__layout">
+        <div class="plan">
+          <canvas id="planCanvas" width="600" height="410" role="img" aria-label="Skissad planritning av ett familjehem"></canvas>
+          <p class="plan__note">Skiss: ett vanligt familjehem i fem rum.</p>
+        </div>
+        <div class="ro__panel" id="roPanel" role="tabpanel" aria-labelledby="tab-overblick">
+          <h3 id="roTitle">Överblick</h3>
+          <p id="roText">En plats för varje sak och tydliga zoner. Mindre letande, färre beslut och mer energi till annat.</p>
+          <ul class="tips" id="roTips"></ul>
+        </div>
+      </div>
+      <div class="ro__foot">
+        <p>{{t:ro.foot}}</p>
+        <a class="btn" href="/hjalp#kontakt" data-service="Lugna rum">Boka en hemanalys</a>
+      </div>
+    </div>
+  </section>

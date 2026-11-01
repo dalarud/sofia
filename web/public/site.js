@@ -155,6 +155,7 @@
 
   var stage = $("#stageCanvas"), sctx = null, hk = 1, paperLayer, noiseLayer, heroT = 0, heroW = 0;
   function buildHero() {
+    if (!stage) return;
     var w = stage.clientWidth; if (!w || w === heroW) return; heroW = w;
     stage.width = Math.round(w * DPR); stage.height = Math.round(w * DPR / 2); hk = stage.width / 1000;
     sctx = stage.getContext("2d");
@@ -168,6 +169,7 @@
   function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
   var caption = $("#stageCaption"), slider = $("#roSlider"), lastHalf = null;
   function drawHero(t) {
+    if (!slider) return;
     heroT = t;
     slider.style.setProperty("--fill", Math.round(t * 100) + "%");
     var half = t >= .55;
@@ -199,9 +201,11 @@
     }
     anim = requestAnimationFrame(step);
   }
-  slider.addEventListener("input", function () { if (anim) cancelAnimationFrame(anim); anim = null; drawHero(slider.value / 100); });
-  drawHero(0);
-  requestAnimationFrame(function () { buildHero(); setTimeout(autoPlay, 600); });
+  if (stage && slider) {
+    slider.addEventListener("input", function () { if (anim) cancelAnimationFrame(anim); anim = null; drawHero(slider.value / 100); });
+    drawHero(0);
+    requestAnimationFrame(function () { buildHero(); setTimeout(autoPlay, 600); });
+  }
 
   /* ================= Ro-modellen: skissad planritning ================= */
   var PILLARS = {
@@ -225,6 +229,7 @@
   var LABELS = [["kök", 26, 216], ["vardagsrum", 470, 42], ["hall", 26, 262], ["barnrum", 186, 392], ["sovrum", 420, 392]];
   var planCanvas = $("#planCanvas"), currentPillar = "overblick";
   function drawPlan() {
+    if (!planCanvas) return;
     var ctx = fit(planCanvas, 600, 410); if (!ctx) return;
     var z = PILLARS[currentPillar], ACC = "#B8735A";
     paper(ctx, 600, 410, "#EFE8DB");
@@ -249,6 +254,7 @@
   }
   var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
   function showPillar(key) {
+    if (!planCanvas) return;
     var p = PILLARS[key]; currentPillar = key;
     tabs.forEach(function (t) { var on = t.dataset.pillar === key; t.setAttribute("aria-selected", String(on)); t.tabIndex = on ? 0 : -1; if (on) $("#roPanel").setAttribute("aria-labelledby", t.id); });
     $("#roTitle").textContent = p.title; $("#roText").textContent = p.text;
@@ -388,7 +394,7 @@
   PRODUCTS.forEach(function (p) { if (p.image) p.img = p.image; });
   var kr = function (n) { return n.toLocaleString("sv-SE") + " kr"; };
   var shelf = $("#shelf");
-  shelf.innerHTML = PRODUCTS.map(function (p) {
+  if (shelf) shelf.innerHTML = PRODUCTS.map(function (p) {
     var art = p.image ? '<img class="item__photo" src="' + esc(p.image) + '" alt="' + esc(p.name) + '" loading="lazy">'
       : '<canvas width="200" height="175" data-product="' + esc(p.id) + '" role="img" aria-label="Akvarellskiss av ' + esc(p.name) + '"></canvas>';
     return '<article class="item" data-cat="' + esc(p.cat) + '"><div class="item__art">' + art + '</div>' +
@@ -431,7 +437,7 @@
   function register(canvas, fn) { painters.push({ c: canvas, fn: fn, w: 0 }); }
   document.querySelectorAll("[data-product]").forEach(function (c) { register(c, drawProduct); });
   document.querySelectorAll("canvas.blob").forEach(function (c) { register(c, drawBlob); });
-  register(planCanvas, drawPlan);
+  if (planCanvas) register(planCanvas, drawPlan);
   function repaint(force) {
     painters.forEach(function (p) { var w = p.c.clientWidth; if (force || w !== p.w) { p.w = w; p.fn(p.c); } });
     buildHero();
@@ -502,7 +508,8 @@
     var d = new Date(iso + "T12:00:00");
     return { day: d.getDate(), wd: d.toLocaleDateString("sv-SE", { weekday: "short" }).replace(".", ""), mon: d.toLocaleDateString("sv-SE", { month: "short" }).replace(".", "") };
   }
-  $("#events").innerHTML = EVENTS.map(function (e) {
+  var eventsEl = $("#events");
+  if (eventsEl) eventsEl.innerHTML = EVENTS.map(function (e) {
     var d = dateParts(e.date), open = e.kind === "oppen", full = !open && e.left === 0, side;
     if (open) side = '<span class="event__price">Fri entré</span><span class="event__spots">Ingen anmälan</span>';
     else side = '<span class="event__price">' + kr(e.price) + '</span><span class="event__spots' + (e.left <= 3 ? " is-few" : "") + '">' + (full ? "Fullbokat" : e.left + " av " + e.spots + " platser kvar") + "</span>" +
@@ -554,6 +561,7 @@
   var firstGift = document.querySelector("#giftTypes .chip");
   var gift = { type: firstGift ? firstGift.dataset.gift : "Valfritt belopp", amount: firstGift && firstGift.dataset.amount !== "valfritt" ? +firstGift.dataset.amount : 500 };
   function giftUpdate() {
+    if (!$("#giftCustom")) return;
     var custom = !$("#giftCustom").hidden;
     if (custom) gift.amount = Math.max(0, Math.round(+$("#gift-amount").value || 0));
     var to = $("#gift-to").value.trim(), from = $("#gift-from").value.trim(), msg = $("#gift-msg").value.trim();
@@ -573,8 +581,8 @@
       giftUpdate();
     });
   });
-  ["#gift-amount", "#gift-to", "#gift-from", "#gift-msg"].forEach(function (s) { $(s).addEventListener("input", giftUpdate); });
-  $("#giftAdd").addEventListener("click", function () {
+  ["#gift-amount", "#gift-to", "#gift-from", "#gift-msg"].forEach(function (s) { if ($(s)) $(s).addEventListener("input", giftUpdate); });
+  if ($("#giftAdd")) $("#giftAdd").addEventListener("click", function () {
     giftUpdate();
     if (gift.amount < 200) { toast("Välj ett belopp på minst 200 kr"); $("#gift-amount").focus(); return; }
     var to = $("#gift-to").value.trim(), id = "present-" + Date.now();
@@ -588,6 +596,7 @@
   giftUpdate();
 
   /* ================= Gratis guide ================= */
+  if ($("#guideForm")) {
   $("#guideNews").addEventListener("click", function () { var b = $("#guideNews"); b.setAttribute("aria-pressed", String(b.getAttribute("aria-pressed") !== "true")); });
   $("#guideForm").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -598,10 +607,11 @@
     done.textContent = "Ett ögonblick …";
     post("/api/guide", { email: mail, newsletter: news })
       .then(function (r) {
-        done.innerHTML = "Tack! Här är guiden: <a href=\"" + esc(r.url) + "\" target=\"_blank\" rel=\"noopener\">ladda ner 7 saker för ett lugnare barnrum</a>." + (news ? " Du får också nyhetsbrevet några gånger per år." : "");
+        done.innerHTML = "Tack! Här är guiden: <a href=\"" + esc(r.url) + "\" target=\"_blank\" rel=\"noopener\">ladda ner 7 saker för ett lugnare barnrum</a>." + (news ? " Du får också Söndagsbrevet." : "");
       })
       .catch(function (err) { done.textContent = err.message; });
   });
+  }
 
   /* ================= Meny ================= */
   var nav = $("#nav"), menuBtn = $("#menuBtn");
@@ -609,11 +619,13 @@
   nav.addEventListener("click", function (e) { if (e.target.closest("a")) { nav.classList.remove("is-open"); menuBtn.setAttribute("aria-expanded", "false"); } });
 
   /* ================= Kontakt ================= */
-  document.querySelectorAll("[data-service]").forEach(function (a) { a.addEventListener("click", function () { $("#f-service").value = a.dataset.service; }); });
+  document.querySelectorAll("[data-service]").forEach(function (a) { a.addEventListener("click", function () { if ($("#f-service")) $("#f-service").value = a.dataset.service; }); });
   document.querySelectorAll("#painChips .chip").forEach(function (c) {
     c.addEventListener("click", function () { c.setAttribute("aria-pressed", String(c.getAttribute("aria-pressed") !== "true")); });
   });
-  $("#contactForm").addEventListener("submit", function (e) {
+  var preset = new URLSearchParams(location.search).get("tjanst"), fService = $("#f-service");
+  if (preset && fService) { Array.prototype.some.call(fService.options, function (o) { if (o.text === preset || preset.indexOf(o.text) === 0) { fService.value = o.text; return true; } }); }
+  if ($("#contactForm")) $("#contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
     var name = $("#f-name"), email = $("#f-email"), done = $("#formDone");
     done.hidden = false;
@@ -633,4 +645,126 @@
       .catch(function (err) { done.textContent = err.message; })
       .then(function () { btn.disabled = false; });
   });
+
+  /* ================= Människohemmet: bågmodellen ================= */
+  var PARTS = SITE.parts || [];
+  document.querySelectorAll("[data-arches]").forEach(function (box) {
+    var NS = "http://www.w3.org/2000/svg", interactive = box.hasAttribute("data-interactive");
+    var svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("viewBox", "0 0 520 340"); svg.setAttribute("role", "img");
+    svg.setAttribute("aria-label", "Fem bågar runt en sten: " + PARTS.map(function (p) { return p.name; }).join(", ") + ". Bågen är hemmet och stenen är människan.");
+    var cx = 260, base = 310, top = 240, arcs = [], labels = [];
+    PARTS.slice().reverse().forEach(function (p, idx) {
+      var i = PARTS.length - 1 - idx, r = 70 + i * 40; // Ro innerst, År ytterst
+      var d = "M" + (cx - r) + " " + base + " V" + top + " A" + r + " " + r + " 0 0 1 " + (cx + r) + " " + top + " V" + base;
+      var path = document.createElementNS(NS, "path");
+      path.setAttribute("d", d); path.setAttribute("class", "arch"); path.setAttribute("stroke", p.color); path.style.animationDelay = (idx * .18) + "s";
+      path.dataset.i = i; svg.appendChild(path); arcs.push(path);
+      var t = document.createElementNS(NS, "text"); t.setAttribute("x", cx); t.setAttribute("y", top - r + 30); t.setAttribute("text-anchor", "middle");
+      t.setAttribute("class", "arch-label"); t.dataset.i = i; t.textContent = p.name; svg.appendChild(t); labels.push(t);
+      if (interactive) {
+        var hit = document.createElementNS(NS, "path"); hit.setAttribute("d", d); hit.setAttribute("class", "arch-hit"); hit.dataset.i = i;
+        hit.addEventListener("click", function () { pick(i); }); svg.appendChild(hit);
+      }
+    });
+    var floor = document.createElementNS(NS, "line"); floor.setAttribute("x1", 20); floor.setAttribute("x2", 500); floor.setAttribute("y1", base); floor.setAttribute("y2", base); floor.setAttribute("class", "arch-floor"); svg.appendChild(floor);
+    var stone = document.createElementNS(NS, "path"); stone.setAttribute("d", "M231 300 C231 284 287 280 289 296 C291 312 232 314 231 300Z"); stone.setAttribute("class", "arch-stone"); svg.appendChild(stone);
+    var hand = document.createElementNS(NS, "text"); hand.setAttribute("x", cx); hand.setAttribute("y", 336); hand.setAttribute("text-anchor", "middle"); hand.setAttribute("class", "arch-hand"); hand.textContent = "människan"; svg.appendChild(hand);
+    box.appendChild(svg);
+    if (!interactive) return;
+    var sec = box.closest("section"), chips = sec.querySelector("[data-arch-chips]"), panel = sec.querySelector("[data-arch-panel]");
+    PARTS.forEach(function (p, i) {
+      var b = document.createElement("button"); b.className = "chip"; b.type = "button"; b.textContent = p.name; b.setAttribute("aria-pressed", "false");
+      b.addEventListener("click", function () { pick(i); }); chips.appendChild(b);
+    });
+    function pick(i) {
+      var p = PARTS[i]; box.classList.add("has-pick");
+      arcs.concat(labels).forEach(function (el) { el.classList.toggle("is-on", +el.dataset.i === i); });
+      chips.querySelectorAll(".chip").forEach(function (c, k) { c.setAttribute("aria-pressed", String(k === i)); });
+      panel.innerHTML = '<p class="arch-panel__k">' + esc(p.sub) + '</p><h3 style="color:' + p.color + '">' + esc(p.name) + '</h3><p class="arch-panel__need">' + esc(p.need) + "</p><p>" + esc(p.idea) + '</p><p class="arch-panel__biz"><b>I företaget:</b> ' + esc(p.biz) + "</p>" +
+        (i === 0 ? '<a class="btn btn--ghost" href="/rohemmet">Läs om Rohemmet</a>' : "");
+    }
+    panel.innerHTML = '<p class="arch-panel__k">Modellen</p><h3>Bågen är hemmet. <em>Stenen är människan.</em></h3><p>Samma båge som i logotypen. Människan står innerst, som stenen i märket. Runt henne finns fem delkoncept. Välj en båge för att läsa mer.</p>';
+  });
+
+  /* ================= Rohemmet: ritningen av Ro-måtten ================= */
+  var room = $("#room");
+  if (room) {
+    var zone = room.querySelector(".zone"), zoneTxt = room.querySelector("#zoneTxt");
+    var setZone = function (kind) {
+      var lo = kind === "child" ? 60 : 90, hi = kind === "child" ? 120 : 160;
+      zone.setAttribute("y", 400 - hi * 1.5); zone.setAttribute("height", (hi - lo) * 1.5);
+      zoneTxt.textContent = "ÖGONHÖJDSZON " + lo + "–" + hi + " CM"; zoneTxt.setAttribute("y", 400 - lo * 1.5 - 8);
+    };
+    var setLight = function (kind) {
+      var night = kind === "night";
+      room.querySelector(".night").setAttribute("opacity", night ? ".62" : "0");
+      room.querySelector(".ceiling-glow").style.opacity = night ? "0" : ".85";
+      room.querySelectorAll(".lamp-glow").forEach(function (g) { g.style.opacity = night ? "1" : "0"; });
+      room.querySelector(".lightLbl").setAttribute("opacity", night ? "1" : "0");
+      room.querySelector(".hookLbl").setAttribute("fill", night ? "#EAC2AE" : "#9B5E49");
+      zoneTxt.setAttribute("fill", night ? "#EAC2AE" : "#9B5E49");
+    };
+    document.querySelectorAll("[data-zone], [data-light]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var group = b.dataset.zone ? "zone" : "light";
+        document.querySelectorAll("[data-" + group + "]").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+        if (group === "zone") setZone(b.dataset.zone); else setLight(b.dataset.light);
+      });
+    });
+  }
+
+  /* ================= Ro-testet ================= */
+  var quiz = $("#quiz");
+  if (quiz) {
+    var QS = [
+      { q: "Du kommer hem efter en lång dag. Vad märker du först?", o: [["Allt som ligger framme", "o"], ["Ljuset, ljuden, att det är för mycket", "k"], ["Att det inte finns någonstans att ställa väskan", "f"], ["Att jag inte har satt mig ner på hela dagen", "v"]] },
+      { q: "Hur ser morgnarna ut?", o: [["Vi letar efter saker", "o"], ["Någon blir överväldigad redan vid frukosten", "k"], ["Det korkar igen i hallen", "f"], ["Jag springer, och fortsätter springa", "v"]] },
+      { q: "Vilket rum bullrar mest hos dig?", o: [["Barnrummet, eller förrådet", "o"], ["Vardagsrummet med taklampan och tv:n", "k"], ["Hallen", "f"], ["Sovrummet, som har blivit en förvaringsplats", "v"]] },
+      { q: "Om du fick en ledig söndag, vad skulle du helst göra hemma?", o: [["Rensa en låda och känna mig klar", "o"], ["Ha det tyst, med en pläd och mjukt ljus", "k"], ["Göra om så att vardagen går smidigare", "f"], ["Sova, läsa, ingenting", "v"]] },
+      { q: "Vad skulle kännas som störst lättnad?", o: [["Att hitta det jag letar efter direkt", "o"], ["Färre intryck överallt", "k"], ["Att morgnar och kvällar flöt på", "f"], ["En plats som bara är min", "v"]] },
+      { q: "Vilken sak i ateljén lockar mest?", o: [["Lådmärkena", "o"], ["Ljuslyktan Kväll", "k"], ["Dörrskylten med namn", "f"], ["Handstenen", "v"]] }
+    ];
+    var RT = {
+      o: { name: "Överblickaren", hand: "en plats för varje sak", text: "Du mår bäst när du ser vad som finns och var det hör hemma. Synligt stök tar mer energi för dig än för de flesta.", tips: ["Gör en bänk eller hylla helt brusfri, och håll den så en vecka.", "En korg per person i hallen.", "Bilder eller lådmärken på det som ligger i lådorna."], next: ["/ateljen", "Lådmärkena i ateljén"] },
+      k: { name: "Den känsliga", hand: "färre intryck, mjukare ljus", text: "Ljud, ljus och intryck märks mer för dig. Det är inte du som är för känslig, det är rummet som ger för mycket.", tips: ["Släck taklampan på kvällen och tänd i tre höjder.", "En matta eller gardin som dämpar ljudet där ni är mest.", "Färre saker i ögonhöjd, fler bakom luckor."], next: ["/rohemmet#matten", "Ro-måtten för ljus och ljud"] },
+      f: { name: "Flödaren", hand: "när vardagen flyter", text: "Du märker direkt när rutinerna hakar upp sig. Ett hem som stödjer morgnar och kvällar gör störst skillnad för dig.", tips: ["Gå igenom morgonen steg för steg och se var det stannar.", "Krokar och korgar i rätt höjd för alla i familjen.", "En fast plats för det som ska med ut genom dörren."], next: ["/hjalp?tjanst=Inredning#kontakt", "Boka ett hembesök med Ro-kartan"] },
+      v: { name: "Vilaren", hand: "en plats bara för vila", text: "Du tar hand om allt och alla, men glömmer att landa själv. Du behöver ett hörn som säger: här får du sitta ner.", tips: ["Välj ett hörn och gör det till en rohörna: en stol, en pläd och en lampa.", "Inga skärmar och inget som ska fixas där.", "Börja med fem minuter om dagen."], next: ["/rohemmet#rohornan", "Så gör du en rohörna"] }
+    };
+    var qi = 0, score = {};
+    var renderQuiz = function () {
+      if (qi >= QS.length) return quizResult();
+      var item = QS[qi];
+      quiz.innerHTML = '<p class="quiz__n">Fråga ' + (qi + 1) + " av " + QS.length + '</p><div class="quiz__bar"><span style="width:' + (qi / QS.length * 100) + '%"></span></div>' +
+        '<p class="quiz__q">' + item.q + '</p><div class="quiz__opts">' + item.o.map(function (o) { return '<button class="quiz__opt" type="button" data-k="' + o[1] + '">' + o[0] + "</button>"; }).join("") + "</div>";
+      quiz.querySelectorAll(".quiz__opt").forEach(function (b) {
+        b.addEventListener("click", function () { score[b.dataset.k] = (score[b.dataset.k] || 0) + 1; qi++; renderQuiz(); var f = quiz.querySelector("button"); if (f) f.focus({ preventScroll: true }); });
+      });
+    };
+    var quizResult = function () {
+      var best = Object.keys(RT).sort(function (a, b) { return (score[b] || 0) - (score[a] || 0); })[0], r = RT[best];
+      quiz.innerHTML = '<p class="quiz__n">Din rotyp</p><div class="quiz__bar"><span style="width:100%"></span></div><h3 class="quiz__type">' + r.name + '</h3><p class="quiz__hand">' + r.hand + '</p><p class="quiz__text">' + r.text + '</p><ul class="stone-list">' +
+        r.tips.map(function (t) { return "<li>" + t + "</li>"; }).join("") + '</ul><div class="quiz__next"><a class="btn" href="' + r.next[0] + '">' + r.next[1] + '</a><button class="btn btn--ghost" type="button" data-again>Gör testet igen</button></div>' +
+        '<form class="news-inline news-inline--light" data-news-form data-source="rotest" novalidate><label for="quiz-email">Få ett tips i veckan för din rotyp i Söndagsbrevet</label><div class="news-inline__row"><input id="quiz-email" type="email" autocomplete="email" placeholder="Din e-post"><button class="btn" type="submit">Prenumerera</button></div><p class="form__done" hidden></p></form>';
+      quiz.querySelector("[data-again]").addEventListener("click", function () { qi = 0; score = {}; renderQuiz(); });
+      bindNews(quiz.querySelector("[data-news-form]"));
+    };
+    renderQuiz();
+  }
+
+  /* ================= Söndagsbrevet ================= */
+  function bindNews(f) {
+    if (!f || f.dataset.bound) return; f.dataset.bound = "1";
+    f.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var input = f.querySelector("input"), done = f.querySelector(".form__done"), mail = input.value.trim();
+      done.hidden = false;
+      if (!/^\S+@\S+\.\S+$/.test(mail)) { done.textContent = "Skriv en giltig e-postadress."; input.focus(); return; }
+      done.textContent = "Ett ögonblick …";
+      post("/api/guide", { email: mail, newsletter: true, source: f.dataset.source || "sondagsbrev" })
+        .then(function () { done.textContent = "Tack! Du får Söndagsbrevet från och med nästa söndag."; f.reset(); })
+        .catch(function (err) { done.textContent = err.message; });
+    });
+  }
+  document.querySelectorAll("[data-news-form]").forEach(bindNews);
 })();
