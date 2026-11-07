@@ -129,12 +129,3 @@ Människor föredrar i snabba bedömningar rundade föremål framför kantiga (B
 | Stökiga och oförutsägbara hem hänger ihop med sämre mående hos barn och föräldrar | 112 studier, mest samband och inte orsak | Marsh, Dobson och Maddison 2020, BMC Public Health | Måttlig, men bara samband |
 | Mindre tjat hemma | Mäts av varje familj med tjatmätaren, före och efter | Egna mätningar | Ska samlas in |
 
-
-## Rum som svarar, i fler miljöer (version 4 av strategin)
-
-| Påstående | Stöd | Källa | Grad |
-|---|---|---|---|
-| Byggd miljö kan utformas för neurodivergenta: ljus, akustik, färg, planlösning, orientering och vila | Nationell vägledning i Storbritannien, för bland annat autism, ADHD och demens | BSI PAS 6463:2022 | Vägledning, inte forskning |
-| Arbetsplatser kan anpassas för medarbetare med autism eller ADHD, bland annat ljud, ljus och arbetsplatsens utformning | Riktlinjer till företagshälsovården | Arbetsmiljöverket 2026, AFS 2020:5 | Riktlinje och föreskrift |
-| Barn med autism klarar tandvård bättre i en sinnesanpassad miljö | Randomiserade studier: pilot 2015, och 2023 med 162 barn (68 % mot 20 % behandlade) | Cermak m.fl. 2015, Duker m.fl. 2023 | Måttlig till stark |
-| Miljön påverkar trygghet, delaktighet och självständighet vid demens | Nationella riktlinjer och kvalitetsregister | Socialstyrelsen, SveDem | Måttlig |

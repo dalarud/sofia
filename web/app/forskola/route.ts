@@ -1,4 +1,4 @@
 import { servePage } from "@/site/serve";
 
 export const dynamic = "force-dynamic";
-export const GET = () => servePage("verksamheter");
+export const GET = () => servePage("forskola");
