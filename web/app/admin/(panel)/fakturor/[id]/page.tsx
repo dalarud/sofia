@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { db, schema } from "@/db";
-import { creditInvoice, getInvoice, markInvoicePaid, sendInvoice } from "@/lib/invoices";
+import { amountDue, creditInvoice, getInvoice, markInvoicePaid, markRutPaid, rutLabor, sendInvoice } from "@/lib/invoices";
 import { mailConfigured, sendMail } from "@/lib/mail";
 import { stripeConfigured } from "@/lib/stripe";
 import { getSetting, type Company } from "@/lib/content";
@@ -27,6 +27,16 @@ async function paid(f: FormData) {
   await act(`/admin/fakturor/${id}`, async () => {
     await markInvoicePaid(id, str(f, "date") || today(), str(f, "via") === "swish" ? "swish" : "bank");
     return "Markerad som betald och bokförd. Pengarna är dina!";
+  });
+}
+async function rutPaid(f: FormData) {
+  "use server";
+  const id = int(f, "id");
+  await act(`/admin/fakturor/${id}`, async () => {
+    const amount = Math.round(Number(str(f, "amount").replace(/\s/g, "").replace(",", ".")) * 100);
+    const from = str(f, "from") === "kunden" ? "kunden" : "skatteverket";
+    await markRutPaid(id, str(f, "date") || today(), amount, from);
+    return from === "kunden" ? "Mellanskillnaden är bokförd." : "Rutavdraget är bokfört. Fordran på Skatteverket är borta.";
   });
 }
 async function credit(f: FormData) {
@@ -54,7 +64,7 @@ async function remind(f: FormData) {
     const ok = await sendMail({
       to: inv.customer.email, replyTo: company.email, subject: `Påminnelse: faktura ${inv.number}`,
       attachments: [{ filename: `faktura-${inv.number}.pdf`, content: await invoicePdf({ ...inv, number: inv.number! }, company) }],
-      html: `<p>Hej ${esc(inv.customer.name.split(" ")[0])}!</p><p>En vänlig påminnelse om faktura ${inv.number} på ${kr(inv.totalOre)} som förföll ${inv.dueDate}. Har du redan betalat kan du bortse från det här.</p>${inv.payUrl ? `<p><a href="${inv.payUrl}">Betala med kort eller Klarna</a></p>` : ""}<p>Hälsningar<br>Sofia</p>`,
+      html: `<p>Hej ${esc(inv.customer.name.split(" ")[0])}!</p><p>En vänlig påminnelse om faktura ${inv.number} på ${kr(amountDue(inv))} som förföll ${inv.dueDate}. Har du redan betalat kan du bortse från det här.</p>${inv.payUrl ? `<p><a href="${inv.payUrl}">Betala med kort eller Klarna</a></p>` : ""}<p>Hälsningar<br>Sofia</p>`,
     });
     if (!ok) throw new Error("E-posten kunde inte skickas");
     return "Påminnelsen är skickad.";
@@ -69,10 +79,11 @@ export default async function InvoicePage({ params, searchParams }: { params: Pr
   const late = inv.status === "skickad" && inv.dueDate < today();
   const pdf = `/api/admin/fakturor/${inv.id}/pdf`;
   const hidden = <input type="hidden" name="id" value={inv.id} />;
+  const rutLeft = inv.rutOre - inv.rutPaidOre;
   return (
     <>
       <Done sp={sp} />
-      <Head eyebrow={`Faktura ${inv.number ?? "(utkast)"}`} title={<>{inv.customer.name}</>} lede={<><span className={`a-pill ${late ? "a-pill--warn" : st.cls}`}>{late ? "Försenad" : st.label}</span> {kr(inv.totalOre)} · förfaller {dateSv(inv.dueDate)}</>}>
+      <Head eyebrow={`Faktura ${inv.number ?? "(utkast)"}`} title={<>{inv.customer.name}</>} lede={<><span className={`a-pill ${late ? "a-pill--warn" : st.cls}`}>{late ? "Försenad" : st.label}</span> {kr(amountDue(inv))}{inv.rutOre ? " efter rutavdrag" : ""} · förfaller {dateSv(inv.dueDate)}</>}>
         <Link className="a-btn a-btn--quiet" href="/admin/fakturor">Alla fakturor</Link>
       </Head>
 
@@ -90,7 +101,7 @@ export default async function InvoicePage({ params, searchParams }: { params: Pr
           {inv.status === "skickad" ? (
             <>
               <h2>Har pengarna <em>kommit?</em></h2>
-              <p className="a-muted">Kolla på företagskontot. Betalningar med betallänken registreras automatiskt.</p>
+              <p className="a-muted">Kolla på företagskontot. Kunden ska betala {kr(amountDue(inv))}{inv.rutOre ? ` (summan ${kr(inv.totalOre)} minus rutavdraget ${kr(inv.rutOre)})` : ""}. Betalningar med betallänken registreras automatiskt.</p>
               <form action={paid} className="a-stack">{hidden}
                 <div className="a-row">
                   <label className="a-field"><span>Betalningsdag</span><input type="date" name="date" defaultValue={today()} /></label>
@@ -110,7 +121,31 @@ export default async function InvoicePage({ params, searchParams }: { params: Pr
           {inv.status === "betald" ? (
             <>
               <p className="a-hand" style={{ color: "var(--ok)" }}>Betald {dateSv(inv.paidAt)}.</p>
-              <p className="a-muted">Bokförd automatiskt{inv.paidVia === "stripe" ? " via betallänken" : ""}. Inget mer att göra.</p>
+              <p className="a-muted">Bokförd automatiskt{inv.paidVia === "stripe" ? " via betallänken" : ""}.{rutLeft > 0 ? "" : " Inget mer att göra."}</p>
+              {rutLeft > 0 ? (
+                <div className="a-card a-stack" style={{ background: "var(--a-surface-2, transparent)" }}>
+                  <h3>Begär rutavdraget</h3>
+                  <p className="a-muted a-small">Logga in på Skatteverkets e-tjänst Rot och rut för företag och fyll i uppgifterna nedan. Skatteverket betalar till företagskontot, oftast inom några veckor.</p>
+                  <table className="a-table"><tbody>
+                    <tr><td>Köparens personnummer</td><td className="num">{inv.customer.pnr || <span style={{ color: "var(--warn, #9B5E49)" }}>saknas</span>}</td></tr>
+                    <tr><td>Fakturanummer</td><td className="num">{inv.number}</td></tr>
+                    <tr><td>Betalningsdag</td><td className="num">{inv.paidAt}</td></tr>
+                    <tr><td>Pris för arbetet (rutarbete, inkl. moms)</td><td className="num">{kr(rutLabor(inv.lines))}</td></tr>
+                    <tr><td>Betalt belopp för arbetet</td><td className="num">{kr(rutLabor(inv.lines) - inv.rutOre)}</td></tr>
+                    <tr><td>Begärt belopp</td><td className="num"><b>{kr(inv.rutOre)}</b></td></tr>
+                    <tr><td>Typ av tjänst och timmar</td><td className="num">Se raderna markerade rut</td></tr>
+                  </tbody></table>
+                  <form action={rutPaid} className="a-stack">{hidden}
+                    <div className="a-row">
+                      <label className="a-field"><span>Datum</span><input type="date" name="date" defaultValue={today()} /></label>
+                      <label className="a-field"><span>Belopp</span><input name="amount" inputMode="decimal" defaultValue={(rutLeft / 100).toFixed(2).replace(".", ",")} /></label>
+                      <div className="a-field"><span>Från</span><div className="seg"><label><input type="radio" name="from" value="skatteverket" defaultChecked />Skatteverket</label><label><input type="radio" name="from" value="kunden" />Kunden (mellanskillnad)</label></div></div>
+                    </div>
+                    <button className="a-btn" type="submit">Pengarna har kommit</button>
+                  </form>
+                  <p className="a-small a-muted">Betalar Skatteverket mindre än begärt ska kunden betala mellanskillnaden. Skicka ett mejl, och bokför den här när den kommit.</p>
+                </div>
+              ) : inv.rutOre ? <p className="a-small a-muted">Rutavdraget på {kr(inv.rutOre)} är utbetalt.</p> : null}
               <div className="a-row"><a className="a-btn a-btn--ghost" href={pdf} target="_blank" rel="noopener">Ladda ner PDF</a><form action={credit}>{hidden}<button className="a-btn a-btn--quiet" type="submit">Kreditera (pengar tillbaka)</button></form></div>
             </>
           ) : null}
@@ -124,9 +159,10 @@ export default async function InvoicePage({ params, searchParams }: { params: Pr
         <section className="a-card a-stack">
           <h3>Innehåll</h3>
           <table className="a-table"><tbody>
-            {inv.lines.map((l, i) => <tr key={i}><td>{l.text}{l.qty !== 1 ? ` × ${String(l.qty).replace(".", ",")}` : ""}</td><td className="num">{kr(Math.round(l.unitOre * l.qty))}</td></tr>)}
+            {inv.lines.map((l, i) => <tr key={i}><td>{l.text}{l.rut ? <span className="a-pill" style={{ marginLeft: ".4rem" }}>rut</span> : null}{l.qty !== 1 ? ` × ${String(l.qty).replace(".", ",")}` : ""}</td><td className="num">{kr(Math.round(l.unitOre * l.qty))}</td></tr>)}
             <tr><td className="a-muted">Varav moms</td><td className="num a-muted">{kr(inv.vatOre)}</td></tr>
-            <tr><td><b>Totalt</b></td><td className="num"><b>{kr(inv.totalOre)}</b></td></tr>
+            {inv.rutOre ? <><tr><td>Summa</td><td className="num">{kr(inv.totalOre)}</td></tr><tr><td className="a-muted">Rutavdrag, 50 % av {kr(rutLabor(inv.lines))}</td><td className="num a-muted">−{kr(inv.rutOre)}</td></tr></> : null}
+            <tr><td><b>{inv.rutOre ? "Kunden betalar" : "Totalt"}</b></td><td className="num"><b>{kr(amountDue(inv))}</b></td></tr>
           </tbody></table>
           <p className="a-small a-muted">{[inv.customer.email, inv.customer.address?.replace(/\n/g, ", "), inv.customer.orgNr && `Org.nr ${inv.customer.orgNr}`].filter(Boolean).join(" · ")}</p>
         </section>

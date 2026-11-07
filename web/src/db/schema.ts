@@ -162,8 +162,9 @@ export const subscribers = pgTable("subscribers", {
 
 /* ---------------------------------------------------------------- Fakturor och kvitton */
 
-export type InvoiceLine = { text: string; qty: number; unitOre: number; vatRate: number };
-export type InvoiceCustomer = { name: string; email?: string; address?: string; orgNr?: string };
+/** rut: raden är arbete som ger rutavdrag (packning, uppackning, möblering, transport till försäljning). */
+export type InvoiceLine = { text: string; qty: number; unitOre: number; vatRate: number; rut?: boolean };
+export type InvoiceCustomer = { name: string; email?: string; address?: string; orgNr?: string; pnr?: string };
 
 export const invoices = pgTable("invoices", {
   id: serial("id").primaryKey(),
@@ -176,6 +177,10 @@ export const invoices = pgTable("invoices", {
   note: text("note").notNull().default(""),
   totalOre: integer("total_ore").notNull(),
   vatOre: integer("vat_ore").notNull(),
+  /** Begärt rutavdrag: kunden betalar totalOre - rutOre, och Skatteverket resten. */
+  rutOre: integer("rut_ore").notNull().default(0),
+  /** Hur mycket av rutavdraget som har kommit in (från Skatteverket, eller från kunden om avdraget nekades). */
+  rutPaidOre: integer("rut_paid_ore").notNull().default(0),
   status: text("status").notNull().default("utkast"), // utkast | skickad | betald | krediterad
   sentAt: timestamp("sent_at", { withTimezone: true }),
   paidAt: date("paid_at"),
@@ -226,7 +231,7 @@ export const verifications = pgTable("verifications", {
   number: integer("number").notNull(),
   date: date("date").notNull(),
   text: text("text").notNull(),
-  source: text("source").notNull(), // order | faktura | kvitto | stripe | manuell | rattelse
+  source: text("source").notNull(), // order | faktura | rut | kvitto | stripe | manuell | rattelse
   sourceRef: text("source_ref"),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   correctsId: integer("corrects_id"),

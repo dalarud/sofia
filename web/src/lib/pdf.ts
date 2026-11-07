@@ -44,7 +44,7 @@ function wrap(s: string, font: PDFFont, size: number, width: number): string[] {
 
 export type InvoiceForPdf = {
   number: number; date: string; dueDate: string; customer: InvoiceCustomer; lines: InvoiceLine[]; note: string;
-  totalOre: number; vatOre: number; payUrl?: string | null; credit?: boolean;
+  totalOre: number; vatOre: number; rutOre?: number; payUrl?: string | null; credit?: boolean;
 };
 
 export async function invoicePdf(inv: InvoiceForPdf, company: Company): Promise<Uint8Array> {
@@ -78,7 +78,7 @@ export async function invoicePdf(inv: InvoiceForPdf, company: Company): Promise<
   page.drawLine({ start: { x: L, y }, end: { x: R, y }, thickness: 0.8, color: C.granskog });
   y -= mm(7);
   for (const line of inv.lines) {
-    const rows = wrap(`${line.text}${line.vatRate !== 25 ? ` (moms ${line.vatRate} %)` : ""}`, fonts.regular, 10, cols.qty - cols.text - mm(22));
+    const rows = wrap(`${line.text}${line.rut ? " (rutarbete)" : ""}${line.vatRate !== 25 ? ` (moms ${line.vatRate} %)` : ""}`, fonts.regular, 10, cols.qty - cols.text - mm(22));
     text(page, String(line.qty).replace(".", ","), cols.qty, y, fonts.regular, 10, C.granskog, "right");
     text(page, kr(line.unitOre, { decimals: true }), cols.unit, y, fonts.regular, 10, C.granskog, "right");
     text(page, kr(Math.round(line.unitOre * line.qty), { decimals: true }), cols.sum, y, fonts.regular, 10, C.granskog, "right");
@@ -92,10 +92,15 @@ export async function invoicePdf(inv: InvoiceForPdf, company: Company): Promise<
   for (const l of inv.lines) vatByRate.set(l.vatRate, (vatByRate.get(l.vatRate) ?? 0) + vatFromGross(Math.round(l.unitOre * l.qty), l.vatRate));
   const sums: [string, string][] = [["Belopp utan moms", kr(inv.totalOre - inv.vatOre, { decimals: true })]];
   for (const [rate, v] of [...vatByRate.entries()].sort((a, b) => b[0] - a[0])) if (rate) sums.push([`Moms ${rate} %`, kr(v, { decimals: true })]);
+  const rutOre = inv.rutOre ?? 0;
+  if (rutOre) {
+    const labor = inv.lines.filter((l) => l.rut).reduce((s, l) => s + Math.round(l.unitOre * l.qty), 0);
+    sums.push(["Summa inklusive moms", kr(inv.totalOre, { decimals: true })], ["Varav arbetskostnad med rutavdrag", kr(labor, { decimals: true })], ["Preliminärt rutavdrag, 50 %", `−${kr(rutOre, { decimals: true })}`]);
+  }
   for (const [k, v] of sums) { text(page, k, R - mm(36), y, fonts.regular, 10, C.muted, "right"); text(page, v, R, y, fonts.regular, 10, C.granskog, "right"); y -= mm(5.5); }
   y -= mm(2);
   text(page, inv.credit ? "Att återbetala" : "Att betala", R - mm(36), y, fonts.bold, 11, C.granskog, "right");
-  text(page, kr(inv.totalOre, { decimals: true }), R, y, fonts.italic, 20, C.lera, "right");
+  text(page, kr(inv.totalOre - rutOre, { decimals: true }), R, y, fonts.italic, 20, C.lera, "right");
 
   y -= mm(16);
   if (!inv.credit) {
@@ -105,6 +110,7 @@ export async function invoicePdf(inv: InvoiceForPdf, company: Company): Promise<
       company.swish ? `Swish ${company.swish}` : "",
       `Märk betalningen med fakturanummer ${inv.number}.`,
       inv.payUrl ? `Eller betala med kort eller Klarna: ${inv.payUrl}` : "",
+      rutOre ? "Rutavdraget är preliminärt. Vi begär det hos Skatteverket när du har betalat din del. Om Skatteverket inte godkänner hela avdraget betalar du mellanskillnaden." : "",
     ].filter(Boolean);
     for (const p of pay) for (const r of wrap(p, fonts.regular, 10, R - L)) { text(page, r, L, y, fonts.regular, 10); y -= mm(5); }
   }

@@ -17,7 +17,7 @@ export default async function NewInvoice({ searchParams }: { searchParams: SP })
       <Done sp={sp} />
       <Head eyebrow="Fakturor" title={<>Ny <em>faktura.</em></>} lede="Fyll i det du vet. Utkastet sparas och kan ändras tills du skickar det." />
       <InvoiceForm action={async (f: FormData) => { "use server"; if (lead) f.set("leadId", String(lead.id)); await saveInvoice(f); }} suggestions={suggestions}
-        initial={{ customer: { name: lead?.name ?? "", email: lead?.email ?? "", address: "", orgNr: "" }, date: today(), days: acc.paymentTermsDays, note: "", lines: [], exVat: false }} />
+        initial={{ customer: { name: lead?.name ?? "", email: lead?.email ?? "", address: "", orgNr: "", pnr: "" }, date: today(), days: acc.paymentTermsDays, note: "", lines: [], exVat: false }} />
     </>
   );
 }

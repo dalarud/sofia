@@ -145,7 +145,8 @@ details.a-more > summary { cursor: pointer; color: var(--muted); font-weight: 50
 
 /* ---------- Fakturarader och verifikationsrader ---------- */
 .lines { display: grid; gap: .5rem; }
-.line-row { display: grid; grid-template-columns: minmax(0, 3fr) 5rem 8rem 6rem 2.5rem; gap: .5rem; align-items: end; }
+.line-row { display: grid; grid-template-columns: minmax(0, 3fr) 5rem 8rem 6rem 4rem 2.5rem; gap: .5rem; align-items: end; }
+.line-row__rut { padding-bottom: .7rem; }
 @media (max-width: 720px) { .line-row { grid-template-columns: 1fr 1fr; } .line-row .a-field:first-child { grid-column: 1 / -1; } }
 .ver-row { display: grid; grid-template-columns: minmax(0, 2fr) 8rem 8rem 2.5rem; gap: .5rem; align-items: end; }
 .timer { font: italic 400 2.6rem/1 var(--font-display); color: var(--accent); font-variant-numeric: tabular-nums; }

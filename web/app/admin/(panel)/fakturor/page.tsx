@@ -9,7 +9,8 @@ export default async function Invoices({ searchParams }: { searchParams: SP }) {
   const sp = await searchParams;
   const all = await db.select().from(schema.invoices).orderBy(desc(schema.invoices.createdAt)).limit(300);
   const open = all.filter((i) => i.status === "skickad");
-  const unpaid = open.reduce((s, i) => s + i.totalOre, 0);
+  const unpaid = open.reduce((s, i) => s + i.totalOre - i.rutOre, 0);
+  const rutWaiting = all.filter((i) => i.status === "betald" && i.rutPaidOre < i.rutOre);
   const overdue = open.filter((i) => i.dueDate < today());
   return (
     <>
@@ -21,6 +22,12 @@ export default async function Invoices({ searchParams }: { searchParams: SP }) {
         <div className="a-grid a-grid--3" style={{ marginBottom: "1.6rem" }}>
           <div className="a-card stat"><b>{kr(unpaid)}</b><span>väntar på betalning ({open.length} st)</span></div>
           <div className="a-card stat"><b>{overdue.length}</b><span>har passerat förfallodagen</span></div>
+        </div>
+      ) : null}
+      {rutWaiting.length ? (
+        <div className="a-card" style={{ marginBottom: "1.6rem" }}>
+          <p><b>Rutavdrag att få från Skatteverket: {kr(rutWaiting.reduce((s, i) => s + i.rutOre - i.rutPaidOre, 0))}</b></p>
+          <p className="a-muted a-small">{rutWaiting.map((i) => <Link key={i.id} href={`/admin/fakturor/${i.id}`} style={{ marginRight: "1rem" }}>Faktura {i.number}</Link>)}</p>
         </div>
       ) : null}
       {all.length ? (
@@ -35,7 +42,7 @@ export default async function Invoices({ searchParams }: { searchParams: SP }) {
                 <td><Link href={`/admin/fakturor/${i.id}`}>{i.customer.name}</Link></td>
                 <td>{dateSv(i.date)}</td>
                 <td>{dateSv(i.dueDate)}</td>
-                <td className="num">{kr(i.totalOre)}</td>
+                <td className="num">{kr(i.totalOre)}{i.rutOre ? <small className="a-muted"> (rut {kr(i.rutOre)})</small> : null}</td>
                 <td><span className={`a-pill ${late ? "a-pill--warn" : st.cls}`}>{late ? "Försenad" : st.label}</span></td>
               </tr>
             );

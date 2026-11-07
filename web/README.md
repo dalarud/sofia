@@ -26,7 +26,7 @@ Tekniken: Next.js, Postgres (Supabase) via Drizzle, Stripe, pdf-lib för fakturo
 | --- | --- |
 | **Idag** | Ser de tre viktigaste sakerna just nu, med uppskattad tid och en knapp direkt dit. Skriver ner saker att komma ihåg. Ser månadens siffror. Startar veckans ekonomistund med en 15-minuterstimer. |
 | **Kvitton** | Fotar kvittot med mobilen direkt (knappen *Fota kvitto* finns på varje sida). Bokför senare i fokusläget: ett kvitto i taget, belopp, datum och kategori. Momsen räknas ut. |
-| **Fakturor** | Skapar fakturor med tjänsterna som snabbval, skickar dem (PDF och betallänk), markerar dem betalda och krediterar vid behov. |
+| **Fakturor** | Skapar fakturor med tjänsterna som snabbval, skickar dem (PDF och betallänk), markerar dem betalda och krediterar vid behov. Rader kan markeras som **rutarbete** (packning, uppackning, möblering, transport till försäljning). Då visar fakturan rutavdraget, kunden betalar resten och sidan visar uppgifterna att fylla i hos Skatteverket. |
 | **Ordrar** | Ser vad som ska packas och skickas. Betalning och bokföring är redan klar. |
 | **Förfrågningar** | Svarar på kontaktformuläret med ett färdigt mejlutkast, för anteckningar och gör en faktura av uppdraget. |
 | **Hemsidan** | Ändrar texter, tjänster, produkter (pris, lager, foto), kurser (och ser deltagarna), tips och ser vilka som laddat ner guiden. |
@@ -35,6 +35,7 @@ Tekniken: Next.js, Postgres (Supabase) via Drizzle, Stripe, pdf-lib för fakturo
 
 ### Om bokföringen
 
+- **Rutavdrag:** när kunden betalar bokförs hela försäljningen. Kundens del går till kontot och resten blir en fordran på Skatteverket (1513). När Skatteverket betalar, eller kunden betalar mellanskillnaden, tar en ny verifikation bort fordran. Idag påminner om rutavdrag som inte är begärda.
 - Bokföringen följer **kontantmetoden** (för enskild firma med omsättning under 3 miljoner kronor): fakturor bokförs när de betalas. Obetalda fakturor vid årets slut behöver bokföras som kundfordringar; checklistan för bokslutet visar dem.
 - **Köp i webbutiken** bokförs när de betalas, på konto 1580 (pengar hos Stripe). Stripes avgift bokförs direkt, och när Stripe betalar ut flyttas pengarna till företagskontot 1930.
 - **Presentkort** bokförs som en skuld (2420) utan moms tills de används, eftersom de kan lösas in mot både varor och tjänster.

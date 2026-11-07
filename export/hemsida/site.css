@@ -709,3 +709,18 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .grade--stark { background: #DCE0D2; color: #2B362E; } .grade--mattlig { background: #E9D9B8; color: #2B362E; } .grade--indirekt { background: #EBD6CA; color: #2B362E; } .grade--sunt { color: var(--on-deep); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--on-deep) 45%, transparent); }
 .evidence__note { margin-top: 2rem; color: var(--on-deep-muted); font-size: .92rem; max-width: 62ch; }
 @media (max-width: 760px) { .evidence__row { grid-template-columns: minmax(0, 1fr); } .evidence__row b { grid-row: auto; } .evidence__row small, .evidence__row .grade { grid-column: 1; grid-row: auto; } }
+
+/* Flytta med ro: rutavdrag */
+.rut { background: var(--surface); }
+.rut__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 2.4rem 4rem; align-items: start; }
+.rut__parts { margin: 0; display: grid; gap: 1.6rem; }
+.rut__parts div { border-top: 2px solid var(--fg); padding-top: 1rem; }
+.rut__parts div:first-child { border-top-color: var(--moss); }
+.rut__parts dt { font: 400 1.7rem/1.1 var(--font-display); }
+.rut__parts dd { margin: .5rem 0 0; color: var(--muted); max-width: 46ch; }
+.rut__h { font-size: 1.7rem; margin-bottom: .6rem; }
+.rut__example li:nth-last-child(3) { border-top: 1px solid var(--line); margin-top: .3rem; padding-top: .7rem; }
+.rut__example li:nth-last-child(2) span:last-child { color: var(--moss); }
+.rut__example li:last-child { font: 400 1.6rem var(--font-display); }
+.rut__example li:last-child span:last-child { font-weight: 400; color: var(--accent); }
+@media (max-width: 860px) { .rut__grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,28 @@
+  <section class="rokartan" id="flyttmarken" aria-labelledby="fm-h">
+    <div class="wrap rokartan__grid">
+      <div class="rokartan__art" aria-hidden="true">
+        <svg viewBox="0 0 420 300" fill="none">
+          <g stroke="var(--fg)" stroke-width="2.4" stroke-linejoin="round">
+            <path d="M28 258 V170 H158 V258 Z" fill="#E6DCCB"/><path d="M28 170 L46 150 H176 L158 170 M176 150 V238 L158 258" fill="#D9CCB5"/>
+            <path d="M150 258 V160 H290 V258 Z" fill="#E6DCCB"/><path d="M150 160 L170 140 H310 L290 160 M310 140 V238 L290 258" fill="#D9CCB5"/>
+            <path d="M88 168 V92 H210 V168" fill="#E6DCCB"/><path d="M88 92 L104 76 H226 L210 92 M226 76 V152 L210 168" fill="#D9CCB5"/>
+            <path d="M282 258 V188 H392 V258 Z" fill="#E6DCCB"/>
+          </g>
+          <circle cx="93" cy="214" r="17" fill="#6F7D62"/><path d="M84 214 h18 M93 205 v18" stroke="#F3EEE6" stroke-width="2.6" stroke-linecap="round"/>
+          <rect x="203" y="192" width="34" height="34" rx="9" fill="#9B5E49"/><path d="M211 218 V206 Q220 199 229 206 V218" stroke="#F3EEE6" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+          <path d="M149 108 l15 26 h-30 Z" fill="#8F7F92"/>
+          <ellipse cx="337" cy="223" rx="20" ry="14" fill="#C4AF90"/>
+          <g font-family="Caveat, cursive" font-size="19" fill="#9B5E49"><text x="58" y="282">kök</text><text x="196" y="282">sovrum</text><text x="128" y="64">barnens rum</text><text x="314" y="282">hallen</text></g>
+          <g font-family="Caveat, cursive" font-size="17" fill="var(--fg)"><text x="250" y="40">samma märke på</text><text x="250" y="60">dörren i nya hemmet</text></g>
+          <path d="M246 70 C232 86 226 104 226 120" stroke="var(--fg)" stroke-width="1.6" stroke-dasharray="4 5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div>
+        <p class="eyebrow">Flyttkartan och flyttmärkena</p>
+        <h2 id="fm-h">{{t:flytta.marken.title}}</h2>
+        <p class="rokartan__lede">{{t:flytta.marken.text}}</p>
+        <ul class="stone-list">{{rows:flytta.marken.punkter:li}}</ul>
+        <a class="btn" href="/flytta?tjanst=Flytta%20med%20ro#kontakt" data-service="Flytta med ro">Boka ett flyttsamtal</a>
+      </div>
+    </div>
+  </section>

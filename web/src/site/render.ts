@@ -10,14 +10,16 @@ function readSite(rel: string) {
   return cache.get(rel)!;
 }
 
-export type PageKey = "start" | "hjalp" | "ateljen" | "manniskohemmet" | "rohemmet" | "ro-i-vardagen" | "om";
+export type PageKey = "start" | "flytta" | "hjalp" | "ateljen" | "manniskohemmet" | "rohemmet" | "ro-i-vardagen" | "om";
 type PageDef = { title: string; description: string; nav?: string; head?: { eyebrow: string; heading: string; lede: string; crumb?: [string, string] }; sections: string[] };
 
 /** Sidorna och vilka sektioner de består av. Texterna i sidhuvudena går att ändra under Hemsidan → Texter. */
 export const PAGES: Record<PageKey, PageDef> = {
-  start: { title: "Studio Dalarud – Från brus till ro", description: "Inredning, homestaging och lugna rum, och föremål i lera. Studio Dalarud formger hem som är snälla mot den som bor där.",
+  start: { title: "Studio Dalarud – inredare och pedagog i Norrahammar", description: "Flytt med rutavdrag, homestaging, inredning och lugna rum i Norrahammar, Jönköping och Tabergsdalen. Studio Dalarud formger hem som är snälla mot den som bor där.",
     sections: ["hero", "start-dorrar", "manifest", "start-vision"] },
-  hjalp: { title: "Hjälp hemma – Studio Dalarud", description: "Inredning, homestaging, inflyttning och Lugna rum. Hembesök med Ro-kartan, fasta priser och hjälp hela vägen.", nav: "hjalp",
+  flytta: { title: "Flytta med ro – flytthjälp med rutavdrag i Jönköping | Studio Dalarud", description: "Hjälp hela vägen när du ska flytta: Flyttkartan, packning, sälja vidare och landa i nya hemmet. Rutavdrag på packning, uppackning och möblering. Norrahammar, Jönköping och Tabergsdalen.", nav: "flytta",
+    head: { eyebrow: "Flytta med ro", heading: "sida.flytta.rubrik", lede: "sida.flytta.ingress" }, sections: ["flytta-steg", "flytta-marken", "flytta-rut", "flytta-vem", "kontakt"] },
+  hjalp: { title: "Hjälp hemma – Studio Dalarud", description: "Homestaging, inredning och lugna rum i Norrahammar och Jönköping. Hembesök med Ro-kartan, fasta priser och hjälp hela vägen.", nav: "hjalp",
     head: { eyebrow: "Hjälp hemma", heading: "sida.hjalp.rubrik", lede: "sida.hjalp.ingress" }, sections: ["tjanster", "rokartan", "steg", "ro-modellen", "kontakt"] },
   ateljen: { title: "Ateljén – Studio Dalarud", description: "Föremål i självtorkande lera, kurser och presentkort från Studio Dalarud.", nav: "ateljen",
     sections: ["ateljen", "kurser", "presentkort"] },
@@ -46,6 +48,7 @@ function renderRows(value: string, kind: string): string {
     const [a = "", b = "", c = "", d = "", e = ""] = r;
     switch (kind) {
       case "li": return `<li>${rich(a)}</li>`;
+      case "price": return `<li><span>${rich(a)}</span><span>${rich(b)}</span></li>`;
       case "blind": return `<div><b>${rich(a)}</b><span>${rich(b)}</span></div>`;
       case "goal": return `<li><b>${rich(a)}</b><span>${rich(b)}</span></li>`;
       case "principle": return `<li class="principle"><h3>${rich(a)}</h3><p>${rich(b)}</p>${c ? `<p class="principle__try"><b>Prova</b> ${rich(c)}</p>` : ""}</li>`;
@@ -155,6 +158,14 @@ export function renderSite(data: SiteData, key: PageKey = "start"): string {
     .replace("Inklusive moms. Frakt 69 kr, fri frakt över 800 kr. Hämta gratis i ateljén.", () => esc(shippingText))
     .replaceAll("{{year}}", String(new Date().getFullYear()))
     .replace("{{legal}}", () => legal)
+    .replace("{{jsonld}}", () => JSON.stringify({
+      "@context": "https://schema.org", "@type": "LocalBusiness", name: data.company.name, founder: data.company.owner,
+      description: "Inredare och pedagog i Norrahammar. Flytt med rutavdrag, homestaging, inredning och lugna rum.",
+      email: data.company.email || undefined, telephone: data.company.phone || undefined,
+      address: { "@type": "PostalAddress", streetAddress: data.company.address || undefined, addressLocality: "Norrahammar", addressRegion: "Jönköpings län", addressCountry: "SE" },
+      areaServed: ["Norrahammar", "Taberg", "Jönköping", "Huskvarna", "Bankeryd", "Tenhult", "Sverige (digitalt)"],
+      knowsAbout: ["Flytthjälp", "Homestaging", "Inredning", "NPF-anpassade hem", "Rutavdrag för flytt"],
+    }).replace(/</g, "\\u003c"))
     .replace(/\{\{rows:([a-z0-9.]+):([a-z]+)\}\}/g, (_, k, kind) => renderRows(data.texts[k] ?? "", kind))
     .replace(/\{\{paras:([a-z0-9.]+)\}\}/g, (_, k) => rowsOf(data.texts[k] ?? "").map((r) => `<p>${rich(r.join(" | "))}</p>`).join(""))
     .replace(/\{\{t:([a-z0-9.]+)\}\}/g, (_, k) => t(k))

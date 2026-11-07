@@ -17,8 +17,8 @@ export default async function EditInvoice({ params, searchParams }: { params: Pr
       <Done sp={sp} />
       <Head eyebrow="Fakturor" title={<>Ändra <em>utkastet.</em></>} />
       <InvoiceForm action={saveInvoice} suggestions={await invoiceSuggestions()}
-        initial={{ id: inv.id, customer: { name: inv.customer.name, email: inv.customer.email ?? "", address: inv.customer.address ?? "", orgNr: inv.customer.orgNr ?? "" }, date: inv.date, days, note: inv.note, exVat: false,
-          lines: inv.lines.map((l) => ({ text: l.text, qty: String(l.qty).replace(".", ","), price: oreToKr(l.unitOre), vatRate: l.vatRate })) }} />
+        initial={{ id: inv.id, customer: { name: inv.customer.name, email: inv.customer.email ?? "", address: inv.customer.address ?? "", orgNr: inv.customer.orgNr ?? "", pnr: inv.customer.pnr ?? "" }, date: inv.date, days, note: inv.note, exVat: false,
+          lines: inv.lines.map((l) => ({ text: l.text, qty: String(l.qty).replace(".", ","), price: oreToKr(l.unitOre), vatRate: l.vatRate, rut: !!l.rut })) }} />
     </>
   );
 }

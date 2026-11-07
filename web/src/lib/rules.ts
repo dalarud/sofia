@@ -8,6 +8,8 @@ export type Row = { account: number; debitOre: number; creditOre: number };
 
 export const ACC = {
   kundfordringar: 1510,
+  /** Fordran på Skatteverket för begärt rutavdrag (delad faktura). */
+  rutFordran: 1513,
   stripe: 1580,
   bank: 1930,
   egetUttag: 2013,
@@ -82,6 +84,29 @@ export function saleRows(lines: SaleLine[], debitAccount: number): Row[] {
   }
   rows.push({ account: debitAccount, debitOre: total, creditOre: 0 });
   return compact(rows);
+}
+
+/** Rutavdraget: 50 % av arbetskostnaden inklusive moms, avrundat nedåt till hela kronor. */
+export const RUT_RATE = 0.5;
+export function rutAmount(rutLaborGrossOre: number): number {
+  return Math.floor((rutLaborGrossOre * RUT_RATE) / 100) * 100;
+}
+
+/**
+ * En betald faktura med rutavdrag: hela försäljningen bokförs, kunden har betalat sin del till
+ * debetkontot och resten är en fordran på Skatteverket (1513) tills utbetalningen kommer.
+ */
+export function rutSaleRows(lines: SaleLine[], debitAccount: number, rutOre: number): Row[] {
+  if (rutOre < 0) throw new Error("Rutavdraget kan inte vara negativt");
+  const rows = saleRows(lines, debitAccount);
+  if (!rutOre) return rows;
+  return compact([...rows, { account: debitAccount, debitOre: 0, creditOre: rutOre }, { account: ACC.rutFordran, debitOre: rutOre, creditOre: 0 }]);
+}
+
+/** Utbetalning av rutavdrag (eller mellanskillnaden från kunden): pengarna in, fordran bort. */
+export function rutPaymentRows(amountOre: number, debitAccount: number): Row[] {
+  if (amountOre <= 0) throw new Error("Beloppet måste vara större än noll");
+  return [{ account: debitAccount, debitOre: amountOre, creditOre: 0 }, { account: ACC.rutFordran, debitOre: 0, creditOre: amountOre }];
 }
 
 /** Ett kvitto: kostnaden utan moms, ingående moms, och varifrån pengarna kom. */
