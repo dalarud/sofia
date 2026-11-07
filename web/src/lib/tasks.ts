@@ -53,12 +53,6 @@ export async function todaysTasks(): Promise<Task[]> {
     title: receiptsTodo.length === 1 ? "Ett kvitto väntar på att bokföras" : `${receiptsTodo.length} kvitton väntar på att bokföras`,
     why: "Ungefär en minut per kvitto. Fokusläget visar ett i taget.",
   });
-  const rutTodo = (await db.select().from(schema.invoices).where(eq(schema.invoices.status, "betald"))).filter((i) => i.rutPaidOre < i.rutOre);
-  if (rutTodo.length) tasks.push({
-    key: "rut", weight: 70, minutes: 10, href: `/admin/fakturor/${rutTodo[0].id}`, action: "Visa uppgifterna",
-    title: rutTodo.length === 1 ? `Begär rutavdraget för faktura ${rutTodo[0].number}` : `Begär rutavdrag för ${rutTodo.length} fakturor`,
-    why: "Kunden har betalat sin del. Resten betalar Skatteverket när du har begärt det i e-tjänsten.",
-  });
   if (drafts.length) tasks.push({
     key: "utkast", weight: 60, minutes: 5, href: "/admin/fakturor", action: "Gå till utkasten",
     title: drafts.length === 1 ? "Ett fakturautkast är inte skickat" : `${drafts.length} fakturautkast är inte skickade`,

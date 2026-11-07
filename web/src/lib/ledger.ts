@@ -9,7 +9,7 @@ type Executor = typeof db | Tx;
 export type NewVerification = {
   date: string;
   text: string;
-  source: "order" | "faktura" | "rut" | "kvitto" | "stripe" | "manuell" | "rattelse" | "moms";
+  source: "order" | "faktura" | "kvitto" | "stripe" | "manuell" | "rattelse" | "moms";
   sourceRef?: string;
   rows: Row[];
   fileId?: string | null;

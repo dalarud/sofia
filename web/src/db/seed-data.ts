@@ -4,13 +4,13 @@
 export const TEXTS: { key: string; label: string; value: string; multiline?: boolean }[] = [
   { key: "hero.line1", label: "Startsidan: rubrik, första raden", value: "Från brus" },
   { key: "hero.line2", label: "Startsidan: rubrik, andra raden", value: "till *ro.*" },
-  { key: "hero.lede", label: "Startsidan: ingress", value: "Inredare och pedagog i Norrahammar. Jag hjälper dig att sälja, flytta och landa, och att få ett hem som är lätt att leva i. Med kunskap om hur miljön påverkar hur vi mår.", multiline: true },
+  { key: "hero.lede", label: "Startsidan: ingress", value: "Inredare och förskollärare i Norrahammar. Jag ser ditt hem med barnens ögon och gör det vackert, lugnt och lätt att leva i, för alla i familjen.", multiline: true },
   { key: "hero.cta", label: "Startsidan: huvudknapp", value: "Boka ett första samtal" },
   { key: "manifest.text", label: "Manifest", value: "Ett hem ska inte bara se bra ut. Det ska hjälpa dig att *landa* efter dagen. Därför inreder jag för ögat, för vardagen och för hjärnor av alla slag.", multiline: true },
   { key: "manifest.by", label: "Manifest: under namnet", value: "Inredare och homestager i Norrahammar, med bakgrund som förskollärare och i specialpedagogik" },
   { key: "tjanster.title", label: "Tjänster: rubrik", value: "Vad behöver *ditt hem?*" },
   { key: "tjanster.lede", label: "Tjänster: ingress", value: "Varje uppdrag börjar med ett samtal om hur du lever: vad som fungerar, vad som skaver och hur du vill att hemmet ska kännas. Sedan gör vi en plan som passar din budget.", multiline: true },
-  { key: "tjanster.note", label: "Tjänster: liten text under listan", value: "Priser för privatpersoner inklusive moms. Priser för verksamheter exklusive moms. Resor inom 3 mil från Norrahammar ingår. Rutavdraget gäller bara det praktiska arbetet: packning, uppackning och möblering." },
+  { key: "tjanster.note", label: "Tjänster: liten text under listan", value: "Priser för privatpersoner inklusive moms. Priser för verksamheter exklusive moms. Resor inom 3 mil från Norrahammar ingår." },
   { key: "steg.title", label: "Så går det till: rubrik", value: "Från första samtal till *ett lugnare hem.*" },
   { key: "steg.lede", label: "Så går det till: ingress", value: "Du vet alltid vad nästa steg är, vad det kostar och hur lång tid det tar. Det första samtalet är alltid gratis.", multiline: true },
   { key: "steg.1.title", label: "Steg 1: rubrik", value: "Första samtalet" },
@@ -38,7 +38,7 @@ export const TEXTS: { key: string; label: string; value: string; multiline?: boo
   { key: "present.lede", label: "Presentkort: ingress", value: "Ett hembesök, en kurs i lera eller ett valfritt belopp att använda i ateljén. Presentkortet skickas som PDF och gäller i två år.", multiline: true },
   { key: "om.title", label: "Om Sofia: rubrik", value: "Tre erfarenheter, *ett företag.*" },
   { key: "om.p1", label: "Om Sofia: stycke 1", value: "Hej! Jag heter Sofia Dalarud. I många år arbetade jag i förskolan och fördjupade mig i specialpedagogik och NPF. Där lärde jag mig att rätt miljö gör stor skillnad: ett lugnt rum, en tydlig plats för saker, ljus som inte stressar.", multiline: true },
-  { key: "om.p2", label: "Om Sofia: stycke 2", value: "I dag är jag utbildad inredningsstylist och homestagingkonsult. Mest hjälper jag människor mitt i en förändring: när ett hem ska säljas, när någon ska flytta och när en familj ska landa. Det är samma sak som i förskolan, fast större. En plan man kan se, ett steg i taget och en trygg övergång.", multiline: true },
+  { key: "om.p2", label: "Om Sofia: stycke 2", value: "I dag är jag utbildad inredningsstylist och homestagingkonsult. Men jag ser fortfarande rummen som i förskolan: vart tar blicken vägen, vad når barnet själv och var finns lugnet? Det gör hemmen lätta att leva i, inte bara vackra att titta på.", multiline: true },
   { key: "om.p4", label: "Om Sofia: stycke 4, om dalen", value: "Studio Dalarud finns i Norrahammar, i Tabergsdalen. Här göt bruket spisar, värmepannor och tvättmaskiner till folkhemmets kök i över hundra år. Det känns rätt att nästa steg, ett hem format efter människan, börjar i samma dal. Dalen i min logotyp finns på riktigt.", multiline: true },
   { key: "om.p3", label: "Om Sofia: stycke 3", value: "När jag inte inreder formar jag i självtorkande lera. Att arbeta med händerna är mitt sätt att varva ner, och föremålen hittar ofta in i hemmen jag stylar.", multiline: true },
   { key: "tips.title", label: "Tips: rubrik", value: "Små steg mot *ett lugnare hem.*" },
@@ -47,7 +47,7 @@ export const TEXTS: { key: string; label: string; value: string; multiline?: boo
   { key: "kontakt.title", label: "Kontakt: rubrik", value: "Vad skaver *hemma?*" },
   { key: "kontakt.lede", label: "Kontakt: ingress", value: "Berätta lite om ditt hem. Jag svarar inom två arbetsdagar och föreslår ett första samtal, utan kostnad.", multiline: true },
   { key: "kontakt.area", label: "Kontakt: område", value: "Hembesök i Norrahammar, Jönköping, Huskvarna och Tabergsdalen. Digitalt i hela Sverige." },
-  { key: "sidfot.text", label: "Sidfoten: kort text", value: "Inredare och pedagog i Norrahammar, Jönköping. Flytt med rutavdrag, homestaging, inredning och lugna rum. Från brus till ro." },
+  { key: "sidfot.text", label: "Sidfoten: kort text", value: "Inredare och förskollärare i Norrahammar, Jönköping. Barnrum, inredning, homestaging och lugna rum. Från brus till ro." },
   { key: "villkor.text", label: "Köpvillkor (egen sida)", multiline: true, value: `Studio Dalarud drivs av Sofia Dalarud som enskild näringsidkare med F-skattsedel.
 
 ## Beställning och betalning
@@ -91,7 +91,7 @@ Betalningar hanteras av Stripe. Hemsidan och databasen drivs hos Vercel och Supa
 Du har rätt att få veta vilka uppgifter vi har om dig, att få dem rättade eller raderade, och att klaga hos Integritetsskyddsmyndigheten. Kontakta oss på e-post.` },
   // ---- Sidornas huvuden ----
   { key: "sida.hjalp.rubrik", label: "Sidhuvud Hjälp hemma: rubrik", value: "Ett hem som *ger ro.*" },
-  { key: "sida.hjalp.ingress", label: "Sidhuvud Hjälp hemma: ingress", value: "Flytt, homestaging, inredning och lugna rum. Varje uppdrag börjar med hur du lever, och första steget är ett hembesök med Ro-kartan eller Flyttkartan.", multiline: true },
+  { key: "sida.hjalp.ingress", label: "Sidhuvud Hjälp hemma: ingress", value: "Barnrum, inredning, homestaging och lugna rum. Varje uppdrag börjar med hur ni lever, och första steget är alltid ett hembesök med Ro-kartan.", multiline: true },
   { key: "sida.ateljen.rubrik", label: "Sidhuvud Ateljén: rubrik", value: "Format för hand, *i lera.*" },
   { key: "sida.ateljen.ingress", label: "Sidhuvud Ateljén: ingress", value: "Föremål i självtorkande lera, kurser där du formar själv och presentkort. Allt är gjort för att titta på och hålla i.", multiline: true },
   { key: "sida.mh.rubrik", label: "Sidhuvud Människohemmet: rubrik", value: "Människohemmet" },
@@ -104,49 +104,38 @@ Du har rätt att få veta vilka uppgifter vi har om dig, att få dem rättade el
   { key: "sida.om.ingress", label: "Sidhuvud Om Sofia: ingress", value: "Förskollärare, inredare och formgivare i lera, i Norrahammar. Om hur Studio Dalarud blev till.", multiline: true },
 
   // ---- Startsidan ----
-  { key: "sida.flytta.rubrik", label: "Sidhuvud Flytta med ro: rubrik", value: "Flytta *med ro.*" },
-  { key: "sida.flytta.ingress", label: "Sidhuvud Flytta med ro: ingress", value: "Att byta hem är en av livets största förändringar. Jag gör den lätt för hjärnan: en plan du kan se, hjälp att välja, packning och ett nytt hem som känns som ditt från första kvällen. Det praktiska arbetet ger rutavdrag.", multiline: true },
-  { key: "flytta.steg.title", label: "Flytta: steg, rubrik", value: "En person, *hela vägen.*" },
-  { key: "flytta.steg.lede", label: "Flytta: steg, ingress", value: "I förskolan arbetade jag med det som är svårast för många barn: övergångar. En flytt är samma sak, fast större. Därför delar vi den i steg som du kan se och bocka av.", multiline: true },
-  { key: "flytta.steg.1.title", label: "Flytta: steg 1, rubrik", value: "Flyttsamtalet" },
-  { key: "flytta.steg.1.text", label: "Flytta: steg 1, text", value: "Vi går igenom hemmet tillsammans. Vad ska med, vad ska säljas, ges bort eller slängas? Innan jag går får du Flyttkartan: en plan vecka för vecka och en skiss av det nya hemmet.", multiline: true },
-  { key: "flytta.steg.1.meta", label: "Flytta: steg 1, tid och pris", value: "2 timmar · 2 495 kr" },
-  { key: "flytta.steg.2.title", label: "Flytta: steg 2, rubrik", value: "Packdagarna" },
-  { key: "flytta.steg.2.text", label: "Flytta: steg 2, text", value: "Vi packar rum för rum enligt kartan. Varje kartong får ett flyttmärke med färg och symbol, så att den hamnar i rätt rum.", multiline: true },
-  { key: "flytta.steg.2.meta", label: "Flytta: steg 2, tid och pris", value: "690 kr/h · 345 kr efter rutavdrag" },
-  { key: "flytta.steg.3.title", label: "Flytta: steg 3, rubrik", value: "Sälja vidare" },
-  { key: "flytta.steg.3.text", label: "Flytta: steg 3, text", value: "Det som inte ska med kör jag till second hand eller auktion, så att det får ett nytt liv. Transport till försäljning ger också rutavdrag.", multiline: true },
-  { key: "flytta.steg.3.meta", label: "Flytta: steg 3, tid och pris", value: "Ingår i packdagarna" },
-  { key: "flytta.steg.4.title", label: "Flytta: steg 4, rubrik", value: "Landa-dagen" },
-  { key: "flytta.steg.4.text", label: "Flytta: steg 4, text", value: "Jag packar upp, ställer möblerna rätt och monterar det som behövs. Sist stylar jag hall, kök och vardagsrum, så att det känns som hemma redan första kvällen.", multiline: true },
-  { key: "flytta.steg.4.meta", label: "Flytta: steg 4, tid och pris", value: "5 900 kr · ca 3 700 kr efter rutavdrag" },
-  { key: "flytta.marken.title", label: "Flytta: flyttmärken, rubrik", value: "Bildstöd för *kartongerna.*" },
-  { key: "flytta.marken.text", label: "Flytta: flyttmärken, text", value: "I förskolan hjälper bilder barnen att veta vad som händer härnäst. Samma knep fungerar på en flytt. Varje rum i det nya hemmet får en färg och en symbol, och varje kartong får samma märke. Då vet alla, även barnen och flyttfirman, var allt ska stå.", multiline: true },
-  { key: "flytta.marken.punkter", label: "Flytta: det du får (en per rad)", multiline: true, value: `Flyttkartan: hela flytten vecka för vecka, på ett papper.
-En skiss av det nya hemmet, med möblerna utritade innan något bärs in.
-Flyttmärken i papper till alla kartonger, och lådmärken i lera till det nya hemmet om du vill.
-Listor för det som ska säljas, ges bort och slängas.` },
-  { key: "flytta.rut.title", label: "Flytta: rutavdrag, rubrik", value: "Rutavdrag på *det praktiska.*" },
-  { key: "flytta.rut.lede", label: "Flytta: rutavdrag, ingress", value: "Packning, uppackning, att flytta och montera möbler och att köra saker till försäljning ger rutavdrag. Planering, råd och styling gör det inte. Därför delar jag alltid fakturan, så att du ser exakt vad som ger avdrag.", multiline: true },
-  { key: "flytta.rut.delar", label: "Flytta: vad som ger rutavdrag (Rubrik | text, en per rad)", multiline: true, value: `Ger rutavdrag | Packning och uppackning, att flytta, montera och demontera möbler, och transport av saker till försäljning för återanvändning.
-Ger inte rutavdrag | Flyttsamtalet, planering, råd, inköp och styling. Inte heller transport till återvinningscentralen.` },
-  { key: "flytta.rut.exempel", label: "Flytta: räkneexempel (Rad | belopp, en per rad)", multiline: true, value: `Flyttsamtal med Flyttkartan, 2 h | 2 495 kr
-Två packdagar, 16 h à 690 kr, rutarbete | 11 040 kr
-Landa-dag, varav 4 485 kr rutarbete | 5 900 kr
-Summa | 19 435 kr
-Rutavdrag, 50 % av rutarbetet | −7 762 kr
-Du betalar | 11 673 kr` },
-  { key: "flytta.rut.not", label: "Flytta: rutavdrag, liten text", multiline: true, value: "Exempel för ett par som flyttar från villa till lägenhet. Du behöver ha rutavdrag kvar: högst 75 000 kr per person och år för rot och rut tillsammans. Den som betalar för hjälp i sin förälders hem kan också få rutavdrag. Ett dödsbo kan inte få rutavdrag för arbete efter dödsfallet." },
-  { key: "flytta.vem.title", label: "Flytta: vem, rubrik", value: "Samma hus, *två familjer.*" },
-  { key: "flytta.vem.lede", label: "Flytta: vem, ingress", value: "Ofta hjälper jag i samma hus två gånger: först familjen som flyttar ut, sedan familjen som flyttar in.", multiline: true },
-  { key: "flytta.vem", label: "Flytta: vem jag hjälper (Rubrik | text, en per rad)", multiline: true, value: `Du som lämnar villan | Barnen har flyttat och huset är för stort, men det känns oöverstigligt att börja. Vi tar ett rum i taget, i din takt.
-Föräldrahemmet | Bor du långt bort och mamma eller pappa ska flytta? Jag är din person på plats och skickar bilder och en plan varje vecka. Du kan få rutavdrag när du betalar för hjälp i förälderns hem.
-Familjen som flyttar in | Kartonger överallt och barn som ska sova i ett nytt rum. Landa-dagen gör att det känns som hemma redan första kvällen.
-Mäklare | Huset byter familj: jag hjälper säljaren att komma i väg och köparen att landa. Fråga om föredraget Flytta från villan och om landa-kortet.` },
+  { key: "sida.barn.rubrik", label: "Sidhuvud Barnfamiljer: rubrik", value: "Med *barnens ögon.*" },
+  { key: "sida.barn.ingress", label: "Sidhuvud Barnfamiljer: ingress", value: "Jag har arbetat många år som förskollärare och sett hur barn använder ett rum: var de leker, var de stannar upp och var det blir för mycket. Nu använder jag den blicken hemma hos er, med en inredares hand.", multiline: true },
+  { key: "barn.steg.title", label: "Barnfamiljer: steg, rubrik", value: "Det börjar *på huk.*" },
+  { key: "barn.steg.lede", label: "Barnfamiljer: steg, ingress", value: "I varje rum sätter jag mig först i barnets höjd. Det mesta som skaver syns därifrån: krokar som inte nås, hyllor som ropar och lampor som bländar.", multiline: true },
+  { key: "barn.steg.1.title", label: "Barnfamiljer: steg 1, rubrik", value: "Första samtalet" },
+  { key: "barn.steg.1.text", label: "Barnfamiljer: steg 1, text", value: "Vi pratar i 20 minuter om hur er vardag ser ut: morgnar, läggning, lek och var det brukar bli kaos.", multiline: true },
+  { key: "barn.steg.1.meta", label: "Barnfamiljer: steg 1, tid och pris", value: "Gratis · 20 min" },
+  { key: "barn.steg.2.title", label: "Barnfamiljer: steg 2, rubrik", value: "Hembesöket" },
+  { key: "barn.steg.2.text", label: "Barnfamiljer: steg 2, text", value: "Jag går igenom hemmet i barnens höjd och i er. Innan jag går får ni Ro-kartan, med de tre första stegen ni kan göra själva.", multiline: true },
+  { key: "barn.steg.2.meta", label: "Barnfamiljer: steg 2, tid och pris", value: "2 timmar · 2 495 kr" },
+  { key: "barn.steg.3.title", label: "Barnfamiljer: steg 3, rubrik", value: "Barnens rum" },
+  { key: "barn.steg.3.text", label: "Barnfamiljer: steg 3, text", value: "Vill ni ha mer hjälp planerar och stylar jag barnrummet, hallen eller läxplatsen, med bildstöd i lera och en inköpslista efter er budget.", multiline: true },
+  { key: "barn.steg.3.meta", label: "Barnfamiljer: steg 3, tid och pris", value: "Från 6 900 kr" },
+  { key: "barn.steg.4.title", label: "Barnfamiljer: steg 4, rubrik", value: "Uppföljningen" },
+  { key: "barn.steg.4.text", label: "Barnfamiljer: steg 4, text", value: "Efter en månad hör jag av mig. Vad fungerar, och vad behöver justeras när barnen har använt rummet på riktigt?", multiline: true },
+  { key: "barn.steg.4.meta", label: "Barnfamiljer: steg 4, tid och pris", value: "Ingår" },
+  { key: "barn.hojd.title", label: "Barnfamiljer: barnets höjd, rubrik", value: "Allt viktigt i *barnets höjd.*" },
+  { key: "barn.hojd.text", label: "Barnfamiljer: barnets höjd, text", value: "I förskolan står det barnen behöver där de själva når det, och det som stör står bakom luckor. Samma tanke fungerar hemma. Då kan barnen göra mer själva, och ni behöver tjata mindre.", multiline: true },
+  { key: "barn.hojd.punkter", label: "Barnfamiljer: barnets höjd, punkter (en per rad)", multiline: true, value: `Krokar och korgar i barnets höjd, cirka 95 cm, så att ytterkläderna har en plats.
+Lådmärken i lera: en bild på varje låda, så att barnet hittar och plockar undan själv.
+Lugnt i ögonhöjd: färre saker framme, fler bakom luckor.
+En plats för vila: en koja eller ett hörn med mjukt ljus.` },
+  { key: "barn.vem.title", label: "Barnfamiljer: vem, rubrik", value: "Vem jag *hjälper.*" },
+  { key: "barn.vem.lede", label: "Barnfamiljer: vem, ingress", value: "Alla barn mår bra av ett hem som är lätt att förstå. Vissa behöver det mer än andra.", multiline: true },
+  { key: "barn.vem", label: "Barnfamiljer: vem jag hjälper (Rubrik | text, en per rad)", multiline: true, value: `Familjen som just flyttat in | Nytt hus och allt ska hitta sin plats. Vi gör en Ro-karta för det nya hemmet innan allt har hamnat fel.
+Barnet med NPF | För barn med ADHD, autism eller annan NPF gör miljön extra stor skillnad. Jag har arbetat med det i förskolan i många år.
+Föräldern som också behöver ro | Hemmet ska fungera för de vuxna också, även för en vuxen hjärna med ADHD.
+Mäklare och förskolor | Mäklare kan ge köparen ett landa-kort: ett hembesök i det nya hemmet. Förskolor kan boka föräldrakvällen Ett lugnare barnrum.` },
   { key: "start.title", label: "Startsidan: tre vägar, rubrik", value: "Tre vägar *in.*" },
-  { key: "start.lede", label: "Startsidan: tre vägar, ingress", value: "Ska du flytta, vill du ha hjälp hemma, eller vill du börja själv? Välj det som passar dig i dag.", multiline: true },
-  { key: "start.dorr1", label: "Startsidan: väg 1, rubrik", value: "Flytta med ro" },
-  { key: "start.dorr1.text", label: "Startsidan: väg 1, text", value: "En person hela vägen: plan, packning, sälja vidare och landa. Rutavdrag på det praktiska." },
+  { key: "start.lede", label: "Startsidan: tre vägar, ingress", value: "Har ni barn hemma, vill du ha hjälp med hela hemmet, eller vill du börja själv? Välj det som passar dig i dag.", multiline: true },
+  { key: "start.dorr1", label: "Startsidan: väg 1, rubrik", value: "Med barnens ögon" },
+  { key: "start.dorr1.text", label: "Startsidan: väg 1, text", value: "Barnrum, hall och läxplats som fungerar, av en inredare som har varit förskollärare." },
   { key: "start.dorr2", label: "Startsidan: väg 2, rubrik", value: "Ett hem som ger ro" },
   { key: "start.dorr2.text", label: "Startsidan: väg 2, text", value: "Homestaging, inredning och lugna rum. Första steget är ett hembesök med Ro-kartan." },
   { key: "start.dorr3", label: "Startsidan: väg 3, rubrik", value: "Börja själv i dag" },
@@ -179,9 +168,9 @@ Livet | skiftar. Hemmet behöver följa flytt, barn, separation och ålder.` },
   { key: "mh.delar.lede", label: "Människohemmet: delkoncepten, ingress", multiline: true, value: "Bågen är hemmet, och stenen är människan. Runt henne finns fem delkoncept, vart och ett för ett mänskligt behov. Välj en båge för att läsa mer." },
   { key: "mh.delar", label: "Människohemmet: delkoncepten (Namn | Undertitel | Behov | Idé | I företaget, en per rad)", multiline: true, value: `Ro | Rohemmet | Nervsystemets behov av vila och färre intryck | Ett hem som är snällt mot hjärnan: fredad ögonhöjd, ljus i tre höjder, allt har en plats och en rohörna i varje hem. | Lugna rum, hemanalysen, Ro-kartan och föreläsningarna.
 Jord | Det gjorda hemmet | Behovet av natur, material och att göra med händerna | Människan behöver ta i saker, och se saker som någon har gjort. Minst ett föremål gjort för hand i varje rum. | Dalarud Lera, kurserna och Forma hemma-kit.
-Växt | Barnets hem | Barnets behov av att växa, klara själv och leka | Rummet sett från barnets höjd: vad kan barnet nå, förstå och klara själv? | Barnrum som ger ro, förskolor och Lera för lugn.
+Växt | Barnets hem | Barnets behov av att växa, klara själv och leka | Rummet sett från barnets höjd: vad kan barnet nå, förstå och klara själv? | Barnens rum, föräldrakvällar, förskolor och Lera för lugn.
 Bord | Det samlande hemmet | Behovet av andra människor | Ett bord där alla får plats, en hall som välkomnar och kvällar då man gör något tillsammans. | Ro-kvällar, kurser och gemenskapen.
-År | Det föränderliga hemmet | Behovet av att hemmet följer livet och årstiderna | Ett hem blir aldrig klart. Det ska följa flytt, barn, försäljning och ålder, och skifta med årstiderna. | Homestaging, Inflyttning, Sälj och landa och årstidsbesöken.` },
+År | Det föränderliga hemmet | Behovet av att hemmet följer livet och årstiderna | Ett hem blir aldrig klart. Det ska följa flytt, barn, försäljning och ålder, och skifta med årstiderna. | Homestaging, Landa i nya hemmet och årstidsbesöken.` },
   { key: "mh.mal.lede", label: "Människohemmet: målen, ingress", multiline: true, value: "Studio Dalarud kan inte nå dem själv. Men det är visionen som gör att andra vill vara med: föräldrar, förskolor, bostadsbolag och kommuner." },
   { key: "mh.mal", label: "Människohemmet: mål för 2040 (Rubrik | text, en per rad)", multiline: true, value: `En vilplats för varje barn | i förskola och skola.
 Hem för alla hjärnor | med kunskap som är fri att använda.
@@ -310,7 +299,6 @@ export const SETTINGS: Record<string, unknown> = {
   shop: { shippingOre: 6900, freeShippingFromOre: 80000, pickup: true },
   gifts: [
     { kind: "Hembesök", amountOre: 249500 },
-    { kind: "Flyttsamtal", amountOre: 249500 },
     { kind: "Kurs i lera", amountOre: 65000 },
     { kind: "Rumsstyling", amountOre: 890000 },
     { kind: "Valfritt belopp", amountOre: 0 },
@@ -318,18 +306,18 @@ export const SETTINGS: Record<string, unknown> = {
 };
 
 export const SERVICES = [
-  { name: "Flytta med ro", short: "Plan, packning och landning, med rutavdrag", priceFrom: "från 2 495 kr", tone: "clay", badge: "Rutavdrag på det praktiska",
-    body: "En person hela vägen, från det gamla hemmet till det nya. I flyttsamtalet får du Flyttkartan. Sedan packar vi, kör det som ska säljas till second hand och landar i det nya hemmet. Packning, uppackning och möblering ger rutavdrag. Planering och styling gör det inte.",
-    items: [["Flyttsamtal med Flyttkartan, 2 h", "2 495 kr"], ["Packdagar: packning och transport till försäljning", "690 kr/h, 345 kr efter rut"], ["Landa-dag: uppackning, möblering och styling", "5 900 kr, ca 3 700 kr efter rut"], ["Hela flytten, villa till lägenhet (exempel)", "ca 11 700 kr efter rut"]] },
-  { name: "Homestaging", short: "Bostaden som köparen vill flytta in i", priceFrom: "från 2 495 kr", tone: "surface",
-    body: "Ljus, luft och känsla redan på första bilden. Jag arbetar helst med dina egna möbler och kompletterar gärna med begagnade. Jag samarbetar direkt med din mäklare, och ska du flytta hjälper jag dig hela vägen till det nya hemmet.",
-    items: [["Rådgivning och checklista inför visning", "2 495 kr"], ["Fotostyling på fotodagen, halvdag", "3 900 kr"], ["Styling med egna möbler", "från 7 900 kr"], ["Styling med kompletterande möbler", "från 9 900 kr"]] },
+  { name: "Barnens rum", short: "Barnrum, hall och läxplats som fungerar", priceFrom: "från 2 495 kr", tone: "clay", badge: "Förskollärarens blick",
+    body: "Jag har arbetat många år som förskollärare och vet hur barn använder ett rum. Barnrummet planeras efter hur ditt barn leker, sover och hittar sina saker, med bildstöd i lera och färre intryck i ögonhöjd. För alla barn, och särskilt för barn med ADHD, autism eller annan NPF.",
+    items: [["Hembesök med Ro-kartan, 2 h", "2 495 kr"], ["Digital Ro-karta, via bilder och video, hela Sverige", "2 495 kr"], ["Barnrum som ger ro", "från 6 900 kr"], ["Hall eller läxplats som fungerar", "från 4 900 kr"]] },
   { name: "Ett hem som ger ro", short: "Inredning och lugna rum för hela familjen", priceFrom: "från 2 495 kr", tone: "moss", badge: "Unikt för Studio Dalarud",
-    body: "Jag går igenom hemmet med Rohemmets fyra hörnstenar: överblick, sinnesro, flöde och vila. Innan jag går får du Ro-kartan. För alla som vill ha det lugnare, och särskilt för barn och vuxna med ADHD, autism eller annan NPF.",
-    items: [["Hembesök med Ro-kartan, 2 h", "2 495 kr"], ["Digital Ro-karta, via bilder och video, hela Sverige", "2 495 kr"], ["Ett rum som ger ro: barnrum, sovrum eller arbetsrum", "från 6 900 kr"], ["Rumsstyling, ett rum", "från 8 900 kr"]] },
-  { name: "Verksamheter", short: "Förskolor, skolor, boenden och bostadsbolag", priceFrom: "från 6 000 kr", tone: "surface", contactLabel: "Kontakta",
-    body: "Jag har arbetat många år i förskolan och vet hur en avdelning används en vanlig tisdag. Jag hjälper förskolor, skolor, boenden och bostadsbolag att skapa tillgängliga och lugna miljöer, från hallen till vilrummet.",
-    items: [["Föreläsning: Miljön som verktyg, 60–90 min", "från 6 000 kr"], ["Miljöanalys för förskola, skola eller boende", "från 9 500 kr"], ["Rohemmet i verksamheten: föreläsning, analys och uppföljning", "från 18 000 kr"], ["Visningslägenhet och gemensamma rum för bostadsbolag", "från 9 900 kr"]] },
+    body: "Jag går igenom hemmet med Rohemmets fyra hörnstenar: överblick, sinnesro, flöde och vila. Innan jag går får du Ro-kartan. Har ni precis flyttat in gör vi den för det nya hemmet, innan allt har hamnat på fel plats.",
+    items: [["Hembesök med Ro-kartan, 2 h", "2 495 kr"], ["Landa i nya hemmet: plan och styling av de första rummen", "från 5 900 kr"], ["Rumsstyling, ett rum", "från 8 900 kr"], ["Vardag och hemmakontor för vuxna med ADHD", "från 6 900 kr"]] },
+  { name: "Homestaging", short: "Familjevillan som köparen ser sig själv i", priceFrom: "från 2 495 kr", tone: "surface",
+    body: "De som köper villor är oftast barnfamiljer. Jag stylar hallen och barnrummet så att köparen ser hur deras vardag skulle fungera, inte bara att det är fint. Jag arbetar helst med dina egna möbler och samarbetar direkt med din mäklare.",
+    items: [["Rådgivning och checklista inför visning", "2 495 kr"], ["Fotostyling på fotodagen, halvdag", "3 900 kr"], ["Styling med egna möbler", "från 7 900 kr"], ["Styling med kompletterande möbler", "från 9 900 kr"]] },
+  { name: "Verksamheter", short: "Förskolor, skolor, boenden och mäklare", priceFrom: "från 1 995 kr", tone: "surface", contactLabel: "Kontakta",
+    body: "Jag vet hur en förskoleavdelning används en vanlig tisdag. Jag håller föräldrakvällar och föreläsningar, gör lärmiljöanalyser och hjälper mäklare med en gåva till köparen. Större uppdrag, som Rohemmet i verksamheten, offereras.",
+    items: [["Föräldrakväll: Ett lugnare barnrum, 45 min", "från 2 500 kr"], ["Föreläsning: Miljön som verktyg, 60–90 min", "från 6 000 kr"], ["Lärmiljöanalys för förskola eller skola", "från 9 500 kr"], ["Landa-kortet för mäklare: ett hembesök till köparen", "1 995 kr"]] },
 ];
 
 export const PRODUCTS = [
@@ -365,7 +353,6 @@ export const TIPS = [
 /** Konton ur BAS-kontoplanen som en enskild firma i Studio Dalaruds bransch behöver. */
 export const ACCOUNTS: [number, string][] = [
   [1510, "Kundfordringar"],
-  [1513, "Kundfordringar – delad faktura (rutavdrag)"],
   [1580, "Fordringar för kontokort och kuponger (Stripe)"],
   [1930, "Företagskonto"],
   [2010, "Eget kapital"],
