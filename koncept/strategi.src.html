@@ -202,6 +202,59 @@ section { padding: clamp(4rem, 9vw, 7rem) 0; }
 .compare small { color: var(--muted); display: block; font-size: .82rem; margin-top: .2rem; }
 .compare-wrap { overflow-x: auto; }
 
+
+/* Version 4: möjlighetskartan */
+:root { --s1: #B5532E; --s2: #3B6EA5; --s3: #B8850A; --s4: #8A4D9E; --s5: #2F8048; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --s1: #D9714A; --s2: #5C8FCB; --s3: #B07E10; --s4: #A879BB; --s5: #3FA060; } }
+:root[data-theme="dark"] { --s1: #D9714A; --s2: #5C8FCB; --s3: #B07E10; --s4: #A879BB; --s5: #3FA060; }
+.caps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 2rem; }
+.caps div { border-top: 2px solid var(--fg); padding-top: .9rem; }
+.caps b { display: block; font: 400 1.4rem/1.15 var(--serif); }
+.caps span { display: block; margin-top: .4rem; color: var(--muted); font-size: .93rem; }
+@media (max-width: 820px) { .caps { grid-template-columns: 1fr; } }
+.core { margin-top: clamp(2.4rem, 5vw, 3.4rem); font: 400 clamp(1.6rem, 3.4vw, 2.4rem)/1.2 var(--serif); max-width: 34ch; }
+.core em { color: var(--accent); }
+.map { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.6rem 3.4rem; }
+@media (max-width: 860px) { .map { grid-template-columns: 1fr; } }
+.arena h3 { font-size: 1.9rem; border-bottom: 1px solid var(--fg); padding-bottom: .5rem; }
+.arena h3 small { font: 600 .7rem var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-left: .6rem; }
+.opp { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .2rem 1rem; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.opp b { font: 400 1.2rem/1.2 var(--serif); }
+.opp p { grid-column: 1 / -1; color: var(--muted); font-size: .9rem; }
+.tags { display: flex; gap: .35rem; align-items: baseline; white-space: nowrap; }
+.tag2 { font-size: .68rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: .12rem .45rem; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.tag2--okand { border-color: var(--accent); color: var(--accent); }
+.tag2--outnyttjad { border-color: var(--moss); color: var(--moss); }
+.tag2--h { border-color: transparent; background: color-mix(in srgb, var(--fg) 8%, transparent); color: var(--fg); }
+.lanes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.lane { border-top: 2px solid var(--fg); padding-top: 1rem; }
+.lane:nth-child(1) { border-top-color: var(--accent); }
+.lane:nth-child(2) { border-top-color: var(--moss); }
+.lane h3 { font-size: 1.8rem; }
+.lane .when { font-size: .74rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.lane p.goal { font-family: var(--hand); font-size: 1.3rem; color: var(--accent); margin: .3rem 0 .8rem; line-height: 1.2; }
+.lane ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .45rem; color: var(--muted); font-size: .93rem; }
+.lane li b { color: var(--fg); font-weight: 500; }
+@media (max-width: 860px) { .lanes { grid-template-columns: 1fr; } }
+.chart { position: relative; }
+.chart__row { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr) 7.5rem; gap: 1rem; align-items: center; margin-bottom: 1.1rem; }
+.chart__row > span { font: 400 1.35rem var(--serif); }
+.chart__row > output { font-variant-numeric: tabular-nums; font-weight: 500; text-align: right; }
+.chart__track { display: flex; gap: 2px; height: 2.4rem; min-width: 0; max-width: 100%; }
+.chart__seg { height: 100%; background: var(--k); min-width: 0; flex-basis: 0; cursor: default; }
+.chart__seg:first-child { border-radius: 4px 0 0 4px; }
+.chart__seg:last-child { border-radius: 0 4px 4px 0; }
+.chart__seg:hover, .chart__seg:focus-visible { outline: 2px solid var(--fg); outline-offset: 1px; }
+.chart__tip { position: absolute; pointer-events: none; background: var(--fg); color: var(--bg); font-size: .82rem; padding: .35rem .6rem; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -120%); opacity: 0; transition: opacity .12s; }
+.chart__legend { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; font-size: .88rem; color: var(--muted); margin: .4rem 0 1.4rem; }
+.chart__legend span::before { content: ""; display: inline-block; width: .8rem; height: .8rem; border-radius: 3px; margin-right: .45rem; vertical-align: -1px; background: var(--k); }
+.chart__table { width: 100%; border-collapse: collapse; font-size: .9rem; margin-top: 1rem; }
+.chart__table th, .chart__table td { text-align: right; padding: .45rem .5rem; border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.chart__table th:first-child, .chart__table td:first-child { text-align: left; }
+.chart__table thead th { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.chart__table tfoot td { font-weight: 600; border-bottom: 0; }
+@media (max-width: 600px) { .chart__row { grid-template-columns: 3rem minmax(0, 1fr); } .chart__row > output { grid-column: 2; text-align: left; } }
+
 footer { padding: 3rem 0 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
 footer h4 { font: 400 1.4rem var(--serif); color: var(--fg); margin: 0 0 .8rem; }
 footer ul { margin: 0; padding-left: 1rem; columns: 2 22rem; column-gap: 3rem; }
@@ -209,19 +262,19 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Strategin · version 3 · november 2026</small></div></header>
+<header class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Strategin · version 4 · november 2026</small></div></header>
 
 <main>
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">USP</p>
-    <h1>Hem som<br><em>svarar.</em></h1>
-    <p class="hero__claim">I förskolan svarar rummet på barnens frågor. Hemma svarar föräldern, hela dagen, och det kallas tjat. Sofia bygger in svaren i hemmet, mäter tjatet före och efter, och kommer tillbaka om det inte har minskat.</p>
+    <p class="eyebrow">Översynen, breddad</p>
+    <h1>Rum som<br><em>svarar.</em></h1>
+    <p class="hero__claim">Studio Dalarud formger rum som alla sorters hjärnor förstår: hem, förskolor, arbetsplatser, tandvård, boenden och offentliga rum. Metoden kommer från förskolan, uttrycket från inredningen och föremålen från Sofias händer.</p>
     <div class="facts">
-      <div><b>9</b><span>frågor som förskolans miljö ska svara på, enligt SPSM</span></div>
-      <div><b>5</b><span>av dem ställs hemma varje dag: var, vad, hur, hur länge och vad sen</span></div>
-      <div><b>3&nbsp;dagar</b><span>med tjatmätaren före, och tre dagar efter</span></div>
-      <div><b><em>4&nbsp;veckor</em></b><span>Mindre tjat då, annars kommer Sofia tillbaka</span></div>
+      <div><b>2026</b><span>kom Arbetsmiljöverkets riktlinjer om autism och ADHD på arbetsplatsen</span></div>
+      <div><b>150 000</b><span>personer i Sverige har en demenssjukdom, och de flesta bor hemma i början</span></div>
+      <div><b>28&nbsp;%</b><span>av barnen som inte bor med båda föräldrarna bor växelvis</span></div>
+      <div><b><em>68 / 20&nbsp;%</em></b><span>av barnen med autism kunde behandlas i sinnesanpassad tandvård jämfört med i vanlig</span></div>
     </div>
   </div>
 </section>
@@ -229,38 +282,34 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <section style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">Översynen, del för del</p><h2>Det unika var <em>gömt.</em></h2></div>
-      <p class="lede">Det enda som bara Sofia kan, specialpedagogiken från förskolan, var en liten del av metoden, sortimentet och hemsidan. Resten var vackert, men gick att få av vilken skandinavisk inredare som helst.</p>
+      <div><p class="eyebrow">Varför en fjärde version</p><h2>Metoden var rätt, <em>marknaden för liten.</em></h2></div>
+      <p class="lede">Version 3 hittade metoden, att rummet svarar på frågorna. Sedan krympte den den till en tjänst för en kundgrupp. Men det som fungerar i en förskola med femton barn fungerar också i ett kontorslandskap, ett väntrum och ett demensboende. Den här versionen breddar.</p>
     </div>
-    <div class="audit">
-      <div class="audit__row"><b>Insikten</b><div><p>"Det är inte du som är rörig. Ditt hem är för högljutt." Den flyttar skulden till miljön, och det är rätt. Men brus beskrivs som saker, ljus och ljud, och där arbetar alla stylister.</p></div><p class="audit__fix">Ditt hem svarar inte på frågorna. Därför gör du det, hela dagen.</p></div>
-      <div class="audit__row"><b>Ro-modellen och de tio principerna</b><div><p>Överblick, sinnesro, flöde och återhämtning kan vilken inredare som helst säga. Sju av tio principer är klassiska stylingregler.</p><div class="stones" aria-label="2 av 10 principer bär specialpedagogiken"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span>2 av 10 bär det Sofia ensam kan</span></div></div><p class="audit__fix">Rummet svarar blir metoden. Principerna blir uttrycket.</p></div>
-      <div class="audit__row"><b>Människohemmet</b><div><p>En stark vision och en bra skrift. Men den lovar samhället något, inte kunden, och ingen köper en vision för 2 495 kr.</p></div><p class="audit__fix">Människohemmet är varför. Hem som svarar är vad.</p></div>
-      <div class="audit__row"><b>Erbjudandet</b><div><p>Det sålde aktiviteter: hembesök, analys, styling och timmar. Det fanns inget löfte, ingen mätning och ingen garanti, så kunden kunde bara jämföra pris och smak.</p></div><p class="audit__fix">Sälj ett resultat som familjen själv mäter, med garanti.</p></div>
-      <div class="audit__row"><b>Produkterna</b><div><p>Vaser, skålar och stakar konkurrerar med all keramik och ger cirka 300 kr i timmen. Filtvalvet saknade en uppgift i metoden.</p><div class="stones" aria-label="2 av 11 föremål bär metoden"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span>2 av 11 föremål bär metoden</span></div></div><p class="audit__fix">Föremål som svarar: fyra kända saker, som var och en svarar på en fråga.</p></div>
-      <div class="audit__row"><b>Hemsidan</b><div><p>"Från brus till ro" och en akvarell är vackert men abstrakt. Ro-testet sorterar människor i typer, men mäter ingenting i hemmet.</p></div><p class="audit__fix">USP:n i rubriken, och tjatmätaren som mäter.</p></div>
-      <div class="audit__row"><b>Strategi 1 och 2</b><div><p>Version 1 gjorde Sofia till flyttfirma, vilket inte är hennes kapital. Version 2 gjorde meriten "förskollärare som inreder" till USP, utan mekanism, bevis eller garanti.</p></div><p class="audit__fix">Ett löfte som bara Sofia kan hålla, och som går att mäta.</p></div>
+    <p class="eyebrow">Kompetensen, sex kapital</p>
+    <div class="caps">
+      <div><b>Förskollärare med specialpedagogik och NPF</b><span>Hon vet hur olika hjärnor använder ett rum, och hur rummet blir förutsägbart: de nio frågorna, bildstöd, zoner och vila.</span></div>
+      <div><b>Inredare och homestager</b><span>Hon gör det vackert, väljer material och ljus och säljer in miljön.</span></div>
+      <div><b>Formgivare i lera</b><span>Hon gör föremålen som bär metoden: bildstöd, krokar, timglas och lyktor.</span></div>
+      <div><b>Ett idésystem</b><span>Människohemmet, Rohemmet, Ro-måtten, skriften och forskningsunderlaget.</span></div>
+      <div><b>En plats och ett nätverk</b><span>Norrahammar, bruket och förskolorna i dalen.</span></div>
+      <div><b>Ett digitalt system</b><span>Hemsida, butik och administration som klarar fler kunder och produkter.</span></div>
     </div>
+    <p class="core">Kärnkompetensen: att forma miljöer så att människor <em>förstår dem, landar i dem och klarar mer själva</em>, och att göra det vackert.</p>
   </div>
 </section>
 
 <section class="deep">
   <div class="wrap">
-    <p class="eyebrow">Mekanismen</p>
-    <p class="usp">Fem frågor som rummet <em>kan svara på.</em></p>
-    <p class="usp__promise">SPSM: "De allra flesta barn mår bra av förutsägbarhet, tydlighet och struktur." Rutiner "avlastar tanken och arbetsminnet". Förskolan bygger svaren i miljön, och Sofia gör samma sak hemma.</p>
+    <p class="eyebrow">USP, breddad</p>
+    <p class="usp">Rum som svarar, för alla <em>sorters hjärnor.</em></p>
+    <p class="usp__promise">Internationellt kallas det neuroinkluderande design. Storbritannien har haft en nationell vägledning sedan 2022 (BSI PAS 6463). I Sverige har jag inte hittat någon motsvarighet, och i befintliga rum, på inredningsnivå, är fältet nästan tomt.</p>
     <div class="q">
-      <div class="q__row"><i>Var?</i><b>”Var är mina vantar?”</b><span>En krok och en korg per barn, i barnets höjd, med en bild i lera.</span></div>
-      <div class="q__row"><i>Vad?</i><b>”Vad ska jag göra nu?”</b><span>Varje del av rummet har en uppgift. Det som inte hör dit står bakom en lucka.</span></div>
-      <div class="q__row"><i>Hur?</i><b>”Hur gör jag?”</b><span>Ordningen syns: krokarna sitter i den ordning kläderna tas på.</span></div>
-      <div class="q__row"><i>Hur länge?</i><b>”Hur länge till?”</b><span>Ett timglas visar tiden. Det är timglaset som säger stopp, inte du.</span></div>
-      <div class="q__row"><i>Vad sen?</i><b>”Vad händer sen?”</b><span>Kvällen har en signal: kvällslyktan tänds och taklampan släcks.</span></div>
-    </div>
-    <div class="why">
-      <div><b>Problemet</b><span>Frågorna går till föräldern, och samma svar upprepas tills det blir tjat.</span></div>
-      <div><b>Mekanismen</b><span>Tydliggörande pedagogik från förskolan, byggd in i hemmets inredning.</span></div>
-      <div><b>Beviset</b><span>Tjatmätaren: familjens egna siffror i tre dagar före och tre dagar efter.</span></div>
-      <div><b>Garantin</b><span>Har tjatet inte minskat efter fyra veckor kommer Sofia tillbaka och justerar.</span></div>
+      <div class="q__row"><i>Hemma</i><b>”Var är mina vantar?”</b><span>Tjat och konflikter i barnfamiljen.</span></div>
+      <div class="q__row"><i>Två hem</i><b>”Hur gör vi här?”</b><span>Två regelverk för samma barn vid växelboende.</span></div>
+      <div class="q__row"><i>Kontoret</i><b>”Var kan jag tänka?”</b><span>Medarbetare med ADHD eller autism som inte orkar.</span></div>
+      <div class="q__row"><i>Tandvården</i><b>”Vad händer nu?”</b><span>Behandlingar som får avbrytas.</span></div>
+      <div class="q__row"><i>Boendet</i><b>”Var är jag?”</b><span>Oro och mer personaltid vid demens.</span></div>
+      <div class="q__row"><i>Biblioteket</i><b>”Var kan jag vila?”</b><span>Besökare som går hem, eller aldrig kommer.</span></div>
     </div>
   </div>
 </section>
@@ -268,18 +317,88 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <section>
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">Därför kan ingen annan lova det</p><h2>Tre kunskaper, <em>en person.</em></h2></div>
-      <p class="lede">Stylister gör det lugnt, men inte begripligt. NPF-team gör det begripligt, men med laminerade bilder på kylskåpet. Sofia gör stöd som ser ut som inredning.</p>
+      <div><p class="eyebrow">Möjlighetskartan</p><h2>Kända, okända och <em>outnyttjade</em> marknader.</h2></div>
+      <p class="lede">Varje möjlighet är prövad mot kompetensen, behovet, hur outnyttjad den är och hur snabbt den kan ge pengar. H1, H2 och H3 anger i vilken horisont den kommer.</p>
     </div>
-    <div class="compare-wrap">
-      <table class="compare">
-        <thead><tr><th>Vem</th><th>Inredning</th><th>Specialpedagogik</th><th>Arbetar i hem</th></tr></thead>
-        <tbody>
-          <tr><td>Stylister och homestagers</td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot dot--no" aria-label="nej"></span></td><td><span class="dot" aria-label="ja"></span></td></tr>
-          <tr><td>NPF-team och specialpedagoger</td><td><span class="dot dot--no" aria-label="nej"></span><small>laminerade bilder</small></td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot" aria-label="ja"></span><small>ofta via kommunen</small></td></tr>
-          <tr><td>Förskollärare</td><td><span class="dot dot--no" aria-label="nej"></span></td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot dot--no" aria-label="nej"></span></td></tr>
-          <tr class="me"><td>Sofia</td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot" aria-label="ja"></span></td></tr>
-        </tbody>
+    <div class="map">
+      <div class="arena"><h3>Hem <small>privatpersoner</small></h3>
+        <div class="opp"><b>Hem som svarar</b><span class="tags"><i class="tag2 tag2--h">H1</i></span><p>Barnfamiljer: mindre tjat kring morgon, lek och kväll, med mätning och garanti.</p></div>
+        <div class="opp"><b>Två hem som svarar</b><span class="tags"><i class="tag2 tag2--okand">okänd</i><i class="tag2 tag2--h">H1</i></span><p>Växelboende: samma krokar, märken och ordning i båda hemmen. Ingen säljer det.</p></div>
+        <div class="opp"><b>Hem som kommer ihåg</b><span class="tags"><i class="tag2 tag2--h">H1</i></span><p>Vuxna med ADHD: landningsplatsen i hallen och hemmakontoret.</p></div>
+        <div class="opp"><b>Ett hem som håller</b><span class="tags"><i class="tag2 tag2--outnyttjad">outnyttjad</i><i class="tag2 tag2--h">H1</i></span><p>Äldre föräldrar och demens hemma: orientering, kontrast och ljus. De vuxna barnen köper.</p></div>
+        <div class="opp"><b>Första egna hemmet</b><span class="tags"><i class="tag2 tag2--h">H2</i></span><p>Unga vuxna med NPF som flyttar hemifrån: ett hem som svarar från dag ett.</p></div>
+      </div>
+      <div class="arena"><h3>Arbete <small>den största nya</small></h3>
+        <div class="opp"><b>NPF-vänliga arbetsplatser</b><span class="tags"><i class="tag2 tag2--outnyttjad">outnyttjad</i><i class="tag2 tag2--h">H1–H2</i></span><p>Riktlinjerna från 2026 riktar sig till företagshälsovården, som saknar inredningskunskapen. Sofia kan arbeta som deras underleverantör.</p></div>
+        <div class="opp"><b>Individuell arbetsplatsanpassning</b><span class="tags"><i class="tag2 tag2--h">H1</i></span><p>Arbetsplats och hemmakontor för en medarbetare, betalt av arbetsgivaren (AFS 2020:5).</p></div>
+        <div class="opp"><b>Lera för lugn som stresshantering</b><span class="tags"><i class="tag2 tag2--okand">okänd</i><i class="tag2 tag2--h">H1</i></span><p>Stresshantering kan betalas med friskvårdsbidrag. Kontrollera upplägget med Skatteverket först.</p></div>
+      </div>
+      <div class="arena"><h3>Lärande</h3>
+        <div class="opp"><b>Lärmiljöanalys och fortbildning</b><span class="tags"><i class="tag2 tag2--h">H1</i></span><p>De nio frågorna på avdelningen, och halvdagen Rummet som pedagog.</p></div>
+        <div class="opp"><b>Föräldrakvällen Mindre tjat hemma</b><span class="tags"><i class="tag2 tag2--h">H1</i></span><p>Billig för förskolan, och den bästa kanalen till familjerna.</p></div>
+        <div class="opp"><b>Nya och ombyggda förskolor</b><span class="tags"><i class="tag2 tag2--outnyttjad">outnyttjad</i><i class="tag2 tag2--h">H2</i></span><p>Specialpedagogen saknas i byggprojekten.</p></div>
+      </div>
+      <div class="arena"><h3>Vård och omsorg</h3>
+        <div class="opp"><b>Sinnesanpassad tandvård</b><span class="tags"><i class="tag2 tag2--okand">okänd</i><i class="tag2 tag2--h">H2</i></span><p>Stark forskning (68 % mot 20 %). Jag hittade inget sådant erbjudande i länet.</p></div>
+        <div class="opp"><b>Väntrum i BUP, habilitering och vårdcentraler</b><span class="tags"><i class="tag2 tag2--h">H2</i></span><p>Ett lugnt hörn och tydlig orientering. Vårdcentralen i Norrahammar planeras att byggas ut.</p></div>
+        <div class="opp"><b>Demensvänliga boenden</b><span class="tags"><i class="tag2 tag2--outnyttjad">outnyttjad</i><i class="tag2 tag2--h">H2</i></span><p>Miljöanpassningar dokumenteras för 83 % i särskilt boende, mot målet 98 %.</p></div>
+        <div class="opp"><b>Boendestöd och LSS</b><span class="tags"><i class="tag2 tag2--h">H1</i></span><p>Utbildningen Hemmet som stöd för kommunens boendestödjare.</p></div>
+      </div>
+      <div class="arena"><h3>Offentliga rum och evenemang</h3>
+        <div class="opp"><b>Bibliotek och kulturhus</b><span class="tags"><i class="tag2 tag2--h">H2</i></span><p>Sinnesrum och NPF-anpassade öppettider finns i Göteborg, Hjo och Karlskrona, men inte här.</p></div>
+        <div class="opp"><b>Mässor och festivaler</b><span class="tags"><i class="tag2 tag2--okand">okänd</i><i class="tag2 tag2--h">H2</i></span><p>Spelfestivalen Glitched på Elmia hade 15 000 besökare. Lugna zoner kan säljas per evenemang.</p></div>
+        <div class="opp"><b>Bostadsbolag och bruket</b><span class="tags"><i class="tag2 tag2--h">H3</i></span><p>Ro-lägenheten som standard, och Rohemmet som gestaltningsprincip i Norrahammar.</p></div>
+      </div>
+      <div class="arena"><h3>Produkter och rättigheter <small>det som skalar</small></h3>
+        <div class="opp"><b>Föremål som svarar</b><span class="tags"><i class="tag2 tag2--h">H1</i></span><p>Morgonraden, Lådmärken, Stunden, Kvällslyktan och Startlådan.</p></div>
+        <div class="opp"><b>Ro-hörnan för verksamheter</b><span class="tags"><i class="tag2 tag2--outnyttjad">outnyttjad</i><i class="tag2 tag2--h">H2</i></span><p>Ett färdigt lugnt rum, tillsammans med en akustiktillverkare i Småland.</p></div>
+        <div class="opp"><b>Digitala kurser och bok</b><span class="tags"><i class="tag2 tag2--h">H2</i></span><p>Hem som svarar för föräldrar, och Rummet som pedagog för personal.</p></div>
+        <div class="opp"><b>Ro-märkt</b><span class="tags"><i class="tag2 tag2--okand">okänd</i><i class="tag2 tag2--h">H3</i></span><p>En svensk vägledning på inredningsnivå, tagen fram med forskare. Sedan märkning och utbildning av andra.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface)">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Portföljen</p><h2>Tre horisonter, <em>en metod.</em></h2></div>
+      <p class="lede">Varje horisont bygger bevis till nästa: hem ger bilder och siffror, verksamheter ger referenser och vägledningen ger skala. Allt bygger på samma metod och samma begrepp, och därför splittras det inte.</p>
+    </div>
+    <div class="lanes">
+      <div class="lane"><span class="when">0–12 månader</span><h3>Bevisa och tjäna</h3><p class="goal">samma hembesök, fyra kundgrupper</p><ul>
+        <li><b>Hem:</b> Hem som svarar, Två hem som svarar, Hem som kommer ihåg och Ett hem som håller</li>
+        <li><b>Lärande:</b> föräldrakvällar och lärmiljöanalyser i dalen</li>
+        <li><b>Arbete:</b> två piloter, gärna med en företagshälsovård</li>
+        <li><b>Omsorg:</b> Hemmet som stöd för boendestödjare</li>
+        <li><b>Produkter:</b> Föremål som svarar och Startlådan</li></ul></div>
+      <div class="lane"><span class="when">1–2 år</span><h3>Bredda till verksamheter</h3><p class="goal">Ro-genomgången som fast produkt</p><ul>
+        <li>Förskolor, tandvård, väntrum, äldreboenden, bibliotek och evenemang</li>
+        <li>Ro-hörnan med en tillverkare</li>
+        <li>Digitala kurser för föräldrar och personal</li>
+        <li>Boken</li></ul></div>
+      <div class="lane"><span class="when">2–5 år</span><h3>Standard och skala</h3><p class="goal">från timmar till tillgångar</p><ul>
+        <li>Ro-märkt: en svensk vägledning, märkning och utbildning av andra</li>
+        <li>Designlicenser</li>
+        <li>Bostadsbolag och bruket</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Affärsmodellen</p><h2>Från timmar <em>till tillgångar.</em></h2></div>
+      <p class="lede">Scenarier, inte prognoser. Beloppen är exklusive moms. Till år 3 ökar intäkterna mer än timmarna, eftersom produkter, kurser och licenser inte kräver Sofias tid för varje kund.</p>
+    </div>
+    <div class="chart" id="chart">
+      <div class="chart__legend" id="chartLegend"></div>
+      <div id="chartRows"></div>
+      <div class="chart__tip" id="chartTip" role="tooltip"></div>
+      <table class="chart__table" aria-label="Intäkter per område, år 1 och år 3">
+        <thead><tr><th>Område</th><th>År 1</th><th>År 3</th></tr></thead>
+        <tbody id="chartTable"></tbody>
+        <tfoot><tr><td>Totalt</td><td>≈ 460 000 kr</td><td>≈ 1 070 000 kr</td></tr><tr><td>Betalda timmar</td><td>≈ 770</td><td>≈ 1 200</td></tr></tfoot>
       </table>
     </div>
   </div>
@@ -288,151 +407,31 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <section style="background: var(--surface)">
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">Så fungerar det</p><h2>Mät, svara, <em>mät igen.</em></h2></div>
-      <p class="lede">Kunden köper ett resultat som går att se, och Sofia får siffror som ingen konkurrent kan visa.</p>
-    </div>
-    <div class="chain">
-      <svg viewBox="0 0 1100 330" role="img" aria-labelledby="flow-t">
-        <title id="flow-t">Flödet: tjatmätaren i tre dagar, hembesöket med Ro-kartan, svaren på plats för morgonen, leken eller kvällen, och en ny mätning efter fyra veckor. Har tjatet inte minskat kommer Sofia tillbaka och justerar.</title>
-        <g><circle cx="90" cy="120" r="11" fill="var(--c4)"/><text x="90" y="166" text-anchor="middle" class="h">Mät</text><text x="90" y="190" text-anchor="middle" class="m">tjatmätaren, 3 dagar</text><text x="90" y="210" text-anchor="middle" class="m">gratis</text></g>
-        <path d="M120 120 H300" class="ln"/><path d="M292 113 L302 120 L292 127" class="ln"/>
-        <path d="M330 150 V100 A40 40 0 0 1 410 100 V150" class="ln" stroke-width="2.2"/><ellipse cx="370" cy="142" rx="9" ry="6" fill="var(--accent)"/>
-        <text x="370" y="190" text-anchor="middle" class="h">Hembesöket</text><text x="370" y="214" text-anchor="middle" class="m">de fem frågorna · Ro-kartan</text>
-        <path d="M440 120 H600" class="ln"/><path d="M592 113 L602 120 L592 127" class="ln"/>
-        <g><circle cx="650" cy="80" r="9" fill="var(--c1)"/><text x="672" y="86">Morgonen</text>
-           <circle cx="650" cy="120" r="9" fill="var(--c3)"/><text x="672" y="126">Leken</text>
-           <circle cx="650" cy="160" r="9" fill="var(--c2)"/><text x="672" y="166">Kvällen</text>
-           <text x="650" y="214" class="m">svaren på plats, från 5 900 kr</text></g>
-        <path d="M800 120 H930" class="ln"/><path d="M922 113 L932 120 L922 127" class="ln"/>
-        <g><circle cx="980" cy="120" r="11" fill="var(--c4)"/><text x="980" y="166" text-anchor="middle" class="h">Mät igen</text><text x="980" y="190" text-anchor="middle" class="m">efter 4 veckor</text></g>
-        <path d="M980 230 C980 300 700 310 680 236" class="dash"/><path d="M674 246 L680 234 L688 245" class="ln"/>
-        <text x="830" y="300" text-anchor="middle" class="note">inte mindre tjat? Sofia kommer tillbaka</text>
-      </svg>
-      <div class="chain-mobile">
-        <div><b>Mät</b><small>Tjatmätaren i tre dagar, gratis.</small></div>
-        <div><b>Hembesöket</b><small>Varje rum prövas mot de fem frågorna. Ro-kartan lämnas innan Sofia går.</small></div>
-        <div><b>Svaren på plats</b><small>Morgonen, leken eller kvällen, från 5 900 kr.</small></div>
-        <div><b>Mät igen</b><small>Efter fyra veckor. Inte mindre tjat? Sofia kommer tillbaka och justerar.</small></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="head">
-      <div><p class="eyebrow">Föremål som svarar</p><h2>Kända saker, <em>ny uppgift.</em></h2></div>
-      <p class="lede">Fyra föremål som redan finns i hemmen. Vart och ett svarar på en fråga, och alla är lätta att tillverka i ek och lera.</p>
-    </div>
-    <div class="doors">
-      <div class="door"><span class="k">Svarar: var? hur?</span><h3>Morgonraden</h3><ul><li><b>Hallkroken, omtänkt</b><span>Tre krokar i ek i 95 cm, med en bild i lera i den ordning kläderna tas på. 1 495 kr.</span></li></ul></div>
-      <div class="door"><span class="k">Svarar: var?</span><h3>Lådmärken</h3><ul><li><b>Etiketten, omtänkt</b><span>En bild i lera på varje låda, så att barnet plockar undan själv. 395 kr för 6 st.</span></li></ul></div>
-      <div class="door"><span class="k">Svarar: hur länge?</span><h3>Stunden</h3><ul><li><b>Timglaset, omtänkt</b><span>Tio minuter i en fot av lera. Det är timglaset som säger stopp. 495 kr.</span></li></ul></div>
-      <div class="door"><span class="k">Svarar: vad sen?</span><h3>Kvällslyktan</h3><ul><li><b>Lyktan, omtänkt</b><span>När den tänds är det dags att varva ner. 395 kr.</span></li></ul></div>
-    </div>
-    <div class="cut">
-      <div><b>Startlådan</b><p>Lådmärken, tjatmätaren som block och guiden Hem som svarar. Säljs i hela Sverige för 595 kr.</p></div>
-      <div><b>Säljs slut</b><p>Vaser, skålar, brickor och stakar görs inte om.</p></div>
-      <div><b>Pausas</b><p>Filtvalvet, tills det har en uppgift i metoden, till exempel som kvällssignal.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="background: var(--surface)">
-  <div class="wrap">
-    <div class="head">
-      <div><p class="eyebrow">Erbjudandet</p><h2>Fyra tjänster, <em>ett löfte.</em></h2></div>
-      <p class="lede">Hembesöket kostar 2 495 kr som förut och räknas av mot ett större uppdrag inom 30 dagar. Golvet är 500 kr i timmen exklusive moms.</p>
-    </div>
-    <div class="doors">
-      <div class="door"><span class="k">Huvudtjänst · med garanti</span><h3>Hem som svarar</h3><ul>
-        <li><b>Tjatmätaren</b><span>gratis</span></li>
-        <li><b>Hembesök: de fem frågorna</b><span>2 495 kr, eller digitalt i hela Sverige</span></li>
-        <li><b>En tid på dygnet</b><span>från 5 900 kr</span></li>
-        <li><b>Hela dagen</b><span>från 15 900 kr</span></li></ul></div>
-      <div class="door"><span class="k">Samma metod, för vuxna</span><h3>Hem som kommer ihåg</h3><ul>
-        <li><b>Hembesök</b><span>2 495 kr</span></li>
-        <li><b>Landningsplatsen i hallen</b><span>från 4 900 kr</span></li>
-        <li><b>Hemmakontor som kommer ihåg</b><span>från 6 900 kr</span></li>
-        <li><b>Rumsstyling</b><span>från 8 900 kr</span></li></ul></div>
-      <div class="door"><span class="k">Familjevillan</span><h3>Homestaging</h3><ul>
-        <li><b>Köparen ser var allt tar vägen</b><span>rådgivning 2 495 kr, styling från 7 900 kr</span></li></ul></div>
-      <div class="door"><span class="k">Exklusive moms</span><h3>Verksamheter</h3><ul>
-        <li><b>Föräldrakväll: Mindre tjat hemma</b><span>från 2 500 kr</span></li>
-        <li><b>Föreläsning: Rummet som pedagog</b><span>från 6 000 kr</span></li>
-        <li><b>Lärmiljöanalys: de nio frågorna</b><span>från 9 500 kr</span></li>
-        <li><b>Landa-kortet för mäklare</b><span>1 995 kr</span></li></ul></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="head">
-      <div><p class="eyebrow">Kanaler</p><h2>Få, och kopplade <em>till löftet.</em></h2></div>
-      <p class="lede">Varje kanal visar metoden, i stället för att bara berätta om den.</p>
-    </div>
-    <ol class="levers">
-      <li class="lever"><div><h3>Föräldrakvällen</h3><span class="miss">Metoden på 45 minuter.</span></div><p>Mindre tjat hemma, på förskolor och skolor i Tabergsdalen och för Attention. Föräldrarna går hem med tjatmätaren. Förskolan får hjälp med samarbetet med hemmen, till låg kostnad.</p></li>
-      <li class="lever"><div><h3>Tjatmätaren</h3><span class="miss">Gratis, lätt att dela.</span></div><p>"Hur många gånger sa du 'ta på dig skorna' i dag?" Resultatet visar vilken tid på dygnet som ska börja svara, och leder till bokning.</p></li>
-      <li class="lever"><div><h3>Före och efter, i siffror</h3><span class="miss">Ingen konkurrent kan visa samma sak.</span></div><p>När tre pilotfamiljer har mätt visas deras verkliga siffror, med deras tillstånd. Inga påståenden innan det finns data.</p></li>
-      <li class="lever"><div><h3>Lokalt i dalen</h3><span class="miss">Förskolläraren som får hemmen att svara.</span></div><p>Google-företagsprofil i Norrahammar, en artikel i Tabergs Nyheter, och Ro-rummet på bruket med en hall och ett barnrum som svarar.</p></li>
-      <li class="lever"><div><h3>Mäklare</h3><span class="miss">I andra hand, men varm.</span></div><p>Landa-kortet till köparen och Familjevillan för säljaren.</p></li>
-    </ol>
-  </div>
-</section>
-
-<section style="background: var(--surface)">
-  <div class="wrap">
-    <div class="head">
-      <div><p class="eyebrow">Ekonomi år 1</p><h2>Mer från <em>löftet.</em></h2></div>
-      <p class="lede">Ett scenario, inte en prognos. Hälften av intäkterna kommer nu från det som bara Sofia kan lova.</p>
-    </div>
-    <div class="mix" id="mix"></div>
-    <div class="mix__legend" id="mix-legend" style="margin-top:1.4rem"></div>
-    <div class="money">
-      <div><b>≈ 520 000 kr</b><span>inklusive moms, år 1</span></div>
-      <div><b>≈ 700 h</b><span>betalda timmar, ungefär 14 i veckan</span></div>
-      <div><b>≈ 595 kr</b><span>i timmen exklusive moms</span></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="head">
-      <div><p class="eyebrow">De första 90 dagarna</p><h2>Bevisa först, <em>berätta sen.</em></h2></div>
-      <p class="lede">Löftet används brett först när tre familjer har mätt och sett att det håller.</p>
+      <div><p class="eyebrow">De första 90 dagarna</p><h2>Lyssna, <em>pröva, bevisa.</em></h2></div>
+      <p class="lede">Bredare betyder inte allt på en gång. Det betyder att lyssna på fler marknader och pröva i liten skala innan något byggs upp.</p>
     </div>
     <ol class="plan">
-      <li><span class="w">Vecka 1–2</span><h3>Verktygen</h3><ul><li>Pröva tjatmätaren hemma eller hos vänner</li><li>Ro-kartan med de fem frågorna</li><li>Första Morgonraden och Stunden</li></ul></li>
-      <li><span class="w">Vecka 2–8</span><h3>Tre pilotfamiljer</h3><ul><li>Lanseringspris mot mätning före och efter</li><li>Gärna en familj med ett barn som har NPF</li></ul></li>
-      <li><span class="w">Vecka 4–10</span><h3>Föräldrakvällar</h3><ul><li>Två förskolor eller skolor i Tabergsdalen</li><li>Attention i Jönköping</li></ul></li>
-      <li><span class="w">Vecka 8–12</span><h3>Berätta</h3><ul><li>De första verkliga siffrorna, med tillstånd</li><li>Tabergs Nyheter</li><li>Tre mäklarkontor</li></ul></li>
-      <li><span class="w">Vecka 10–13</span><h3>Ro-rummet</h3><ul><li>Öppet hus på bruket, med en hall och ett barnrum som svarar</li></ul></li>
+      <li><span class="w">Vecka 1–4</span><h3>Tio intervjuer</h3><ul><li>Tre förskolechefer och två HR-chefer</li><li>En företagshälsovård och en tandläkare</li><li>En chef för boendestöd och två familjer med växelboende</li></ul></li>
+      <li><span class="w">Vecka 2–8</span><h3>Piloter</h3><ul><li>Tre hem: barnfamilj, växelboende och äldre förälder</li><li>En arbetsplats</li><li>En föräldrakväll</li></ul></li>
+      <li><span class="w">Vecka 4–10</span><h3>Mät</h3><ul><li>Före och efter, i varje pilot</li><li>Tid, tjat, störningar och omdömen</li></ul></li>
+      <li><span class="w">Vecka 6–12</span><h3>Ro-genomgången</h3><ul><li>Fast upplägg och fast pris</li><li>En sida per arena och en referens</li></ul></li>
+      <li><span class="w">Vecka 10–13</span><h3>Nästa steg</h3><ul><li>En akustiktillverkare om Ro-hörnan</li><li>CHILD vid Jönköping University om en svensk vägledning</li></ul></li>
     </ol>
-    <div class="kpis">
-      <div><b>3 av 3</b><span>pilotfamiljer med mindre tjat efter fyra veckor</span></div>
-      <div><b>4</b><span>föräldrakvällar per termin</span></div>
-      <div><b>Bokningar</b><span>från tjatmätarens resultat</span></div>
-      <div><b>500 kr</b><span>i timmen exklusive moms, som lägst</span></div>
-      <div><b>&lt; 1 av 5</b><span>uppdrag som behöver återbesök enligt garantin</span></div>
-    </div>
   </div>
 </section>
 
-<section style="background: var(--surface)">
+<section>
   <div class="wrap">
     <div class="head">
       <div><p class="eyebrow">Ärligt</p><h2>Risker och <em>hur de möts.</em></h2></div>
       <p class="lede">Det som är förslag sägs vara förslag, och det som ska bevisas sägs ska bevisas.</p>
     </div>
     <div class="risks">
-      <div><b>Tjatet minskar inte</b><span>Garantin gäller ett återbesök. Pilotfamiljerna visar om metoden håller innan löftet används brett.</span></div>
-      <div><b>Siffror som inte är verkliga</b><span>Visa bara riktiga mätningar, med familjernas tillstånd.</span></div>
-      <div><b>Det uppfattas som vård</b><span>Prata om rum och vardag, inte om diagnoser. Inga löften om hälsa. Forskningen om stökiga hem visar samband, inte orsak.</span></div>
-      <div><b>Förskolorna har ont om pengar</b><span>Föräldrakvällen är billig, och gratis i början.</span></div>
-      <div><b>Metoden kopieras</b><span>Den bygger på Sofias utbildning och erfarenhet, föremålen och siffrorna. Det tar år att kopiera.</span></div>
+      <div><b>För många marknader för en person</b><span>Samma metod, samma hembesök och samma genomgång överallt. Horisonterna sätter ordningen.</span></div>
+      <div><b>Verksamheter köper långsamt</b><span>Börja med små uppdrag under direktupphandlingsgränsen och med privata arbetsgivare.</span></div>
+      <div><b>Det uppfattas som vård</b><span>Rum och miljö, aldrig behandling. Inga löften om hälsa.</span></div>
+      <div><b>Tandvård och demens kräver förtroende</b><span>Börja med en pilot och en referens. Samarbeta med vårdpersonalen, ersätt den inte.</span></div>
+      <div><b>Påståenden utan grund</b><span>Varje påstående har en källa. Siffror från piloter visas bara när de är verkliga.</span></div>
     </div>
   </div>
 </section>
@@ -442,13 +441,18 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
   <div class="wrap">
     <h4>Källor</h4>
     <ul>
-      <li><a href="https://www.spsm.se/globalassets/studiepaket-npf/forskola/nya-referensdokument/tydliggorande-pedagogik-i-forskolan---referensdokument.pdf">SPSM: Tydliggörande pedagogik i förskolan, 2024</a></li>
-      <li><a href="https://afirm.fpg.unc.edu/wp-content/uploads/Visual-Supports-Brief-Packet.pdf">AFIRM och NCAEP 2020: visuellt stöd som evidensbaserad metod</a></li>
-      <li><a href="https://bmcpublichealth.biomedcentral.com/track/pdf/10.1186/s12889-020-08587-8">Marsh, Dobson och Maddison 2020: stökiga hem och barns mående</a></li>
-      <li><a href="https://en.wikipedia.org/wiki/Reggio_Emilia_approach">Reggio Emilia: miljön som den tredje pedagogen</a></li>
-      <li><a href="https://www.jonkoping.se/trafik--stadsplanering/stadsutveckling-vagarbeten-och-byggprojekt/projekt/bruket-norrahammar">Jönköpings kommun: Bruket Norrahammar</a>, <a href="https://jkpg.com/en/experiences/cajo-keramik">CAJO Keramik</a></li>
-      <li><a href="https://www.houzz.se/professionals/homestaging-och-homestyling/c/Jönköping--Jönköpings-län">Houzz: homestaging i Jönköping</a>, <a href="https://www.stilverkstan.se/homestyling/">Stilverkstan</a></li>
-      <li><a href="https://www.svt.se/nyheter/lokalt/jonkoping/kraftigt-ras-i-barnafodandet-var-femte-forskola-hotas-av-nedlaggning">SVT Jönköping: förskolornas ekonomi</a></li>
+      <li><a href="https://knowledge.bsigroup.com/products/design-for-the-mind-neurodiversity-and-the-built-environment-guide">BSI: PAS 6463:2022 Design for the mind</a></li>
+      <li><a href="https://via.tt.se/pressrum/3236033/arbetsmiljoverket/r">Arbetsmiljöverket: riktlinjer om autism och adhd på arbetsplatsen</a>, <a href="https://diversitycharter.se/en/tips-autism-eller-adhd-pa-arbetsplatsen/">Diversity Charter Sweden</a></li>
+      <li><a href="https://lagen.nu/afs/2020:5">AFS 2020:5 Arbetsanpassning</a></li>
+      <li><a href="https://www.hig.se/engelska/university-of-gavle/articles/news/news-archive/2026-05-11-new-research-aims-to-improve-the-work-life-of-office-workers-with-adhd-and-autism">Högskolan i Gävle: kontorsarbetare med ADHD och autism</a></li>
+      <li><a href="https://www.spsm.se/globalassets/studiepaket-npf/forskola/nya-referensdokument/tydliggorande-pedagogik-i-forskolan---referensdokument.pdf">SPSM: Tydliggörande pedagogik i förskolan</a></li>
+      <li><a href="https://chan.usc.edu/research/completed-projects/sensory-adapted-dental-environments-to-enhance-oral-care-for-children-with-autism">USC: Sensory Adapted Dental Environments</a></li>
+      <li><a href="https://demenscentrum.se/sites/default/files//dokument/SDC_publicerat/fragor_och_svar_om_demenssjukdomar.pdf">Svenskt Demenscentrum</a>, <a href="https://www.ucr.uu.se/svedem/images/Maria_Eriksdotter_SveDems_%C3%A5rliga_m%C3%B6te_2025_del_3.pdf">SveDem 2025</a></li>
+      <li><a href="https://www.scb.se/hitta-statistik/artiklar/2018/vanligast-att-barn-bor-hos-mamma/">SCB: barns boende</a>, <a href="https://www.scb.se/pressmeddelande/farre-barn-var-med-om-separationer-20212022/">SCB: separationer 2022</a></li>
+      <li><a href="https://www.regiondalarna.se/contentassets/0628ccc13a384166a5fb21f107157667/vad-ar-npf-biblioteken-i-goteborg.pdf">NPF-biblioteken i Göteborg</a>, <a href="https://www.vastsverige.com/hjo/Kulturkvarteret/sinnesrummet/">Sinnesrummet i Hjo</a>, <a href="https://www.visitkarlskrona.se/en/npf-friendly-hours-lyckeby-library">Lyckeby bibliotek</a></li>
+      <li><a href="https://www.gamespress.com/Following-2025-Success-Glitched-Festival-Advances-to-New-Heights-for-2">Glitched på Elmia</a></li>
+      <li><a href="https://www.faronline.se/nyheter/2026/januari/fn2026011306/">Faronline om friskvård och stresshantering</a></li>
+      <li><a href="https://abstracta.se/about-abstracta/">Abstracta, Lammhult</a>, <a href="https://center.hj.se/en/research/research-groups/child/about-us.html">CHILD, Jönköping University</a></li>
     </ul>
     <p style="margin-top:1.6rem">Hela strategin i text: koncept/STRATEGI.md. Forskningen: koncept/FORSKNING.md.</p>
   </div>
@@ -457,26 +461,35 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var CATS = [["Hem som svarar och kommer ihåg", "var(--c1)"], ["Homestaging", "var(--c2)"], ["Digitalt i Sverige", "var(--c3)"], ["Verksamheter", "var(--c4)"], ["Ateljén", "var(--c5)"]];
-  var ROWS = [["Förut", [188600, 117000, 33000, 50000, 147000]], ["Nu", [264600, 52000, 49900, 62500, 91500]]];
-  var mix = $("mix");
+  var CATS = [["Hem", "var(--s1)"], ["Verksamheter", "var(--s2)"], ["Utbildning", "var(--s3)"], ["Produkter", "var(--s4)"], ["Licenser och Ro-märkt", "var(--s5)"]];
+  var ROWS = [["År 1", [260000, 76000, 70000, 54000, 0]], ["År 3", [300000, 380000, 150000, 180000, 60000]]];
+  var max = Math.max.apply(null, ROWS.map(function (r) { return r[1].reduce(function (a, b) { return a + b; }, 0); }));
+  var fmt = function (n) { return Math.round(n / 1000) + " tkr"; };
+  var rows = $("chartRows"), tip = $("chartTip"), chart = $("chart");
+  CATS.forEach(function (c) { var s = document.createElement("span"); s.style.setProperty("--k", c[1]); s.textContent = c[0]; $("chartLegend").appendChild(s); });
   ROWS.forEach(function (r) {
     var total = r[1].reduce(function (a, b) { return a + b; }, 0);
-    var row = document.createElement("div"); row.className = "mix__row";
-    var label = document.createElement("span"); label.textContent = r[0]; row.appendChild(label);
-    var bar = document.createElement("div"); bar.className = "bar";
-    bar.setAttribute("role", "img");
-    bar.setAttribute("aria-label", r[0] + ": " + r[1].map(function (v, i) { return CATS[i][0] + " " + Math.round(v / total * 100) + " %"; }).join(", "));
+    var row = document.createElement("div"); row.className = "chart__row";
+    var lab = document.createElement("span"); lab.textContent = r[0]; row.appendChild(lab);
+    var track = document.createElement("div"); track.className = "chart__track"; track.style.width = (total / max * 100) + "%";
     r[1].forEach(function (v, i) {
-      var seg = document.createElement("i"); seg.style.setProperty("--k", CATS[i][1]); seg.style.flex = String(v);
-      var pct = Math.round(v / total * 100); seg.title = CATS[i][0] + ": " + Math.round(v / 1000) + " tkr, " + pct + " %";
-      if (pct >= 9) { var b = document.createElement("b"); b.textContent = pct + " %"; seg.appendChild(b); }
-      bar.appendChild(seg);
+      if (!v) return;
+      var seg = document.createElement("i"); seg.className = "chart__seg"; seg.style.setProperty("--k", CATS[i][1]); seg.style.flex = String(v);
+      seg.tabIndex = 0; seg.setAttribute("aria-label", r[0] + ", " + CATS[i][0] + ": " + fmt(v) + ", " + Math.round(v / total * 100) + " %");
+      function show() { var b = seg.getBoundingClientRect(), c = chart.getBoundingClientRect(); tip.textContent = CATS[i][0] + ": " + fmt(v) + " (" + Math.round(v / total * 100) + " %)"; tip.style.left = (b.left - c.left + b.width / 2) + "px"; tip.style.top = (b.top - c.top) + "px"; tip.style.opacity = 1; }
+      seg.addEventListener("mouseenter", show); seg.addEventListener("focus", show);
+      seg.addEventListener("mouseleave", function () { tip.style.opacity = 0; }); seg.addEventListener("blur", function () { tip.style.opacity = 0; });
+      track.appendChild(seg);
     });
-    row.appendChild(bar); mix.appendChild(row);
+    row.appendChild(track);
+    var out = document.createElement("output"); out.textContent = "≈ " + fmt(total); row.appendChild(out);
+    rows.appendChild(row);
   });
-  var lg = $("mix-legend");
-  CATS.forEach(function (c) { var s = document.createElement("span"); s.style.setProperty("--k", c[1]); s.textContent = c[0]; lg.appendChild(s); });
+  CATS.forEach(function (c, i) {
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td></td><td>" + ROWS[0][1][i].toLocaleString("sv-SE") + " kr</td><td>" + ROWS[1][1][i].toLocaleString("sv-SE") + " kr</td>";
+    tr.firstChild.textContent = c[0]; $("chartTable").appendChild(tr);
+  });
 })();
 </script>
 </body>

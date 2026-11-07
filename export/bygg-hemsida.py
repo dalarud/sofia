@@ -11,7 +11,7 @@ if out.exists():
 out.mkdir(parents=True)
 pub = root / "web/public"
 
-PAGES = {"": "index", "barnfamiljer": "barnfamiljer", "hjalp": "hjalp", "ateljen": "ateljen", "manniskohemmet": "manniskohemmet", "rohemmet": "rohemmet",
+PAGES = {"": "index", "barnfamiljer": "barnfamiljer", "verksamheter": "verksamheter", "hjalp": "hjalp", "ateljen": "ateljen", "manniskohemmet": "manniskohemmet", "rohemmet": "rohemmet",
          "ro-i-vardagen": "ro-i-vardagen", "om": "om", "integritet": "integritet", "villkor": "villkor"}
 
 SHIM = """<script>
@@ -54,7 +54,7 @@ for route, name in PAGES.items():
     print(name, len(html))
 
 js = (pub / "site.js").read_text()
-js = re.sub(r'"(/(?:barnfamiljer|hjalp|ateljen|rohemmet|manniskohemmet|ro-i-vardagen|om)(?:[?#][^"]*)?)"', lambda m: '"' + link(m.group(1)) + '"', js)
+js = re.sub(r'"(/(?:barnfamiljer|verksamheter|hjalp|ateljen|rohemmet|manniskohemmet|ro-i-vardagen|om)(?:[?#][^"]*)?)"', lambda m: '"' + link(m.group(1)) + '"', js)
 (out / "site.js").write_text(js)
 shutil.copy(pub / "site.css", out / "site.css")
 for pdf in pub.glob("*.pdf"):

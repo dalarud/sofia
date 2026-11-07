@@ -1,231 +1,237 @@
 # Studio Dalarud – strategin
 
-*Version 3 · november 2026 · visuell version: `koncept/strategi.html`*
+*Version 4 · november 2026 · visuell version: `koncept/strategi.html`*
 
-> **USP:** *Hem som svarar.* I förskolan är rummen gjorda för att svara på barnens frågor: var saker ska vara, vad man gör där, hur länge och vad som händer sen. Därför klarar barnen mer själva. Hemma är det föräldern som svarar, hela dagen, och det kallas tjat. Sofia bygger in svaren i hemmet, i ek, lin och lera, så att stödet ser ut som inredning. Familjen mäter tjatet före och fyra veckor efter. Har det inte minskat kommer hon tillbaka och justerar, utan kostnad.
+> **I en mening:** Studio Dalarud formger *rum som svarar*, alltså rum som alla sorters hjärnor förstår och kan landa i. Det gäller hem, förskolor, arbetsplatser, tandvård, boenden och offentliga rum. Metoden kommer från förskolan, uttrycket från inredningen och föremålen från Sofias händer.
 
-**Om de tidigare versionerna.** Version 1 gjorde Sofia till flyttfirma, vilket inte är hennes kapital. Version 2 gjorde hennes bakgrund till USP: "inredaren som har varit förskollärare". Det är en merit, inte ett löfte, och den saknade mekanism, bevis och garanti. Den här versionen börjar i stället i det som finns, granskar det del för del och letar efter det som bara Sofia kan lova.
-
----
-
-## 1. Översynen, del för del
-
-### Insikten
-*"Det är inte du som är rörig. Ditt hem är för högljutt."*
-
-**Det som håller:** Den flyttar skulden från människan till miljön. Det är rätt, och det kommer ur Sofias erfarenhet.
-
-**Det som inte håller:** "Brus" beskrivs som saker, ljus och ljud. Det är samma område som varje skandinavisk stylist arbetar i: lugnt, ljust, naturmaterial. Insikten stannar ett steg för tidigt. Det Sofia såg i förskolan var inte bara lugnare rum. Det var rum som svarade på barnens frågor, så att barnen kunde göra saker själva.
-
-**Skärpt:** *Ditt hem svarar inte på frågorna. Därför gör du det, hela dagen.* Bruset i en barnfamilj är till stor del obesvarade frågor, och de blir tjat.
-
-### Ro-modellen och Rohemmets tio principer
-De fyra hörnstenarna, överblick, sinnesro, flöde och återhämtning, är ord som vilken inredare som helst kan använda. Av de tio principerna är sju klassiska stylingregler: ljus i tre höjder, naturens färger, tre av något, mjukt dämpar, det handgjorda, hemmet följer året och flöde före form. Bara två bär specialpedagogiken: ögonhöjden och att allt har en plats. **Det som bara Sofia har utgör alltså en femtedel av metoden.**
-
-**Skärpt:** Vänd på det. *Rummet svarar* blir metoden, och principerna blir det estetiska uttrycket. Princip 3 heter nu Rummet svarar.
-
-### Människohemmet
-Det fungerar som vision, manifest och skrift, och som underlag för samtal med kommunen och bostadsbolag. Men det lovar samhället något, inte kunden. Ingen köper en vision för 2 495 kr. Människohemmet är *varför*. Hem som svarar är *vad*.
-
-### Erbjudandet
-Det säljer aktiviteter: hembesök, analys, styling och timmar. Det fanns inget löfte om resultat, ingen mätning och ingen garanti. Därför kunde en kund bara jämföra Sofia med Hembruket eller Stilverkstan på pris och smak.
-
-**Skärpt:** Sälj ett resultat som familjen själv mäter, alltså mindre tjat kring morgonen, leken eller kvällen.
-
-### Produkterna
-Av elva föremål bär två metoden: lådmärkena och Lugna lådan. Vaser, skålar, brickor och stakar konkurrerar med CAJO och alla keramiker, och ger cirka 300 kr i timmen. Filtvalvet och formspråket var försök att hitta en designikon, men utan en uppgift i metoden.
-
-**Skärpt:** *Föremål som svarar.* Fyra vardagsföremål som redan finns i hemmen, där var och ett svarar på en fråga. Det uppfyller också det du bad om tidigare: kända föremål, omtänkta, och lätta att tillverka.
-
-### Hemsidan
-Den började med "Från brus till ro" och en akvarell med ett reglage. Det är vackert men abstrakt, och efter fem sekunder vet besökaren inte vilket problem som löses. Ro-testet sorterar människor i typer, som Överblickaren, men mäter ingenting i hemmet.
-
-**Skärpt:** Rubriken är nu USP:n. Tjatmätaren mäter, och resultatet leder direkt till rätt tjänst.
+**Varför en fjärde version.** Version 3 hittade en verklig metod, att rummet svarar på frågorna i stället för att föräldern gör det. Sedan krympte den metoden till en enda tjänst för en enda kundgrupp, barnfamiljer med tjat. Det var fel håll. En metod som fungerar i en förskola med femton barn fungerar också i ett kontorslandskap, ett väntrum, ett demensboende och ett bibliotek. Den här översynen breddar i stället för att smalna av. Den kartlägger vad Sofia kan och var det behövs men inte erbjuds. Därefter ordnar den möjligheterna så att en person kan börja i dag och växa utan att splittras.
 
 ---
 
-## 2. USP: Hem som svarar
+## 1. Kompetensen, och vad den egentligen är
 
-### Problemet
-Barn frågar hela dagen: Var är mina vantar? Vad ska jag göra nu? Hur länge till? Vad händer sen? I ett vanligt hem är det föräldern som svarar, och samma svar upprepas tills det blir tjat och konflikter. För ett barn med NPF blir det ännu mer.
+| Sofias kapital | Vad det betyder i praktiken |
+|---|---|
+| **Förskollärare med specialpedagogik och NPF** | Hon vet hur människor med olika hjärnor använder ett rum, och hur man gör rummet förutsägbart: de nio frågorna, bildstöd, zoner, övergångar och vila |
+| **Inredningsstylist och homestager** | Hon kan göra det vackert, välja material och ljus och sälja in en miljö |
+| **Formgivare i lera** | Hon kan göra föremålen som bär metoden: bildstöd, krokar, timglas och lyktor |
+| **Ett idésystem** | Människohemmet, Rohemmet, Ro-måtten, skriften och forskningsunderlaget. Det är mer än de flesta konsulter har |
+| **En plats och ett nätverk** | Norrahammar, bruket och förskolorna i dalen |
+| **Ett digitalt system** | Hemsida, butik och administration som klarar fler produkter och kunder |
 
-### Mekanismen
-Specialpedagogiska skolmyndigheten (SPSM) beskriver nio frågor som förskolan ska ge barnen svar på, så att miljön blir förutsägbar. SPSM skriver också att "de allra flesta barn mår bra av förutsägbarhet, tydlighet och struktur" och att rutiner "avlastar tanken och arbetsminnet". Fem av frågorna ställs hemma varje dag:
+**Kärnkompetensen i en mening:** *Att forma miljöer så att människor förstår dem, landar i dem och klarar mer själva, och att göra det vackert.*
 
-| Barnets fråga | Fråga | Rummets svar |
+Den förmågan har ett namn internationellt: **neuroinkluderande design**. Storbritannien fick 2022 en nationell vägledning för byggd miljö och neurodiversitet (BSI PAS 6463). Den omfattar ljus, akustik, färg, planlösning, orientering och vila för personer med autism, ADHD, demens och andra skillnader i hur intryck bearbetas. I Sverige har jag inte hittat någon motsvarande vägledning. Boverkets regler talar om orienteringsförmåga men inte om NPF, och de som arbetar med kognitiv tillgänglighet är främst stora teknikkonsulter i stora byggprojekt. **På inredningsnivå, i befintliga rum, är fältet nästan tomt.**
+
+---
+
+## 2. USP, breddad
+
+> **Rum som svarar – för alla sorters hjärnor.**
+
+Förskolan bygger in svaren på nio frågor i miljön, enligt SPSM: bland annat vad ska jag göra, var ska jag vara, hur länge och vad händer sen. Därför klarar barnen mer själva. Samma frågor ställs överallt:
+
+| Där | Frågan som rummet inte svarar på | Vad det kostar i dag |
 |---|---|---|
-| "Var är mina vantar?" | Var? | En krok och en korg per barn i barnets höjd, med en bild i lera |
-| "Vad ska jag göra nu?" | Vad? | Varje del av rummet har en uppgift. Det som inte hör dit står bakom en lucka |
-| "Hur gör jag?" | Hur? | Ordningen syns: krokarna sitter i den ordning kläderna tas på |
-| "Hur länge till?" | Hur länge? | Ett timglas eller en lampa visar tiden, så att det är den som säger stopp |
-| "Vad händer sen?" | Vad sen? | Kvällen har en signal: kvällslyktan tänds och taklampan släcks |
+| Hemma hos barnfamiljen | "Var är mina vantar?" | Tjat och konflikter |
+| Hemma hos vuxna med ADHD | "Var lade jag nycklarna?" | Tid, energi och förseningar |
+| I två hem vid växelboende | "Hur gör vi här?" | Två regelverk för samma barn |
+| I kontorslandskapet | "Var kan jag tänka?" | Sjukskrivningar och personalomsättning |
+| I tandläkarstolen | "Vad händer nu?" | Avbrutna behandlingar |
+| På demensboendet och i hemmet | "Var är jag, var är toaletten?" | Oro och mer personaltid |
+| På biblioteket och mässan | "Var kan jag vila?" | Besökare som går hem eller aldrig kommer |
 
-Arbetet delas i tre tider på dygnet där tjatet samlas: **morgonen, leken och kvällen.**
+**Därför kan ingen annan göra det.** Stylister har inte specialpedagogiken. Specialpedagoger och NPF-team har inte inredningen, och deras stöd blir laminerade bilder. Teknikkonsulterna arbetar i stora nybyggen, inte i rummet som redan finns. Sofia har alla tre, och dessutom stöd som ser ut som inredning.
 
-### Beviset
-**Tjatmätaren.** Familjen trycker varje gång de säger till om samma sak igen, i tre dagar före och tre dagar fyra veckor efter. Det är familjens egna siffror, inte Sofias påstående. Efter tre pilotfamiljer finns de första verkliga före- och efterbilderna.
+*Hem som svarar* från version 3 finns kvar som första produkt för privatpersoner. Nu är den en av flera.
 
-### Garantin
-*Mindre tjat efter fyra veckor, annars kommer jag tillbaka.* Garantin gäller En tid på dygnet och Hela dagen, när båda mätningarna är gjorda. Den innebär ett återbesök på högst två timmar, inte pengarna tillbaka.
+---
 
-### Därför kan ingen annan lova det
+## 3. Möjlighetskartan: kända, okända och outnyttjade marknader
 
-| Vem | Har | Saknar |
+Varje möjlighet är prövad mot fyra frågor:
+- Passar den Sofias kompetens?
+- Finns behovet?
+- Är den outnyttjad?
+- Hur snabbt kan den ge pengar?
+
+### Hem (privatpersoner)
+| Möjlighet | Behov och fakta | Varför outnyttjad | Erbjudande |
+|---|---|---|---|
+| **Hem som svarar** | Barnfamiljer, tjat kring morgon, lek och kväll | Stylister säljer stil, inte begriplighet | Hembesök, en tid på dygnet, garanti |
+| **Två hem som svarar** *(okänd)* | 28 % av barnen som inte bor med båda föräldrarna bor växelvis. Drygt 58 000 barn var med om en separation 2022 | Ingen säljer samma struktur i två hem | En gemensam Ro-karta, samma krokar och märken i båda hemmen |
+| **Hem som kommer ihåg** | Vuxna med ADHD: nycklar, papper, hemmakontor | Coacher ger strategier, inte rum | Landningsplatsen i hallen och hemmakontor |
+| **Ett hem som håller** *(outnyttjad)* | Cirka 150 000 personer har en demenssjukdom, och 20 000–25 000 insjuknar varje år. De flesta bor hemma i början | Vuxna barn söker hjälp men hittar hjälpmedel, inte miljö | Orientering, kontraster, ljus och "var?"-stöd i förälderns hem |
+| **Första egna hemmet** | Unga vuxna med NPF som flyttar hemifrån | Boendestöd kommer in först när det har gått fel | Ett hem som svarar från dag ett, betalt av familjen |
+| **Homestaging** | Familjevillor | Konkurrens, men går att skilja ut | Köparen ser var allt tar vägen |
+
+### Lärande
+| Möjlighet | Behov och fakta | Varför outnyttjad | Erbjudande |
+|---|---|---|---|
+| **Lärmiljöer** | SPSM: de flesta barn mår bra av tydlighet och struktur | Förskolor saknar tid, och möbelleverantörer säljer möbler | Lärmiljöanalys med de nio frågorna |
+| **Fortbildning** | Arbetslag behöver kunskapen, inte bara rummen | Föreläsningar finns, men sällan med rummet som verktyg | Halvdag *Rummet som pedagog*, och digitalt |
+| **Föräldrakvällar** | Förskolor vill nå hemmen, men har lite pengar | Ingen erbjuder förskolans knep för hemmet | *Mindre tjat hemma*, 45 minuter |
+| **Nya och ombyggda förskolor** *(outnyttjad)* | Kommunen bygger om och slår ihop förskolor | Arkitekter saknar specialpedagogen i projekten | Inredningsrådgivning i projektet |
+
+### Arbete (den största nya marknaden)
+| Möjlighet | Behov och fakta | Varför outnyttjad | Erbjudande |
+|---|---|---|---|
+| **NPF-vänliga arbetsplatser** *(outnyttjad)* | Arbetsmiljöverket publicerade i april 2026 riktlinjer om autism och ADHD på arbetsplatsen. De riktar sig till företagshälsovården och tar upp anpassning av ljud, ljus och arbetsplats. Arbetsanpassning regleras i AFS 2020:5. Högskolan i Gävle startade 2026 forskning om kontorsarbetare med ADHD och autism | Företagshälsovården har fått uppdraget men saknar inredningskunskapen. Möbelföretag säljer möbler, inte begriplighet | Ro-genomgång av kontoret, plan och lugna rum, gärna som underleverantör till företagshälsovården |
+| **Individuell arbetsplatsanpassning** | Arbetsgivaren ska anpassa för en medarbetare med ADHD | Ofta blir det bara ett par hörlurar | Arbetsplats och hemmakontor som kommer ihåg, betalt av arbetsgivaren |
+| **Lera för lugn som stresshantering** | Stresshantering räknas som friskvård, med friskvårdsbidrag upp till 5 000 kr per år | Lerkurser säljs som hobby, inte som friskvård | Kurs för personalgrupper. Kontrollera med Skatteverket innan den marknadsförs så |
+
+### Vård och omsorg
+| Möjlighet | Behov och fakta | Varför outnyttjad | Erbjudande |
+|---|---|---|---|
+| **Sinnesanpassad tandvård** *(okänd)* | I en amerikansk studie med 162 barn med autism (Duker 2023) kunde 68 % behandlas i en sinnesanpassad tandvårdsmiljö, mot 20 % i en vanlig | Jag hittade inget sådant erbjudande hos Folktandvården i Jönköpings län | Behandlingsrum och väntrum: ljus, bild, ljud och förberedelse |
+| **Väntrum i vården** | BUP, habilitering och vårdcentraler. Kommunen planerar för en utbyggd vårdcentral i Norrahammar | Väntrum inreds för att vara lätta att städa, inte begripliga | En Ro-genomgång och ett lugnt hörn |
+| **Demensvänliga boenden** | Enligt SveDem är individuella miljöanpassningar dokumenterade för 83 % i särskilt boende. Målet är 98 % | Personalen saknar tid och verktyg | Rum som svarar per boende, och utbildning |
+| **LSS och boendestöd** | Jönköpings kommun har ett eget område för boendestöd till personer med psykiatrisk eller neuropsykiatrisk funktionsnedsättning | Boendestödjare får sällan lära sig hur rummet kan hjälpa | Utbildningen *Hemmet som stöd* |
+
+### Offentliga rum och evenemang
+| Möjlighet | Behov och fakta | Varför outnyttjad | Erbjudande |
+|---|---|---|---|
+| **Bibliotek och kulturhus** | Bibliotek i Göteborg, Hjo och Karlskrona har sinnesrum och NPF-anpassade öppettider | Ingen erbjuder det lokalt i Jönköpings län | Lugna rummet och en NPF-anpassad öppettid |
+| **Mässor och festivaler** *(okänd)* | Spelfestivalen Glitched på Elmia hade 15 000 besökare 2025 | Lugna rum på evenemang blir ofta ett tomt mötesrum | Lugna zoner per evenemang, som tjänst |
+
+### Bostäder och stadsbyggnad
+| Möjlighet | Behov och fakta | Varför outnyttjad | Erbjudande |
+|---|---|---|---|
+| **Bostadsbolag** | Gemensamma lokaler, trapphus och visningslägenheter | Boverket talar om orientering, men inte om NPF | En Ro-lägenhet som standard, och orientering |
+| **Bruket i Norrahammar** | Kommunen planerar bostäder, kultur och småskalig tillverkning | Stadsdelen är inte detaljplanerad ännu | Rohemmet som gestaltningsprincip, och Ro-rummet |
+
+### Produkter och immateriella rättigheter (det som skalar)
+| Möjlighet | Varför | Modell |
 |---|---|---|
-| Stylister och homestagers | Smak, inredning | Specialpedagogiken. De gör det lugnt, inte begripligt |
-| NPF-team och specialpedagoger | Struktur och bildstöd | Inredningen. Stödet blir laminerade bilder på kylskåpet |
-| Förskollärare | Metoden | Utbildningen i inredning och möjligheten att arbeta i hem |
-| **Sofia** | **Alla tre** | |
-
-Den estetiska skillnaden är en del av USP:n: **stöd som ser ut som inredning.** Det är vackert nog att sitta kvar när barnen blir större, och ingen behöver känna att hemmet har blivit ett hjälpmedel.
-
-### För vuxna: Hem som kommer ihåg
-Samma metod, men med vuxnas frågor: Var lade jag nycklarna? Vad skulle jag göra? Vad ska med? Hur länge har jag hållit på? För vuxna med ADHD, och alla som är trötta på att leta.
-
-### Vad vi inte säger
-Inga löften om hälsa eller behandling. Tjatet mäts av familjen själv. Forskningen om stökiga hem visar samband, inte orsak (Marsh m.fl. 2020). Det sägs öppet.
+| **Föremål som svarar** | Morgonraden, Lådmärken, Stunden, Kvällslyktan och Startlådan bär metoden in i hemmen | Butiken, återförsäljare |
+| **Ro-hörnan för verksamheter** *(outnyttjad)* | Förskolor, kontor och bibliotek vill ha ett lugnt rum färdigt | Ett paket med en akustiktillverkare i Småland, till exempel Abstracta i Lammhult |
+| **Designlicens** | Filtvalvet och Ro-hörnan i serie | Royalty från tillverkare |
+| **Digitala kurser** | Hem som svarar för föräldrar, och Rummet som pedagog för personal | Säljs i hela Sverige utan resor |
+| **Bok** | *Ett snällt hem åt alla* finns redan som skrift | Förlag och föreläsningar |
+| **Ro-märkt** *(det största)* | Sverige saknar en vägledning för hjärnvänliga miljöer, och Storbritannien har en | En svensk vägledning på inredningsnivå, tagen fram med forskare (till exempel CHILD vid Jönköping University). Sedan genomgångar, märkning och utbildning av andra |
 
 ---
 
-## 3. Erbjudandet
+## 4. Portföljen i tre horisonter
 
-| Tjänst | Innehåll | Pris |
+**Horisont 1, 0–12 månader: bevisa och tjäna**
+- Hem som svarar, Två hem som svarar, Hem som kommer ihåg och Ett hem som håller. Det är samma metod och samma hembesök, för fyra kundgrupper.
+- Föräldrakvällar och lärmiljöanalyser i Tabergsdalen.
+- Två piloter på arbetsplatser: en Ro-genomgång av ett kontor och en individuell anpassning. Gärna tillsammans med en företagshälsovård.
+- Utbildningen Hemmet som stöd för boendestödjare.
+- Föremål som svarar och Startlådan.
+
+**Horisont 2, 1–2 år: bredda till verksamheter**
+- Ro-genomgången som fast produkt för lokaler: förskolor, tandvård, väntrum, äldreboenden, bibliotek och evenemang.
+- Ro-hörnan tillsammans med en tillverkare.
+- Digitala kurser för föräldrar och personal.
+- Boken.
+
+**Horisont 3, 2–5 år: standard och skala**
+- Ro-märkt: en svensk vägledning, märkning och utbildning av andra inredare och pedagoger.
+- Designlicenser.
+- Bostadsbolag och bruket.
+
+**Ordningen spelar roll.** Varje horisont bygger bevis till nästa: hem ger bilder och siffror, verksamheter ger referenser och vägledningen ger skala. Allt bygger på samma metod och samma begrepp, och därför splittras det inte.
+
+---
+
+## 5. Affärsmodellen: från timmar till tillgångar
+
+| | År 1 | År 3 (illustration) |
 |---|---|---|
-| **Hem som svarar** *(huvudtjänst)* | Tjatmätaren, tre dagar | Gratis |
-| | Hembesök med Ro-kartan: varje rum prövas mot de fem frågorna, 2 h | 2 495 kr |
-| | Digital Ro-karta, hela Sverige | 2 495 kr |
-| | En tid på dygnet: morgonen, leken eller kvällen, med uppföljning och garanti | från 5 900 kr |
-| | Hela dagen: morgonen, leken och kvällen | från 15 900 kr |
-| **Hem som kommer ihåg** | Hembesök med Ro-kartan | 2 495 kr |
-| | Landningsplatsen: hallen som kommer ihåg | från 4 900 kr |
-| | Hemmakontor som kommer ihåg | från 6 900 kr |
-| | Rumsstyling | från 8 900 kr |
-| **Homestaging** | Familjevillan: köparen ser var allt tar vägen. Rådgivning, fotostyling och styling | 2 495 – från 9 900 kr |
-| **Verksamheter** (exkl. moms) | Föräldrakväll: Mindre tjat hemma | från 2 500 kr |
-| | Föreläsning: Rummet som pedagog | från 6 000 kr |
-| | Lärmiljöanalys: de nio frågorna på avdelningen | från 9 500 kr |
-| | Landa-kortet för mäklare | 1 995 kr |
+| Hem (privatpersoner, inklusive digitala Ro-kartor) | 260 000 kr | 300 000 kr |
+| Verksamheter (genomgångar, arbetsplatser, vård, evenemang) | 76 000 kr | 380 000 kr |
+| Utbildning och föreläsningar, även digitalt | 70 000 kr | 150 000 kr |
+| Produkter (hem och verksamheter) | 54 000 kr | 180 000 kr |
+| Licenser och Ro-märkt | 0 kr | 60 000 kr |
+| **Totalt, exklusive moms** | **≈ 460 000 kr** | **≈ 1 070 000 kr** |
+| Betalda timmar | ≈ 770 h | ≈ 1 200 h |
 
-Hembesöket räknas av om kunden bokar ett större uppdrag inom 30 dagar. Golvet är fortfarande 500 kr i timmen exklusive moms: En tid på dygnet tar cirka 9 timmar och ger cirka 520 kr i timmen.
+Det är scenarier, inte prognoser. År 1 ger cirka 600 kr i timmen exklusive moms. Till år 3 ökar intäkterna mer än timmarna, eftersom produkter, kurser och licenser inte kräver Sofias tid för varje kund. Verksamheterna blir det största benet, med större uppdrag och färre resor per krona.
 
 ---
 
-## 4. Föremål som svarar
+## 6. Varumärket i den bredare formen
 
-| Föremål | Det vedertagna | Svarar på | Pris | Tillverkning |
-|---|---|---|---|---|
-| **Morgonraden** | Hallkroken | Var? Hur, i vilken ordning? | 1 495 kr | Ekribba och tre knoppar i lera med bild. Sätts i 95 cm |
-| **Lådmärken** | Etiketten | Var? | 395 kr för 6 st | Lera, som i dag |
-| **Stunden** | Timglaset | Hur länge? | 495 kr | Köpt glas på tio minuter i en fot av lera |
-| **Kvällslyktan** | Lyktan | Vad händer sen? | 395 kr | Ljuslyktan Kväll, med en ny uppgift |
-| **Startlådan** | Presentasken | Allt för att börja själv | 595 kr | Sex lådmärken, tjatmätaren som block och guiden Hem som svarar |
-
-Vaser, skålar, brickor och stakar säljs slut och görs inte om. Filtvalvet pausas tills det har en uppgift i metoden, till exempel som kvällssignal i ett vardagsrum.
-
----
-
-## 5. Kanaler: få och kopplade till USP:n
-
-1. **Föräldrakvällen *Mindre tjat hemma*.** Den visar metoden på 45 minuter, och föräldrarna går hem med tjatmätaren. Förskolorna får något som hjälper samarbetet med hemmen till en låg kostnad. Börja i Tabergsdalen och hos lokalföreningen för Attention.
-2. **Tjatmätaren på nätet.** Den är gratis och lätt att dela ("Hur många gånger sa du 'ta på dig skorna' i dag?"). Resultatet leder till rätt tid på dygnet och till bokning.
-3. **Före och efter, i siffror.** När pilotfamiljerna har mätt kan Sofia visa verkliga siffror, med deras tillstånd. Ingen konkurrent kan visa samma sak.
-4. **Lokalt:**
-   - En Google-företagsprofil i Norrahammar.
-   - En artikel i Tabergs Nyheter: *Förskolläraren som får hemmen att svara*.
-   - Ro-rummet på bruket, med en hall och ett barnrum som svarar.
-5. **Mäklare:** Landa-kortet och Familjevillan. Det är en bra kanal, men den kommer i andra hand.
-
----
-
-## 6. Ekonomi år 1
-
-Ett scenario, inte en prognos. Priserna är inklusive moms.
-
-| Intäkt | Antal | Snitt | Summa | Timmar |
-|---|---|---|---|---|
-| Hembesök med Ro-kartan | 30 | 2 495 kr | 74 850 kr | 105 |
-| Landa-kort via mäklare | 10 | 2 495 kr | 24 950 kr | 35 |
-| En tid på dygnet | 14 | 5 900 kr | 82 600 kr | 126 |
-| Hela dagen | 3 | 15 900 kr | 47 700 kr | 72 |
-| Hem som kommer ihåg | 5 | 6 900 kr | 34 500 kr | 55 |
-| Homestaging | 8 | 6 500 kr | 52 000 kr | 72 |
-| Digitala Ro-kartor | 20 | 2 495 kr | 49 900 kr | 60 |
-| Föräldrakvällar, föreläsningar och analyser | 13 | 4 800 kr | 62 500 kr | 60 |
-| Föremål som svarar och Startlådan | 150 | 450 kr | 67 500 kr | 80 |
-| Kurser | 6 | 4 000 kr | 24 000 kr | 36 |
-| **Totalt** | | | **≈ 520 000 kr** (≈ 416 000 kr exkl. moms) | **≈ 700 h** |
-
-Det ger ungefär 595 kr i timmen exklusive moms. 44 % av intäkterna kommer från Hem som svarar, där ingen annan kan ge samma löfte.
+- **Människohemmet** blir äntligen lika brett som affären: hemmet format efter människan, och rummen med.
+- **Rum som svarar** är metoden. **Hem som svarar** och **Ro-genomgången** är de två första produkterna, för hem och för verksamheter.
+- **Hemsidan** har två huvuddörrar, *Hemma* och *Verksamheter*, och ateljén vid sidan om.
+- Tonen är densamma: varm, kunnig och ärlig om vad forskningen säger.
 
 ---
 
 ## 7. De första 90 dagarna
 
-**Vecka 1–2**
-- Testa tjatmätaren i den egna familjen eller hos vänner.
-- Ta fram mallen för Ro-kartan med de fem frågorna.
-- Gör en första Morgonrad och ett första Stunden.
+**Vecka 1–4: lyssna innan du säljer**
+- Gör tio korta intervjuer: tre förskolechefer, två HR-chefer, en företagshälsovård, en tandläkare, en enhetschef för boendestöd och två familjer med växelboende.
+- Fråga vad som skaver och vad de skulle betala för.
 
-**Vecka 2–8: tre pilotfamiljer**
-- Gör tre pilotfamiljer till lanseringspris, mot att de mäter före och efter och ger tillstånd att visa siffrorna. Gärna en familj med ett barn som har NPF.
+**Vecka 2–8: piloter**
+- Tre hem: barnfamilj, växelboende och äldre förälder.
+- En arbetsplats.
+- En föräldrakväll.
+- Mät före och efter i alla.
 
-**Vecka 4–10: föräldrakvällar**
-- Håll *Mindre tjat hemma* på två förskolor eller skolor i Tabergsdalen och för Attention i Jönköping.
+**Vecka 6–12: erbjudandet till verksamheter**
+- Gör Ro-genomgången till en fast produkt med ett fast pris.
+- Ta fram ett exempel, ett före och efter, en sida per arena och en referens.
 
-**Vecka 8–12: berätta**
-- Visa de första verkliga före- och efterbilderna på hemsidan och Instagram.
-- Föreslå artikeln för Tabergs Nyheter.
-- Besök tre mäklarkontor med Landa-kortet.
-
-**Vecka 10–13: Ro-rummet**
-- Ha ett öppet hus på bruket, med en hall och ett barnrum som svarar.
-
----
-
-## 8. Fem siffror att följa
-
-1. **Tjatmätningar** som görs på hemsidan, mätta som antal klick på Boka från resultatet.
-2. **Andel pilotfamiljer med mindre tjat efter fyra veckor.** Målet är alla tre. Annars justeras metoden innan den marknadsförs.
-3. **Föräldrakvällar per termin.** Mål: fyra.
-4. **Kronor per timme, exklusive moms.** Golvet är 500 kr.
-5. **Återbesök enligt garantin.** Om fler än ett av fem uppdrag behöver ett återbesök, se över metoden.
+**Vecka 10–13: nästa steg**
+- Kontakta en akustiktillverkare om Ro-hörnan.
+- Kontakta CHILD vid Jönköping University om en svensk vägledning.
 
 ---
 
-## 9. Risker, ärligt
+## 8. Risker, ärligt
 
 | Risk | Hur den möts |
 |---|---|
-| Tjatet minskar inte | Garantin gäller ett återbesök. Pilotfamiljerna visar om metoden håller innan löftet används brett |
-| Siffror som inte är verkliga | Visa bara riktiga mätningar, med familjernas tillstånd |
-| Det uppfattas som vård | Prata om rum och vardag, inte om diagnoser. Inga löften om hälsa |
-| Förskolorna har ont om pengar | Föräldrakvällen är billig, och gratis i början |
-| Metoden kopieras | Den bygger på Sofias utbildning och erfarenhet, föremålen och siffrorna. Det tar år att kopiera |
+| Splittring: för många marknader för en person | Samma metod, samma hembesök och samma genomgång överallt. Horisonterna sätter ordningen |
+| Verksamheter köper långsamt | Börja med små uppdrag under direktupphandlingsgränsen (700 000 kr) och med privata arbetsgivare |
+| Det uppfattas som vård | Rum och miljö, aldrig behandling. Inga löften om hälsa |
+| Påståenden utan grund | Varje påstående har en källa, och det som ska bevisas sägs ska bevisas |
+| Tandvård och demens kräver förtroende | Börja med en pilot och en referens. Samarbeta med vårdpersonalen, ersätt den inte |
 
 ---
 
-## Ändrat på hemsidan och i sortimentet
+## Ändrat på hemsidan
 
 - **Startsidan:**
-  - Rubriken är nu *Hem som svarar*, och ingressen beskriver problemet med barnens frågor.
-  - Knapparna leder till ett första samtal och till tjatmätaren.
-  - De tre vägarna in är Hem som svarar, Hem som kommer ihåg och Mät tjatet.
-- **För barnfamiljer:** De fem frågorna, Tjatmätaren (interaktiv, sparas i besökarens telefon), stegen med garanti, Föremålen som svarar och kontaktformuläret.
-- **Tjänster:** Hem som svarar, Hem som kommer ihåg, Homestaging och Verksamheter.
-- **Ateljén:**
-  - Nya föremål: Morgonraden och Stunden.
-  - Lugna lådan heter nu Startlådan.
-  - Ljuslyktan Kväll heter nu Kvällslyktan och har en ny uppgift.
-- **Rohemmet:** Princip 3 heter nu Rummet svarar.
+  - Rubriken är nu *Rum som svarar*.
+  - Ingressen räknar upp hem, förskolor, arbetsplatser och väntrum.
+  - De tre vägarna in är Hemma, Verksamheter och Mät tjatet.
+- **Menyn:** Hemma, Verksamheter, Ateljén, Människohemmet, Ro i vardagen och Om Sofia.
+- **Ny sida, Verksamheter (`/verksamheter`):** fem arenor, varför det behövs nu, Ro-genomgången steg för steg och kontaktformuläret.
+- **Tjänsterna under Hemma:** Hem som svarar, Två hem som svarar (ny), Hem som kommer ihåg (med Ett hem som håller för äldre föräldrar), Homestaging och Verksamheter.
 
 ---
 
 ## Källor
 
-- SPSM, *Tydliggörande pedagogik i förskolan* (studiepaket NPF, 2024): [spsm.se](https://www.spsm.se/globalassets/studiepaket-npf/forskola/nya-referensdokument/tydliggorande-pedagogik-i-forskolan---referensdokument.pdf)
-- Visuellt stöd som evidensbaserad metod: [NCAEP, Steinbrenner m.fl. 2020, via AFIRM](https://afirm.fpg.unc.edu/wp-content/uploads/Visual-Supports-Brief-Packet.pdf)
-- Stökiga hem och barns, föräldrars och familjers mående, samband men inte orsak: [Marsh, Dobson och Maddison 2020, BMC Public Health](https://bmcpublichealth.biomedcentral.com/track/pdf/10.1186/s12889-020-08587-8)
-- Miljön som den tredje pedagogen (Reggio Emilia): [Wikipedia](https://en.wikipedia.org/wiki/Reggio_Emilia_approach)
-- Bruket i Norrahammar: [Jönköpings kommun](https://www.jonkoping.se/trafik--stadsplanering/stadsutveckling-vagarbeten-och-byggprojekt/projekt/bruket-norrahammar), [jkpg.com](https://jkpg.com/en/bruket-in-norrahammar), [CAJO Keramik](https://jkpg.com/en/experiences/cajo-keramik)
-- Konkurrenter i Jönköping: [Houzz, homestaging i Jönköping](https://www.houzz.se/professionals/homestaging-och-homestyling/c/Jönköping--Jönköpings-län), [Stilverkstan](https://www.stilverkstan.se/homestyling/)
-- Förskolornas ekonomi: [SVT Jönköping](https://www.svt.se/nyheter/lokalt/jonkoping/kraftigt-ras-i-barnafodandet-var-femte-forskola-hotas-av-nedlaggning)
+- [BSI, PAS 6463:2022 Design for the mind – Neurodiversity and the built environment](https://knowledge.bsigroup.com/products/design-for-the-mind-neurodiversity-and-the-built-environment-guide)
+- Arbetsmiljöverkets riktlinjer om autism och ADHD på arbetsplatsen, 2026:
+  - [pressmeddelande via TT](https://via.tt.se/pressrum/3236033/arbetsmiljoverket/r)
+  - [Diversity Charter Sweden om riktlinjerna](https://diversitycharter.se/en/tips-autism-eller-adhd-pa-arbetsplatsen/)
+  - [AFS 2020:5 Arbetsanpassning](https://lagen.nu/afs/2020:5)
+- [Högskolan i Gävle, forskning om kontorsarbetare med ADHD och autism, 2026](https://www.hig.se/engelska/university-of-gavle/articles/news/news-archive/2026-05-11-new-research-aims-to-improve-the-work-life-of-office-workers-with-adhd-and-autism)
+- [SPSM, Tydliggörande pedagogik i förskolan](https://www.spsm.se/globalassets/studiepaket-npf/forskola/nya-referensdokument/tydliggorande-pedagogik-i-forskolan---referensdokument.pdf)
+- Sinnesanpassad tandvård:
+  - [USC Chan, SADE-studierna](https://chan.usc.edu/research/completed-projects/sensory-adapted-dental-environments-to-enhance-oral-care-for-children-with-autism)
+  - [Cermak m.fl. 2015](https://mijn.bsl.nl/sensory-adapted-dental-environments-to-enhance-oral-care-for-chi/560576)
+- Demens:
+  - [Svenskt Demenscentrum, frågor och svar](https://demenscentrum.se/sites/default/files//dokument/SDC_publicerat/fragor_och_svar_om_demenssjukdomar.pdf)
+  - [SveDem](https://www.ucr.uu.se/svedem/images/Maria_Eriksdotter_SveDems_%C3%A5rliga_m%C3%B6te_2025_del_3.pdf)
+- Växelboende och separationer:
+  - [SCB, Vanligast att barn bor hos mamma](https://www.scb.se/hitta-statistik/artiklar/2018/vanligast-att-barn-bor-hos-mamma/)
+  - [SCB, separationer 2022](https://www.scb.se/pressmeddelande/farre-barn-var-med-om-separationer-20212022/)
+- Bibliotek:
+  - [NPF-biblioteken i Göteborg](https://www.regiondalarna.se/contentassets/0628ccc13a384166a5fb21f107157667/vad-ar-npf-biblioteken-i-goteborg.pdf)
+  - [Sinnesrummet i Hjo](https://www.vastsverige.com/hjo/Kulturkvarteret/sinnesrummet/)
+  - [NPF-anpassade timmar i Lyckeby](https://www.visitkarlskrona.se/en/npf-friendly-hours-lyckeby-library)
+- [Glitched på Elmia](https://www.gamespress.com/Following-2025-Success-Glitched-Festival-Advances-to-New-Heights-for-2)
+- [Ramboll om tillgängliga städer och kognitiv tillgänglighet](https://www.ramboll.com/sv-se/insikter/stadsutveckling-kopplad-till-resiliens-och-hallbarhet/hur-gor-man-stader-tillgangliga)
+- Friskvård och stresshantering: [Faronline](https://www.faronline.se/nyheter/2026/januari/fn2026011306/) (kontrollera hos Skatteverket)
+- [Abstracta, Lammhult](https://abstracta.se/about-abstracta/)
+- [CHILD, Jönköping University](https://center.hj.se/en/research/research-groups/child/about-us.html)
+- Bruket och marknaden i Norrahammar: [Jönköpings kommun](https://www.jonkoping.se/trafik--stadsplanering/stadsutveckling-vagarbeten-och-byggprojekt/projekt/bruket-norrahammar)

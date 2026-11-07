@@ -2,11 +2,11 @@
 // I texter blir *ord* kursivt i lerfärg, som i rubrikerna på hemsidan.
 
 export const TEXTS: { key: string; label: string; value: string; multiline?: boolean }[] = [
-  { key: "hero.line1", label: "Startsidan: rubrik, första raden", value: "Hem som" },
+  { key: "hero.line1", label: "Startsidan: rubrik, första raden", value: "Rum som" },
   { key: "hero.line2", label: "Startsidan: rubrik, andra raden", value: "*svarar.*" },
-  { key: "hero.lede", label: "Startsidan: ingress", value: "Var är mina vantar? Vad ska jag göra nu? Hur länge till? I förskolan svarar rummet på barnens frågor. Hemma svarar du, hela dagen. Jag är förskollärare och inredare i Norrahammar och gör ditt hem till ett hem som svarar, så att tjatet minskar.", multiline: true },
+  { key: "hero.lede", label: "Startsidan: ingress", value: "Var ska jag vara? Vad händer nu? Hur länge till? I förskolan svarar rummet på frågorna, så att barnen klarar mer själva. Jag är förskollärare och inredare i Norrahammar och formger hem, förskolor, arbetsplatser och väntrum som alla sorters hjärnor förstår, och som är vackra.", multiline: true },
   { key: "hero.cta", label: "Startsidan: huvudknapp", value: "Boka ett första samtal" },
-  { key: "manifest.text", label: "Manifest", value: "Ett hem ska inte bara se bra ut. Det ska *svara*, så att ingen behöver fråga och ingen behöver tjata. Då blir det ro, för barn och för hjärnor av alla slag.", multiline: true },
+  { key: "manifest.text", label: "Manifest", value: "Ett rum ska inte bara se bra ut. Det ska *svara*, så att ingen behöver fråga och ingen behöver tjata. Då blir det ro, för barn, för vuxna och för hjärnor av alla slag.", multiline: true },
   { key: "manifest.by", label: "Manifest: under namnet", value: "Inredare och homestager i Norrahammar, med bakgrund som förskollärare och i specialpedagogik" },
   { key: "tjanster.title", label: "Tjänster: rubrik", value: "Vad behöver *ditt hem?*" },
   { key: "tjanster.lede", label: "Tjänster: ingress", value: "Varje uppdrag börjar med ett samtal om hur du lever: vad som fungerar, vad som skaver och hur du vill att hemmet ska kännas. Sedan gör vi en plan som passar din budget.", multiline: true },
@@ -38,16 +38,16 @@ export const TEXTS: { key: string; label: string; value: string; multiline?: boo
   { key: "present.lede", label: "Presentkort: ingress", value: "Ett hembesök, en kurs i lera eller ett valfritt belopp att använda i ateljén. Presentkortet skickas som PDF och gäller i två år.", multiline: true },
   { key: "om.title", label: "Om Sofia: rubrik", value: "Tre erfarenheter, *ett företag.*" },
   { key: "om.p1", label: "Om Sofia: stycke 1", value: "Hej! Jag heter Sofia Dalarud. I många år arbetade jag i förskolan och fördjupade mig i specialpedagogik och NPF. Där lärde jag mig att rätt miljö gör stor skillnad: ett lugnt rum, en tydlig plats för saker, ljus som inte stressar.", multiline: true },
-  { key: "om.p2", label: "Om Sofia: stycke 2", value: "I dag är jag utbildad inredningsstylist och homestagingkonsult. I förskolan lärde jag mig att ett rum kan svara på barnens frågor: var saker ska vara, vad man gör där, hur länge och vad som händer sen. Det gör jag nu hemma hos familjer, och jag gör det vackert, så att stödet ser ut som inredning och inte som ett hjälpmedel.", multiline: true },
+  { key: "om.p2", label: "Om Sofia: stycke 2", value: "I dag är jag utbildad inredningsstylist och homestagingkonsult. I förskolan lärde jag mig att ett rum kan svara på barnens frågor: var saker ska vara, vad man gör där, hur länge och vad som händer sen. Det gör jag nu i hem, förskolor, arbetsplatser och väntrum, och jag gör det vackert, så att stödet ser ut som inredning och inte som ett hjälpmedel.", multiline: true },
   { key: "om.p4", label: "Om Sofia: stycke 4, om dalen", value: "Studio Dalarud finns i Norrahammar, i Tabergsdalen. Här göt bruket spisar, värmepannor och tvättmaskiner till folkhemmets kök i över hundra år. Det känns rätt att nästa steg, ett hem format efter människan, börjar i samma dal. Dalen i min logotyp finns på riktigt.", multiline: true },
   { key: "om.p3", label: "Om Sofia: stycke 3", value: "När jag inte inreder formar jag i självtorkande lera. Att arbeta med händerna är mitt sätt att varva ner, och föremålen hittar ofta in i hemmen jag stylar.", multiline: true },
   { key: "tips.title", label: "Tips: rubrik", value: "Små steg mot *ett lugnare hem.*" },
   { key: "tips.lede", label: "Tips: ingress", value: "Konkreta råd om inredning, homestaging och miljöer som hjälper hela familjen. Sådant du kan göra redan i helgen.", multiline: true },
   { key: "guide.lede", label: "Guiden: ingress", value: "Konkreta tips från Rohemmet som du kan göra i helgen, utan att köpa nytt. Skrivna utifrån mina år i förskolan och som inredare.", multiline: true },
-  { key: "kontakt.title", label: "Kontakt: rubrik", value: "Vad skaver *hemma?*" },
-  { key: "kontakt.lede", label: "Kontakt: ingress", value: "Berätta lite om ditt hem. Jag svarar inom två arbetsdagar och föreslår ett första samtal, utan kostnad.", multiline: true },
+  { key: "kontakt.title", label: "Kontakt: rubrik", value: "Vad *skaver?*" },
+  { key: "kontakt.lede", label: "Kontakt: ingress", value: "Berätta lite om ditt hem eller din verksamhet. Jag svarar inom två arbetsdagar och föreslår ett första samtal, utan kostnad.", multiline: true },
   { key: "kontakt.area", label: "Kontakt: område", value: "Hembesök i Norrahammar, Jönköping, Huskvarna och Tabergsdalen. Digitalt i hela Sverige." },
-  { key: "sidfot.text", label: "Sidfoten: kort text", value: "Förskollärare och inredare i Norrahammar, Jönköping. Hem som svarar, så att tjatet minskar. Från brus till ro." },
+  { key: "sidfot.text", label: "Sidfoten: kort text", value: "Förskollärare och inredare i Norrahammar, Jönköping. Rum som svarar, i hem, förskolor, arbetsplatser och väntrum. Från brus till ro." },
   { key: "villkor.text", label: "Köpvillkor (egen sida)", multiline: true, value: `Studio Dalarud drivs av Sofia Dalarud som enskild näringsidkare med F-skattsedel.
 
 ## Beställning och betalning
@@ -91,7 +91,7 @@ Betalningar hanteras av Stripe. Hemsidan och databasen drivs hos Vercel och Supa
 Du har rätt att få veta vilka uppgifter vi har om dig, att få dem rättade eller raderade, och att klaga hos Integritetsskyddsmyndigheten. Kontakta oss på e-post.` },
   // ---- Sidornas huvuden ----
   { key: "sida.hjalp.rubrik", label: "Sidhuvud Hjälp hemma: rubrik", value: "Ett hem som *ger ro.*" },
-  { key: "sida.hjalp.ingress", label: "Sidhuvud Hjälp hemma: ingress", value: "Hem som svarar på barnens frågor, hem som kommer ihåg åt vuxna, homestaging och verksamheter. Första steget är alltid ett hembesök med Ro-kartan.", multiline: true },
+  { key: "sida.hjalp.ingress", label: "Sidhuvud Hjälp hemma: ingress", value: "Hem som svarar på barnens frågor, i ett hem eller i två, hem som kommer ihåg åt vuxna och äldre, och homestaging. Första steget är alltid ett hembesök med Ro-kartan.", multiline: true },
   { key: "sida.ateljen.rubrik", label: "Sidhuvud Ateljén: rubrik", value: "Format för hand, *i lera.*" },
   { key: "sida.ateljen.ingress", label: "Sidhuvud Ateljén: ingress", value: "Föremål i självtorkande lera, kurser där du formar själv och presentkort. Allt är gjort för att titta på och hålla i.", multiline: true },
   { key: "sida.mh.rubrik", label: "Sidhuvud Människohemmet: rubrik", value: "Människohemmet" },
@@ -141,12 +141,41 @@ Kvällslyktan: när den tänds är det dags att varva ner.` },
 Barnet med NPF | För barn med ADHD, autism eller annan NPF gör tydligheten störst skillnad. Det är samma metod som i förskolan, men hemma.
 Familjen som just flyttat in | Bygg in svaren från början, innan allt har hamnat på fel plats.
 Förskolor och mäklare | Föräldrakvällen Mindre tjat hemma, och Landa-kortet som mäklaren ger köparen av en familjevilla.` },
+  { key: "sida.vk.rubrik", label: "Sidhuvud Verksamheter: rubrik", value: "Rum som alla *hjärnor förstår.*" },
+  { key: "sida.vk.ingress", label: "Sidhuvud Verksamheter: ingress", value: "Förskolan har länge byggt in svaren på barnens frågor i miljön. Samma frågor ställs i kontorslandskapet, i tandläkarstolen, på boendet och på biblioteket. Jag hjälper verksamheter att göra sina rum begripliga och lugna, med förskolans metod och en inredares öga.", multiline: true },
+  { key: "vk.arenor.title", label: "Verksamheter: arenor, rubrik", value: "Där frågorna *ställs.*" },
+  { key: "vk.arenor.lede", label: "Verksamheter: arenor, ingress", value: "Fem slags verksamheter där rummet kan göra mer av jobbet.", multiline: true },
+  { key: "vk.arenor", label: "Verksamheter: arenor (Vad som skaver | Arena | Vad jag gör, en per rad)", multiline: true, value: `”Var ska jag vara nu?” | Förskola och skola | Lärmiljöanalys med de nio frågorna, fortbildning för arbetslaget och föräldrakvällen Mindre tjat hemma.
+”Var kan jag tänka?” | Arbetsplatser | Ro-genomgång av kontoret, lugna rum och anpassning av arbetsplatsen för medarbetare med ADHD eller autism, gärna tillsammans med företagshälsovården.
+”Vad händer nu?” | Tandvård och väntrum | Behandlingsrum och väntrum med dämpat ljus, lugna bilder och förberedelse, så att fler barn och vuxna klarar besöket.
+”Var är jag?” | Boenden och boendestöd | Rum som svarar på demensboenden och LSS-boenden, och utbildningen Hemmet som stöd för boendestödjare.
+”Var kan jag vila?” | Bibliotek, kulturhus och evenemang | Lugna rum, sinnesrum och NPF-anpassade öppettider, och lugna zoner på mässor och festivaler.` },
+  { key: "vk.varfor.title", label: "Verksamheter: varför nu, rubrik", value: "Varför *nu.*" },
+  { key: "vk.varfor.lede", label: "Verksamheter: varför nu, ingress", value: "Kunskapen finns, men den har sällan nått rummen.", multiline: true },
+  { key: "vk.varfor", label: "Verksamheter: varför nu (Rubrik | text, en per rad)", multiline: true, value: `Nya riktlinjer 2026 | Arbetsmiljöverket har gett ut riktlinjer om autism och ADHD på arbetsplatsen. De tar upp anpassning av ljud, ljus och arbetsplatsens utformning.
+Förskolans nio frågor | Specialpedagogiska skolmyndigheten beskriver hur miljön kan svara på barnens frågor. De flesta barn mår bra av tydlighet och struktur.
+Forskning från tandvården | I en amerikansk studie kunde fler barn med autism behandlas i en sinnesanpassad miljö än i en vanlig.
+En lucka i Sverige | Storbritannien har en nationell vägledning för hjärnvänliga byggnader. Sverige har ingen ännu, och i befintliga rum görs nästan inget.` },
+  { key: "vk.steg.title", label: "Verksamheter: steg, rubrik", value: "Från genomgång till *rum som svarar.*" },
+  { key: "vk.steg.lede", label: "Verksamheter: steg, ingress", value: "Ett fast upplägg och ett fast pris, så att det går att beställa utan upphandling. Priser exklusive moms.", multiline: true },
+  { key: "vk.steg.1.title", label: "Verksamheter: steg 1, rubrik", value: "Samtalet" },
+  { key: "vk.steg.1.text", label: "Verksamheter: steg 1, text", value: "Vi pratar om verksamheten, vilka som använder rummen och var det skaver.", multiline: true },
+  { key: "vk.steg.1.meta", label: "Verksamheter: steg 1, tid och pris", value: "Gratis · 30 min" },
+  { key: "vk.steg.2.title", label: "Verksamheter: steg 2, rubrik", value: "Ro-genomgången" },
+  { key: "vk.steg.2.text", label: "Verksamheter: steg 2, text", value: "Jag går igenom lokalen med de nio frågorna och med ljud, ljus, intryck och vila. Ni får en Ro-karta med vad som kan göras först, vad det kostar och vad det ger.", multiline: true },
+  { key: "vk.steg.2.meta", label: "Verksamheter: steg 2, tid och pris", value: "Från 9 500 kr" },
+  { key: "vk.steg.3.title", label: "Verksamheter: steg 3, rubrik", value: "Rummen" },
+  { key: "vk.steg.3.text", label: "Verksamheter: steg 3, text", value: "Ni gör det själva efter kartan, eller så formger jag rummen: lugna rum, bildstöd, ljus, akustik och föremål som svarar.", multiline: true },
+  { key: "vk.steg.3.meta", label: "Verksamheter: steg 3, tid och pris", value: "Offert" },
+  { key: "vk.steg.4.title", label: "Verksamheter: steg 4, rubrik", value: "Personalen" },
+  { key: "vk.steg.4.text", label: "Verksamheter: steg 4, text", value: "En utbildning så att personalen förstår varför rummen ser ut som de gör, och kan hålla dem så.", multiline: true },
+  { key: "vk.steg.4.meta", label: "Verksamheter: steg 4, tid och pris", value: "Från 6 000 kr" },
   { key: "start.title", label: "Startsidan: tre vägar, rubrik", value: "Tre vägar *in.*" },
-  { key: "start.lede", label: "Startsidan: tre vägar, ingress", value: "Har ni barn hemma, behöver du ett hem som kommer ihåg åt dig, eller vill du börja med att mäta? Välj det som passar dig i dag.", multiline: true },
+  { key: "start.lede", label: "Startsidan: tre vägar, ingress", value: "Gäller det ditt hem, en verksamhet, eller vill du börja med att mäta? Välj det som passar dig i dag.", multiline: true },
   { key: "start.dorr1", label: "Startsidan: väg 1, rubrik", value: "Hem som svarar" },
-  { key: "start.dorr1.text", label: "Startsidan: väg 1, text", value: "Förskolans metod hemma. Mindre tjat efter fyra veckor, annars kommer jag tillbaka." },
-  { key: "start.dorr2", label: "Startsidan: väg 2, rubrik", value: "Hem som kommer ihåg" },
-  { key: "start.dorr2.text", label: "Startsidan: väg 2, text", value: "För vuxna med ADHD och alla som är trötta på att leta: hallen, hemmakontoret och resten av hemmet." },
+  { key: "start.dorr1.text", label: "Startsidan: väg 1, text", value: "För barnfamiljer, barn som bor i två hem, vuxna med ADHD och äldre föräldrar. Samma metod, olika hem." },
+  { key: "start.dorr2", label: "Startsidan: väg 2, rubrik", value: "Rum som alla förstår" },
+  { key: "start.dorr2.text", label: "Startsidan: väg 2, text", value: "Förskolor, arbetsplatser, tandvård, boenden och offentliga rum. En Ro-genomgång och en plan som personalen kan följa." },
   { key: "start.dorr3", label: "Startsidan: väg 3, rubrik", value: "Mät tjatet" },
   { key: "start.dorr3.text", label: "Startsidan: väg 3, text", value: "Räkna i tre dagar hur ofta du säger till. Då ser du var hemmet behöver svara först. Gratis." },
 
@@ -318,15 +347,18 @@ export const SERVICES = [
   { name: "Hem som svarar", short: "Förskolans metod hemma, för mindre tjat", priceFrom: "från 2 495 kr", tone: "clay", badge: "Mindre tjat, annars kommer jag tillbaka",
     body: "Jag bygger in svaren på barnens frågor i ert hem: var saker ska vara, vad man gör var, hur länge och vad som händer sen. Ni mäter tjatet före och fyra veckor efter. Har det inte minskat kommer jag tillbaka och justerar, utan kostnad. För alla barn, och särskilt för barn med ADHD, autism eller annan NPF.",
     items: [["Hembesök med Ro-kartan: de fem frågorna, 2 h", "2 495 kr"], ["Digital Ro-karta, via bilder och video, hela Sverige", "2 495 kr"], ["En tid på dygnet: morgonen, leken eller kvällen", "från 5 900 kr"], ["Hela dagen: morgonen, leken och kvällen", "från 15 900 kr"]] },
-  { name: "Hem som kommer ihåg", short: "För vuxna med ADHD, och alla som är trötta på att leta", priceFrom: "från 2 495 kr", tone: "moss",
-    body: "Samma metod, för vuxna. Hemmet kommer ihåg var nycklarna ligger, vad som ska med och vad som ska göras härnäst, så att hjärnan slipper. Vi börjar där dagen startar och där den tar slut: hallen och kvällen.",
-    items: [["Hembesök med Ro-kartan, 2 h", "2 495 kr"], ["Landningsplatsen: hallen som kommer ihåg", "från 4 900 kr"], ["Hemmakontor som kommer ihåg", "från 6 900 kr"], ["Rumsstyling, ett rum", "från 8 900 kr"]] },
+  { name: "Två hem som svarar", short: "När barnen bor växelvis", priceFrom: "från 3 995 kr", tone: "moss", badge: "Nytt",
+    body: "Barn som bor växelvis byter hem varje vecka. När hallen och barnrummet svarar likadant i båda hemmen slipper barnet lära om, och föräldrarna slipper förklara. En gemensam Ro-karta, och samma krokar och märken i båda hemmen.",
+    items: [["Hembesök i båda hemmen, med en gemensam Ro-karta", "3 995 kr"], ["Samma svar i båda hemmen: hall och barnrum", "från 8 900 kr"], ["Digitalt, när hemmen ligger långt ifrån varandra", "2 995 kr"]] },
+  { name: "Hem som kommer ihåg", short: "För vuxna med ADHD, och för äldre föräldrar", priceFrom: "från 2 495 kr", tone: "surface",
+    body: "Samma metod för vuxna. Hemmet kommer ihåg var nycklarna ligger, vad som ska med och vad som ska göras härnäst. För äldre föräldrar gör tydliga kontraster, ljus och bilder att hemmet går att bo kvar i längre. Det köps ofta av de vuxna barnen.",
+    items: [["Hembesök med Ro-kartan, 2 h", "2 495 kr"], ["Landningsplatsen: hallen som kommer ihåg", "från 4 900 kr"], ["Hemmakontor som kommer ihåg", "från 6 900 kr"], ["Ett hem som håller: för äldre föräldrar", "från 4 900 kr"]] },
   { name: "Homestaging", short: "Familjevillan som köparen ser sig själv i", priceFrom: "från 2 495 kr", tone: "surface",
     body: "De som köper villor är oftast barnfamiljer. Jag stylar hallen och barnrummet så att köparen ser var allt tar vägen och hur morgnarna skulle fungera, inte bara att det är fint. Jag arbetar helst med dina egna möbler och samarbetar direkt med din mäklare.",
     items: [["Rådgivning och checklista inför visning", "2 495 kr"], ["Fotostyling på fotodagen, halvdag", "3 900 kr"], ["Styling med egna möbler", "från 7 900 kr"], ["Styling med kompletterande möbler", "från 9 900 kr"]] },
-  { name: "Verksamheter", short: "Förskolor, skolor, boenden och mäklare", priceFrom: "från 1 995 kr", tone: "surface", contactLabel: "Kontakta",
-    body: "Jag vet hur en förskoleavdelning används en vanlig tisdag. Föräldrakvällen ger föräldrarna förskolans knep att ta med hem, och lärmiljöanalysen prövar avdelningen mot de nio frågorna. Större uppdrag offereras.",
-    items: [["Föräldrakväll: Mindre tjat hemma, 45 min", "från 2 500 kr"], ["Föreläsning: Rummet som pedagog, 60–90 min", "från 6 000 kr"], ["Lärmiljöanalys: de nio frågorna på avdelningen", "från 9 500 kr"], ["Landa-kortet för mäklare: ett hembesök till köparen", "1 995 kr"]] },
+  { name: "Verksamheter", short: "Förskolor, arbetsplatser, tandvård, boenden och offentliga rum", priceFrom: "från 2 500 kr", tone: "clay", contactLabel: "Kontakta",
+    body: "Samma metod för rum där många ska förstå och landa. Läs mer på sidan Verksamheter. Priser exklusive moms.",
+    items: [["Ro-genomgång av en lokal, med Ro-karta", "från 9 500 kr"], ["Arbetsplats: genomgång, plan och lugna rum", "från 12 000 kr"], ["Utbildning för personal: Rummet som pedagog eller Hemmet som stöd", "från 6 000 kr"], ["Föräldrakväll: Mindre tjat hemma, 45 min", "från 2 500 kr"]] },
 ];
 
 export const PRODUCTS = [

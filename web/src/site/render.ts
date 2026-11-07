@@ -10,17 +10,19 @@ function readSite(rel: string) {
   return cache.get(rel)!;
 }
 
-export type PageKey = "start" | "barnfamiljer" | "hjalp" | "ateljen" | "manniskohemmet" | "rohemmet" | "ro-i-vardagen" | "om";
+export type PageKey = "start" | "barnfamiljer" | "verksamheter" | "hjalp" | "ateljen" | "manniskohemmet" | "rohemmet" | "ro-i-vardagen" | "om";
 type PageDef = { title: string; description: string; nav?: string; head?: { eyebrow: string; heading: string; lede: string; crumb?: [string, string] }; sections: string[] };
 
 /** Sidorna och vilka sektioner de består av. Texterna i sidhuvudena går att ändra under Hemsidan → Texter. */
 export const PAGES: Record<PageKey, PageDef> = {
-  start: { title: "Studio Dalarud – hem som svarar, så att tjatet minskar", description: "Förskollärare och inredare i Norrahammar. Hem som svarar på barnens frågor, hem som kommer ihåg åt vuxna med ADHD, homestaging och lugna rum. Jönköping och Tabergsdalen.",
+  start: { title: "Studio Dalarud – rum som svarar, för alla sorters hjärnor", description: "Förskollärare och inredare i Norrahammar. Hem, förskolor, arbetsplatser, tandvård och boenden som alla sorters hjärnor förstår. Jönköping, Tabergsdalen och hela Sverige.",
     sections: ["hero", "start-dorrar", "manifest", "start-vision"] },
-  barnfamiljer: { title: "Hem som svarar – förskolans metod hemma, för mindre tjat | Studio Dalarud", description: "Förskollärare och inredare i Norrahammar. Jag bygger in svaren på barnens frågor i hemmet, så att tjatet minskar. Mät tjatet gratis. Jönköping, Tabergsdalen och digitalt i hela Sverige.", nav: "barnfamiljer",
+  barnfamiljer: { title: "Hem som svarar – förskolans metod hemma, för mindre tjat | Studio Dalarud", description: "Förskollärare och inredare i Norrahammar. Jag bygger in svaren på barnens frågor i hemmet, så att tjatet minskar. Mät tjatet gratis. Jönköping, Tabergsdalen och digitalt i hela Sverige.", nav: "hjalp",
     head: { eyebrow: "För barnfamiljer", heading: "sida.barn.rubrik", lede: "sida.barn.ingress" }, sections: ["barn-fragor", "barn-tjat", "barn-steg", "barn-hojd", "barn-vem", "kontakt"] },
-  hjalp: { title: "Hjälp hemma – Studio Dalarud", description: "Barnrum, inredning, homestaging och lugna rum i Norrahammar och Jönköping. Hembesök med Ro-kartan, fasta priser och hjälp hela vägen.", nav: "hjalp",
-    head: { eyebrow: "Hjälp hemma", heading: "sida.hjalp.rubrik", lede: "sida.hjalp.ingress" }, sections: ["tjanster", "rokartan", "steg", "ro-modellen", "kontakt"] },
+  verksamheter: { title: "Verksamheter – rum som alla hjärnor förstår | Studio Dalarud", description: "Hjärnvänliga och NPF-vänliga miljöer för förskolor, arbetsplatser, tandvård, boenden, bibliotek och evenemang. Ro-genomgång från 9 500 kr. Jönköping och hela Sverige.", nav: "verksamheter",
+    head: { eyebrow: "Verksamheter", heading: "sida.vk.rubrik", lede: "sida.vk.ingress" }, sections: ["vk-arenor", "vk-varfor", "vk-steg", "kontakt"] },
+  hjalp: { title: "Hemma – Studio Dalarud", description: "Hem som svarar, i ett hem eller två, hem som kommer ihåg och homestaging i Norrahammar och Jönköping. Hembesök med Ro-kartan, fasta priser och hjälp hela vägen.", nav: "hjalp",
+    head: { eyebrow: "Hemma", heading: "sida.hjalp.rubrik", lede: "sida.hjalp.ingress" }, sections: ["tjanster", "rokartan", "steg", "ro-modellen", "kontakt"] },
   ateljen: { title: "Ateljén – Studio Dalarud", description: "Föremål i självtorkande lera, kurser och presentkort från Studio Dalarud.", nav: "ateljen",
     sections: ["ateljen", "kurser", "presentkort"] },
   manniskohemmet: { title: "Människohemmet – Studio Dalarud", description: "Ett hem format efter människan, inte tvärtom. Idén om Människohemmet och dess fem delkoncept: Ro, Jord, Växt, Bord och År.", nav: "manniskohemmet",
@@ -159,11 +161,11 @@ export function renderSite(data: SiteData, key: PageKey = "start"): string {
     .replace("{{legal}}", () => legal)
     .replace("{{jsonld}}", () => JSON.stringify({
       "@context": "https://schema.org", "@type": "LocalBusiness", name: data.company.name, founder: data.company.owner,
-      description: "Förskollärare och inredare i Norrahammar. Hem som svarar på barnens frågor, så att tjatet minskar.",
+      description: "Förskollärare och inredare i Norrahammar. Rum som svarar, i hem, förskolor, arbetsplatser och väntrum.",
       email: data.company.email || undefined, telephone: data.company.phone || undefined,
       address: { "@type": "PostalAddress", streetAddress: data.company.address || undefined, addressLocality: "Norrahammar", addressRegion: "Jönköpings län", addressCountry: "SE" },
       areaServed: ["Norrahammar", "Taberg", "Jönköping", "Huskvarna", "Bankeryd", "Tenhult", "Sverige (digitalt)"],
-      knowsAbout: ["Tydliggörande pedagogik i hemmet", "Barnrum", "Inredning", "Homestaging", "NPF-anpassade hem", "Lärmiljöer i förskolan"],
+      knowsAbout: ["Neuroinkluderande inredning", "NPF-vänliga arbetsplatser", "Tydliggörande pedagogik i hemmet", "Barnrum", "Inredning", "Homestaging", "NPF-anpassade hem", "Lärmiljöer i förskolan"],
     }).replace(/</g, "\\u003c"))
     .replace(/\{\{rows:([a-z0-9.]+):([a-z]+)\}\}/g, (_, k, kind) => renderRows(data.texts[k] ?? "", kind))
     .replace(/\{\{paras:([a-z0-9.]+)\}\}/g, (_, k) => rowsOf(data.texts[k] ?? "").map((r) => `<p>${rich(r.join(" | "))}</p>`).join(""))
