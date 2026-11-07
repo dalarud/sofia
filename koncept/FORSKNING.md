@@ -117,3 +117,14 @@ Människor föredrar i snabba bedömningar rundade föremål framför kantiga (B
 - **Ett Ro-råd:** be en arbetsterapeut, en forskare inom miljöpsykologi och en person med NPF att läsa igenom principerna och Ro-måtten en gång om året.
 - **Mät i egna uppdrag:** be förskolor och familjer svara på några enkla frågor före och efter (till exempel hur morgnarna går och hur lätt det är att varva ner). Det blir inte forskning, men det blir underlag och berättelser.
 - **Samarbeta med högskola:** en uppsats eller pilotstudie om rohörnor i förskolan är ett rimligt första samarbete.
+
+
+## Rummet svarar – grunden för Hem som svarar (november 2026)
+
+| Påstående | Stöd | Källa | Grad |
+|---|---|---|---|
+| En förutsägbar miljö svarar på barnens frågor: vad, var, med vem, hur mycket, hur, när, hur länge, varför och vad sen | Förskolans arbetssätt med tydliggörande pedagogik, med ursprung i TEACCH | SPSM, Tydliggörande pedagogik i förskolan, 2024 | Beprövad praktik |
+| De flesta barn mår bra av förutsägbarhet, tydlighet och struktur, och rutiner avlastar arbetsminnet | SPSM:s sammanfattning av forskningen | SPSM 2024, Mesibov m.fl. 2007 | Måttlig |
+| Visuellt stöd (bilder, scheman) hjälper barn att göra saker utan påminnelser | Evidensbaserad metod vid autism | NCAEP, Steinbrenner m.fl. 2020 | Stark (vid autism) |
+| Stökiga och oförutsägbara hem hänger ihop med sämre mående hos barn och föräldrar | 112 studier, mest samband och inte orsak | Marsh, Dobson och Maddison 2020, BMC Public Health | Måttlig, men bara samband |
+| Mindre tjat hemma | Mäts av varje familj med tjatmätaren, före och efter | Egna mätningar | Ska samlas in |

@@ -710,3 +710,31 @@ canvas.blob { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 
 .evidence__note { margin-top: 2rem; color: var(--on-deep-muted); font-size: .92rem; max-width: 62ch; }
 @media (max-width: 760px) { .evidence__row { grid-template-columns: minmax(0, 1fr); } .evidence__row b { grid-row: auto; } .evidence__row small, .evidence__row .grade { grid-column: 1; grid-row: auto; } }
 
+
+/* Hem som svarar: frågorna och tjatmätaren */
+.rituals--fragor .ritual { grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 1.5fr); }
+.rituals--fragor .ritual__when { font: italic 400 1.5rem/1 var(--font-display); color: var(--accent); letter-spacing: 0; text-transform: none; }
+@media (max-width: 760px) { .rituals--fragor .ritual { grid-template-columns: 1fr; } }
+.tjat-sec { background: var(--surface-2); }
+.tjat-sec__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.4rem 4rem; align-items: start; }
+.tjat-sec h2 { font-size: var(--step-3); margin-top: .9rem; }
+.tjat-sec__lede { color: var(--muted); margin-top: 1.2rem; max-width: 46ch; font-size: 1.05rem; }
+@media (max-width: 860px) { .tjat-sec__grid { grid-template-columns: 1fr; } }
+.tjat__days { margin-bottom: 1.2rem; }
+.tjat__rows { border-top: 1px solid var(--fg); }
+.tjat__row { display: grid; grid-template-columns: minmax(0, 1fr) 3rem 3.6rem 3rem; align-items: center; gap: .4rem; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+.tjat__row b { display: block; font: 400 1.5rem/1.1 var(--font-display); }
+.tjat__row small { color: var(--muted); font-size: .88rem; }
+.tjat__btn { width: 3rem; height: 3rem; border: 0; background: none; color: var(--fg); font: 400 2rem/1 var(--font-display); cursor: pointer; border-radius: var(--pebble-a); }
+.tjat__btn[data-step="1"] { color: var(--accent); }
+.tjat__btn:hover { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+.tjat__btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tjat__n { font: 400 2.2rem/1 var(--font-display); text-align: center; font-variant-numeric: tabular-nums; }
+.tjat__foot { display: flex; justify-content: space-between; gap: 1rem; margin-top: .9rem; color: var(--muted); font-size: .9rem; }
+.tjat__reset { border: 0; background: none; color: var(--muted); text-decoration: underline; text-underline-offset: .2em; cursor: pointer; font: inherit; }
+.tjat__result { margin-top: 2rem; display: grid; gap: .9rem; max-width: 46ch; }
+.tjat__result em { color: var(--accent); }
+.tjat__big { font: 400 clamp(3rem, 7vw, 4.6rem)/1 var(--font-display); }
+.tjat__big span { font: 400 1rem var(--font-body); color: var(--muted); margin-left: .5rem; }
+.tjat__hint { color: var(--muted); font-size: .92rem; }
+.tjat__result .btn { justify-self: start; }

@@ -171,6 +171,37 @@ section { padding: clamp(4rem, 9vw, 7rem) 0; }
 .risks span { color: var(--muted); font-size: .95rem; }
 @media (max-width: 720px) { .risks div { grid-template-columns: 1fr; } }
 
+
+/* Version 3: översynen */
+.audit { border-top: 1px solid var(--fg); }
+.audit__row { display: grid; grid-template-columns: 12rem minmax(0, 1.3fr) minmax(0, 1fr); gap: .4rem 2rem; padding: 1.3rem 0; border-bottom: 1px solid var(--line); align-items: start; }
+.audit__row > b { font: 400 1.45rem/1.15 var(--serif); }
+.audit__row p { color: var(--muted); font-size: .95rem; }
+.audit__row p + p { margin-top: .5rem; }
+.audit__fix { font-family: var(--serif); font-size: 1.2rem; line-height: 1.3; color: var(--fg); }
+.audit__fix::before { content: "→ "; color: var(--accent); }
+@media (max-width: 820px) { .audit__row { grid-template-columns: 1fr; } }
+.stones { display: flex; gap: .35rem; margin-top: .7rem; flex-wrap: wrap; align-items: center; }
+.stones i { width: 1.1rem; height: .78rem; border-radius: var(--stone); background: var(--line); display: block; }
+.stones i.on { background: var(--accent); }
+.stones span { font-size: .82rem; color: var(--muted); margin-left: .4rem; }
+.q { border-top: 1px solid color-mix(in srgb, var(--on-deep) 30%, transparent); margin-top: clamp(2.6rem, 6vw, 4rem); }
+.q__row { display: grid; grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 1.5fr); gap: .3rem 2rem; padding: 1rem 0; border-bottom: 1px solid color-mix(in srgb, var(--on-deep) 14%, transparent); align-items: baseline; }
+.q__row i { font: italic 400 1.6rem var(--serif); color: var(--accent-soft); }
+.q__row b { font: 400 1.35rem var(--serif); }
+.q__row span { color: var(--on-deep-muted); font-size: .95rem; }
+@media (max-width: 720px) { .q__row { grid-template-columns: 1fr; } }
+.compare { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.compare th, .compare td { text-align: left; padding: .9rem .6rem; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.compare thead th { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--fg); }
+.compare td:first-child { font: 400 1.3rem var(--serif); }
+.compare tr.me td { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+.compare tr.me td:first-child { color: var(--accent); font-style: italic; }
+.dot { display: inline-block; width: 1rem; height: .7rem; border-radius: var(--stone); background: var(--accent); vertical-align: middle; }
+.dot--no { background: transparent; border: 1.5px solid var(--line); }
+.compare small { color: var(--muted); display: block; font-size: .82rem; margin-top: .2rem; }
+.compare-wrap { overflow-x: auto; }
+
 footer { padding: 3rem 0 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .86rem; }
 footer h4 { font: 400 1.4rem var(--serif); color: var(--fg); margin: 0 0 .8rem; }
 footer ul { margin: 0; padding-left: 1rem; columns: 2 22rem; column-gap: 3rem; }
@@ -178,19 +209,19 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Strategin · version 2 · november 2026</small></div></header>
+<header class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Strategin · version 3 · november 2026</small></div></header>
 
 <main>
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Översyn av hela företaget</p>
-    <h1>Med barnens<br><em>ögon.</em></h1>
-    <p class="hero__claim">Inredaren som har varit förskollärare. Hem som är vackra, lugna och lätta att leva i, för alla i familjen. I Tabergsdalen, där folkhemmets spisar göts.</p>
+    <p class="eyebrow">USP</p>
+    <h1>Hem som<br><em>svarar.</em></h1>
+    <p class="hero__claim">I förskolan svarar rummet på barnens frågor. Hemma svarar föräldern, hela dagen, och det kallas tjat. Sofia bygger in svaren i hemmet, mäter tjatet före och efter, och kommer tillbaka om det inte har minskat.</p>
     <div class="facts">
-      <div><b>8+</b><span>stylister i Jönköping. Ingen hittad med inriktning på NPF</span></div>
-      <div><b>9&nbsp;%</b><span>av pojkarna 10–14 år hämtade ut ADHD-läkemedel 2024</span></div>
-      <div><b>298</b><span>påbörjade bostäder 2025. Det är villorna som redan finns som byter familj</span></div>
-      <div><b><em>95&nbsp;cm</em></b><span>barnets ögonhöjd, där varje hembesök börjar</span></div>
+      <div><b>9</b><span>frågor som förskolans miljö ska svara på, enligt SPSM</span></div>
+      <div><b>5</b><span>av dem ställs hemma varje dag: var, vad, hur, hur länge och vad sen</span></div>
+      <div><b>3&nbsp;dagar</b><span>med tjatmätaren före, och tre dagar efter</span></div>
+      <div><b><em>4&nbsp;veckor</em></b><span>Mindre tjat då, annars kommer Sofia tillbaka</span></div>
     </div>
   </div>
 </section>
@@ -198,46 +229,38 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <section style="padding-top:0">
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">Domen i korthet</p><h2>Bra delar, <em>fel ordning.</em></h2></div>
-      <p class="lede">Allt som finns håller. Men kunden ser inte vad hen ska köpa först, och Sofias mest unika kunskap användes för smalt.</p>
+      <div><p class="eyebrow">Översynen, del för del</p><h2>Det unika var <em>gömt.</em></h2></div>
+      <p class="lede">Det enda som bara Sofia kan, specialpedagogiken från förskolan, var en liten del av metoden, sortimentet och hemsidan. Resten var vackert, men gick att få av vilken skandinavisk inredare som helst.</p>
     </div>
-    <div class="verdict">
-      <div><h3>Starkt</h3><p>Ett eget varumärke. En förskollärare med NPF-kunskap som också är utbildad inredare och homestager, vilket ingen annan i regionen är som jag har hittat. Priser räknade per timme. En hemsida och en administration som fungerar.</p></div>
-      <div><h3>Håller tillbaka</h3><p>För mycket på en gång: 25 priser och sex begrepp med "ro". Hemsidan sa inte var Sofia finns. Homestaging, som skulle bära ekonomin, har minst åtta konkurrenter i Jönköping.</p></div>
-      <div><h3>Den nya kärnan</h3><p>Sofia har sett tusentals barn använda rum: var de leker, vad de når själva och när det blir för mycket. Den blicken behövs i varje barnfamilj, inte bara i NPF-familjerna. NPF är den skarpaste spetsen.</p></div>
-    </div>
-    <div class="review" role="table" aria-label="Översyn av delarna">
-      <div class="review__row" role="row"><b>Varumärke och logotyp</b><i class="tag tag--behall">behåll</i><span>Starkt och eget. Dalen i logotypen är Tabergsdalen, och nu används det.</span></div>
-      <div class="review__row" role="row"><b>Människohemmet</b><i class="tag tag--skarp">skärp</i><span>Det är visionen bakom, inte en meny framför. Den berättas på en egen sida och i skriften, men säljs inte.</span></div>
-      <div class="review__row" role="row"><b>Sex ro-begrepp</b><i class="tag tag--skarp">skärp</i><span>Kunden möter två: Ro-kartan (det du får) och Rohemmet (sättet att tänka).</span></div>
-      <div class="review__row" role="row"><b>Lugna rum (NPF)</b><i class="tag tag--skarp">skärp</i><span>Ingår i Barnens rum. Nationellt säljs det digitalt.</span></div>
-      <div class="review__row" role="row"><b>Homestaging</b><i class="tag tag--skarp">skärp</i><span>Familjevillan: visa köparfamiljen var barnen ska bo. Sälj Landa-kortet till mäklaren.</span></div>
-      <div class="review__row" role="row"><b>Förskolor</b><i class="tag tag--skarp">skärp</i><span>Förskolorna har ont om pengar. Sälj föräldrakvällar i stället för dyra analyser.</span></div>
-      <div class="review__row" role="row"><b>Vaser, skålar, lyktor</b><i class="tag tag--stryk">stryk</i><span>Låg timpeng, och CAJO Keramik på bruket gör riktig keramik. Lådmärken i lera blir signaturen.</span></div>
-      <div class="review__row" role="row"><b>Flytt och packning</b><i class="tag tag--stryk">stryk</i><span>Inte Sofias kapital. Struket i version 2, och rutavdraget med det.</span></div>
-      <div class="review__row" role="row"><b>Filtvalvet och formspråket</b><i class="tag tag--pausa">pausa</i><span>Filtvalvet är det enda designobjektet år 1 och görs i små serier. Röset och Dalen väntar till år 2.</span></div>
-      <div class="review__row" role="row"><b>Administrationen</b><i class="tag tag--behall">behåll</i><span>Fungerar. Inget nytt behövs.</span></div>
+    <div class="audit">
+      <div class="audit__row"><b>Insikten</b><div><p>"Det är inte du som är rörig. Ditt hem är för högljutt." Den flyttar skulden till miljön, och det är rätt. Men brus beskrivs som saker, ljus och ljud, och där arbetar alla stylister.</p></div><p class="audit__fix">Ditt hem svarar inte på frågorna. Därför gör du det, hela dagen.</p></div>
+      <div class="audit__row"><b>Ro-modellen och de tio principerna</b><div><p>Överblick, sinnesro, flöde och återhämtning kan vilken inredare som helst säga. Sju av tio principer är klassiska stylingregler.</p><div class="stones" aria-label="2 av 10 principer bär specialpedagogiken"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span>2 av 10 bär det Sofia ensam kan</span></div></div><p class="audit__fix">Rummet svarar blir metoden. Principerna blir uttrycket.</p></div>
+      <div class="audit__row"><b>Människohemmet</b><div><p>En stark vision och en bra skrift. Men den lovar samhället något, inte kunden, och ingen köper en vision för 2 495 kr.</p></div><p class="audit__fix">Människohemmet är varför. Hem som svarar är vad.</p></div>
+      <div class="audit__row"><b>Erbjudandet</b><div><p>Det sålde aktiviteter: hembesök, analys, styling och timmar. Det fanns inget löfte, ingen mätning och ingen garanti, så kunden kunde bara jämföra pris och smak.</p></div><p class="audit__fix">Sälj ett resultat som familjen själv mäter, med garanti.</p></div>
+      <div class="audit__row"><b>Produkterna</b><div><p>Vaser, skålar och stakar konkurrerar med all keramik och ger cirka 300 kr i timmen. Filtvalvet saknade en uppgift i metoden.</p><div class="stones" aria-label="2 av 11 föremål bär metoden"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span>2 av 11 föremål bär metoden</span></div></div><p class="audit__fix">Föremål som svarar: fyra kända saker, som var och en svarar på en fråga.</p></div>
+      <div class="audit__row"><b>Hemsidan</b><div><p>"Från brus till ro" och en akvarell är vackert men abstrakt. Ro-testet sorterar människor i typer, men mäter ingenting i hemmet.</p></div><p class="audit__fix">USP:n i rubriken, och tjatmätaren som mäter.</p></div>
+      <div class="audit__row"><b>Strategi 1 och 2</b><div><p>Version 1 gjorde Sofia till flyttfirma, vilket inte är hennes kapital. Version 2 gjorde meriten "förskollärare som inreder" till USP, utan mekanism, bevis eller garanti.</p></div><p class="audit__fix">Ett löfte som bara Sofia kan hålla, och som går att mäta.</p></div>
     </div>
   </div>
 </section>
 
 <section class="deep">
   <div class="wrap">
-    <p class="eyebrow">USP</p>
-    <p class="usp">Jag ser ditt hem med barnens <em>ögon.</em></p>
-    <p class="usp__promise">Ett hem där barnen når det de behöver, hittar sina saker och kan varva ner. Där de vuxna slipper tjata, och som är vackert att leva i. Gjort av en inredare som har varit förskollärare.</p>
-    <div class="why">
-      <div><b>Förskolläraren</b><span>Åren med barngrupper, specialpedagogik och NPF går inte att läsa sig till på en stylingkurs.</span></div>
-      <div><b>Inredaren</b><span>Utbildningen i inredning och homestaging gör resultatet vackert, inte bara praktiskt.</span></div>
-      <div><b>Handen</b><span>Lådmärken i lera, förskolans bildstöd gjort som hantverk, kan bara hon göra.</span></div>
-      <div><b>Platsen</b><span>Hon är från dalen. Bruket och berättelsen om spisarna kan bli hennes.</span></div>
+    <p class="eyebrow">Mekanismen</p>
+    <p class="usp">Fem frågor som rummet <em>kan svara på.</em></p>
+    <p class="usp__promise">SPSM: "De allra flesta barn mår bra av förutsägbarhet, tydlighet och struktur." Rutiner "avlastar tanken och arbetsminnet". Förskolan bygger svaren i miljön, och Sofia gör samma sak hemma.</p>
+    <div class="q">
+      <div class="q__row"><i>Var?</i><b>”Var är mina vantar?”</b><span>En krok och en korg per barn, i barnets höjd, med en bild i lera.</span></div>
+      <div class="q__row"><i>Vad?</i><b>”Vad ska jag göra nu?”</b><span>Varje del av rummet har en uppgift. Det som inte hör dit står bakom en lucka.</span></div>
+      <div class="q__row"><i>Hur?</i><b>”Hur gör jag?”</b><span>Ordningen syns: krokarna sitter i den ordning kläderna tas på.</span></div>
+      <div class="q__row"><i>Hur länge?</i><b>”Hur länge till?”</b><span>Ett timglas visar tiden. Det är timglaset som säger stopp, inte du.</span></div>
+      <div class="q__row"><i>Vad sen?</i><b>”Vad händer sen?”</b><span>Kvällen har en signal: kvällslyktan tänds och taklampan släcks.</span></div>
     </div>
-    <div class="who">
-      <div class="who__row"><i>A</i><b>Barnfamiljer i Jönköping</b><span>särskilt de som just har köpt hus. Hembesök, barnrum och landa i nya hemmet.</span></div>
-      <div class="who__row"><i>B</i><b>NPF-familjer i hela Sverige</b><span>Digital Ro-karta, Lugna lådan, guiden och skriften.</span></div>
-      <div class="who__row"><i>C</i><b>Säljare av familjevillor</b><span>Homestaging där barnrum och hall visar hur vardagen fungerar.</span></div>
-      <div class="who__row"><i>D</i><b>Förskolor, skolor och mäklare</b><span>Föräldrakvällar, föreläsningar och Landa-kortet.</span></div>
-      <div class="who__row"><i>E</i><b>Vuxna med ADHD</b><span>Ett hem och ett hemmakontor som stödjer vardagen.</span></div>
+    <div class="why">
+      <div><b>Problemet</b><span>Frågorna går till föräldern, och samma svar upprepas tills det blir tjat.</span></div>
+      <div><b>Mekanismen</b><span>Tydliggörande pedagogik från förskolan, byggd in i hemmets inredning.</span></div>
+      <div><b>Beviset</b><span>Tjatmätaren: familjens egna siffror i tre dagar före och tre dagar efter.</span></div>
+      <div><b>Garantin</b><span>Har tjatet inte minskat efter fyra veckor kommer Sofia tillbaka och justerar.</span></div>
     </div>
   </div>
 </section>
@@ -245,38 +268,19 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <section>
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">Mekanismen</p><h2>Fyra vägar in, <em>ett första steg.</em></h2></div>
-      <p class="lede">Allt leder till hembesöket med Ro-kartan, där Sofia sätter sig på huk i varje rum. Därifrån blir det uppdrag. Hembesöket räknas av om kunden bokar ett större uppdrag inom 30 dagar.</p>
+      <div><p class="eyebrow">Därför kan ingen annan lova det</p><h2>Tre kunskaper, <em>en person.</em></h2></div>
+      <p class="lede">Stylister gör det lugnt, men inte begripligt. NPF-team gör det begripligt, men med laminerade bilder på kylskåpet. Sofia gör stöd som ser ut som inredning.</p>
     </div>
-    <div class="chain">
-      <svg viewBox="0 0 1100 500" role="img" aria-labelledby="chain-t">
-        <title id="chain-t">Fyra vägar in, Landa-kortet från mäklaren, föräldrakvällen, Ro-rummet på bruket och sökning med Ro-testet, leder till hembesöket med Ro-kartan. Därifrån blir det Barnens rum, Ett hem som ger ro, homestaging eller lådmärken och Lugna lådan.</title>
-        <text x="40" y="44" class="h">Vägar in</text>
-        <g><circle cx="60" cy="110" r="9" fill="var(--c4)"/><text x="82" y="106">Mäklaren</text><text x="82" y="126" class="m">Landa-kortet till köparen</text></g>
-        <g><circle cx="60" cy="200" r="9" fill="var(--c4)"/><text x="82" y="196">Föräldrakvällen</text><text x="82" y="216" class="m">20–40 föräldrar på förskolan</text></g>
-        <g><circle cx="60" cy="290" r="9" fill="var(--c4)"/><text x="82" y="286">Ro-rummet på bruket</text><text x="82" y="306" class="m">helgöppet med grannarna</text></g>
-        <g><circle cx="60" cy="380" r="9" fill="var(--c4)"/><text x="82" y="376">Sökning och Ro-testet</text><text x="82" y="396" class="m">lokalt och i hela Sverige</text></g>
-        <path d="M300 112 C400 120 430 220 470 238" class="ln"/><path d="M300 202 C390 206 430 230 470 240" class="ln"/><path d="M300 292 C390 288 430 254 470 244" class="ln"/><path d="M300 382 C400 372 430 266 470 248" class="ln"/>
-        <path d="M480 300 V205 A70 70 0 0 1 620 205 V300" class="ln" stroke-width="2.4"/>
-        <path d="M498 300 V208 A52 52 0 0 1 602 208 V300" class="ln"/>
-        <ellipse cx="550" cy="288" rx="13" ry="8" fill="var(--accent)"/>
-        <text x="550" y="112" text-anchor="middle" class="note">på huk i varje rum</text>
-        <text x="550" y="335" text-anchor="middle" class="h">Hembesöket</text>
-        <text x="550" y="358" text-anchor="middle" class="m">Ro-kartan · 2 495 kr · digitalt i hela Sverige</text>
-        <text x="1060" y="44" text-anchor="end" class="h">Uppdrag</text>
-        <g><circle cx="1040" cy="110" r="9" fill="var(--c1)"/><text x="1018" y="106" text-anchor="end">Barnens rum</text><text x="1018" y="126" text-anchor="end" class="m">barnrum, hall, läxplats</text></g>
-        <g><circle cx="1040" cy="200" r="9" fill="var(--c3)"/><text x="1018" y="196" text-anchor="end">Ett hem som ger ro</text><text x="1018" y="216" text-anchor="end" class="m">landa i nya hemmet, rumsstyling</text></g>
-        <g><circle cx="1040" cy="290" r="9" fill="var(--c2)"/><text x="1018" y="286" text-anchor="end">Homestaging</text><text x="1018" y="306" text-anchor="end" class="m">familjevillan</text></g>
-        <g><circle cx="1040" cy="380" r="9" fill="var(--c5)"/><text x="1018" y="376" text-anchor="end">Lådmärken och Lugna lådan</text><text x="1018" y="396" text-anchor="end" class="m">bildstöd i lera</text></g>
-        <path d="M630 238 C680 220 700 120 790 112" class="ln"/><path d="M630 242 C690 236 720 202 790 202" class="ln"/><path d="M630 246 C690 252 720 288 790 292" class="ln"/><path d="M630 250 C680 266 700 372 790 380" class="ln"/>
-        <text x="550" y="470" text-anchor="middle" class="m">Huset byter familj: homestaging hos säljaren och Landa-kortet hos köparen, genom samma mäklare.</text>
-      </svg>
-      <div class="chain-mobile">
-        <div><b>Vägar in</b><small>Landa-kortet från mäklaren · föräldrakvällen på förskolan · Ro-rummet på bruket · sökning och Ro-testet.</small></div>
-        <div><b>Hembesöket</b><small>På huk i varje rum. Ro-kartan lämnas innan Sofia går. 2 495 kr, eller digitalt i hela Sverige.</small></div>
-        <div><b>Uppdrag</b><small>Barnens rum · Ett hem som ger ro · homestaging av familjevillan · lådmärken och Lugna lådan.</small></div>
-      </div>
-      <div class="chain__legend"><span style="--k: var(--c4)">vägar in</span><span style="--k: var(--accent)">stenen: hembesöket</span><span style="--k: var(--c1)">uppdragen</span></div>
+    <div class="compare-wrap">
+      <table class="compare">
+        <thead><tr><th>Vem</th><th>Inredning</th><th>Specialpedagogik</th><th>Arbetar i hem</th></tr></thead>
+        <tbody>
+          <tr><td>Stylister och homestagers</td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot dot--no" aria-label="nej"></span></td><td><span class="dot" aria-label="ja"></span></td></tr>
+          <tr><td>NPF-team och specialpedagoger</td><td><span class="dot dot--no" aria-label="nej"></span><small>laminerade bilder</small></td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot" aria-label="ja"></span><small>ofta via kommunen</small></td></tr>
+          <tr><td>Förskollärare</td><td><span class="dot dot--no" aria-label="nej"></span></td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot dot--no" aria-label="nej"></span></td></tr>
+          <tr class="me"><td>Sofia</td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot" aria-label="ja"></span></td><td><span class="dot" aria-label="ja"></span></td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -284,71 +288,112 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <section style="background: var(--surface)">
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">Hävstänger</p><h2>Det andra <em>missar.</em></h2></div>
-      <p class="lede">Nio sätt att få mer effekt av samma timmar. Alla bygger på det Sofia redan kan, och de flesta kostar inget annat än ett samtal.</p>
+      <div><p class="eyebrow">Så fungerar det</p><h2>Mät, svara, <em>mät igen.</em></h2></div>
+      <p class="lede">Kunden köper ett resultat som går att se, och Sofia får siffror som ingen konkurrent kan visa.</p>
+    </div>
+    <div class="chain">
+      <svg viewBox="0 0 1100 330" role="img" aria-labelledby="flow-t">
+        <title id="flow-t">Flödet: tjatmätaren i tre dagar, hembesöket med Ro-kartan, svaren på plats för morgonen, leken eller kvällen, och en ny mätning efter fyra veckor. Har tjatet inte minskat kommer Sofia tillbaka och justerar.</title>
+        <g><circle cx="90" cy="120" r="11" fill="var(--c4)"/><text x="90" y="166" text-anchor="middle" class="h">Mät</text><text x="90" y="190" text-anchor="middle" class="m">tjatmätaren, 3 dagar</text><text x="90" y="210" text-anchor="middle" class="m">gratis</text></g>
+        <path d="M120 120 H300" class="ln"/><path d="M292 113 L302 120 L292 127" class="ln"/>
+        <path d="M330 150 V100 A40 40 0 0 1 410 100 V150" class="ln" stroke-width="2.2"/><ellipse cx="370" cy="142" rx="9" ry="6" fill="var(--accent)"/>
+        <text x="370" y="190" text-anchor="middle" class="h">Hembesöket</text><text x="370" y="214" text-anchor="middle" class="m">de fem frågorna · Ro-kartan</text>
+        <path d="M440 120 H600" class="ln"/><path d="M592 113 L602 120 L592 127" class="ln"/>
+        <g><circle cx="650" cy="80" r="9" fill="var(--c1)"/><text x="672" y="86">Morgonen</text>
+           <circle cx="650" cy="120" r="9" fill="var(--c3)"/><text x="672" y="126">Leken</text>
+           <circle cx="650" cy="160" r="9" fill="var(--c2)"/><text x="672" y="166">Kvällen</text>
+           <text x="650" y="214" class="m">svaren på plats, från 5 900 kr</text></g>
+        <path d="M800 120 H930" class="ln"/><path d="M922 113 L932 120 L922 127" class="ln"/>
+        <g><circle cx="980" cy="120" r="11" fill="var(--c4)"/><text x="980" y="166" text-anchor="middle" class="h">Mät igen</text><text x="980" y="190" text-anchor="middle" class="m">efter 4 veckor</text></g>
+        <path d="M980 230 C980 300 700 310 680 236" class="dash"/><path d="M674 246 L680 234 L688 245" class="ln"/>
+        <text x="830" y="300" text-anchor="middle" class="note">inte mindre tjat? Sofia kommer tillbaka</text>
+      </svg>
+      <div class="chain-mobile">
+        <div><b>Mät</b><small>Tjatmätaren i tre dagar, gratis.</small></div>
+        <div><b>Hembesöket</b><small>Varje rum prövas mot de fem frågorna. Ro-kartan lämnas innan Sofia går.</small></div>
+        <div><b>Svaren på plats</b><small>Morgonen, leken eller kvällen, från 5 900 kr.</small></div>
+        <div><b>Mät igen</b><small>Efter fyra veckor. Inte mindre tjat? Sofia kommer tillbaka och justerar.</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Föremål som svarar</p><h2>Kända saker, <em>ny uppgift.</em></h2></div>
+      <p class="lede">Fyra föremål som redan finns i hemmen. Vart och ett svarar på en fråga, och alla är lätta att tillverka i ek och lera.</p>
+    </div>
+    <div class="doors">
+      <div class="door"><span class="k">Svarar: var? hur?</span><h3>Morgonraden</h3><ul><li><b>Hallkroken, omtänkt</b><span>Tre krokar i ek i 95 cm, med en bild i lera i den ordning kläderna tas på. 1 495 kr.</span></li></ul></div>
+      <div class="door"><span class="k">Svarar: var?</span><h3>Lådmärken</h3><ul><li><b>Etiketten, omtänkt</b><span>En bild i lera på varje låda, så att barnet plockar undan själv. 395 kr för 6 st.</span></li></ul></div>
+      <div class="door"><span class="k">Svarar: hur länge?</span><h3>Stunden</h3><ul><li><b>Timglaset, omtänkt</b><span>Tio minuter i en fot av lera. Det är timglaset som säger stopp. 495 kr.</span></li></ul></div>
+      <div class="door"><span class="k">Svarar: vad sen?</span><h3>Kvällslyktan</h3><ul><li><b>Lyktan, omtänkt</b><span>När den tänds är det dags att varva ner. 395 kr.</span></li></ul></div>
+    </div>
+    <div class="cut">
+      <div><b>Startlådan</b><p>Lådmärken, tjatmätaren som block och guiden Hem som svarar. Säljs i hela Sverige för 595 kr.</p></div>
+      <div><b>Säljs slut</b><p>Vaser, skålar, brickor och stakar görs inte om.</p></div>
+      <div><b>Pausas</b><p>Filtvalvet, tills det har en uppgift i metoden, till exempel som kvällssignal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: var(--surface)">
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Erbjudandet</p><h2>Fyra tjänster, <em>ett löfte.</em></h2></div>
+      <p class="lede">Hembesöket kostar 2 495 kr som förut och räknas av mot ett större uppdrag inom 30 dagar. Golvet är 500 kr i timmen exklusive moms.</p>
+    </div>
+    <div class="doors">
+      <div class="door"><span class="k">Huvudtjänst · med garanti</span><h3>Hem som svarar</h3><ul>
+        <li><b>Tjatmätaren</b><span>gratis</span></li>
+        <li><b>Hembesök: de fem frågorna</b><span>2 495 kr, eller digitalt i hela Sverige</span></li>
+        <li><b>En tid på dygnet</b><span>från 5 900 kr</span></li>
+        <li><b>Hela dagen</b><span>från 15 900 kr</span></li></ul></div>
+      <div class="door"><span class="k">Samma metod, för vuxna</span><h3>Hem som kommer ihåg</h3><ul>
+        <li><b>Hembesök</b><span>2 495 kr</span></li>
+        <li><b>Landningsplatsen i hallen</b><span>från 4 900 kr</span></li>
+        <li><b>Hemmakontor som kommer ihåg</b><span>från 6 900 kr</span></li>
+        <li><b>Rumsstyling</b><span>från 8 900 kr</span></li></ul></div>
+      <div class="door"><span class="k">Familjevillan</span><h3>Homestaging</h3><ul>
+        <li><b>Köparen ser var allt tar vägen</b><span>rådgivning 2 495 kr, styling från 7 900 kr</span></li></ul></div>
+      <div class="door"><span class="k">Exklusive moms</span><h3>Verksamheter</h3><ul>
+        <li><b>Föräldrakväll: Mindre tjat hemma</b><span>från 2 500 kr</span></li>
+        <li><b>Föreläsning: Rummet som pedagog</b><span>från 6 000 kr</span></li>
+        <li><b>Lärmiljöanalys: de nio frågorna</b><span>från 9 500 kr</span></li>
+        <li><b>Landa-kortet för mäklare</b><span>1 995 kr</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head">
+      <div><p class="eyebrow">Kanaler</p><h2>Få, och kopplade <em>till löftet.</em></h2></div>
+      <p class="lede">Varje kanal visar metoden, i stället för att bara berätta om den.</p>
     </div>
     <ol class="levers">
-      <li class="lever"><div><h3>Landa-kortet</h3><span class="miss">Alla säljer till säljaren. Ingen säljer till köparen.</span></div><p>Mäklaren köper kortet för 1 995 kr exklusive moms och ger det till köparen vid tillträdet: ett hembesök med Ro-kartan i det nya hemmet. Sofia möter familjen precis när de ska bestämma var allt ska stå, och mäklaren får en gåva som skiljer hen från andra mäklare.</p></li>
-      <li class="lever"><div><h3>Familjevillan</h3><span class="miss">Köparen är en barnfamilj. Visa var barnen ska bo.</span></div><p>Homestaging där hallen och barnrummet visar hur morgnarna skulle fungera, inte bara att det är fint. Det skiljer Sofia från de åtta konkurrenterna, och tillsammans med Landa-kortet möter hon båda familjerna genom samma mäklare.</p></li>
-      <li class="lever"><div><h3>Föräldrakvällen</h3><span class="miss">20–40 föräldrar på en gång, där annonser inte når.</span></div><p>Ett lugnare barnrum, 45 minuter, från 2 500 kr eller gratis i början. Som förskollärare kommer Sofia in där andra inte gör det. Börja i Tabergsdalen och hos lokalföreningen för Attention.</p></li>
-      <li class="lever"><div><h3>Bildstöd i lera</h3><span class="miss">Pedagogik och hantverk i samma föremål.</span></div><p>Lådmärkena är förskolans bildstöd, gjorda för hand. De blir signaturen i stället för vaser och skålar, ingår i varje barnrum och säljs i Lugna lådan, på bruket och på nätet.</p></li>
-      <li class="lever"><div><h3>Barnets ögonhöjd på bild</h3><span class="miss">Alla andra fotograferar från vuxenhöjd.</span></div><p>Alla före- och efterbilder tas från 95 cm. Det blir en igenkännbar bildstil som visar metoden utan ord.</p></li>
-      <li class="lever"><div><h3>Bruket som skyltfönster</h3><span class="miss">Ett riktigt rum att visa, med publik på helgerna.</span></div><p>Ro-rummet: ett barnrum som ger ro och en ateljé i Terminal 31 eller kulturhuset, med samma helgtider som grannarna. Lera för lugn i kulturhuset. Lånade möbler från Dakabom till homestagingen. Med CAJO hänvisar ni kunder till varandra i stället för att konkurrera.</p></li>
-      <li class="lever"><div><h3>Berättelsen från dalen</h3><span class="miss">Ingen konkurrent kan låna den.</span></div><p>Norrahammar göt spisarna i folkhemmets kök, och nu kommer Människohemmet från samma dal. Använd det i Tabergs Nyheter, i en liten utställning med industrimuseet och på Om-sidan.</p></li>
-      <li class="lever"><div><h3>Lokal sökning</h3><span class="miss">Den billigaste marknadsföringen som finns.</span></div><p>Google-företagsprofil i Norrahammar, omdömen från varje kund, en sida per sökning och strukturerad data för lokala företag. Sidan För barnfamiljer är den första.</p></li>
-      <li class="lever"><div><h3>NPF säljs digitalt</h3><span class="miss">Familjerna finns i hela landet.</span></div><p>Ro-testet, guiden och skriften bygger kundlistan. Den digitala Ro-kartan och Lugna lådan säljs utan resor. År 2 kan en digital kurs komma, Ett lugnare barnrum på fyra veckor.</p></li>
+      <li class="lever"><div><h3>Föräldrakvällen</h3><span class="miss">Metoden på 45 minuter.</span></div><p>Mindre tjat hemma, på förskolor och skolor i Tabergsdalen och för Attention. Föräldrarna går hem med tjatmätaren. Förskolan får hjälp med samarbetet med hemmen, till låg kostnad.</p></li>
+      <li class="lever"><div><h3>Tjatmätaren</h3><span class="miss">Gratis, lätt att dela.</span></div><p>"Hur många gånger sa du 'ta på dig skorna' i dag?" Resultatet visar vilken tid på dygnet som ska börja svara, och leder till bokning.</p></li>
+      <li class="lever"><div><h3>Före och efter, i siffror</h3><span class="miss">Ingen konkurrent kan visa samma sak.</span></div><p>När tre pilotfamiljer har mätt visas deras verkliga siffror, med deras tillstånd. Inga påståenden innan det finns data.</p></li>
+      <li class="lever"><div><h3>Lokalt i dalen</h3><span class="miss">Förskolläraren som får hemmen att svara.</span></div><p>Google-företagsprofil i Norrahammar, en artikel i Tabergs Nyheter, och Ro-rummet på bruket med en hall och ett barnrum som svarar.</p></li>
+      <li class="lever"><div><h3>Mäklare</h3><span class="miss">I andra hand, men varm.</span></div><p>Landa-kortet till köparen och Familjevillan för säljaren.</p></li>
     </ol>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="head">
-      <div><p class="eyebrow">Erbjudandet</p><h2>Fyra tjänster, <em>ett första steg.</em></h2></div>
-      <p class="lede">Högst fyra val per tjänst. Hembesöket kostar 2 495 kr som förut och räknas av mot ett större uppdrag inom 30 dagar.</p>
-    </div>
-    <div class="doors">
-      <div class="door"><span class="k">Huvudtjänst</span><h3>Barnens rum</h3><ul>
-        <li><b>Hembesök med Ro-kartan, 2 h</b><span>2 495 kr</span></li>
-        <li><b>Digital Ro-karta, hela Sverige</b><span>2 495 kr</span></li>
-        <li><b>Barnrum som ger ro</b><span>från 6 900 kr</span></li>
-        <li><b>Hall eller läxplats</b><span>från 4 900 kr</span></li></ul></div>
-      <div class="door"><span class="k">Inredning och lugna rum</span><h3>Ett hem som ger ro</h3><ul>
-        <li><b>Hembesök med Ro-kartan</b><span>2 495 kr</span></li>
-        <li><b>Landa i nya hemmet</b><span>från 5 900 kr</span></li>
-        <li><b>Rumsstyling</b><span>från 8 900 kr</span></li>
-        <li><b>Vardag för vuxna med ADHD</b><span>från 6 900 kr</span></li></ul></div>
-      <div class="door"><span class="k">Familjevillan</span><h3>Homestaging</h3><ul>
-        <li><b>Rådgivning och checklista</b><span>2 495 kr</span></li>
-        <li><b>Fotostyling, halvdag</b><span>3 900 kr</span></li>
-        <li><b>Med egna möbler</b><span>från 7 900 kr</span></li>
-        <li><b>Med kompletterande möbler</b><span>från 9 900 kr</span></li></ul></div>
-      <div class="door"><span class="k">Exklusive moms</span><h3>Verksamheter</h3><ul>
-        <li><b>Föräldrakväll</b><span>från 2 500 kr</span></li>
-        <li><b>Föreläsning</b><span>från 6 000 kr</span></li>
-        <li><b>Lärmiljöanalys</b><span>från 9 500 kr</span></li>
-        <li><b>Landa-kortet för mäklare</b><span>1 995 kr</span></li></ul></div>
-    </div>
-    <div class="cut">
-      <div><b>Slås ihop</b><p>Inflyttning blir Landa i nya hemmet. Lugna rum ingår i Barnens rum. Digital rumsplan och digital hemanalys blir Digital Ro-karta.</p></div>
-      <div><b>Struket</b><p>Flytt, packning och rutavdrag. Det är inte Sofias kapital. Årstidsbesöket görs på förfrågan.</p></div>
-      <div><b>Ateljén</b><p>Lådmärken, handsten, Lugna lådan, kit, dörrskylt och säsongens hängen. Filtvalvet görs i små serier.</p></div>
-    </div>
-  </div>
-</section>
-
 <section style="background: var(--surface)">
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">Ekonomi år 1</p><h2>Färre timmar, <em>mer per timme.</em></h2></div>
-      <p class="lede">Ett scenario, inte en prognos. Mer kommer från barnfamiljernas hem, där det inte finns några konkurrenter, och mindre från homestaging, där det finns många.</p>
+      <div><p class="eyebrow">Ekonomi år 1</p><h2>Mer från <em>löftet.</em></h2></div>
+      <p class="lede">Ett scenario, inte en prognos. Hälften av intäkterna kommer nu från det som bara Sofia kan lova.</p>
     </div>
     <div class="mix" id="mix"></div>
     <div class="mix__legend" id="mix-legend" style="margin-top:1.4rem"></div>
     <div class="money">
-      <div><b>≈ 494 000 kr</b><span>inklusive moms, år 1</span></div>
-      <div><b>≈ 654 h</b><span>betalda timmar, ungefär 13 i veckan</span></div>
-      <div><b>≈ 600 kr</b><span>i timmen exklusive moms, över golvet på 500 kr</span></div>
+      <div><b>≈ 520 000 kr</b><span>inklusive moms, år 1</span></div>
+      <div><b>≈ 700 h</b><span>betalda timmar, ungefär 14 i veckan</span></div>
+      <div><b>≈ 595 kr</b><span>i timmen exklusive moms</span></div>
     </div>
   </div>
 </section>
@@ -356,22 +401,22 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
 <section>
   <div class="wrap">
     <div class="head">
-      <div><p class="eyebrow">De första 90 dagarna</p><h2>Ett steg <em>i taget.</em></h2></div>
-      <p class="lede">Samma metod som för kunderna: en plan du kan se, och bara det som behövs för nästa steg.</p>
+      <div><p class="eyebrow">De första 90 dagarna</p><h2>Bevisa först, <em>berätta sen.</em></h2></div>
+      <p class="lede">Löftet används brett först när tre familjer har mätt och sett att det håller.</p>
     </div>
     <ol class="plan">
-      <li><span class="w">Vecka 1–4</span><h3>Grunden och bruket</h3><ul><li>Google-företagsprofil i Norrahammar</li><li>Ro-kartan med barnets höjd, och bildstilen från 95 cm</li><li>Besök Dakabom, CAJO och fråga kommunen om lokal</li></ul></li>
-      <li><span class="w">Vecka 3–8</span><h3>Tre pilotfamiljer</h3><ul><li>Tre barnrum till lanseringspris, mot omdöme och bilder</li><li>En familj som just har flyttat in och en med ett barn som har NPF</li><li>En homestaging av en familjevilla</li></ul></li>
-      <li><span class="w">Vecka 4–10</span><h3>Föräldrakvällar</h3><ul><li>Förskolor och skolor i Tabergsdalen, genom nätverket</li><li>Lokalföreningen för Attention</li></ul></li>
-      <li><span class="w">Vecka 6–10</span><h3>Mäklarna</h3><ul><li>Tre kontor med Landa-kortet och Familjevillan</li><li>De två första korten gratis</li><li>Tabergs Nyheter: Förskolläraren som inreder med barnens ögon</li></ul></li>
-      <li><span class="w">Vecka 10–13</span><h3>Ro-rummet</h3><ul><li>Öppet hus en lördag på bruket</li><li>Ett riktigt barnrum som ger ro, lådmärkena och Filtvalvet</li></ul></li>
+      <li><span class="w">Vecka 1–2</span><h3>Verktygen</h3><ul><li>Pröva tjatmätaren hemma eller hos vänner</li><li>Ro-kartan med de fem frågorna</li><li>Första Morgonraden och Stunden</li></ul></li>
+      <li><span class="w">Vecka 2–8</span><h3>Tre pilotfamiljer</h3><ul><li>Lanseringspris mot mätning före och efter</li><li>Gärna en familj med ett barn som har NPF</li></ul></li>
+      <li><span class="w">Vecka 4–10</span><h3>Föräldrakvällar</h3><ul><li>Två förskolor eller skolor i Tabergsdalen</li><li>Attention i Jönköping</li></ul></li>
+      <li><span class="w">Vecka 8–12</span><h3>Berätta</h3><ul><li>De första verkliga siffrorna, med tillstånd</li><li>Tabergs Nyheter</li><li>Tre mäklarkontor</li></ul></li>
+      <li><span class="w">Vecka 10–13</span><h3>Ro-rummet</h3><ul><li>Öppet hus på bruket, med en hall och ett barnrum som svarar</li></ul></li>
     </ol>
     <div class="kpis">
-      <div><b>3</b><span>förfrågningar i veckan efter 90 dagar</span></div>
-      <div><b>50 %</b><span>av första samtalen blir bokningar</span></div>
+      <div><b>3 av 3</b><span>pilotfamiljer med mindre tjat efter fyra veckor</span></div>
+      <div><b>4</b><span>föräldrakvällar per termin</span></div>
+      <div><b>Bokningar</b><span>från tjatmätarens resultat</span></div>
       <div><b>500 kr</b><span>i timmen exklusive moms, som lägst</span></div>
-      <div><b>10</b><span>omdömen på Google första halvåret</span></div>
-      <div><b>2</b><span>mäklarkontor som köper Landa-kort efter ett halvår</span></div>
+      <div><b>&lt; 1 av 5</b><span>uppdrag som behöver återbesök enligt garantin</span></div>
     </div>
   </div>
 </section>
@@ -380,14 +425,14 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
   <div class="wrap">
     <div class="head">
       <div><p class="eyebrow">Ärligt</p><h2>Risker och <em>hur de möts.</em></h2></div>
-      <p class="lede">Strategin står på fakta som går att kontrollera. Det som är förslag sägs vara förslag.</p>
+      <p class="lede">Det som är förslag sägs vara förslag, och det som ska bevisas sägs ska bevisas.</p>
     </div>
     <div class="risks">
-      <div><b>Förskolorna har ont om pengar</b><span>Föräldrakvällen är billig, och gratis i början. De dyra analyserna säljs bara när det finns budget.</span></div>
-      <div><b>NPF-delen uppfattas som vård</b><span>Prata om miljö och vardag, inte om diagnoser. Inga löften om effekt.</span></div>
-      <div><b>Mäklarna vill inte betala</b><span>De första korten är gratis. Mät hur många som blir uppdrag och visa siffrorna.</span></div>
-      <div><b>Partnerskapen är inte bekräftade</b><span>De är förslag tills Dakabom, CAJO och kommunen har svarat. Strategin fungerar utan dem, men långsammare.</span></div>
-      <div><b>Äldre siffror</b><span>Invånarantalet är från 2010. Kontrollera det hos SCB innan det används utåt.</span></div>
+      <div><b>Tjatet minskar inte</b><span>Garantin gäller ett återbesök. Pilotfamiljerna visar om metoden håller innan löftet används brett.</span></div>
+      <div><b>Siffror som inte är verkliga</b><span>Visa bara riktiga mätningar, med familjernas tillstånd.</span></div>
+      <div><b>Det uppfattas som vård</b><span>Prata om rum och vardag, inte om diagnoser. Inga löften om hälsa. Forskningen om stökiga hem visar samband, inte orsak.</span></div>
+      <div><b>Förskolorna har ont om pengar</b><span>Föräldrakvällen är billig, och gratis i början.</span></div>
+      <div><b>Metoden kopieras</b><span>Den bygger på Sofias utbildning och erfarenhet, föremålen och siffrorna. Det tar år att kopiera.</span></div>
     </div>
   </div>
 </section>
@@ -397,27 +442,23 @@ footer li { break-inside: avoid; margin-bottom: .3rem; }
   <div class="wrap">
     <h4>Källor</h4>
     <ul>
-      <li><a href="https://sv.wikipedia.org/wiki/Norrahammar">Norrahammar, Wikipedia</a></li>
-      <li><a href="https://www.jonkoping.se/trafik--stadsplanering/stadsutveckling-vagarbeten-och-byggprojekt/projekt/bruket-norrahammar">Jönköpings kommun: Bruket Norrahammar</a></li>
-      <li><a href="https://www.jonkoping.se/trafik--stadsplanering/planarbete-och-samhallsbyggnad/detaljplanering/planarbete/norrahammars-bruk-detaljplan-for-blandstad-norrahammar-311">Detaljplan för blandstad, Norrahammar 31:1</a></li>
-      <li><a href="https://jkpg.com/en/bruket-in-norrahammar">jkpg.com: Bruket i Norrahammar</a>, <a href="https://jkpg.com/en/experiences/dakabom">Dakabom</a>, <a href="https://jkpg.com/en/experiences/cajo-keramik">CAJO Keramik</a></li>
-      <li><a href="https://www.jonkoping.se/download/18.277ae55219c22a486fa48e49/1771243748183/Bostadsrapport%202025%20kvartal%201-4.pdf">Jönköpings kommun: Bostadsrapport 2025, kvartal 1–4</a></li>
-      <li><a href="https://www.maklarsamfundet.se/sites/default/files/Media%20Opinion/pdf/Aldres_Flyttar_200921.pdf">Mäklarsamfundet: Tre scenarier för äldres flyttar, 2020</a></li>
-      <li><a href="https://www.socialstyrelsen.se/om-socialstyrelsen/pressrum/press/fortsatt-okning-av-adhd-lakemedel--sarskilt-bland-unga-kvinnor/">Socialstyrelsen: ADHD-läkemedel 2024</a></li>
-      <li><a href="https://skatteverket.se/foretag/skatterochavdrag/rotochrut/gerarbetetratttillrutavdrag">Skatteverket: rutavdrag gäller inte rådgivning och hemstajling</a></li>
+      <li><a href="https://www.spsm.se/globalassets/studiepaket-npf/forskola/nya-referensdokument/tydliggorande-pedagogik-i-forskolan---referensdokument.pdf">SPSM: Tydliggörande pedagogik i förskolan, 2024</a></li>
+      <li><a href="https://afirm.fpg.unc.edu/wp-content/uploads/Visual-Supports-Brief-Packet.pdf">AFIRM och NCAEP 2020: visuellt stöd som evidensbaserad metod</a></li>
+      <li><a href="https://bmcpublichealth.biomedcentral.com/track/pdf/10.1186/s12889-020-08587-8">Marsh, Dobson och Maddison 2020: stökiga hem och barns mående</a></li>
+      <li><a href="https://en.wikipedia.org/wiki/Reggio_Emilia_approach">Reggio Emilia: miljön som den tredje pedagogen</a></li>
+      <li><a href="https://www.jonkoping.se/trafik--stadsplanering/stadsutveckling-vagarbeten-och-byggprojekt/projekt/bruket-norrahammar">Jönköpings kommun: Bruket Norrahammar</a>, <a href="https://jkpg.com/en/experiences/cajo-keramik">CAJO Keramik</a></li>
       <li><a href="https://www.houzz.se/professionals/homestaging-och-homestyling/c/Jönköping--Jönköpings-län">Houzz: homestaging i Jönköping</a>, <a href="https://www.stilverkstan.se/homestyling/">Stilverkstan</a></li>
-      <li><a href="https://www.svt.se/nyheter/lokalt/jonkoping/kraftigt-ras-i-barnafodandet-var-femte-forskola-hotas-av-nedlaggning">SVT Jönköping: barnafödandet och förskolorna</a></li>
-      <li><a href="https://www.nar.realtor/newsroom/nar-report-reveals-home-staging-boosts-sale-prices-and-reduces-time-on-market">NAR: 2025 Profile of Home Staging</a></li>
+      <li><a href="https://www.svt.se/nyheter/lokalt/jonkoping/kraftigt-ras-i-barnafodandet-var-femte-forskola-hotas-av-nedlaggning">SVT Jönköping: förskolornas ekonomi</a></li>
     </ul>
-    <p style="margin-top:1.6rem">Hela strategin i text: koncept/STRATEGI.md.</p>
+    <p style="margin-top:1.6rem">Hela strategin i text: koncept/STRATEGI.md. Forskningen: koncept/FORSKNING.md.</p>
   </div>
 </footer>
 
 <script>
 (function () {
   var $ = function (id) { return document.getElementById(id); };
-  var CATS = [["Barnfamiljers hem", "var(--c1)"], ["Homestaging", "var(--c2)"], ["Digitalt i Sverige", "var(--c3)"], ["Verksamheter", "var(--c4)"], ["Ateljén", "var(--c5)"]];
-  var ROWS = [["Förut", [188600, 117000, 33000, 50000, 147000]], ["Nu", [218200, 65000, 49900, 65000, 96000]]];
+  var CATS = [["Hem som svarar och kommer ihåg", "var(--c1)"], ["Homestaging", "var(--c2)"], ["Digitalt i Sverige", "var(--c3)"], ["Verksamheter", "var(--c4)"], ["Ateljén", "var(--c5)"]];
+  var ROWS = [["Förut", [188600, 117000, 33000, 50000, 147000]], ["Nu", [264600, 52000, 49900, 62500, 91500]]];
   var mix = $("mix");
   ROWS.forEach(function (r) {
     var total = r[1].reduce(function (a, b) { return a + b; }, 0);
