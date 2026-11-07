@@ -1,145 +1,146 @@
-# Studio Dalarud – så ser jag på det
+# Studio Dalarud – nischen
 
 *November 2026 · ersätter de tidigare versionerna av strategin*
 
-De tidigare versionerna försökte hitta rätt vinkel och hamnade fel åt båda hållen. Först blev företaget för smalt, en enda tjänst för en enda sorts familj. Sedan blev det för brett och för likt en konsultrapport, med tandvård, mässor och äldreboenden som marknader bara för att de gick att motivera med statistik. Den här texten försöker i stället beskriva Studio Dalarud som det kan se ut om två, tre år, och vägen dit, utifrån det Sofia faktiskt kan och orkar.
+Syftet är enkelt: ett företag inom inredning och sådant som ligger nära, med en egen nisch och med tjänster och produkter som säljer. Nischen får gärna vara enkel. De tidigare versionerna lät pedagogik och NPF styra affärsidén. Den kunskapen är en styrka, men den är inte nischen.
 
 ---
 
-## Det Sofia har
+## Tre möjliga nischer
 
-Sofia har arbetat många år i förskolan. Hon vet något som få inredare vet: hur ett rum påverkar hur barn leker, landar och klarar saker själva. Hon vet också vad som händer när miljön är rörig för ett barn med ADHD eller autism. I förskolan lär man sig att göra rummen tydliga, så att barnen vet var saker ska vara, vad man gör var och vad som händer sen. Det är ett hantverk, och det syns sällan utanför förskolan.
+### A. Inredare för barnfamiljer *(mitt förslag)*
 
-Hon är också utbildad inredare och homestager. Hon har ögat för material, ljus och proportioner och kan göra ett rum vackert. Och hon formar saker i lera.
+Sofia inreder barnrum och familjehem som är vackra, lugna och lätta att hålla ordning på. Hon gör också saker för barnrummet i lera.
 
-De tre sakerna brukar finnas hos olika personer. Hos Sofia finns de i samma person, och det är där företaget har sin egenart.
+**Varför den kan lyckas:**
+- Barnfamiljer köper inredning vid tydliga tillfällen: ett barn ska födas, syskon ska dela rum, barnet börjar skolan, familjen flyttar.
+- Barnrummet görs om flera gånger under uppväxten. Samma kund kan alltså komma tillbaka.
+- Mor- och farföräldrar köper gärna presentkort och namnskyltar.
+- Barnrum syns bra på Instagram.
+- Sofias tid i förskolan gör henne trovärdig på ett sätt som andra inredare inte kan vara.
 
-## Idén, enkelt sagt
+**Det svåra:** Många familjer har ont om pengar, och det finns mycket gratis inspiration. Därför behövs fasta priser och ett billigt första steg.
 
-> Studio Dalarud hjälper familjer och förskolor att få rum som fungerar för barnen och de vuxna runt dem. Det ska vara lätt att hitta saker, lätt att leka och lätt att landa, och rummen ska vara vackra att vara i.
+### B. Lugna hem i naturmaterial
 
-Det är inte "NPF-inredning", som blir för smalt och låter som vård. Det är inte heller bara "inredning", eftersom det finns många inredare. Det är platsen mellan hemmet och förskolan, och där hör Sofia redan hemma. Kunskapen om NPF gör henne bättre än andra inredare för alla familjer, och avgörande för en del.
+Inredning för vuxna som vill ha det lugnare hemma, med lin, trä och lera, och med egna föremål i lera. Den ligger närmast det ursprungliga konceptet, *Från brus till ro*.
 
-Hennes sätt att arbeta har fått namnet *rum som svarar*. Hon går igenom ett rum och ser vilka frågor det lämnar obesvarade, de frågor som barnen annars ställer till de vuxna. Sedan ger hon dem ett svar i rummet: en krok i rätt höjd, en bild på lådan, ett ljus som säger att det är kväll. Det är förskolans arbetssätt, flyttat hem.
+**Varför den kan lyckas:** Stilen är eftertraktad, och leran gör Sofias uttryck eget.
 
----
+**Det svåra:** Många inredare säljer skandinaviskt och naturnära. Det är en stil mer än en nisch, och kunden har inget särskilt tillfälle då hon behöver köpa.
 
-## Tre delar som hänger ihop
+### C. Små lokaler
 
-### Hemma
+Inredning och säsongsstyling av små verksamheter i Jönköping, som frisörer, kliniker, kaféer och små kontor.
 
-Hit hör familjer som vill ha ett hem som fungerar: barnrummet, hallen, ibland hela hemmet. Första steget är alltid ett hembesök. Sofia lämnar en handritad Ro-karta med de första stegen innan hon går, och kunden kan sedan göra resten själv eller ta hjälp.
+**Varför den kan lyckas:** Uppdragen blir större, kunden betalar exklusive moms och kan komma tillbaka varje säsong.
 
-Familjerna ser olika ut:
-- Några har ett barn med NPF och har fått rådet att skapa struktur, men inte hjälp att göra det hemma på ett sätt som är fint att leva med.
-- Några har precis flyttat in.
-- Några har barn som bor i två hem. Då gör hon samma ordning i båda, så att barnet slipper lära om varannan vecka.
-- Några är vuxna med ADHD som vill ha ett hem som hjälper dem i stället för att stjäla energi.
+**Det svåra:** Det är längst från Sofias erfarenhet, och hon behöver bygga ett nätverk från början.
 
-Homestaging hör också hemma här. Villorna i Norrahammar och Tabergsdalen köps ofta av barnfamiljer, och Sofia vet hur en barnfamilj tittar på ett hus.
-
-### I förskolan
-
-Det här är där Sofia kommer ifrån, och där hon har mest trovärdighet. Förskolor gör om sina rum hela tiden: nya barngrupper, avdelningar som slås ihop, ett barn som behöver mer tydlighet. Många arbetslag saknar tid, och de saknar någon som både kan pedagogiken och kan inreda.
-
-Sofia kan erbjuda tre saker:
-- **En genomgång av avdelningen** tillsammans med arbetslaget, med en Ro-karta över vad som kan göras först.
-- **En studiedag** om rummet som pedagog.
-- **En föräldrakväll** om hur man kan använda förskolans knep hemma.
-
-Föräldrakvällen är billig för förskolan, och den är också den varmaste vägen in till familjerna.
-
-Förskolorna har ont om pengar, så det är bättre att börja litet än att vänta på stora uppdrag. Familjecentralen och förskolorna i dalen är naturliga första ställen.
-
-### Ateljén
-
-Leran ska inte maximeras som affär. Den gör företaget till Sofias eget, och den ger henne vila. Hon bör göra färre saker, och saker med en uppgift: lådmärken med bild, krokar för hallen, ett timglas och en kvällslykta. Det är samma tanke som i hemmen, men i föremål. Kurserna där föräldrar och barn formar tillsammans passar också här.
-
-Föremålen kan säljas i hela Sverige via hemsidan. Det är det enda i verksamheten som inte kräver att Sofia är på plats.
-
-### Hur delarna hjälper varandra
-
-Förskolan leder till föräldrar, och föräldrarna till hem. Hemmen ger bilder och berättelser, och de använder föremålen. Ateljén gör att folk träffar henne. Ingen av delarna behöver bära allt.
+**Förslaget är A.** Nischen är tydlig, köptillfällena går att förutse, kunderna kommer tillbaka och Sofias bakgrund blir en fördel. B:s känsla, alltså lugnet och naturmaterialen, kan vara stilen inom A. Homestaging fungerar som ett extra ben i alla tre.
 
 ---
 
-## Där det kan växa, när det är dags
+## Förslaget i detalj: inredare för barnfamiljer
 
-Det finns saker som kan komma senare. De ska komma för att kunderna drar åt det hållet, inte för att de går att motivera på papper.
+### Vem som köper, och när
 
-- **Familjer i hela Sverige.** Den digitala Ro-kartan finns redan. När Sofia har gjort ett par dussin hem och vet vad som faktiskt hjälper kan det bli en kort kurs eller en guide för föräldrar.
-- **Fler ställen där barn är.** Fritidshem, lågstadiet, familjecentraler och väntrummen på habiliteringen. Det blir lättare när hon har referenser från förskolorna.
-- **Vuxna med ADHD.** Från hemmet kan det ibland leda vidare till arbetsplatsen. Det ska inte säljas till främlingar, men det kan bli aktuellt om en kund frågar.
-- **Föremål tillsammans med någon annan.** Till exempel med en snickare eller en textilare på bruket, när det finns efterfrågan.
-- **En bok.** Skriften *Ett snällt hem åt alla* kan bli en bok om publiken växer.
+| Tillfälle | Vad familjen behöver |
+|---|---|
+| Ett barn ska födas | Ett första rum, eller en hörna i föräldrarnas rum |
+| Syskon ska dela rum | Två barns saker, sömn och lek i ett rum |
+| Barnet börjar skolan | Ett eget rum och en plats för läxor |
+| Familjen flyttar | Hela huset, och barnens rum först |
+| Barnet blir tonåring | Ett rum som känns eget |
+| Jul och födelsedagar | Presentkort och namnskyltar, ofta köpta av mor- och farföräldrar |
 
-Det jag har strukit från förra versionen är tandvård, mässor, äldreboenden och en egen svensk standard. Det går att motivera, men det ligger för långt från Sofias vardag och kunskap. Det är inte där man börjar, och kanske inte där man ska vara alls.
+### Tjänsterna
 
----
+| Tjänst | Pris | Kommentar |
+|---|---|---|
+| **Barnrumsplan på distans** | 1 495 kr | Handritad plan, färger och en inköpslista från vilka butiker som helst, även begagnat. Det skiljer den från IKEA:s paket, som bara innehåller IKEA:s egna produkter. Den säljs i hela Sverige |
+| **Hembesök** | 2 495 kr | Två timmar, och en handritad plan som lämnas på plats. Dras av om familjen bokar mer inom 30 dagar |
+| **Barnrummet klart** | från 6 900 kr | Plan, inköp, montering och styling. Möblerna och sakerna betalar familjen separat |
+| **Syskonrummet** | från 8 900 kr | Två barn i ett rum |
+| **Familjens hem** | från 8 900 kr per rum | Hallen, vardagsrummet eller köket, så att det fungerar med barn |
+| **Homestaging av familjevillan** | från 7 900 kr | Köparna är ofta barnfamiljer, och de ska se var barnen ska bo |
+| **Presentkort** | valfritt belopp | Ett barnrum i present från mormor och morfar |
 
-## Hur de första kunderna hittar henne
+Ett paket heter **Lugna barnrum**. Det är för barn som behöver färre intryck och mer ordning, till exempel barn med ADHD eller autism. Där gör förskolekunskapen störst skillnad, men det är ett paket bland flera, inte hela företaget.
 
-Människor anlitar någon de har träffat eller fått tips om. Det viktigaste första halvåret är därför inte reklam, utan fem nöjda familjer och en förskola som berättar om henne.
+### Produkterna
 
-- **Förskolans nätverk:** tidigare kollegor, rektorer och specialpedagoger. En föräldrakväll når tjugo familjer på en gång.
-- **Norrahammar och Tabergsdalen:**
-  - de lokala grupperna på nätet
-  - Tabergs Nyheter
-  - helgerna på bruket
-  - grannar som berättar
-- **Instagram:** riktiga rum före och efter, gärna fotograferade i barnets höjd, och korta tips.
-- **Två eller tre mäklare** som säljer villor i området.
-- **Hemsidan,** så att den som söker hittar henne och kan boka.
+Leran blir produkter för barnrummet, som är personliga och lätta att ge bort:
 
----
+| Produkt | Pris | Varför den kan sälja |
+|---|---|---|
+| **Namnskylten** | 395 kr | Personlig och en självklar present. Den kan bli storsäljaren |
+| **Första avtrycket** | 595 kr i ateljén, 795 kr med ram | Barnets hand eller fot i lera, med namn och datum. Det tar en kvart i ateljén. Färdiga kit kostar runt 450 kr i butik, men det här är gjort för hand |
+| **Lådmärken** | 395 kr för 6 st | Bilder på lådorna, så att barnet hittar och plockar undan själv |
+| **Krokraden** | 1 495 kr | Krokar i barnets höjd, med en bild i lera på varje |
+| **Julhängen med namn** | 225 kr för 3 st | Säljs inför jul och tar lite tid att göra |
 
-## En vanlig vecka, i början
+Vaser, skålar och brickor säljs slut och görs inte om. Filtvalvet kan vänta.
 
-Företaget kan börja på deltid, och veckan behöver ha luft. Ett förslag:
+### Kurser och kalas
 
-- **Måndag:** planering och administration, med kvitton och fakturor på en gång.
-- **Tisdag:** två hembesök.
-- **Onsdag:** en förskola, eller arbete med ett barnrum.
-- **Torsdag:** ateljén.
-- **Varannan lördag:** kurs eller öppet på bruket.
-- **En dag helt fri.**
+- **Lerkalas för barn:** 6–10 barn i två timmar, och alla tar med sig något hem. Cirka 2 900–3 500 kr.
+- **Förälder och barn:** en lördag i månaden.
+- **Möhippor och vänner:** för vuxna.
 
-## Vad det behöver ge
+### Inköpen
 
-För att kunna ta ut ungefär 20 000 kr i månaden före skatt behöver företaget omsätta runt 30 000–35 000 kr i månaden exklusive moms. Där ingår egenavgifter och kostnader. Så här kan en månad se ut:
+Familjen betalar möblerna och sakerna själv. När Sofia länkar till webbutiker kan hon få provision genom deras partnerprogram. Det ska alltid sägas öppet, och begagnade fynd ska vara ett lika bra alternativ.
+
+### Året
+
+Arbetet kan planeras efter året:
+
+| Period | Vad som säljer |
+|---|---|
+| **Januari–mars** | Nytt år, nya rum. Flyttar och syskon som ska dela rum |
+| **April–juni** | Homestaging och lerkalas |
+| **Augusti–september** | Skolstart, med eget rum och läxplats |
+| **November–december** | Presentkort, namnskyltar och julhängen |
+
+### Hur familjerna hittar henne
+
+- **Instagram:** barnrum före och efter, och korta tips.
+- **Föräldragrupper i Jönköping på nätet,** och förskolor där hon kan hålla en föräldrakväll då och då. Förskolan är en kanal, inte ett affärsområde.
+- **Barnbutiker och kaféer i Jönköping:** namnskyltar till försäljning, och visitkort.
+- **Två eller tre mäklare,** för homestagingen.
+- **Bruket i Norrahammar:** öppet en lördag i månaden, med kalas och avtryck.
+- **Google och hemsidan:** "barnrum", "inredare Jönköping" och "namnskylt barn".
+
+### Vad det behöver ge
+
+För att ta ut ungefär 20 000 kr i månaden före skatt behöver företaget omsätta runt 33 000 kr i månaden exklusive moms. Så här kan en månad se ut:
 
 | | Exkl. moms |
 |---|---|
-| Fyra hembesök | 8 000 kr |
-| Två barnrum eller andra rum | 11 000 kr |
-| Ett uppdrag på en förskola | 8 000 kr |
-| Ateljén och kurserna | 6 000 kr |
+| Tre hembesök och fyra barnrumsplaner på distans | 10 800 kr |
+| Ett barnrum klart, eller ett rum i familjens hem | 6 300 kr |
+| Ett homestaginguppdrag varannan månad | 3 200 kr |
+| Namnskyltar, avtryck och andra produkter, cirka 25 st | 8 000 kr |
+| Två lerkalas | 5 000 kr |
 | **Ungefär** | **33 000 kr** |
 
-Det är cirka 60 betalda timmar i månaden. Det går att klara på deltid, och det går att växa härifrån.
+Produkterna och kalasen står för ungefär 40 % av intäkterna, och det mesta av dem kräver inga resor.
 
 ---
 
-## Sådant som kan vänta
+## Det som följer med, och det som får vänta
 
-- Många dekorativa föremål i lera, som vaser och skålar.
-- Stora designprojekt som lampor i serie. Filtvalvet kan vänta tills någon frågar efter det.
-- Nya marknader innan de första fungerar.
+- **Följer med:**
+  - Namnet *Studio Dalarud*, logotypen och känslan *Från brus till ro*.
+  - Sättet att göra rum lätta att förstå, som Sofia tar med sig från förskolan.
+- **Ligger kvar på hemsidan som bakgrund:** Människohemmet och Rohemmet. Det är tankarna bakom, inte det som säljs.
+- **Väntar:** förskolor som affärsområde, verksamheter, egna lampor i serie och nya marknader.
 
-## Frågor att fundera på
+## Om nischen väljs
 
-Strategin blir bättre av Sofias svar på några frågor:
-
-- Hur mycket av veckan vill hon lägga på förskolor, och hur mycket på hem?
-- Vill hon synas som person, föreläsa och finnas på Instagram, eller hellre arbeta i det tysta?
-- Vad tycker hon mest om: att rita, att inreda eller att forma i lera?
-- Hur stort ska företaget få bli? Ska hon vara ensam, eller ha någon att dela med om några år?
+Hemsidan byggs om kring barnfamiljer. Startsidan säger *Inredare för barnfamiljer*, och menyn blir Barnrum, Hela hemmet, Homestaging, Ateljén och Om Sofia. Ateljén får namnskyltar, Första avtrycket och lerkalas.
 
 ---
 
-## Ändrat på hemsidan
-
-- Menyn är **Hemma**, **Förskola**, **Ateljén**, **Människohemmet**, **Ro i vardagen** och **Om Sofia**.
-- Sidan för verksamheter har blivit en sida för förskola och skola: genomgången av avdelningen, studiedagen, föräldrakvällen och hur det går till.
-- Tjänsterna är *Hem som svarar* (där barn som bor i två hem ingår), *Hem som kommer ihåg* för vuxna, *Homestaging* och *Förskola och skola*.
-- Startsidan beskriver de tre delarna: hemma, i förskolan och i ateljén.
+Källor för prisjämförelser: [IKEA inredningstjänster](https://www.ikea.com/se/sv/customer-service/services/home-furnishing/), [avtryckskit i lera från Vanilla Copenhagen hos Boozt](https://boozt.com/se/sv/vanilla-copenhagen/hand-foot-print-frame-big_32974238/231270427).
