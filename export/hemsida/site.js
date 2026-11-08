@@ -273,12 +273,12 @@
   showPillar("overblick");
   if (document.fonts && document.fonts.load) document.fonts.load("22px Caveat").then(function () {
     drawPlan();
-    var c = document.querySelector('[data-product="skylt"]');
-    if (c) { byId.skylt.img = null; drawProduct(c); }
+    // Teckningarna med handskrift ritas om när typsnittet har laddats
+    document.querySelectorAll("canvas[data-product]").forEach(function (c) { var p = byId[c.dataset.product]; if (p) { p.img = null; drawProduct(c); } });
   }, function () {});
 
   /* ================= Ateljén ================= */
-  var GLAZE = { mossa: "#7E8B6F", lera: "#A9705A", havre: "#D2C2A6", strand: "#C4AF90", kvall: "#8F7F92", sten: "#9A968C" };
+  var GLAZE = { mossa: "#7E8B6F", lera: "#A9705A", havre: "#D2C2A6", strand: "#C4AF90", kvall: "#8F7F92", sten: "#9A968C", kantarell: "#D49A3A", lingon: "#A63D32", smor: "#E6C766", vattern: "#5D7889" };
   var OBJ = {
     vas: { body: profile(100, [[16, 12], [26, 12.5], [42, 17], [60, 27], [80, 38], [100, 45], [120, 46], [140, 41], [156, 31], [166, 22], [170, 17]]), rims: [[100, 16, 12, 3.5]] },
     skal: { body: profile(100, [[108, 74], [122, 71], [136, 63], [150, 50], [162, 33], [169, 22], [171, 18]]), rims: [[100, 108, 74, 12]], inner: [100, 109, 63, 8] },
@@ -293,6 +293,14 @@
     krokrad: { custom: drawKrokrad, noShadow: true },
     avtryck: { custom: drawAvtryck },
     timglas: { custom: drawTimglas },
+    arssten: { custom: drawArssten },
+    forstanamn: { custom: drawForstaNamn },
+    teckningskrok: { custom: drawTeckningskrok, noShadow: true },
+    stenhylla: { custom: drawStenhylla, noShadow: true },
+    bagtavla: { custom: drawBagtavla },
+    portratt: { custom: drawPortratt },
+    familjeroset: { custom: drawFamiljeroset },
+    filtvalvet: { custom: drawFiltvalvet, noShadow: true },
     tval: { body: profile(100, [[150, 70], [156, 68], [163, 56], [170, 40]]), rims: [[100, 150, 70, 12]], ridges: true }
   };
   // Lugna lådan: en öppen presentask med handsten och lådmärken
@@ -411,6 +419,129 @@
     pencil(ctx, [[100, 92], [100, 124]], { seed: seed + 4, closed: false, color: "#B8915F", alpha: .5, passes: 1 });
     pencil(ctx, [[72, 40], [128, 40], [104, 90], [128, 150], [72, 150], [96, 90]], { seed: seed + 5, color: pen, alpha: .4 });
   }
+  /* Barnets linje: barnets teckning ristas i leran och fylls med färg. Linjen ritas lite darrig, som med krita. */
+  var KID = { gran: "#4B3A2B", lingon: "#A63D32", kantarell: "#D49A3A", gras: "#8E9F66", vattern: "#5D7889", lav: "#C8CCB4" };
+  function kid(ctx, pts, color, seed, w) { pencil(ctx, pts, { seed: seed, closed: false, color: color, width: w || 2.6, alpha: .85, passes: 1, jitter: .6 }); }
+  function pebble(ctx, cx, cy, rx, ry, c, pen, seed) {
+    var s = ellipse(cx, cy, rx, ry, 30, .07, seed);
+    wash(ctx, s, c, { seed: seed, alpha: .08, layers: 22, spread: .14 });
+    wash(ctx, ellipse(cx - rx * .3, cy - ry * .4, rx * .35, ry * .18, 12, .1, seed + 1), "#FFFFFF", { seed: seed + 1, layers: 8, alpha: .06, edge: 0 });
+    pencil(ctx, s, { seed: seed, color: pen, alpha: .5 });
+  }
+  function kidHouse(ctx, ox, oy, k, seed) {
+    var P = function (a) { return a.map(function (q) { return [ox + q[0] * k, oy + q[1] * k]; }); };
+    kid(ctx, P([[0, 30], [0, 70], [46, 70], [46, 30], [0, 30]]), KID.gran, seed);
+    kid(ctx, P([[-5, 32], [23, 6], [51, 32]]), KID.lingon, seed + 1);
+    kid(ctx, P([[17, 70], [17, 50], [29, 50], [29, 70]]), KID.gran, seed + 2, 2.2);
+    kid(ctx, P([[-14, 72], [80, 70]]), KID.gras, seed + 3);
+    kid(ctx, ellipse(ox + 72 * k, oy + 8 * k, 8 * k, 8 * k, 16, .1, seed + 4), KID.kantarell, seed + 4, 2.4);
+    for (var i = 0; i < 8; i++) { var a = i * Math.PI / 4; kid(ctx, [[ox + 72 * k + Math.cos(a) * 12 * k, oy + 8 * k + Math.sin(a) * 12 * k], [ox + 72 * k + Math.cos(a) * 17 * k, oy + 8 * k + Math.sin(a) * 17 * k]], KID.kantarell, seed + 5 + i, 2); }
+  }
+  function kidWord(ctx, word, x, y, h, color, seed, w) {
+    var S = { E: [[[0, 0], [0, 1]], [[0, 0], [.55, 0]], [[0, .5], [.45, .5]], [[0, 1], [.6, 1]]], L: [[[0, 0], [0, 1], [.5, 1]]], A: [[[0, 1], [.32, 0], [.64, 1]], [[.14, .62], [.5, .62]]],
+      N: [[[0, 1], [0, 0], [.6, 1], [.6, 0]]], M: [[[0, 1], [0, 0], [.36, .6], [.72, 0], [.72, 1]]] };
+    var r = rng(seed), cx = x;
+    word.split("").forEach(function (ch, i) {
+      var hh = h * (.88 + r() * .24), yy = y + (r() - .5) * h * .16 + (h - hh), tilt = (r() - .5) * .2, wmax = 0;
+      S[ch].forEach(function (st, j) {
+        kid(ctx, st.map(function (q) { wmax = Math.max(wmax, q[0]); return [cx + (q[0] + (1 - q[1]) * tilt) * hh, yy + q[1] * hh]; }), color, seed + i * 7 + j, w);
+      });
+      cx += hh * (wmax + .32);
+    });
+  }
+  function kidFigure(ctx, x, y, s, color, seed) {
+    kid(ctx, ellipse(x, y, 9 * s, 9 * s, 16, .12, seed), color, seed, 2.2);
+    ctx.save(); ctx.fillStyle = color; ctx.globalAlpha = .8;
+    [[-3, -1], [3, -1.5]].forEach(function (e) { ctx.beginPath(); ctx.arc(x + e[0] * s, y + e[1] * s, 1.1 * s, 0, 7); ctx.fill(); });
+    ctx.restore();
+    kid(ctx, [[x - 3 * s, y + 9 * s], [x - 6 * s, y + 25 * s]], color, seed + 1, 2.2);
+    kid(ctx, [[x + 3 * s, y + 9 * s], [x + 6 * s, y + 25 * s]], color, seed + 2, 2.2);
+    kid(ctx, [[x - 8 * s, y + 4 * s], [x - 18 * s, y - 2 * s]], color, seed + 3, 2.2);
+    kid(ctx, [[x + 8 * s, y + 4 * s], [x + 18 * s, y - 2 * s]], color, seed + 4, 2.2);
+  }
+  function caveat(ctx, text, x, y, size, color, alpha) {
+    ctx.save(); ctx.fillStyle = color; ctx.globalAlpha = alpha; ctx.font = size + "px Caveat, 'Segoe Print', cursive"; ctx.textAlign = "center"; ctx.fillText(text, x, y); ctx.restore();
+  }
+  // Årsstenen: en sten med årets teckning, åldern och året
+  function drawArssten(ctx, c, pen, seed) {
+    pebble(ctx, 100, 110, 76, 52, c, pen, seed);
+    kidHouse(ctx, 60, 66, .9, seed + 10);
+    caveat(ctx, "5 år · 2026", 100, 150, 15, pen, .6);
+  }
+  // Första namnet: namnet i barnets egen handstil, ristat i en sten
+  function drawForstaNamn(ctx, c, pen, seed) {
+    pebble(ctx, 100, 116, 82, 42, c, pen, seed);
+    kidWord(ctx, "ELLA", 48, 98, 36, KID.lingon, seed + 10, 3);
+  }
+  // Teckningskrokarna: en sol, ett moln och ett hus, efter barnets teckningar
+  function drawTeckningskrok(ctx, c, pen, seed) {
+    var sun = ellipse(46, 92, 22, 22, 26, .04, seed);
+    wash(ctx, sun, GLAZE.smor, { seed: seed, alpha: .1, layers: 18, spread: .1 }); pencil(ctx, sun, { seed: seed, color: pen, alpha: .45 });
+    kid(ctx, ellipse(46, 92, 12, 12, 16, .12, seed + 1), KID.gran, seed + 1, 2.2);
+    for (var i = 0; i < 8; i++) { var a = i * Math.PI / 4; kid(ctx, [[46 + Math.cos(a) * 15, 92 + Math.sin(a) * 15], [46 + Math.cos(a) * 19, 92 + Math.sin(a) * 19]], KID.gran, seed + 2 + i, 1.8); }
+    var cloud = [], arcs = [[86, 98, 13, Math.PI * .5, Math.PI * 1.5], [100, 88, 16, Math.PI, Math.PI * 2], [115, 98, 12, Math.PI * 1.5, Math.PI * 2.5]];
+    arcs.forEach(function (q) { for (var t = 0; t <= 10; t++) { var a = q[3] + (q[4] - q[3]) * t / 10; cloud.push([q[0] + Math.cos(a) * q[2], q[1] + Math.sin(a) * q[2]]); } });
+    cloud = cloud.filter(function (q) { return q[1] <= 111; }).concat([[115, 111], [86, 111]]);
+    wash(ctx, cloud, "#ECE8DF", { seed: seed + 12, alpha: .14, layers: 16, spread: .1 }); pencil(ctx, cloud, { seed: seed + 12, color: pen, alpha: .45 });
+    kid(ctx, cloud.map(function (q) { return [100 + (q[0] - 100) * .7, 98 + (q[1] - 98) * .7]; }), KID.vattern, seed + 13, 2);
+    var house = [[134, 112], [134, 88], [154, 70], [174, 88], [174, 112]];
+    wash(ctx, house, GLAZE.lingon, { seed: seed + 14, alpha: .1, layers: 18, spread: .1 }); pencil(ctx, house, { seed: seed + 14, color: pen, alpha: .45 });
+    kid(ctx, [[149, 112], [149, 96], [159, 96], [159, 112]], KID.lav, seed + 15, 2);
+    [46, 100, 154].forEach(function (x, i) {
+      pencil(ctx, [[x, 116], [x, 130], [x + 6, 136]], { seed: seed + 20 + i, closed: false, color: pen, width: 2.4, alpha: .55, passes: 1 });
+    });
+    caveat(ctx, "i barnets höjd", 100, 160, 14, pen, .45);
+  }
+  // Stenhyllan: en hylla i ek där årsstenarna står
+  function drawStenhylla(ctx, c, pen, seed) {
+    var shelf = rect(10, 132, 180, 11);
+    wash(ctx, shelf, "#C9A57A", { seed: seed, alpha: .09, layers: 18, spread: .08 }); pencil(ctx, shelf, { seed: seed, color: pen, alpha: .5 });
+    var cols = [GLAZE.havre, GLAZE.mossa, GLAZE.sten, c, GLAZE.kantarell], xs = [28, 58, 93, 132, 169];
+    [[11, 8], [13, 9], [16, 11], [18, 12], [19, 13]].forEach(function (q, i) { pebble(ctx, xs[i], 132 - q[1] * .9, q[0], q[1], cols[i], pen, seed + 5 + i * 3); });
+    ["1 år", "2", "3", "4", "5"].forEach(function (t, i) { caveat(ctx, t, xs[i], 160, 15, pen, .5); });
+  }
+  // Bågtavlan: en anslagstavla i ullfilt, formad som en båge, med två teckningar
+  function drawBagtavla(ctx, c, pen, seed) {
+    var arch = [[50, 164]], i;
+    for (i = 0; i <= 24; i++) { var a = Math.PI + i / 24 * Math.PI; arch.push([100 + Math.cos(a) * 50, 78 + Math.sin(a) * 50]); }
+    arch.push([150, 164]);
+    wash(ctx, arch, c, { seed: seed, alpha: .1, layers: 24, spread: .1 }); pencil(ctx, arch, { seed: seed, color: pen, alpha: .5 });
+    [[64, 86, -5], [102, 104, 4]].forEach(function (q, j) {
+      ctx.save(); ctx.translate(q[0] + 17, q[1] + 20); ctx.rotate(q[2] * Math.PI / 180); ctx.translate(-17, -20);
+      var paperR = rect(0, 0, 34, 40);
+      wash(ctx, paperR, "#FBF8F3", { seed: seed + 3 + j, alpha: .5, layers: 4, spread: .05, edge: .1 }); pencil(ctx, paperR, { seed: seed + 3 + j, color: pen, alpha: .35, passes: 1 });
+      if (j === 0) { kid(ctx, ellipse(17, 18, 7, 7, 14, .15, seed + 8), KID.kantarell, seed + 8, 1.8); kid(ctx, [[4, 34], [30, 33]], KID.gras, seed + 9, 1.8); }
+      else kidFigure(ctx, 17, 14, .55, KID.gran, seed + 11);
+      ctx.fillStyle = KID.lingon; ctx.globalAlpha = .9; ctx.beginPath(); ctx.arc(17, 3, 2.4, 0, 7); ctx.fill();
+      ctx.restore();
+    });
+  }
+  // Familjeporträttet: barnets teckning av familjen, som relief
+  function drawPortratt(ctx, c, pen, seed) {
+    pebble(ctx, 100, 106, 82, 58, c, pen, seed);
+    [[58, 82, 1], [92, 80, 1.05], [124, 92, .78], [150, 98, .62]].forEach(function (f, i) { kidFigure(ctx, f[0], f[1], f[2], i % 2 ? KID.lingon : KID.gran, seed + 10 + i * 6); });
+    kid(ctx, [[30, 130], [170, 128]], KID.gras, seed + 40, 2.2);
+  }
+  // Familjeröset: en sten för varje person, med en initial som barnet har skrivit
+  function drawFamiljeroset(ctx, c, pen, seed) {
+    var st = [[100, 150, 44, 17, c, "M"], [96, 122, 34, 13, GLAZE.mossa, "N"], [102, 99, 25, 10, GLAZE.havre, "E"], [99, 81, 17, 8, GLAZE.lingon, "A"]];
+    st.forEach(function (q, i) {
+      pebble(ctx, q[0], q[1], q[2], q[3], q[4], pen, seed + i * 5);
+      kidWord(ctx, q[5], q[0] - q[3] * .4, q[1] - q[3] * .55, q[3] * 1.1, i === 3 ? "#F3EEE6" : KID.gran, seed + 30 + i, 1.8);
+    });
+  }
+  // Filtvalvet: taklampan, en båge i ullfilt med ljus under
+  function drawFiltvalvet(ctx, c, pen, seed) {
+    pencil(ctx, [[100, 0], [100, 50]], { seed: seed, closed: false, color: pen, alpha: .5, passes: 1 });
+    var band = [[50, 124]], i, a;
+    for (i = 0; i <= 24; i++) { a = Math.PI + i / 24 * Math.PI; band.push([100 + Math.cos(a) * 50, 100 + Math.sin(a) * 50]); }
+    band.push([150, 124], [136, 124]);
+    for (i = 24; i >= 0; i--) { a = Math.PI + i / 24 * Math.PI; band.push([100 + Math.cos(a) * 36, 100 + Math.sin(a) * 36]); }
+    band.push([64, 124]);
+    wash(ctx, ellipse(100, 132, 34, 7, 18, .1, seed + 2), "#F2C66D", { seed: seed + 2, alpha: .07, layers: 14, spread: .2, edge: 0 });
+    wash(ctx, band, c, { seed: seed + 1, alpha: .1, layers: 24, spread: .1 }); pencil(ctx, band, { seed: seed + 1, color: pen, alpha: .5 });
+    wash(ctx, ellipse(100, 112, 7, 7, 14, .1, seed + 3), "#F7E3A8", { seed: seed + 3, alpha: .2, layers: 10, spread: .1 });
+  }
   function paintProduct(ctx, p) {
     var o = OBJ[p.shape], c = GLAZE[p.glaze], pen = token("--pencil") || "#3A3A34", seed = p.seed;
     if (!o.noShadow) wash(ctx, ellipse(100, 171, 66, 6, 20, .1, seed), "#6E6352", { seed: seed, alpha: .03, layers: 12, spread: .2, edge: 0 });
@@ -432,7 +563,7 @@
   var PRODUCTS = SITE.products || [];
   var byId = {}; PRODUCTS.forEach(function (p, i) {
     p.seed = 300 + i * 17; byId[p.id] = p;
-    if (p.option) byId[p.option.id] = { id: p.option.id, name: p.name + " med glasinsats", price: p.price + p.option.price, base: p.id };
+    if (p.option) byId[p.option.id] = { id: p.option.id, name: p.name + ", " + p.option.label.toLowerCase(), price: p.price + p.option.price, base: p.id };
   });
   // Presentkort i varukorgen: sparas separat så att de finns kvar efter omladdning
   var symbolEl = document.querySelector(".namestory .symbol");
@@ -773,7 +904,7 @@
       { q: "Vilket rum bullrar mest hos dig?", o: [["Barnrummet, eller förrådet", "o"], ["Vardagsrummet med taklampan och tv:n", "k"], ["Hallen", "f"], ["Sovrummet, som har blivit en förvaringsplats", "v"]] },
       { q: "Om du fick en ledig söndag, vad skulle du helst göra hemma?", o: [["Rensa en låda och känna mig klar", "o"], ["Ha det tyst, med en pläd och mjukt ljus", "k"], ["Göra om så att vardagen går smidigare", "f"], ["Sova, läsa, ingenting", "v"]] },
       { q: "Vad skulle kännas som störst lättnad?", o: [["Att hitta det jag letar efter direkt", "o"], ["Färre intryck överallt", "k"], ["Att morgnar och kvällar flöt på", "f"], ["En plats som bara är min", "v"]] },
-      { q: "Vilken sak i ateljén lockar mest?", o: [["Lådmärkena", "o"], ["Ljuslyktan Kväll", "k"], ["Dörrskylten med namn", "f"], ["Handstenen", "v"]] }
+      { q: "Vilken sak i ateljén lockar mest?", o: [["Lådmärkena", "o"], ["Filtvalvet, lampan i ullfilt", "k"], ["Teckningskrokarna", "f"], ["Familjeröset", "v"]] }
     ];
     var RT = {
       o: { name: "Överblickaren", hand: "en plats för varje sak", text: "Du mår bäst när du ser vad som finns och var det hör hemma. Synligt stök tar mer energi för dig än för de flesta.", tips: ["Gör en bänk eller hylla helt brusfri, och håll den så en vecka.", "En korg per person i hallen.", "Bilder eller lådmärken på det som ligger i lådorna."], next: ["ateljen.html", "Lådmärkena i ateljén"] },

@@ -7,8 +7,8 @@ import { saveFile } from "@/lib/receipts";
 import { kr } from "@/lib/money";
 
 const back = "/admin/hemsidan/produkter";
-const SHAPES = { skylt: "Namnskylt", avtryck: "Avtryck", krokrad: "Krokrad", timglas: "Timglas", vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", hangen: "Hänge", tval: "Bricka", ask: "Presentask", kit: "Lerpaket med verktyg" };
-const GLAZES = { mossa: "Mossa", lera: "Lera", havre: "Havre", strand: "Strand", kvall: "Kväll", sten: "Sten" };
+const SHAPES = { arssten: "Årssten med teckning", forstanamn: "Namn i barnets handstil", teckningskrok: "Teckningskrokar", skylt: "Namnskylt", avtryck: "Avtryck", stenhylla: "Stenhylla", bagtavla: "Bågtavla i filt", portratt: "Familjeporträtt", familjeroset: "Familjeröse", filtvalvet: "Filtvalvet", krokrad: "Krokrad", timglas: "Timglas", vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", hangen: "Hänge", tval: "Bricka", ask: "Presentask", kit: "Lerpaket med verktyg" };
+const GLAZES = { mossa: "Mossa", lera: "Lera", havre: "Havre", strand: "Strand", kvall: "Kväll", sten: "Sten", kantarell: "Kantarell", lingon: "Lingon", smor: "Smörblomma", vattern: "Vättern" };
 const CATS = { barn: "Till barnrummet", hem: "Till hemmet" };
 const pick = <T extends object>(m: T, v: string, d: keyof T) => (v in m ? v : String(d));
 
@@ -70,7 +70,7 @@ function Fields({ p }: { p?: P }) {
       <label className="a-field"><span>Beskrivning</span><textarea name="text" defaultValue={p?.text} rows={3} style={{ minHeight: "5rem" }} /></label>
       <div className="a-grid a-grid--3">
         <label className="a-field"><span>Kategori</span><select name="category" defaultValue={p?.category ?? "barn"}>{opts(CATS)}</select></label>
-        <label className="a-field"><span>Teckning (utan foto)</span><select name="shape" defaultValue={p?.shape ?? "vas"}>{opts(SHAPES)}</select></label>
+        <label className="a-field"><span>Teckning (utan foto)</span><select name="shape" defaultValue={p?.shape ?? "arssten"}>{opts(SHAPES)}</select></label>
         <label className="a-field"><span>Färg på teckningen</span><select name="glaze" defaultValue={p?.glaze ?? "havre"}>{opts(GLAZES)}</select></label>
       </div>
       <div className="a-grid a-grid--2">

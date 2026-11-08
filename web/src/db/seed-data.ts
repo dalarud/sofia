@@ -28,19 +28,19 @@ export const TEXTS: { key: string; label: string; value: string; multiline?: boo
   { key: "ro.title", label: "Fyra hörnstenar: rubrik", value: "Fyra hörnstenar för ett *lugnare hem.*" },
   { key: "ro.lede", label: "Fyra hörnstenar: ingress", value: "Under mina år i förskolan såg jag hur mycket miljön betyder, särskilt för barn med NPF. Rohemmets fyra hörnstenar samlar det jag lärt mig. Välj en hörnsten och se hur den kan se ut i ett vanligt familjehem.", multiline: true },
   { key: "ro.foot", label: "Fyra hörnstenar: avslutning", value: "Det som hjälper den som har det svårast gör det lättare för alla." },
-  { key: "ateljen.title", label: "Ateljén: rubrik", value: "Saker *till barnrummet.*" },
-  { key: "ateljen.lede", label: "Ateljén: ingress", value: "Jag formar allt för hand i lera: namnskyltar, avtryck av små händer och fötter, lådmärken och krokar. Sakerna är personliga, de håller i många år och de passar lika bra som present.", multiline: true },
+  { key: "ateljen.title", label: "Ateljén: rubrik", value: "Barnets linje, *i lera.*" },
+  { key: "ateljen.lede", label: "Ateljén: ingress", value: "Barnet ritar och jag formar. En teckning, ett namn eller en liten hand blir en sten, en krok eller en skylt i lera. Allt görs i färgerna från barnets landskap: skogen, sjön, berget eller ängen. Efter beställningen hör jag av mig om teckningen och färgerna.", multiline: true },
   { key: "ateljen.next", label: "Ateljén: på gång", value: "Avtrycksdag 12 december" },
   { key: "kurser.title", label: "Kurser: rubrik", value: "Lerkalas och *kurser.*" },
   { key: "kurser.lede", label: "Kurser: ingress", value: "Lerkalas för barn, förälder och barn tillsammans, och kurser för vuxna. Allt sker i ateljén i Norrahammar, och alla tar med sig något hem samma dag.", multiline: true },
   { key: "kurser.note", label: "Kurser: egna grupper", value: "Lerkalas: 6–10 barn i två timmar, från 2 900 kr. Barnen formar var sin sak och tar med den hem. Möhippor och vänner kan också boka en egen kväll.", multiline: true },
   { key: "present.title", label: "Presentkort: rubrik", value: "Ge bort *ett barnrum.*" },
-  { key: "present.lede", label: "Presentkort: ingress", value: "En barnrumsplan, ett hembesök, ett första avtryck eller ett valfritt belopp. Presentkortet skickas som PDF och gäller i två år. Det är en vanlig present från mor- och farföräldrar.", multiline: true },
+  { key: "present.lede", label: "Presentkort: ingress", value: "En barnrumsplan, ett hembesök, en årssten eller ett valfritt belopp. Presentkortet skickas som PDF och gäller i två år. Årsstenen kan mor- och farföräldrar ge varje födelsedag.", multiline: true },
   { key: "om.title", label: "Om Sofia: rubrik", value: "Förskollärare *som inreder.*" },
   { key: "om.p1", label: "Om Sofia: stycke 1", value: "Hej! Jag heter Sofia Dalarud. I många år arbetade jag i förskolan och fördjupade mig i specialpedagogik och NPF. Där lärde jag mig att rätt miljö gör stor skillnad: ett lugnt rum, en tydlig plats för saker, ljus som inte stressar.", multiline: true },
   { key: "om.p2", label: "Om Sofia: stycke 2", value: "I dag är jag utbildad inredningsstylist och homestagingkonsult, och jag inreder mest för barnfamiljer. I förskolan lärde jag mig hur barn använder ett rum: vad de når själva, var de leker och när det blir för mycket. Därför blir mina barnrum lätta att hålla ordning på, och vackra i lin, trä och lera.", multiline: true },
   { key: "om.p4", label: "Om Sofia: stycke 4, om dalen", value: "Studio Dalarud finns i Norrahammar, i Tabergsdalen. Här göt bruket spisar, värmepannor och tvättmaskiner till folkhemmets kök i över hundra år. Det känns rätt att nästa steg, ett hem format efter människan, börjar i samma dal. Dalen i min logotyp finns på riktigt.", multiline: true },
-  { key: "om.p3", label: "Om Sofia: stycke 3", value: "När jag inte inreder formar jag i lera i ateljén i Norrahammar: namnskyltar, avtryck och små saker till barnrummet. Där håller jag också lerkalas och kurser.", multiline: true },
+  { key: "om.p3", label: "Om Sofia: stycke 3", value: "När jag inte inreder formar jag i lera i ateljén i Norrahammar. Barnen ritar och jag formar: deras teckningar och namn blir stenar, krokar och skyltar. Där håller jag också lerkalas och kurser.", multiline: true },
   { key: "tips.title", label: "Tips: rubrik", value: "Små steg mot *ett lugnare hem.*" },
   { key: "tips.lede", label: "Tips: ingress", value: "Konkreta råd om inredning, homestaging och miljöer som hjälper hela familjen. Sådant du kan göra redan i helgen.", multiline: true },
   { key: "guide.lede", label: "Guiden: ingress", value: "Konkreta tips från Rohemmet som du kan göra i helgen, utan att köpa nytt. Skrivna utifrån mina år i förskolan och som inredare.", multiline: true },
@@ -92,8 +92,8 @@ Du har rätt att få veta vilka uppgifter vi har om dig, att få dem rättade el
   // ---- Sidornas huvuden ----
   { key: "sida.hjalp.rubrik", label: "Sidhuvud Hela hemmet: rubrik", value: "Hela *hemmet.*" },
   { key: "sida.hjalp.ingress", label: "Sidhuvud Hela hemmet: ingress", value: "Barnrum, familjens hem och ett lugnare hem för dig, i lin, trä och lera. Och homestaging när det är dags att sälja. Första steget är alltid ett hembesök eller en plan på distans.", multiline: true },
-  { key: "sida.ateljen.rubrik", label: "Sidhuvud Ateljén: rubrik", value: "Format för hand, *i lera.*" },
-  { key: "sida.ateljen.ingress", label: "Sidhuvud Ateljén: ingress", value: "Namnskyltar, avtryck, lådmärken och krokar till barnrummet. Lerkalas och kurser i ateljén, och presentkort.", multiline: true },
+  { key: "sida.ateljen.rubrik", label: "Sidhuvud Ateljén: rubrik", value: "Barnets linje, *i lera.*" },
+  { key: "sida.ateljen.ingress", label: "Sidhuvud Ateljén: ingress", value: "Årsstenar, namnskyltar och krokar efter barnets egna teckningar. Lerkalas och kurser i ateljén, och presentkort.", multiline: true },
   { key: "sida.mh.rubrik", label: "Sidhuvud Människohemmet: rubrik", value: "Människohemmet" },
   { key: "sida.mh.ingress", label: "Sidhuvud Människohemmet: ingress", value: "Ett hem format efter människan, inte tvärtom. Idén som allt i Studio Dalarud bygger på, i folkhemmets anda men för vår tid.", multiline: true },
   { key: "sida.rohem.rubrik", label: "Sidhuvud Rohemmet: rubrik", value: "Rohemmet" },
@@ -136,8 +136,8 @@ Lugna barnrum | från 6 900 kr | För barn som behöver färre intryck och mer o
   { key: "barn.steg.4.meta", label: "Barnfamiljer: steg 4, tid och pris", value: "Ingår" },
   { key: "barn.hojd.title", label: "Barnfamiljer: föremålen, rubrik", value: "Ordning som barnen *klarar själva.*" },
   { key: "barn.hojd.text", label: "Barnfamiljer: föremålen, text", value: "I förskolan står det barnen behöver där de själva når det, och det som stör står bakom luckor. Samma tanke fungerar hemma. Då kan barnen göra mer själva, och ni behöver tjata mindre.", multiline: true },
-  { key: "barn.hojd.punkter", label: "Barnfamiljer: föremålen, punkter (en per rad)", multiline: true, value: `Krokar i barnets höjd, cirka 95 cm, så att ytterkläderna har en plats.
-Lådmärken i lera: en bild på varje låda, så att barnet hittar och plockar undan själv.
+  { key: "barn.hojd.punkter", label: "Barnfamiljer: föremålen, punkter (en per rad)", multiline: true, value: `Teckningskrokar i barnets höjd, cirka 95 cm, så att ytterkläderna har en plats.
+Lådmärken i lera med barnets egna bilder, så att barnet hittar och plockar undan själv.
 Färre leksaker framme, och resten i lådor som byts ut ibland.
 En lugn hörna med mjukt ljus, för läsning och vila.` },
   { key: "start.title", label: "Startsidan: tre vägar, rubrik", value: "Tre vägar *in.*" },
@@ -147,7 +147,7 @@ En lugn hörna med mjukt ljus, för läsning och vila.` },
   { key: "start.dorr2", label: "Startsidan: väg 2, rubrik", value: "Hela hemmet" },
   { key: "start.dorr2.text", label: "Startsidan: väg 2, text", value: "Hall, vardagsrum och kök som fungerar med barn, ett lugnare hem för dig, och homestaging." },
   { key: "start.dorr3", label: "Startsidan: väg 3, rubrik", value: "Ateljén" },
-  { key: "start.dorr3.text", label: "Startsidan: väg 3, text", value: "Namnskyltar, första avtrycket och lerkalas. Sånt som håller i många år." },
+  { key: "start.dorr3.text", label: "Startsidan: väg 3, text", value: "Barnets egen teckning i lera: årsstenen, första namnet och krokarna. Lerkalas och kurser." },
 
   // ---- Hjälp hemma ----
   { key: "hjalp.rokartan.title", label: "Ro-kartan: rubrik", value: "Du får Ro-kartan *innan jag går.*" },
@@ -308,7 +308,7 @@ export const SETTINGS: Record<string, unknown> = {
   gifts: [
     { kind: "Barnrumsplan", amountOre: 149500 },
     { kind: "Hembesök", amountOre: 249500 },
-    { kind: "Första avtrycket", amountOre: 59500 },
+    { kind: "Årsstenen", amountOre: 39500 },
     { kind: "Valfritt belopp", amountOre: 0 },
   ],
 };
@@ -329,21 +329,27 @@ export const SERVICES = [
 ];
 
 export const PRODUCTS = [
-  { id: "skylt", name: "Namnskylten", priceOre: 39500, shape: "skylt", glaze: "mossa", category: "barn", text: "Barnets namn i lera, till dörren eller väggen. Välj färg. Görs på beställning och är klar inom två veckor.", badge: "Mest köpt", stock: null },
-  { id: "avtryck", name: "Första avtrycket", priceOre: 59500, shape: "avtryck", glaze: "havre", category: "barn", text: "Barnets hand eller fot i lera, med namn och datum. Vi gör avtrycket i ateljén på en kvart, och det är klart att hämta efter två veckor. Boka en tid eller kom på en avtrycksdag.", badge: "Ny", stock: null, option: { id: "avtryck-ram", label: "I ram av ek", priceOre: 20000 } },
-  { id: "markar", name: "Lådmärken, 6 st", priceOre: 39500, shape: "markar", glaze: "havre", category: "barn", text: "En bild i lera på varje låda, så att barnet hittar och plockar undan själv. Välj bland 24 motiv, till exempel strumpor, lego och böcker.", stock: 10 },
-  { id: "krokrad", name: "Krokraden", priceOre: 149500, shape: "krokrad", glaze: "lera", category: "barn", text: "Tre krokar i ek med en bild i lera på varje, i barnets höjd. Längd 60 cm. Välj motiv.", stock: 6 },
-  { id: "timglas", name: "Timglaset", priceOre: 49500, shape: "timglas", glaze: "havre", category: "barn", text: "Tio minuter i en fot av lera, för tandborstning, städning eller en stund till. Inte en leksak.", stock: 8 },
-  { id: "lykta", name: "Lyktan", priceOre: 39500, shape: "lykta", glaze: "kvall", category: "hem", text: "Ett mjukt, prickigt ljus till kvällen, i barnrummet eller vardagsrummet. För LED-ljus.", stock: 6 },
-  { id: "hangen", name: "Julhängen med namn, 3 st", priceOre: 22500, shape: "hangen", glaze: "lera", category: "hem", text: "En stjärna, ett hjärta och ett hänge med namn, med snöre av linne. Beställ före 10 december.", badge: "Säsong", stock: 20 },
+  { id: "arssten", name: "Årsstenen", priceOre: 39500, shape: "arssten", glaze: "havre", category: "barn", text: "En sten för varje födelsedag, med en teckning som barnet har gjort det året, åldern och året. Efter beställningen skickar du en bild på teckningen, och stenen är klar inom två veckor.", badge: "Nyhet", stock: null },
+  { id: "avtryck", name: "Första avtrycket", priceOre: 59500, shape: "avtryck", glaze: "havre", category: "barn", text: "Den första årsstenen: barnets hand eller fot i lera, med namn och datum. Vi gör avtrycket i ateljén på en kvart, och det är klart att hämta efter två veckor.", stock: null, option: { id: "avtryck-hylla", label: "Med stenhyllan i ek", priceOre: 59500 } },
+  { id: "forsta-namnet", name: "Första namnet", priceOre: 49500, shape: "forstanamn", glaze: "havre", category: "barn", text: "Namnet i barnets egen handstil, från en av de första gångerna det skriver sitt namn, ristat i en sten för dörren eller väggen. Du skickar en bild på namnet efter beställningen.", stock: null },
+  { id: "skylt", name: "Namnskylten", priceOre: 39500, shape: "skylt", glaze: "mossa", category: "barn", text: "För barn som inte skriver själva än: namnet ristat i lera, i färgerna från barnets landskap. Klar inom två veckor.", stock: null },
+  { id: "teckningskrokar", name: "Teckningskrokarna, 3 st", priceOre: 79500, shape: "teckningskrok", glaze: "havre", category: "barn", text: "Tre klädkrokar formade efter barnets egna teckningar, till exempel en sol, ett moln och ett hus. Sätts i barnets höjd.", stock: null },
+  { id: "markar", name: "Lådmärken, 6 st", priceOre: 39500, shape: "markar", glaze: "havre", category: "barn", text: "Barnet ritar vad som ska ligga i varje låda, och teckningen ristas i ett märke av lera. Då hittar barnet och plockar undan själv.", stock: null },
+  { id: "stenhyllan", name: "Stenhyllan", priceOre: 69500, shape: "stenhylla", glaze: "lera", category: "barn", text: "En hylla i ek, 60 cm, där årsstenarna står. Den rymmer ungefär tolv stenar.", stock: 6 },
+  { id: "bagtavlan", name: "Bågtavlan", priceOre: 89500, shape: "bagtavla", glaze: "mossa", category: "barn", text: "En anslagstavla i ullfilt, formad som en båge, 50 × 60 cm. Här sitter teckningarna innan någon av dem blir en sten.", stock: 6 },
+  { id: "portratt", name: "Familjeporträttet", priceOre: 129500, shape: "portratt", glaze: "havre", category: "hem", text: "Barnets teckning av familjen, som en relief i lera för hallen eller vardagsrummet.", stock: null },
+  { id: "familjeroset", name: "Familjeröset", priceOre: 119500, shape: "familjeroset", glaze: "sten", category: "hem", text: "En sten för varje person i familjen, med en initial som barnet har skrivit. Fyra stenar. Fler stenar kostar 295 kr styck.", stock: null },
+  { id: "filtvalvet", name: "Filtvalvet", priceOre: 179500, shape: "filtvalvet", glaze: "kantarell", category: "hem", text: "Taklampan i ullfilt: en båge över matbordet eller i barnrummet. Görs på beställning, med en färdig CE-märkt upphängning.", stock: null },
+  { id: "hangen", name: "Julhängen med namn, 3 st", priceOre: 22500, shape: "hangen", glaze: "lera", category: "hem", text: "En stjärna, ett hjärta och ett hänge med namnet i barnets egen handstil, med snöre av lin. Beställ före 10 december.", badge: "Säsong", stock: 20 },
 ];
 
 export const EVENTS = [
   { id: "foralder-barn-nov", date: "2026-11-21", time: "10.00–12.00", kind: "workshop", label: "Förälder och barn", title: "Forma tillsammans", place: "Ateljén i Norrahammar", text: "Ni formar en skål och en namnskylt tillsammans, i lugn takt. Från 4 år. Priset gäller en förälder och ett barn.", priceOre: 45000, seats: 6, booked: 0 },
   { id: "jul-namn", date: "2026-12-03", time: "18.00–20.30", kind: "kurs", label: "Kurs i lera", title: "Julverkstad: hängen med namn", place: "Ateljén i Norrahammar", text: "Forma julhängen med namn till hela familjen. De torkar på några dagar och är klara att hänga till jul.", priceOre: 49500, seats: 8, booked: 0 },
-  { id: "avtrycksdag", date: "2026-12-12", time: "10.00–15.00", kind: "workshop", label: "Avtrycksdag", title: "Första avtrycket", place: "Ateljén i Norrahammar", text: "Boka en kvart och kom med det lilla barnet. Vi gör ett avtryck av handen eller foten, med namn och datum, och det är klart att hämta efter två veckor. Priset gäller ett avtryck.", priceOre: 59500, seats: 16, booked: 0 },
+  { id: "avtrycksdag", date: "2026-12-12", time: "10.00–15.00", kind: "workshop", label: "Avtrycksdag", title: "Första avtrycket", place: "Ateljén i Norrahammar", text: "Boka en kvart och kom med det lilla barnet. Vi gör ett avtryck av handen eller foten, med namn och datum: den första årsstenen. Den är klar att hämta efter två veckor. Priset gäller ett avtryck.", priceOre: 59500, seats: 16, booked: 0 },
   { id: "form-jan", date: "2027-01-16", time: "10.00–13.00", kind: "kurs", label: "Kurs i lera", title: "Forma i lera för vuxna", place: "Ateljén i Norrahammar", text: "Du formar en skål och en ljuslykta. Inga förkunskaper behövs, och kaffe ingår.", priceOre: 65000, seats: 8, booked: 0 },
   { id: "foralder-barn-feb", date: "2027-02-06", time: "10.00–12.00", kind: "workshop", label: "Förälder och barn", title: "Forma tillsammans", place: "Ateljén i Norrahammar", text: "Samma lugna förmiddag igen. Från 4 år. Priset gäller en förälder och ett barn.", priceOre: 45000, seats: 6, booked: 0 },
+  { id: "ritat-mars", date: "2027-03-13", time: "10.00–12.00", kind: "workshop", label: "Ritat i Norrahammar", title: "Barnen ritar nästa serie", place: "Ateljén i Norrahammar", text: "För barn från 4 år. Barnen ritar solar, djur och hus, och några teckningar blir nästa serie krokar och hängen. Om ni vill står barnet med namn på etiketten och får det första exemplaret. Priset gäller ett barn.", priceOre: 19500, seats: 10, booked: 0 },
 ];
 
 export const TIPS = [

@@ -2,6 +2,8 @@
 
 *Version 1 · november 2026 · visuellt i `koncept/designkoncept.html` · bygger på nischen i `STRATEGI.md`*
 
+**Beslut:** B i formerna från A. Barnets linje, i bågen och stenen från logotypen.
+
 Inredningen och leran behöver ett utseende som man känner igen innan man ser namnet. Det går inte att bestämma att något ska bli populärt. Men det som blir det brukar ha tre saker gemensamt:
 
 - man känner igen det direkt;
@@ -40,7 +42,7 @@ Logotypen har tre bågar och en liten sten. Bågarna går att läsa som hemmet o
 | **Stenkrokarna** | Klädkrokar: tre stenar i lera | 595 kr |
 | **Årsstenen** | En sten för varje födelsedag, med åldern ristad | 345 kr |
 | **Stenhyllan** | Ekhyllan som årsstenarna står på | 695 kr |
-| *I hemmet* | Filtvalvet över matbordet (1 795 kr), och familjestenarna i hallen med en sten per person (1 195 kr) | |
+| *I hemmet* | Filtvalvet över matbordet (1 795 kr), och Familjeröset i hallen med en sten per person (1 195 kr) | |
 
 - **Köps igen:** Årsstenen. Ett barn som får sin första sten på ettårsdagen har tolv stenar på hyllan när det fyller tolv. Mor- och farföräldrar vet vad de ska ge varje år.
 - **Bilden:** raden av stenar som växer, med en ny sten varje födelsedag.
@@ -111,9 +113,9 @@ Bruna och gröna toner är på väg tillbaka i barnrummen, liksom sammansatta jo
 
 ---
 
-## Förslaget: Barnets linje, i bågen och stenen
+## Valet: Barnets linje, i bågen och stenen
 
-Jag föreslår B, i formerna från A. Barnets linje är det enda som ingen annan kan kopiera, och den bygger på det Sofia kan bäst: barn och lera. Bågen och stenen från logotypen blir ramarna som linjerna sitter i, så att allt hänger ihop med varumärket.
+Valet blev B, i formerna från A. Barnets linje är det enda som ingen annan kan kopiera, och den bygger på det Sofia kan bäst: barn och lera. Bågen och stenen från logotypen blir ramarna som linjerna sitter i, så att allt hänger ihop med varumärket.
 
 Det bärande föremålet blir **Årsstenen**: en sten för varje födelsedag, med en linje som barnet har gjort just det året.
 
@@ -129,14 +131,13 @@ Första avtrycket, som redan säljs, blir den första stenen. Efter några år s
 
 Familjens högtider kan komma senare som säsongssläpp i samma former. Julhängena finns redan.
 
-### Om förslaget väljs
+### Det som är gjort, och det som återstår
 
-- Sofia gör tre prov: Första namnet, en årssten med en teckning och en teckningskrok. De fotograferas bredvid teckningarna.
-- En kurs i vår där barn ritar. De bästa teckningarna blir den första serien i Ritat i Norrahammar.
-- Ateljén på hemsidan byggs om kring riktningen, med landskapen som filter.
+- **Gjort:** ateljén på hemsidan är ombyggd kring barnets linje, med Årsstenen först och de fyra landskapen som färgval. Krokraden, timglaset och lyktan är borttagna, och presentkortet gäller nu en årssten.
+- **Gjort:** kursen Ritat i Norrahammar den 13 mars 2027. Barnen ritar, och några teckningar blir den första serien.
+- **Nästa:** Sofia gör tre prov: Första namnet, en årssten med en teckning och en teckningskrok. De fotograferas bredvid teckningarna och ersätter teckningarna i butiken.
 - Barnets teckning är barnets eget verk. Till serien behövs vårdnadshavarens skriftliga medgivande, och barnet ska stå på etiketten och få det första exemplaret.
 
-Alla tre riktningarna håller, och valet är ert.
 
 ---
 

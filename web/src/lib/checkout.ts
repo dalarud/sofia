@@ -48,7 +48,7 @@ export async function buildCart(input: CheckoutInput): Promise<Cart> {
     if (base.stock !== null && base.stock < item.qty) throw new CheckoutError(`${base.name} finns inte i så många exemplar just nu.`);
     lines.push({
       kind: "product", id: base.id, qty: item.qty, vatRate: base.vatRate,
-      name: withOption ? `${base.name} med glasinsats` : base.name,
+      name: withOption ? `${base.name}, ${base.option!.label.toLowerCase()}` : base.name,
       unitOre: base.priceOre + (withOption ? base.option!.priceOre : 0),
     });
   }

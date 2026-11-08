@@ -72,17 +72,18 @@ Ett paket heter **Lugna barnrum**. Det är för barn som behöver färre intryck
 
 ### Produkterna
 
-Leran blir produkter för barnrummet, som är personliga och lätta att ge bort:
+Formspråket är valt: **barnets linje i bågen och stenen**. Barnets egen teckning och handstil ristas i stenar och skyltar i lera. Hela underlaget finns i `DESIGNKONCEPT.md`.
 
-| Produkt | Pris | Varför den kan sälja |
+| Produkt | Pris | Kommentar |
 |---|---|---|
-| **Namnskylten** | 395 kr | Personlig och en självklar present. Den kan bli storsäljaren |
-| **Första avtrycket** | 595 kr i ateljén, 795 kr med ram | Barnets hand eller fot i lera, med namn och datum. Det tar en kvart i ateljén. Färdiga kit kostar runt 450 kr i butik, men det här är gjort för hand |
-| **Lådmärken** | 395 kr för 6 st | Bilder på lådorna, så att barnet hittar och plockar undan själv |
-| **Krokraden** | 1 495 kr | Krokar i barnets höjd, med en bild i lera på varje |
-| **Julhängen med namn** | 225 kr för 3 st | Säljs inför jul och tar lite tid att göra |
+| **Årsstenen** | 395 kr | En sten för varje födelsedag, med årets teckning. Det bärande föremålet, och en present som kan ges varje år |
+| **Första avtrycket** | 595 kr | Den första årsstenen: barnets hand eller fot, med namn och datum. Det tar en kvart i ateljén |
+| **Första namnet** | 495 kr | Namnet i barnets egen handstil, ristat i en sten |
+| **Teckningskrokarna** | 795 kr för 3 | Klädkrokar formade efter barnets sol, moln eller hus |
+| **Stenhyllan och Bågtavlan** | 695 och 895 kr | Hyllan i ek där årsstenarna står, och anslagstavlan i filt där teckningarna sitter |
+| **Till hemmet** | 225–1 795 kr | Familjeporträttet, Familjeröset, Filtvalvet och julhängena |
 
-Vaser, skålar och brickor säljs slut och görs inte om. Filtvalvet kan vänta.
+Vaser, skålar, brickor, krokraden, timglaset och lyktan säljs slut och görs inte om.
 
 ### Kurser och kalas
 
@@ -123,7 +124,7 @@ För att ta ut ungefär 20 000 kr i månaden före skatt behöver företaget oms
 | Tre hembesök och fyra barnrumsplaner på distans | 10 800 kr |
 | Ett barnrum klart, eller ett rum i familjens hem | 6 300 kr |
 | Ett homestaginguppdrag varannan månad | 3 200 kr |
-| Namnskyltar, avtryck och andra produkter, cirka 25 st | 8 000 kr |
+| Årsstenar, namn och andra produkter, cirka 25 st | 8 000 kr |
 | Två lerkalas | 5 000 kr |
 | **Ungefär** | **33 000 kr** |
 
@@ -147,7 +148,7 @@ Hemsidan är ombyggd efter beslutet.
 - **Menyn** är Barnrum, Hela hemmet, Ateljén och Om Sofia.
 - **Barnrum** är en ny sida. Den visar tillfällena då familjer brukar höra av sig, paketen med fasta priser, hur ett rum fungerar i barnets höjd, och stegen från första samtal till färdigt rum.
 - **Hela hemmet** samlar Familjens hem, Ett lugnare hem och homestaging, tillsammans med Ro-kartan.
-- **Ateljén** säljer namnskyltar, Första avtrycket, lådmärken, krokraden och timglaset till barnrummet, och ljuslyktor och julhängen till hemmet. Avtrycksdagen den 12 december går att boka.
+- **Ateljén** är byggd kring barnets linje: årsstenen, Första avtrycket, Första namnet, teckningskrokarna och lådmärkena till barnrummet, och familjeporträttet, Familjeröset, Filtvalvet och julhängena till hemmet. De fyra landskapen visas som färgval. Avtrycksdagen den 12 december och kursen Ritat i Norrahammar i mars går att boka.
 - **Förskolesidan och verksamhetssidan är borttagna.** Människohemmet, Rohemmet och Ro i vardagen ligger kvar som bakgrund.
 
 ---

@@ -91,6 +91,7 @@ table.list { border-collapse: collapse; width: 100%; margin: 2rem 0 1.6rem; font
 .ages .labels { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); text-align: center; margin-top: .6rem; }
 .ages .labels span { font: 400 clamp(1rem, 2.4vw, 1.45rem)/1.1 var(--hand); color: var(--accent); padding-inline: 2px; }
 .ages .labels small { display: block; font: 400 clamp(.72rem, 1.6vw, .9rem)/1.3 var(--sans); color: var(--muted); }
+.chosen { font: 400 1.2rem var(--hand); color: var(--accent); margin-left: .3rem; }
 .pick { font-family: var(--hand); font-size: 1.55rem; color: var(--accent); line-height: 1.3; max-width: 40rem; margin-top: 1.6rem; }
 footer { padding: 2.4rem 0 4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
 footer p { max-width: 46rem; }
@@ -98,7 +99,7 @@ footer a { color: inherit; text-underline-offset: 2px; }
 </style>
 </head>
 <body>
-<div class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Designkonceptet · november 2026</small></div></div>
+<div class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Designkonceptet · valt: B i formerna från A</small></div></div>
 
 <main>
 <header class="title">
@@ -108,7 +109,7 @@ footer a { color: inherit; text-underline-offset: 2px; }
     <p class="intro">Inredningen och leran behöver ett utseende som man känner igen innan man ser namnet. Det går inte att bestämma att något ska bli populärt. Men det som blir det brukar ha tre saker gemensamt: man känner igen det direkt, det finns en anledning att köpa igen, och det finns en stund som man vill fotografera. Här är tre riktningar som har alla tre. Färgerna kommer från fyra landskap runt Norrahammar.</p>
     <div class="trio">
       <a href="#bagen">{{TRIO_A}}<b>A. Bågen och stenen</b><span>Mjuka bågar i filt och små stenar i lera, ur logotypen.</span></a>
-      <a href="#linjen">{{TRIO_B}}<b>B. Barnets linje</b><span>Barnets egen teckning blir krokar, skyltar och stenar.</span></a>
+      <a href="#linjen">{{TRIO_B}}<b>B. Barnets linje <small class="chosen">vald</small></b><span>Barnets egen teckning blir krokar, skyltar och stenar.</span></a>
       <a href="#hogtiderna">{{TRIO_C}}<b>C. Familjens högtider</b><span>Föremål för födelsedagar, advent och jul.</span></a>
     </div>
   </div>
@@ -154,7 +155,7 @@ footer a { color: inherit; text-underline-offset: 2px; }
         <tr><td>Stenkrokarna</td><td class="note">Klädkrokar: tre stenar i lera</td><td class="price">595 kr</td></tr>
         <tr><td>Årsstenen</td><td class="note">En sten för varje födelsedag, med åldern ristad</td><td class="price">345 kr</td></tr>
         <tr><td>Stenhyllan</td><td class="note">Ekhyllan som årsstenarna står på</td><td class="price">695 kr</td></tr>
-        <tr class="home"><td>I hemmet</td><td class="note">Filtvalvet över matbordet, och familjestenarna i hallen med en sten per person</td><td class="price">1 795 kr<br>1 195 kr</td></tr>
+        <tr class="home"><td>I hemmet</td><td class="note">Filtvalvet över matbordet, och Familjeröset i hallen med en sten per person</td><td class="price">1 795 kr<br>1 195 kr</td></tr>
       </tbody>
     </table>
     <div class="facts">
@@ -256,9 +257,9 @@ footer a { color: inherit; text-underline-offset: 2px; }
 <section id="forslaget">
   <div class="wrap">
     <div class="col">
-      <p class="eyebrow">Förslaget</p>
+      <p class="eyebrow">Valt</p>
       <h2>Barnets linje, <em>i bågen och stenen.</em></h2>
-      <p>Jag föreslår B, i formerna från A. Barnets linje är det enda som ingen annan kan kopiera, och den bygger på det Sofia kan bäst: barn och lera. Bågen och stenen från logotypen blir ramarna som linjerna sitter i, så att allt hänger ihop med varumärket.</p>
+      <p>Valet blev B, i formerna från A. Barnets linje är det enda som ingen annan kan kopiera, och den bygger på det Sofia kan bäst: barn och lera. Bågen och stenen från logotypen blir ramarna som linjerna sitter i, så att allt hänger ihop med varumärket.</p>
     </div>
     <div class="ages">
       {{AGES}}
@@ -273,14 +274,14 @@ footer a { color: inherit; text-underline-offset: 2px; }
     <div class="col" style="margin-top: 2.4rem">
       <p>Det bärande föremålet blir Årsstenen: en sten för varje födelsedag, med en linje som barnet har gjort just det året. Första avtrycket, som redan säljs, blir den första stenen. Efter några år står barnets uppväxt på en hylla, och mor- och farföräldrar vet vad de ska ge.</p>
       <p>Familjens högtider kan komma senare som säsongssläpp i samma former. Julhängena finns redan.</p>
-      <h3 class="small">Om förslaget väljs</h3>
+      <h3 class="small">Det som är gjort, och det som återstår</h3>
       <ul class="plain">
-        <li><span>Sofia gör tre prov: Första namnet, en årssten med en teckning och en teckningskrok. De fotograferas bredvid teckningarna.</span></li>
-        <li><span>En kurs i vår där barn ritar. De bästa teckningarna blir den första serien i Ritat i Norrahammar.</span></li>
-        <li><span>Ateljén på hemsidan byggs om kring riktningen, med landskapen som filter.</span></li>
+        <li><span><b>Gjort:</b> ateljén på hemsidan är ombyggd kring barnets linje, med Årsstenen först och de fyra landskapen som färgval. Krokraden, timglaset och lyktan är borttagna, och presentkortet gäller nu en årssten.</span></li>
+        <li><span><b>Gjort:</b> kursen Ritat i Norrahammar den 13 mars 2027. Barnen ritar, och några teckningar blir den första serien.</span></li>
+        <li><span><b>Nästa:</b> Sofia gör tre prov: Första namnet, en årssten med en teckning och en teckningskrok. De fotograferas bredvid teckningarna och ersätter teckningarna i butiken.</span></li>
         <li><span>Barnets teckning är barnets eget verk. Till serien behövs vårdnadshavarens skriftliga medgivande, och barnet ska stå på etiketten och få det första exemplaret.</span></li>
       </ul>
-      <p class="pick">Alla tre riktningarna håller, och valet är ert.</p>
+      
     </div>
   </div>
 </section>
