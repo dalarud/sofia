@@ -4,7 +4,7 @@
 
 > **Nytt i version 2:** tjänster och produkter är omräknade efter vad de ger per timme (5.10), och flera priser är höjda. Ro-kartan är ny signaturleverans och första steget för alla kunder. Nya paket och produkter: Sälj och landa, Ro-modellen i verksamheten, Lugna lådan och Forma hemma-kit. Komplett homestaging med hyrd inredning är flyttad till år 2–3. Ett nytt avsnitt beskriver hur företaget drivs utan att det tar över (13).
 
-> **Strategin från november 2026** – översynen, idén (hem och förskolor som fungerar för barnen och de vuxna runt dem, med förskolans sätt att göra rum tydliga), marknaden i Norrahammar och hävstängerna – finns i `koncept/STRATEGI.md` och `koncept/strategi.html`. Där den skiljer sig från det här dokumentet gäller strategin: tre delar som hänger ihop (hemma, i förskolan och i ateljén) och tjänsterna Hem som svarar, Hem som kommer ihåg, Homestaging och Förskola och skola.
+> **Strategin från november 2026** finns i `koncept/STRATEGI.md` och `koncept/strategi.html`. Nischen är vald: inredning för barnfamiljer, med barnrum och familjens hem, i en lugn stil med lin, trä och lera. Där strategin skiljer sig från det här dokumentet gäller strategin, både för tjänster, priser och produkter.
 
 > **Ett hem ska ge ro.**
 > Inredning, homestaging och handgjorda föremål i lera med en skandinavisk, naturnära och hemtrevlig känsla – och med kunskap om hur miljön påverkar hur vi mår, fungerar och landar.

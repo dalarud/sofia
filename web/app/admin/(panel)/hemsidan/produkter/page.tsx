@@ -7,9 +7,9 @@ import { saveFile } from "@/lib/receipts";
 import { kr } from "@/lib/money";
 
 const back = "/admin/hemsidan/produkter";
-const SHAPES = { vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", skylt: "Skylt", hangen: "Hänge", tval: "Bricka", ask: "Presentask", kit: "Lerpaket med verktyg" };
+const SHAPES = { skylt: "Namnskylt", avtryck: "Avtryck", krokrad: "Krokrad", timglas: "Timglas", vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", hangen: "Hänge", tval: "Bricka", ask: "Presentask", kit: "Lerpaket med verktyg" };
 const GLAZES = { mossa: "Mossa", lera: "Lera", havre: "Havre", strand: "Strand", kvall: "Kväll", sten: "Sten" };
-const CATS = { dekor: "Dekor", ljus: "Ljus", lugn: "För lugn" };
+const CATS = { barn: "Till barnrummet", hem: "Till hemmet" };
 const pick = <T extends object>(m: T, v: string, d: keyof T) => (v in m ? v : String(d));
 
 async function values(f: FormData) {
@@ -20,7 +20,7 @@ async function values(f: FormData) {
   const optLabel = str(f, "optLabel"), optPrice = ore(f, "optPrice");
   const v: Partial<typeof schema.products.$inferInsert> = {
     name, priceOre, text: str(f, "text"), badge: str(f, "badge") || null,
-    category: pick(CATS, str(f, "category"), "dekor"), shape: pick(SHAPES, str(f, "shape"), "vas"), glaze: pick(GLAZES, str(f, "glaze"), "havre"),
+    category: pick(CATS, str(f, "category"), "barn"), shape: pick(SHAPES, str(f, "shape"), "vas"), glaze: pick(GLAZES, str(f, "glaze"), "havre"),
     stock: stockRaw === "" ? null : Math.max(0, int(f, "stock")), sort: int(f, "sort"), active: bool(f, "active"),
     option: optLabel && optPrice ? { id: `${slug(name)}-tillval`, label: optLabel, priceOre: optPrice } : null,
   };
@@ -69,7 +69,7 @@ function Fields({ p }: { p?: P }) {
       </div>
       <label className="a-field"><span>Beskrivning</span><textarea name="text" defaultValue={p?.text} rows={3} style={{ minHeight: "5rem" }} /></label>
       <div className="a-grid a-grid--3">
-        <label className="a-field"><span>Kategori</span><select name="category" defaultValue={p?.category ?? "dekor"}>{opts(CATS)}</select></label>
+        <label className="a-field"><span>Kategori</span><select name="category" defaultValue={p?.category ?? "barn"}>{opts(CATS)}</select></label>
         <label className="a-field"><span>Teckning (utan foto)</span><select name="shape" defaultValue={p?.shape ?? "vas"}>{opts(SHAPES)}</select></label>
         <label className="a-field"><span>Färg på teckningen</span><select name="glaze" defaultValue={p?.glaze ?? "havre"}>{opts(GLAZES)}</select></label>
       </div>

@@ -291,6 +291,7 @@
     skylt: { custom: drawSkylt },
     hangen: { custom: drawHangen, noShadow: true },
     krokrad: { custom: drawKrokrad, noShadow: true },
+    avtryck: { custom: drawAvtryck },
     timglas: { custom: drawTimglas },
     tval: { body: profile(100, [[150, 70], [156, 68], [163, 56], [170, 40]]), rims: [[100, 150, 70, 12]], ridges: true }
   };
@@ -380,7 +381,22 @@
     ctx.fillText("1", 52, 122); ctx.fillText("2", 100, 122); ctx.fillText("3", 148, 122);
     ctx.globalAlpha = .45; ctx.font = "13px Caveat, 'Segoe Print', cursive"; ctx.fillText("i barnets höjd", 100, 150); ctx.restore();
   }
-  // Stunden: ett timglas i en fot av lera
+  // Första avtrycket: en rund platta i lera med en liten hand, namn och datum
+  function drawAvtryck(ctx, c, pen, seed) {
+    var plate = ellipse(100, 112, 66, 56, 34, .03, seed);
+    wash(ctx, plate, c, { seed: seed, alpha: .08, layers: 22, spread: .15 });
+    pencil(ctx, plate, { seed: seed, color: pen, alpha: .5 });
+    var palm = ellipse(100, 112, 15, 18, 20, .06, seed + 2), dark = shade(c, .78);
+    wash(ctx, palm, dark, { seed: seed + 2, alpha: .1, layers: 14, spread: .1 });
+    [[-17, 96, 4.5, 9, -.5], [-8, 84, 4.5, 11, -.15], [2, 81, 4.5, 12, 0], [11, 85, 4.3, 11, .15], [21, 101, 4.2, 8, .7]].forEach(function (f, i) {
+      ctx.save(); ctx.translate(100 + f[0], f[1]); ctx.rotate(f[4]);
+      var finger = ellipse(0, 0, f[2], f[3], 14, .05, seed + 4 + i);
+      wash(ctx, finger, dark, { seed: seed + 4 + i, alpha: .1, layers: 10, spread: .1 });
+      ctx.restore();
+    });
+    ctx.save(); ctx.fillStyle = pen; ctx.globalAlpha = .7; ctx.font = "20px Caveat, 'Segoe Print', cursive"; ctx.textAlign = "center"; ctx.fillText("Ella", 100, 150); ctx.globalAlpha = .5; ctx.font = "13px Caveat, 'Segoe Print', cursive"; ctx.fillText("12.12.2026", 100, 162); ctx.restore();
+  }
+  // Timglaset: ett timglas i en fot av lera
   function drawTimglas(ctx, c, pen, seed) {
     var base = ellipse(100, 158, 42, 11, 22, .06, seed);
     wash(ctx, base, c, { seed: seed, alpha: .09, layers: 18, spread: .12 });
@@ -680,53 +696,6 @@
   });
 
 
-  /* ================= Tjatmätaren: räkna tjatet i tre dagar ================= */
-  (function () {
-    var box = document.querySelector("[data-tjat]"); if (!box) return;
-    var KEY = "studio-dalarud-tjat-v1", CATS = ["morgon", "lek", "over", "kvall"];
-    var NAMES = { morgon: "morgonen", lek: "leken", over: "övergångarna", kvall: "kvällen" };
-    var ADVICE = {
-      morgon: "Börja i hallen: en krok och en korg per barn i barnets höjd, och krokarna i den ordning kläderna tas på.",
-      lek: "Börja i barnrummet: färre leksaker framme, en bild på varje låda och en plats där det som är färdigt ska ligga.",
-      over: "Börja med tiden: ett timglas eller en lampa som visar hur länge något håller på, så att det inte är du som säger stopp.",
-      kvall: "Börja med kvällsljuset: en lampa som tänds när det är dags att varva ner, och taklampan släckt efter middagen."
-    };
-    var empty = function () { return { morgon: 0, lek: 0, over: 0, kvall: 0 }; };
-    var state = { day: 0, days: [empty(), empty(), empty()] };
-    try { var saved = JSON.parse(localStorage.getItem(KEY) || "null"); if (saved && saved.days && saved.days.length === 3) state = saved; } catch (e) {}
-    function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
-    function sum(d) { return CATS.reduce(function (s, k) { return s + (d[k] || 0); }, 0); }
-    function render() {
-      box.querySelectorAll("[data-day]").forEach(function (b) { b.setAttribute("aria-pressed", String(+b.dataset.day === state.day)); });
-      var d = state.days[state.day];
-      box.querySelectorAll(".tjat__row").forEach(function (r) { r.querySelector(".tjat__n").textContent = d[r.dataset.cat] || 0; });
-      var t = sum(d); $("#tjatDayTotal").textContent = t + (t === 1 ? " gång" : " gånger") + " dag " + (state.day + 1);
-      var used = state.days.filter(function (x) { return sum(x) > 0; });
-      var out = $("#tjatResult");
-      if (!used.length) { out.innerHTML = ""; return; }
-      var tot = empty(); used.forEach(function (x) { CATS.forEach(function (k) { tot[k] += x[k] || 0; }); });
-      var top = CATS.slice().sort(function (a, b) { return tot[b] - tot[a]; })[0];
-      var avg = Math.round(sum(tot) / used.length);
-      out.innerHTML = "<p class=\"tjat__big\">" + avg + "<span> gånger om dagen, i snitt</span></p>" +
-        "<p>Mest tjat blir det kring <em>" + NAMES[top] + "</em>. " + esc(ADVICE[top]) + "</p>" +
-        (used.length < 3 ? "<p class=\"tjat__hint\">Räkna alla tre dagarna, så blir bilden säkrare.</p>" : "<p class=\"tjat__hint\">Spara siffran. Efter fyra veckor med ett hem som svarar mäter ni igen.</p>") +
-        "<a class=\"btn\" href=\"/barnfamiljer?tjanst=Hem%20som%20svarar#kontakt\" data-service=\"Hem som svarar\">Boka ett hembesök</a>";
-    }
-    box.addEventListener("click", function (e) {
-      var day = e.target.closest("[data-day]"), btn = e.target.closest(".tjat__btn");
-      if (day) { state.day = +day.dataset.day; save(); render(); }
-      if (btn) {
-        var cat = btn.closest(".tjat__row").dataset.cat, d = state.days[state.day];
-        d[cat] = Math.max(0, (d[cat] || 0) + +btn.dataset.step); save(); render();
-      }
-    });
-    $("#tjatReset").addEventListener("click", function () {
-      if (!confirm("Vill du börja om? Alla tre dagarna töms.")) return;
-      state = { day: 0, days: [empty(), empty(), empty()] }; save(); render();
-    });
-    render();
-  })();
-
   /* ================= Människohemmet: bågmodellen ================= */
   var PARTS = SITE.parts || [];
   document.querySelectorAll("[data-arches]").forEach(function (box) {
@@ -809,7 +778,7 @@
     var RT = {
       o: { name: "Överblickaren", hand: "en plats för varje sak", text: "Du mår bäst när du ser vad som finns och var det hör hemma. Synligt stök tar mer energi för dig än för de flesta.", tips: ["Gör en bänk eller hylla helt brusfri, och håll den så en vecka.", "En korg per person i hallen.", "Bilder eller lådmärken på det som ligger i lådorna."], next: ["/ateljen", "Lådmärkena i ateljén"] },
       k: { name: "Den känsliga", hand: "färre intryck, mjukare ljus", text: "Ljud, ljus och intryck märks mer för dig. Det är inte du som är för känslig, det är rummet som ger för mycket.", tips: ["Släck taklampan på kvällen och tänd i tre höjder.", "En matta eller gardin som dämpar ljudet där ni är mest.", "Färre saker i ögonhöjd, fler bakom luckor."], next: ["/rohemmet#matten", "Ro-måtten för ljus och ljud"] },
-      f: { name: "Flödaren", hand: "när vardagen flyter", text: "Du märker direkt när rutinerna hakar upp sig. Ett hem som stödjer morgnar och kvällar gör störst skillnad för dig.", tips: ["Gå igenom morgonen steg för steg och se var det stannar.", "Krokar och korgar i rätt höjd för alla i familjen.", "En fast plats för det som ska med ut genom dörren."], next: ["/barnfamiljer#tjatmataren", "Mät tjatet i tre dagar"] },
+      f: { name: "Flödaren", hand: "när vardagen flyter", text: "Du märker direkt när rutinerna hakar upp sig. Ett hem som stödjer morgnar och kvällar gör störst skillnad för dig.", tips: ["Gå igenom morgonen steg för steg och se var det stannar.", "Krokar och korgar i rätt höjd för alla i familjen.", "En fast plats för det som ska med ut genom dörren."], next: ["/barnrum", "Se hur jag gör barnrum"] },
       v: { name: "Vilaren", hand: "en plats bara för vila", text: "Du tar hand om allt och alla, men glömmer att landa själv. Du behöver ett hörn som säger: här får du sitta ner.", tips: ["Välj ett hörn och gör det till en rohörna: en stol, en pläd och en lampa.", "Inga skärmar och inget som ska fixas där.", "Börja med fem minuter om dagen."], next: ["/rohemmet#rohornan", "Så gör du en rohörna"] }
     };
     var qi = 0, score = {};

@@ -2,6 +2,8 @@
 
 *November 2026 · ersätter de tidigare versionerna av strategin*
 
+**Beslut:** A, med B som stil. Nischen är barnrum och familjens hem, och stilen är lugn och naturmaterial i allt Sofia gör, även i vuxnas hem.
+
 Syftet är enkelt: ett företag inom inredning och sådant som ligger nära, med en egen nisch och med tjänster och produkter som säljer. Nischen får gärna vara enkel. De tidigare versionerna lät pedagogik och NPF styra affärsidén. Den kunskapen är en styrka, men den är inte nischen.
 
 ---
@@ -137,9 +139,16 @@ Produkterna och kalasen står för ungefär 40 % av intäkterna, och det mesta a
 - **Ligger kvar på hemsidan som bakgrund:** Människohemmet och Rohemmet. Det är tankarna bakom, inte det som säljs.
 - **Väntar:** förskolor som affärsområde, verksamheter, egna lampor i serie och nya marknader.
 
-## Om nischen väljs
+## Det som är byggt
 
-Hemsidan byggs om kring barnfamiljer. Startsidan säger *Inredare för barnfamiljer*, och menyn blir Barnrum, Hela hemmet, Homestaging, Ateljén och Om Sofia. Ateljén får namnskyltar, Första avtrycket och lerkalas.
+Hemsidan är ombyggd efter beslutet.
+
+- **Startsidan** säger *Barnrum som ger ro*. Den första knappen leder till ett hembesök och den andra till barnrumsplanen på distans.
+- **Menyn** är Barnrum, Hela hemmet, Ateljén och Om Sofia.
+- **Barnrum** är en ny sida. Den visar tillfällena då familjer brukar höra av sig, paketen med fasta priser, hur ett rum fungerar i barnets höjd, och stegen från första samtal till färdigt rum.
+- **Hela hemmet** samlar Familjens hem, Ett lugnare hem och homestaging, tillsammans med Ro-kartan.
+- **Ateljén** säljer namnskyltar, Första avtrycket, lådmärken, krokraden och timglaset till barnrummet, och ljuslyktor och julhängen till hemmet. Avtrycksdagen den 12 december går att boka.
+- **Förskolesidan och verksamhetssidan är borttagna.** Människohemmet, Rohemmet och Ro i vardagen ligger kvar som bakgrund.
 
 ---
 

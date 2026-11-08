@@ -6,8 +6,8 @@ import { Done, Head, type SP } from "@/admin/ui";
 import Link from "next/link";
 
 const GROUPS: Record<string, string> = {
-  sida: "Sidhuvuden på alla sidor", start: "Startsidan: tre vägar in", hjalp: "Hjälp hemma: Ro-kartan", mh: "Människohemmet", rohem: "Rohemmet", liv: "Ro i vardagen",
-  hero: "Startsidan", manifest: "Manifestet", tjanster: "Tjänster", steg: "Så går det till", ro: "Fyra hörnstenar", barn: "Barnfamiljer", fs: "Förskola och skola", ateljen: "Ateljén",
+  sida: "Sidhuvuden på alla sidor", start: "Startsidan: tre vägar in", hjalp: "Hela hemmet: Ro-kartan", mh: "Människohemmet", rohem: "Rohemmet", liv: "Ro i vardagen",
+  hero: "Startsidan", manifest: "Manifestet", tjanster: "Tjänster", steg: "Så går det till", ro: "Fyra hörnstenar", barn: "Barnrum", ateljen: "Ateljén",
   kurser: "Kurser", present: "Presentkort", om: "Om mig", tips: "Tips", guide: "Gratis guiden", kontakt: "Kontakt", sidfot: "Sidfoten",
   villkor: "Köpvillkor", integritet: "Integritetspolicy",
 };
