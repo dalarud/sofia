@@ -1,4 +1,4 @@
-# Bygger koncept/livsstil.html, rohemmet.html och manniskohemmet.html av *.src.html med logotypen inbäddad.
+# Bygger konceptsidorna (livsstil, rohemmet, manniskohemmet, bagen, formsprak, strategi, designkoncept) av *.src.html med logotypen inbäddad.
 import pathlib, re
 root = pathlib.Path(__file__).resolve().parent.parent
 src = (root / "koncept/livsstil.src.html").read_text()
@@ -35,3 +35,20 @@ print("filtvalvet guide", len(fg))
 st = (root / "koncept/strategi.src.html").read_text().replace("{{LOGO}}", logo)
 (root / "koncept/strategi.html").write_text(st)
 print("strategi", len(st))
+import sys
+sys.path.insert(0, str(root / "koncept"))
+import designbilder as db
+motiv = {"Skogen": "svamp, kotte, lingonris och ekorre", "Sjön": "våg, fisk, strandsten och båt",
+         "Berget": "berg, måne, stjärna och uggla", "Ängen": "blomma, bi, sol och jordgubbe"}
+themes = "".join(
+    f'<div class="theme"><header><h3>{n}</h3>{db.emblem(n)}</header><ul class="swatches">'
+    + "".join(f'<li><i style="--c:{c}"></i>{k}</li>' for k, c in cols.items())
+    + f'</ul><p>Motiv: {motiv[n]}.</p></div>' for n, cols in db.THEMES)
+ta, tb, tc = db.trio()
+dk = (root / "koncept/designkoncept.src.html").read_text()
+for k, v in {"LOGO": logo, "TRIO_A": ta, "TRIO_B": tb, "TRIO_C": tc, "ART_A": db.vignette_a(), "ART_B": db.vignette_b(),
+             "ART_C": db.vignette_c(), "AGES": db.ages(), "THEMES": themes}.items():
+    dk = dk.replace("{{" + k + "}}", v)
+assert "{{" not in dk
+(root / "koncept/designkoncept.html").write_text(dk)
+print("designkoncept", len(dk))

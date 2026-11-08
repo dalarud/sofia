@@ -6,6 +6,8 @@
 
 > **Strategin från november 2026** finns i `koncept/STRATEGI.md` och `koncept/strategi.html`. Nischen är vald: inredning för barnfamiljer, med barnrum och familjens hem, i en lugn stil med lin, trä och lera. Där strategin skiljer sig från det här dokumentet gäller strategin, både för tjänster, priser och produkter.
 
+> **Designkonceptet**, med tre riktningar för formspråket (Bågen och stenen, Barnets linje och Familjens högtider) och fyra landskap som teman, finns i `koncept/DESIGNKONCEPT.md` och `koncept/designkoncept.html`.
+
 > **Ett hem ska ge ro.**
 > Inredning, homestaging och handgjorda föremål i lera med en skandinavisk, naturnära och hemtrevlig känsla – och med kunskap om hur miljön påverkar hur vi mår, fungerar och landar.
 
