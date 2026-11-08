@@ -15,13 +15,13 @@ type PageDef = { title: string; description: string; nav?: string; head?: { eyeb
 
 /** Sidorna och vilka sektioner de består av. Texterna i sidhuvudena går att ändra under Hemsidan → Texter. */
 export const PAGES: Record<PageKey, PageDef> = {
-  start: { title: "Studio Dalarud – barnrum och familjehem som ger ro", description: "Inredare för barnfamiljer i Norrahammar. Barnrum, familjens hem och homestaging i lin, trä och lera, och barnets egna teckningar i lera. Jönköping och hela Sverige.",
+  start: { title: "Studio Dalarud – barnrum och familjehem som ger ro", description: "Inredare för barnfamiljer i Norrahammar. Barnrum, familjens hem och homestaging i lin, trä och lera, och årsstenar och namnskyltar i lera. Jönköping och hela Sverige.",
     sections: ["hero", "start-dorrar", "manifest", "start-vision"] },
   barnrum: { title: "Barnrum som ger ro – inredare för barnfamiljer i Jönköping | Studio Dalarud", description: "Barnrum och syskonrum som barnen kan leka, sova och hålla ordning i, i lin, trä och lera. Barnrumsplan på distans från 1 495 kr, hembesök i Jönköping och Tabergsdalen.", nav: "barnrum",
     head: { eyebrow: "Barnrum", heading: "sida.barn.rubrik", lede: "sida.barn.ingress" }, sections: ["barn-tillfallen", "barn-paket", "barn-hojd", "barn-steg", "kontakt"] },
   hjalp: { title: "Hela hemmet – Studio Dalarud", description: "Barnrum, familjens hem, ett lugnare hem och homestaging i Norrahammar och Jönköping. Fasta priser och planer på distans i hela Sverige.", nav: "hjalp",
     head: { eyebrow: "Hela hemmet", heading: "sida.hjalp.rubrik", lede: "sida.hjalp.ingress" }, sections: ["tjanster", "rokartan", "steg", "ro-modellen", "kontakt"] },
-  ateljen: { title: "Ateljén – årsstenar, namnskyltar och lerkalas | Studio Dalarud", description: "Årsstenar, namnskyltar och krokar efter barnets egna teckningar, i lera. Lerkalas och kurser i Norrahammar, och presentkort.", nav: "ateljen",
+  ateljen: { title: "Ateljén – årsstenar, namnskyltar och lerkalas | Studio Dalarud", description: "Årsstenar, namnskyltar, krokar och mobiler i lera, i fyra kollektioner: Skogen, Sjön, Berget och Ängen. Lerkalas och kurser i Norrahammar, och presentkort.", nav: "ateljen",
     sections: ["ateljen", "kurser", "presentkort"] },
   manniskohemmet: { title: "Människohemmet – Studio Dalarud", description: "Ett hem format efter människan, inte tvärtom. Idén om Människohemmet och dess fem delkoncept: Ro, Jord, Växt, Bord och År.", nav: "manniskohemmet",
     head: { eyebrow: "Efter folkhemmet", heading: "sida.mh.rubrik", lede: "sida.mh.ingress" }, sections: ["mh-folkhemmet", "mh-vision", "mh-modell", "mh-mal", "mh-vidare"] },
@@ -164,7 +164,7 @@ export function renderSite(data: SiteData, key: PageKey = "start"): string {
       email: data.company.email || undefined, telephone: data.company.phone || undefined,
       address: { "@type": "PostalAddress", streetAddress: data.company.address || undefined, addressLocality: "Norrahammar", addressRegion: "Jönköpings län", addressCountry: "SE" },
       areaServed: ["Norrahammar", "Taberg", "Jönköping", "Huskvarna", "Bankeryd", "Tenhult", "Sverige (digitalt)"],
-      knowsAbout: ["Barnrum", "Inredning för barnfamiljer", "Homestaging", "Barnets teckningar i lera", "Lugna barnrum"],
+      knowsAbout: ["Barnrum", "Inredning för barnfamiljer", "Homestaging", "Kollektioner i lera för barnrummet", "Lugna barnrum"],
     }).replace(/</g, "\\u003c"))
     .replace(/\{\{rows:([a-z0-9.]+):([a-z]+)\}\}/g, (_, k, kind) => renderRows(data.texts[k] ?? "", kind))
     .replace(/\{\{paras:([a-z0-9.]+)\}\}/g, (_, k) => rowsOf(data.texts[k] ?? "").map((r) => `<p>${rich(r.join(" | "))}</p>`).join(""))

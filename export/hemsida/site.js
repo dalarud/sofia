@@ -291,14 +291,15 @@
     skylt: { custom: drawSkylt },
     hangen: { custom: drawHangen, noShadow: true },
     krokrad: { custom: drawKrokrad, noShadow: true },
-    avtryck: { custom: drawAvtryck },
+    avtryck: { custom: function (ctx, c, pen, seed) { drawAvtryck(ctx, K().stone, pen, seed); } },
     timglas: { custom: drawTimglas },
     arssten: { custom: drawArssten },
-    forstanamn: { custom: drawForstaNamn },
-    teckningskrok: { custom: drawTeckningskrok, noShadow: true },
+    namn: { custom: drawNamn },
+    krokar: { custom: drawKrokar, noShadow: true },
+    mobil: { custom: drawMobil, noShadow: true },
+    landskap: { custom: drawLandskap },
     stenhylla: { custom: drawStenhylla, noShadow: true },
     bagtavla: { custom: drawBagtavla },
-    portratt: { custom: drawPortratt },
     familjeroset: { custom: drawFamiljeroset },
     filtvalvet: { custom: drawFiltvalvet, noShadow: true },
     tval: { body: profile(100, [[150, 70], [156, 68], [163, 56], [170, 40]]), rims: [[100, 150, 70, 12]], ridges: true }
@@ -419,127 +420,185 @@
     pencil(ctx, [[100, 92], [100, 124]], { seed: seed + 4, closed: false, color: "#B8915F", alpha: .5, passes: 1 });
     pencil(ctx, [[72, 40], [128, 40], [104, 90], [128, 150], [72, 150], [96, 90]], { seed: seed + 5, color: pen, alpha: .4 });
   }
-  /* Barnets linje: barnets teckning ristas i leran och fylls med färg. Linjen ritas lite darrig, som med krita. */
-  var KID = { gran: "#4B3A2B", lingon: "#A63D32", kantarell: "#D49A3A", gras: "#8E9F66", vattern: "#5D7889", lav: "#C8CCB4" };
-  function kid(ctx, pts, color, seed, w) { pencil(ctx, pts, { seed: seed, closed: false, color: color, width: w || 2.6, alpha: .85, passes: 1, jitter: .6 }); }
+  /* Kritlinjen: Sofias egna motiv, ritade med en tjock och lite darrig linje som ristas i leran och fylls med färg.
+     Fyra färdiga kollektioner med egna färger och motiv. Föremålen ritas i den kollektion som är vald. */
+  var COLL = {
+    skogen: { name: "Skogen", felt: "#6E7B52", stone: "#D9CDB4", line: "#4B3A2B", acc: "#A63D32", c: ["#C8CCB4", "#6E7B52", "#D49A3A", "#A63D32", "#4B3A2B"], motifs: ["svamp", "kotte", "gran"] },
+    sjon: { name: "Sjön", felt: "#5D7889", stone: "#DCD3C2", line: "#3E5563", acc: "#5D7889", c: ["#ECE8DF", "#D8C6A6", "#A3A06B", "#8B8983", "#5D7889"], motifs: ["fisk", "vag", "bat"] },
+    berget: { name: "Berget", felt: "#8D6E86", stone: "#D6D0C9", line: "#4A3F3B", acc: "#8D6E86", c: ["#F0EDE7", "#A29B94", "#BF8A3F", "#8D6E86", "#4A3F3B"], motifs: ["berg", "mane", "stjarna"] },
+    angen: { name: "Ängen", felt: "#D9B44A", stone: "#E8DFCB", line: "#5E6B3F", acc: "#C9706B", c: ["#E2D5BB", "#A8BECB", "#E6C766", "#D69B98", "#8E9F66"], motifs: ["blomma", "bi", "jordgubbe"] }
+  };
+  var coll = "skogen";
+  try { var savedColl = localStorage.getItem("sd-coll"); if (COLL[savedColl]) coll = savedColl; } catch (e) {}
+  function K() { return COLL[coll]; }
+  function krita(ctx, pts, color, seed, w) { pencil(ctx, pts, { seed: seed, closed: false, color: color, width: w || 2.6, alpha: .85, passes: 1, jitter: .5 }); }
+  function flat(ctx, pts, color, alpha) {
+    ctx.save(); ctx.globalAlpha = alpha || .88; ctx.fillStyle = color; ctx.beginPath();
+    pts.forEach(function (q, i) { if (i) ctx.lineTo(q[0], q[1]); else ctx.moveTo(q[0], q[1]); }); ctx.closePath(); ctx.fill(); ctx.restore();
+  }
+  function shape(ctx, pts, color, line, seed, w) { flat(ctx, pts, color); krita(ctx, pts.concat([pts[0]]), line, seed, w); }
+  function dot(ctx, x, y, r, color) { ctx.save(); ctx.fillStyle = color; ctx.globalAlpha = .9; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); ctx.restore(); }
+  function arc(cx, cy, rx, ry, a0, a1, n) { var out = []; for (var i = 0; i <= n; i++) { var a = a0 + (a1 - a0) * i / n; out.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); } return out; }
+  // Ett motiv, centrerat i (x, y). s = 1 ger ungefär 26 px.
+  function motif(ctx, name, x, y, s, seed) {
+    var L = K().line, w = Math.max(1.4, 1.9 * s);
+    var P = function (a) { return a.map(function (q) { return [x + q[0] * s, y + q[1] * s]; }); };
+    if (name === "svamp") {
+      shape(ctx, P(arc(0, 0, 12, 11, Math.PI, 2 * Math.PI, 14)), "#A63D32", L, seed, w);
+      shape(ctx, P([[-4, 0], [-5, 11], [5, 11], [4, 0]]), "#ECE8DF", L, seed + 1, w);
+      [[-5, -5], [2, -8], [6, -3]].forEach(function (d) { dot(ctx, x + d[0] * s, y + d[1] * s, 1.5 * s, "#F7F2EA"); });
+    } else if (name === "kotte") {
+      shape(ctx, P(arc(0, 0, 7, 12, 0, 2 * Math.PI, 18)), "#9A6A44", L, seed, w);
+      [-5, 0, 5].forEach(function (yy, i) { krita(ctx, P([[-5, yy - 2], [0, yy + 2], [5, yy - 2]]), L, seed + 2 + i, w * .7); });
+    } else if (name === "gran") {
+      shape(ctx, P([[0, -13], [-8, -3], [-5, -3], [-11, 7], [11, 7], [5, -3], [8, -3]]), "#6E7B52", L, seed, w);
+      krita(ctx, P([[0, 7], [0, 13]]), L, seed + 3, w);
+    } else if (name === "fisk") {
+      shape(ctx, P(arc(-3, 0, 10, 6.5, 0, 2 * Math.PI, 18)), "#5D7889", L, seed, w);
+      shape(ctx, P([[6, 0], [13, -6], [13, 6]]), "#A3A06B", L, seed + 1, w);
+      dot(ctx, x - 8 * s, y - 1.5 * s, 1.4 * s, "#F7F2EA");
+    } else if (name === "vag") {
+      [-4, 4].forEach(function (yy, i) { var pts = []; for (var t = 0; t <= 16; t++) pts.push([-13 + t * 26 / 16, yy + Math.sin(t / 16 * Math.PI * 3) * 3.4]); krita(ctx, P(pts), i ? "#A3A06B" : "#5D7889", seed + i, w * 1.1); });
+    } else if (name === "bat") {
+      shape(ctx, P([[-13, 3], [13, 3], [8, 10], [-8, 10]]), "#9A6A44", L, seed, w);
+      krita(ctx, P([[0, 3], [0, -13]]), L, seed + 1, w);
+      shape(ctx, P([[2, -12], [2, 0], [11, 0]]), "#ECE8DF", L, seed + 2, w);
+    } else if (name === "berg") {
+      shape(ctx, P([[-14, 10], [-3, -10], [3, -2], [6, -6], [14, 10]]), "#A29B94", L, seed, w);
+      flat(ctx, P([[-6.4, -5], [-3, -10], [0.4, -5.6]]), "#F0EDE7");
+    } else if (name === "mane") {
+      shape(ctx, P(arc(0, 0, 11, 11, Math.PI * .35, Math.PI * 1.65, 16).concat(arc(4.5, 0, 8, 8, Math.PI * 1.55, Math.PI * .45, 14))), "#BF8A3F", L, seed, w);
+    } else if (name === "stjarna") {
+      var st = []; for (var i = 0; i < 10; i++) { var a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? 5 : 12; st.push([Math.cos(a) * r, Math.sin(a) * r]); }
+      shape(ctx, P(st), "#BF8A3F", L, seed, w);
+    } else if (name === "blomma") {
+      krita(ctx, P([[0, 4], [1, 14]]), "#8E9F66", seed + 9, w);
+      for (var j = 0; j < 5; j++) { var b = j * Math.PI * 2 / 5 - Math.PI / 2; shape(ctx, P(arc(Math.cos(b) * 6.5, Math.sin(b) * 6.5 - 2, 4.6, 4.6, 0, 2 * Math.PI, 10)), "#D69B98", L, seed + j, w * .8); }
+      dot(ctx, x, y - 2 * s, 3.4 * s, "#E6C766");
+    } else if (name === "bi") {
+      shape(ctx, P(arc(-2, -7, 5, 4, 0, 2 * Math.PI, 10)), "#ECE8DF", L, seed + 3, w * .8);
+      shape(ctx, P(arc(4, -7, 5, 4, 0, 2 * Math.PI, 10)), "#ECE8DF", L, seed + 4, w * .8);
+      shape(ctx, P(arc(0, 1, 10, 6.5, 0, 2 * Math.PI, 18)), "#E6C766", L, seed, w);
+      [-3, 2].forEach(function (xx, i) { krita(ctx, P([[xx, -5], [xx, 7]]), L, seed + 6 + i, w); });
+    } else if (name === "jordgubbe") {
+      shape(ctx, P([[0, 12], [-9, 1], [-9, -5], [-4, -7], [0, -6], [4, -7], [9, -5], [9, 1]]), "#C9443A", L, seed, w);
+      shape(ctx, P([[-6, -6], [-3, -11], [0, -7], [3, -11], [6, -6], [0, -4]]), "#8E9F66", L, seed + 1, w * .8);
+      [[-4, -1], [3, -2], [0, 4], [-3, 6], [4, 4]].forEach(function (d) { dot(ctx, x + d[0] * s, y + d[1] * s, 1.1 * s, "#F7E3A8"); });
+    }
+  }
+  var DIGITS = { 1: [[.15, .2], [.4, 0], [.4, 1]], 2: [[.05, .22], [.2, .04], [.45, 0], [.62, .15], [.58, .38], [.05, 1], [.66, 1]],
+    3: [[.05, .1], [.3, 0], [.55, .1], [.55, .35], [.3, .48], [.6, .6], [.62, .85], [.35, 1], [.03, .92]], 4: [[.5, 1], [.5, 0], [0, .68], [.7, .68]],
+    5: [[.62, 0], [.08, 0], [.04, .45], [.35, .38], [.58, .48], [.64, .7], [.55, .9], [.3, 1], [.02, .92]] };
+  function digit(ctx, n, x, y, h, color, seed, w) { krita(ctx, DIGITS[n].map(function (q) { return [x + q[0] * h, y + q[1] * h]; }), color, seed, w); }
+  function kritWord(ctx, word, x, y, h, color, seed, w) {
+    var S = { E: [[[0, 0], [0, 1]], [[0, 0], [.55, 0]], [[0, .5], [.45, .5]], [[0, 1], [.6, 1]]], L: [[[0, 0], [0, 1], [.5, 1]]], A: [[[0, 1], [.32, 0], [.64, 1]], [[.14, .62], [.5, .62]]],
+      N: [[[0, 1], [0, 0], [.6, 1], [.6, 0]]], M: [[[0, 1], [0, 0], [.36, .6], [.72, 0], [.72, 1]]] };
+    var r = rng(seed), cx = x;
+    word.split("").forEach(function (ch, i) {
+      var hh = h * (.92 + r() * .16), yy = y + (r() - .5) * h * .1 + (h - hh), tilt = (r() - .5) * .14, wmax = 0;
+      S[ch].forEach(function (st, j) {
+        krita(ctx, st.map(function (q) { wmax = Math.max(wmax, q[0]); return [cx + (q[0] + (1 - q[1]) * tilt) * hh, yy + q[1] * hh]; }), color, seed + i * 7 + j, w);
+      });
+      cx += hh * (wmax + .32);
+    });
+  }
   function pebble(ctx, cx, cy, rx, ry, c, pen, seed) {
     var s = ellipse(cx, cy, rx, ry, 30, .07, seed);
     wash(ctx, s, c, { seed: seed, alpha: .08, layers: 22, spread: .14 });
     wash(ctx, ellipse(cx - rx * .3, cy - ry * .4, rx * .35, ry * .18, 12, .1, seed + 1), "#FFFFFF", { seed: seed + 1, layers: 8, alpha: .06, edge: 0 });
     pencil(ctx, s, { seed: seed, color: pen, alpha: .5 });
   }
-  function kidHouse(ctx, ox, oy, k, seed) {
-    var P = function (a) { return a.map(function (q) { return [ox + q[0] * k, oy + q[1] * k]; }); };
-    kid(ctx, P([[0, 30], [0, 70], [46, 70], [46, 30], [0, 30]]), KID.gran, seed);
-    kid(ctx, P([[-5, 32], [23, 6], [51, 32]]), KID.lingon, seed + 1);
-    kid(ctx, P([[17, 70], [17, 50], [29, 50], [29, 70]]), KID.gran, seed + 2, 2.2);
-    kid(ctx, P([[-14, 72], [80, 70]]), KID.gras, seed + 3);
-    kid(ctx, ellipse(ox + 72 * k, oy + 8 * k, 8 * k, 8 * k, 16, .1, seed + 4), KID.kantarell, seed + 4, 2.4);
-    for (var i = 0; i < 8; i++) { var a = i * Math.PI / 4; kid(ctx, [[ox + 72 * k + Math.cos(a) * 12 * k, oy + 8 * k + Math.sin(a) * 12 * k], [ox + 72 * k + Math.cos(a) * 17 * k, oy + 8 * k + Math.sin(a) * 17 * k]], KID.kantarell, seed + 5 + i, 2); }
-  }
-  function kidWord(ctx, word, x, y, h, color, seed, w) {
-    var S = { E: [[[0, 0], [0, 1]], [[0, 0], [.55, 0]], [[0, .5], [.45, .5]], [[0, 1], [.6, 1]]], L: [[[0, 0], [0, 1], [.5, 1]]], A: [[[0, 1], [.32, 0], [.64, 1]], [[.14, .62], [.5, .62]]],
-      N: [[[0, 1], [0, 0], [.6, 1], [.6, 0]]], M: [[[0, 1], [0, 0], [.36, .6], [.72, 0], [.72, 1]]] };
-    var r = rng(seed), cx = x;
-    word.split("").forEach(function (ch, i) {
-      var hh = h * (.88 + r() * .24), yy = y + (r() - .5) * h * .16 + (h - hh), tilt = (r() - .5) * .2, wmax = 0;
-      S[ch].forEach(function (st, j) {
-        kid(ctx, st.map(function (q) { wmax = Math.max(wmax, q[0]); return [cx + (q[0] + (1 - q[1]) * tilt) * hh, yy + q[1] * hh]; }), color, seed + i * 7 + j, w);
-      });
-      cx += hh * (wmax + .32);
-    });
-  }
-  function kidFigure(ctx, x, y, s, color, seed) {
-    kid(ctx, ellipse(x, y, 9 * s, 9 * s, 16, .12, seed), color, seed, 2.2);
-    ctx.save(); ctx.fillStyle = color; ctx.globalAlpha = .8;
-    [[-3, -1], [3, -1.5]].forEach(function (e) { ctx.beginPath(); ctx.arc(x + e[0] * s, y + e[1] * s, 1.1 * s, 0, 7); ctx.fill(); });
-    ctx.restore();
-    kid(ctx, [[x - 3 * s, y + 9 * s], [x - 6 * s, y + 25 * s]], color, seed + 1, 2.2);
-    kid(ctx, [[x + 3 * s, y + 9 * s], [x + 6 * s, y + 25 * s]], color, seed + 2, 2.2);
-    kid(ctx, [[x - 8 * s, y + 4 * s], [x - 18 * s, y - 2 * s]], color, seed + 3, 2.2);
-    kid(ctx, [[x + 8 * s, y + 4 * s], [x + 18 * s, y - 2 * s]], color, seed + 4, 2.2);
-  }
   function caveat(ctx, text, x, y, size, color, alpha) {
     ctx.save(); ctx.fillStyle = color; ctx.globalAlpha = alpha; ctx.font = size + "px Caveat, 'Segoe Print', cursive"; ctx.textAlign = "center"; ctx.fillText(text, x, y); ctx.restore();
   }
-  // Årsstenen: en sten med årets teckning, åldern och året
+  function archPts(cx, top, r, bottom, n) { var pts = [[cx - r, bottom]]; return pts.concat(arc(cx, top + r, r, r, Math.PI, 2 * Math.PI, n || 24)).concat([[cx + r, bottom]]); }
+  // Årsstenen: siffran och lika många motiv som barnet fyller år
   function drawArssten(ctx, c, pen, seed) {
-    pebble(ctx, 100, 110, 76, 52, c, pen, seed);
-    kidHouse(ctx, 60, 66, .9, seed + 10);
-    caveat(ctx, "5 år · 2026", 100, 150, 15, pen, .6);
+    var k = K();
+    pebble(ctx, 100, 110, 78, 52, k.stone, pen, seed);
+    digit(ctx, 5, 44, 84, 50, k.line, seed + 3, 3.4);
+    [[100, 92], [128, 88], [154, 98], [112, 124], [142, 126]].forEach(function (q, i) { motif(ctx, k.motifs[0], q[0], q[1], .72, seed + 10 + i * 4); });
   }
-  // Första namnet: namnet i barnets egen handstil, ristat i en sten
-  function drawForstaNamn(ctx, c, pen, seed) {
-    pebble(ctx, 100, 116, 82, 42, c, pen, seed);
-    kidWord(ctx, "ELLA", 48, 98, 36, KID.lingon, seed + 10, 3);
+  // Namnskylten: namnet i Sofias kritbokstäver och ett motiv från kollektionen
+  function drawNamn(ctx, c, pen, seed) {
+    var k = K();
+    pencil(ctx, [[46, 102], [64, 70], [100, 60], [136, 70], [154, 102]], { seed: seed + 3, closed: false, color: pen, alpha: .4, passes: 1 });
+    pebble(ctx, 100, 122, 84, 40, k.stone, pen, seed);
+    motif(ctx, k.motifs[1], 40, 120, .8, seed + 6);
+    kritWord(ctx, "ELLA", 62, 105, 34, k.acc, seed + 10, 3.2);
   }
-  // Teckningskrokarna: en sol, ett moln och ett hus, efter barnets teckningar
-  function drawTeckningskrok(ctx, c, pen, seed) {
-    var sun = ellipse(46, 92, 22, 22, 26, .04, seed);
-    wash(ctx, sun, GLAZE.smor, { seed: seed, alpha: .1, layers: 18, spread: .1 }); pencil(ctx, sun, { seed: seed, color: pen, alpha: .45 });
-    kid(ctx, ellipse(46, 92, 12, 12, 16, .12, seed + 1), KID.gran, seed + 1, 2.2);
-    for (var i = 0; i < 8; i++) { var a = i * Math.PI / 4; kid(ctx, [[46 + Math.cos(a) * 15, 92 + Math.sin(a) * 15], [46 + Math.cos(a) * 19, 92 + Math.sin(a) * 19]], KID.gran, seed + 2 + i, 1.8); }
-    var cloud = [], arcs = [[86, 98, 13, Math.PI * .5, Math.PI * 1.5], [100, 88, 16, Math.PI, Math.PI * 2], [115, 98, 12, Math.PI * 1.5, Math.PI * 2.5]];
-    arcs.forEach(function (q) { for (var t = 0; t <= 10; t++) { var a = q[3] + (q[4] - q[3]) * t / 10; cloud.push([q[0] + Math.cos(a) * q[2], q[1] + Math.sin(a) * q[2]]); } });
-    cloud = cloud.filter(function (q) { return q[1] <= 111; }).concat([[115, 111], [86, 111]]);
-    wash(ctx, cloud, "#ECE8DF", { seed: seed + 12, alpha: .14, layers: 16, spread: .1 }); pencil(ctx, cloud, { seed: seed + 12, color: pen, alpha: .45 });
-    kid(ctx, cloud.map(function (q) { return [100 + (q[0] - 100) * .7, 98 + (q[1] - 98) * .7]; }), KID.vattern, seed + 13, 2);
-    var house = [[134, 112], [134, 88], [154, 70], [174, 88], [174, 112]];
-    wash(ctx, house, GLAZE.lingon, { seed: seed + 14, alpha: .1, layers: 18, spread: .1 }); pencil(ctx, house, { seed: seed + 14, color: pen, alpha: .45 });
-    kid(ctx, [[149, 112], [149, 96], [159, 96], [159, 112]], KID.lav, seed + 15, 2);
+  // Krokarna: kollektionens tre motiv som krokar, i barnets höjd
+  function drawKrokar(ctx, c, pen, seed) {
+    var k = K();
     [46, 100, 154].forEach(function (x, i) {
-      pencil(ctx, [[x, 116], [x, 130], [x + 6, 136]], { seed: seed + 20 + i, closed: false, color: pen, width: 2.4, alpha: .55, passes: 1 });
+      motif(ctx, k.motifs[i], x, 86, 1.7, seed + i * 9);
+      pencil(ctx, [[x, 112], [x, 128], [x + 7, 134]], { seed: seed + 40 + i, closed: false, color: pen, width: 2.4, alpha: .55, passes: 1 });
     });
-    caveat(ctx, "i barnets höjd", 100, 160, 14, pen, .45);
+    caveat(ctx, "i barnets höjd", 100, 160, 15, pen, .45);
+  }
+  // Mobilen: en liten båge i filt med motiven i lera
+  function drawMobil(ctx, c, pen, seed) {
+    var k = K(), band = arc(100, 50, 52, 30, Math.PI, 2 * Math.PI, 20).concat(arc(100, 50, 42, 22, 2 * Math.PI, Math.PI, 20));
+    pencil(ctx, [[100, 0], [100, 20]], { seed: seed, closed: false, color: pen, alpha: .5, passes: 1 });
+    wash(ctx, band, k.felt, { seed: seed + 1, alpha: .12, layers: 18, spread: .08 }); pencil(ctx, band, { seed: seed + 1, color: pen, alpha: .45 });
+    [[52, 112], [76, 140], [100, 120], [124, 146], [148, 110]].forEach(function (q, i) {
+      pencil(ctx, [[q[0], 50], [q[0], q[1] - 16]], { seed: seed + 5 + i, closed: false, color: pen, alpha: .35, passes: 1, width: .8 });
+      motif(ctx, k.motifs[i % 3], q[0], q[1], .95, seed + 10 + i * 5);
+    });
+  }
+  // Landskapstavlan: en bågformad relief med hela kollektionen
+  function drawLandskap(ctx, c, pen, seed) {
+    var k = K(), a = archPts(100, 18, 62, 166, 26);
+    wash(ctx, a, k.stone, { seed: seed, alpha: .1, layers: 22, spread: .1 }); pencil(ctx, a, { seed: seed, color: pen, alpha: .5 });
+    krita(ctx, [[48, 142], [80, 138], [120, 141], [152, 137]], k.c[1] === "#6E7B52" ? "#8E9F66" : k.line, seed + 2, 2.2);
+    motif(ctx, k.motifs[2], 70, 118, 1.3, seed + 4);
+    motif(ctx, k.motifs[0], 118, 126, 1, seed + 8);
+    motif(ctx, k.motifs[1], 140, 112, .9, seed + 12);
+    var sun = arc(118, 62, 9, 9, 0, 2 * Math.PI, 14); flat(ctx, sun, "#E6C766"); krita(ctx, sun, k.line, seed + 15, 1.8);
   }
   // Stenhyllan: en hylla i ek där årsstenarna står
   function drawStenhylla(ctx, c, pen, seed) {
-    var shelf = rect(10, 132, 180, 11);
+    var k = K(), shelf = rect(10, 132, 180, 11);
     wash(ctx, shelf, "#C9A57A", { seed: seed, alpha: .09, layers: 18, spread: .08 }); pencil(ctx, shelf, { seed: seed, color: pen, alpha: .5 });
-    var cols = [GLAZE.havre, GLAZE.mossa, GLAZE.sten, c, GLAZE.kantarell], xs = [28, 58, 93, 132, 169];
-    [[11, 8], [13, 9], [16, 11], [18, 12], [19, 13]].forEach(function (q, i) { pebble(ctx, xs[i], 132 - q[1] * .9, q[0], q[1], cols[i], pen, seed + 5 + i * 3); });
-    ["1 år", "2", "3", "4", "5"].forEach(function (t, i) { caveat(ctx, t, xs[i], 160, 15, pen, .5); });
+    var xs = [28, 58, 93, 132, 169];
+    [[11, 8], [13, 9], [16, 11], [18, 12], [19, 13]].forEach(function (q, i) {
+      pebble(ctx, xs[i], 132 - q[1] * .9, q[0], q[1], k.stone, pen, seed + 5 + i * 3);
+      digit(ctx, i + 1, xs[i] - q[1] * .3, 132 - q[1] * 1.55, q[1] * 1.1, k.line, seed + 30 + i, 1.6);
+    });
   }
-  // Bågtavlan: en anslagstavla i ullfilt, formad som en båge, med två teckningar
+  // Bågtavlan: en anslagstavla i ullfilt, formad som en båge
   function drawBagtavla(ctx, c, pen, seed) {
-    var arch = [[50, 164]], i;
-    for (i = 0; i <= 24; i++) { var a = Math.PI + i / 24 * Math.PI; arch.push([100 + Math.cos(a) * 50, 78 + Math.sin(a) * 50]); }
-    arch.push([150, 164]);
-    wash(ctx, arch, c, { seed: seed, alpha: .1, layers: 24, spread: .1 }); pencil(ctx, arch, { seed: seed, color: pen, alpha: .5 });
+    var k = K(), a = archPts(100, 28, 50, 164, 24);
+    wash(ctx, a, k.felt, { seed: seed, alpha: .1, layers: 24, spread: .1 }); pencil(ctx, a, { seed: seed, color: pen, alpha: .5 });
     [[64, 86, -5], [102, 104, 4]].forEach(function (q, j) {
       ctx.save(); ctx.translate(q[0] + 17, q[1] + 20); ctx.rotate(q[2] * Math.PI / 180); ctx.translate(-17, -20);
       var paperR = rect(0, 0, 34, 40);
       wash(ctx, paperR, "#FBF8F3", { seed: seed + 3 + j, alpha: .5, layers: 4, spread: .05, edge: .1 }); pencil(ctx, paperR, { seed: seed + 3 + j, color: pen, alpha: .35, passes: 1 });
-      if (j === 0) { kid(ctx, ellipse(17, 18, 7, 7, 14, .15, seed + 8), KID.kantarell, seed + 8, 1.8); kid(ctx, [[4, 34], [30, 33]], KID.gras, seed + 9, 1.8); }
-      else kidFigure(ctx, 17, 14, .55, KID.gran, seed + 11);
-      ctx.fillStyle = KID.lingon; ctx.globalAlpha = .9; ctx.beginPath(); ctx.arc(17, 3, 2.4, 0, 7); ctx.fill();
+      pencil(ctx, [[7, 16], [16, 12], [27, 18]], { seed: seed + 8 + j, closed: false, color: pen, alpha: .3, passes: 1 });
+      pencil(ctx, [[7, 26], [24, 24]], { seed: seed + 10 + j, closed: false, color: pen, alpha: .3, passes: 1 });
+      dot(ctx, 17, 3, 2.4, k.acc);
       ctx.restore();
     });
   }
-  // Familjeporträttet: barnets teckning av familjen, som relief
-  function drawPortratt(ctx, c, pen, seed) {
-    pebble(ctx, 100, 106, 82, 58, c, pen, seed);
-    [[58, 82, 1], [92, 80, 1.05], [124, 92, .78], [150, 98, .62]].forEach(function (f, i) { kidFigure(ctx, f[0], f[1], f[2], i % 2 ? KID.lingon : KID.gran, seed + 10 + i * 6); });
-    kid(ctx, [[30, 130], [170, 128]], KID.gras, seed + 40, 2.2);
-  }
-  // Familjeröset: en sten för varje person, med en initial som barnet har skrivit
+  // Familjeröset: en sten för varje person, med en initial i kritbokstäver
   function drawFamiljeroset(ctx, c, pen, seed) {
-    var st = [[100, 150, 44, 17, c, "M"], [96, 122, 34, 13, GLAZE.mossa, "N"], [102, 99, 25, 10, GLAZE.havre, "E"], [99, 81, 17, 8, GLAZE.lingon, "A"]];
+    var k = K(), st = [[100, 150, 44, 17, "M"], [96, 122, 34, 13, "N"], [102, 99, 25, 10, "E"], [99, 81, 17, 8, "A"]];
     st.forEach(function (q, i) {
-      pebble(ctx, q[0], q[1], q[2], q[3], q[4], pen, seed + i * 5);
-      kidWord(ctx, q[5], q[0] - q[3] * .4, q[1] - q[3] * .55, q[3] * 1.1, i === 3 ? "#F3EEE6" : KID.gran, seed + 30 + i, 1.8);
+      pebble(ctx, q[0], q[1], q[2], q[3], k.c[i + 1], pen, seed + i * 5);
+      var col = k.c[i + 1], lum = (parseInt(col.slice(1, 3), 16) * .3 + parseInt(col.slice(3, 5), 16) * .59 + parseInt(col.slice(5, 7), 16) * .11) / 255;
+      kritWord(ctx, q[4], q[0] - q[3] * .4, q[1] - q[3] * .55, q[3] * 1.1, lum > .6 ? k.line : "#F7F2EA", seed + 30 + i, 1.8);
     });
   }
   // Filtvalvet: taklampan, en båge i ullfilt med ljus under
   function drawFiltvalvet(ctx, c, pen, seed) {
+    var k = K(), band = [[50, 124]], i, a;
     pencil(ctx, [[100, 0], [100, 50]], { seed: seed, closed: false, color: pen, alpha: .5, passes: 1 });
-    var band = [[50, 124]], i, a;
     for (i = 0; i <= 24; i++) { a = Math.PI + i / 24 * Math.PI; band.push([100 + Math.cos(a) * 50, 100 + Math.sin(a) * 50]); }
     band.push([150, 124], [136, 124]);
     for (i = 24; i >= 0; i--) { a = Math.PI + i / 24 * Math.PI; band.push([100 + Math.cos(a) * 36, 100 + Math.sin(a) * 36]); }
     band.push([64, 124]);
     wash(ctx, ellipse(100, 132, 34, 7, 18, .1, seed + 2), "#F2C66D", { seed: seed + 2, alpha: .07, layers: 14, spread: .2, edge: 0 });
-    wash(ctx, band, c, { seed: seed + 1, alpha: .1, layers: 24, spread: .1 }); pencil(ctx, band, { seed: seed + 1, color: pen, alpha: .5 });
+    wash(ctx, band, k.felt, { seed: seed + 1, alpha: .1, layers: 24, spread: .1 }); pencil(ctx, band, { seed: seed + 1, color: pen, alpha: .5 });
     wash(ctx, ellipse(100, 112, 7, 7, 14, .1, seed + 3), "#F7E3A8", { seed: seed + 3, alpha: .2, layers: 10, spread: .1 });
   }
   function paintProduct(ctx, p) {
@@ -595,6 +654,27 @@
       b.closest(".tag").querySelector(".tag__price").textContent = kr(p.price + (on ? p.option.price : 0));
     });
   });
+  // Kollektionen: föremålen ritas om i vald kollektion, och valet följer med i korgen
+  document.querySelectorAll("[data-coll]").forEach(function (b) {
+    b.setAttribute("aria-pressed", String(b.dataset.coll === coll));
+    b.addEventListener("click", function () {
+      coll = b.dataset.coll;
+      try { localStorage.setItem("sd-coll", coll); } catch (e) {}
+      document.querySelectorAll("[data-coll]").forEach(function (o) { o.setAttribute("aria-pressed", String(o === b)); });
+      var lbl = $("#collName"); if (lbl) lbl.textContent = COLL[coll].name;
+      PRODUCTS.forEach(function (q) { if (!q.image) q.img = null; });
+      document.querySelectorAll("canvas[data-product]").forEach(drawProduct);
+    });
+  });
+  var collLbl = $("#collName"); if (collLbl) collLbl.textContent = COLL[coll].name;
+  // En vara i en kollektion har id:t "produkt~kollektion"
+  function variant(id) {
+    if (byId[id]) return byId[id];
+    var parts = id.split("~"), b = byId[parts[0]], k = COLL[parts[1]];
+    if (!b || !k) return null;
+    byId[id] = { id: id, name: b.name + " · " + k.name, price: b.price, base: b.base || b.id };
+    return byId[id];
+  }
   document.querySelectorAll("[data-filter]").forEach(function (chip) {
     chip.addEventListener("click", function () {
       var f = chip.dataset.filter;
@@ -633,7 +713,7 @@
   try { cart = JSON.parse(localStorage.getItem("sd-cart") || "{}") || {}; } catch (e) { cart = {}; }
   function save() { try { localStorage.setItem("sd-cart", JSON.stringify(cart)); } catch (e) {} }
   function renderCart() {
-    var ids = Object.keys(cart).filter(function (id) { return byId[id] && cart[id] > 0; }), count = 0, total = 0;
+    var ids = Object.keys(cart).filter(function (id) { return (byId[id] || (id.indexOf("~") > 0 && variant(id))) && cart[id] > 0; }), count = 0, total = 0;
     ids.forEach(function (id) { count += cart[id]; total += cart[id] * byId[id].price; });
     $("#cartCount").textContent = count; $("#cartTotal").textContent = kr(total);
     $("#cartItems").innerHTML = ids.length ? ids.map(function (id) {
@@ -653,6 +733,9 @@
     if (addB) {
       var id = addB.dataset.add, opt = addB.closest(".tag") && addB.closest(".tag").querySelector(".tag__opt[aria-pressed='true']");
       if (opt) id = byId[id].option.id;
+      var v = variant(id + "~" + coll), art = addB.closest(".item").querySelector("canvas");
+      if (art) { try { v.img = art.toDataURL("image/png"); } catch (e) {} }
+      id = v.id;
       cart[id] = (cart[id] || 0) + 1; save(); renderCart(); toast(byId[id].name + " ligger i korgen");
       var card = addB.closest(".item"); card.classList.add("is-added"); addB.textContent = "Tillagd ✓";
       setTimeout(function () { card.classList.remove("is-added"); addB.textContent = "Lägg i korgen"; }, 1600);
@@ -670,7 +753,7 @@
   $("#checkoutBtn").addEventListener("click", function () {
     var btn = $("#checkoutBtn"), note = $("#checkoutNote"), items = [], giftList = [];
     Object.keys(cart).forEach(function (id) {
-      var p = byId[id]; if (!p || cart[id] <= 0) return;
+      var p = byId[id] || variant(id); if (!p || cart[id] <= 0) return;
       if (p.gift) giftList.push({ kind: p.giftKind, amountOre: p.price * 100, to: p.to || "", from: p.from || "", message: p.msg || "" });
       else items.push({ id: id, qty: cart[id] });
     });
@@ -904,7 +987,7 @@
       { q: "Vilket rum bullrar mest hos dig?", o: [["Barnrummet, eller förrådet", "o"], ["Vardagsrummet med taklampan och tv:n", "k"], ["Hallen", "f"], ["Sovrummet, som har blivit en förvaringsplats", "v"]] },
       { q: "Om du fick en ledig söndag, vad skulle du helst göra hemma?", o: [["Rensa en låda och känna mig klar", "o"], ["Ha det tyst, med en pläd och mjukt ljus", "k"], ["Göra om så att vardagen går smidigare", "f"], ["Sova, läsa, ingenting", "v"]] },
       { q: "Vad skulle kännas som störst lättnad?", o: [["Att hitta det jag letar efter direkt", "o"], ["Färre intryck överallt", "k"], ["Att morgnar och kvällar flöt på", "f"], ["En plats som bara är min", "v"]] },
-      { q: "Vilken sak i ateljén lockar mest?", o: [["Lådmärkena", "o"], ["Filtvalvet, lampan i ullfilt", "k"], ["Teckningskrokarna", "f"], ["Familjeröset", "v"]] }
+      { q: "Vilken sak i ateljén lockar mest?", o: [["Lådmärkena", "o"], ["Filtvalvet, lampan i ullfilt", "k"], ["Krokarna i barnets höjd", "f"], ["Familjeröset", "v"]] }
     ];
     var RT = {
       o: { name: "Överblickaren", hand: "en plats för varje sak", text: "Du mår bäst när du ser vad som finns och var det hör hemma. Synligt stök tar mer energi för dig än för de flesta.", tips: ["Gör en bänk eller hylla helt brusfri, och håll den så en vecka.", "En korg per person i hallen.", "Bilder eller lådmärken på det som ligger i lådorna."], next: ["ateljen.html", "Lådmärkena i ateljén"] },

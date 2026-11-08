@@ -81,7 +81,7 @@ table.list { border-collapse: collapse; width: 100%; margin: 2rem 0 1.6rem; font
 .theme { display: grid; gap: .8rem; align-content: start; }
 .theme header { display: flex; align-items: end; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--fg); padding-bottom: .6rem; }
 .theme h3 { font-size: 2rem; }
-.theme header svg { width: 64px; flex: none; }
+.theme header svg { width: 104px; flex: none; }
 .swatches { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
 .swatches li { display: grid; grid-template-columns: 2.6rem minmax(0, 1fr); align-items: center; gap: .7rem; font-size: .95rem; }
 .swatches i { display: block; height: 1.7rem; border-radius: var(--stone); background: var(--c); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
@@ -99,7 +99,7 @@ footer a { color: inherit; text-underline-offset: 2px; }
 </style>
 </head>
 <body>
-<div class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Designkonceptet · valt: B i formerna från A</small></div></div>
+<div class="top"><div class="wrap"><span class="logo" aria-label="Studio Dalarud">{{LOGO}}</span><small>Designkonceptet · valt: Kritlinjen i bågen och stenen</small></div></div>
 
 <main>
 <header class="title">
@@ -109,7 +109,7 @@ footer a { color: inherit; text-underline-offset: 2px; }
     <p class="intro">Inredningen och leran behöver ett utseende som man känner igen innan man ser namnet. Det går inte att bestämma att något ska bli populärt. Men det som blir det brukar ha tre saker gemensamt: man känner igen det direkt, det finns en anledning att köpa igen, och det finns en stund som man vill fotografera. Här är tre riktningar som har alla tre. Färgerna kommer från fyra landskap runt Norrahammar.</p>
     <div class="trio">
       <a href="#bagen">{{TRIO_A}}<b>A. Bågen och stenen</b><span>Mjuka bågar i filt och små stenar i lera, ur logotypen.</span></a>
-      <a href="#linjen">{{TRIO_B}}<b>B. Barnets linje <small class="chosen">vald</small></b><span>Barnets egen teckning blir krokar, skyltar och stenar.</span></a>
+      <a href="#linjen">{{TRIO_B}}<b>B. Kritlinjen <small class="chosen">vald</small></b><span>Sofias egna motiv i en tjock kritlinje, i fyra färdiga kollektioner.</span></a>
       <a href="#hogtiderna">{{TRIO_C}}<b>C. Familjens högtider</b><span>Föremål för födelsedagar, advent och jul.</span></a>
     </div>
   </div>
@@ -172,13 +172,13 @@ footer a { color: inherit; text-underline-offset: 2px; }
     <div class="dir">
       <div class="col">
         <p class="eyebrow">Riktning B</p>
-        <h2>Barnets <em>linje.</em></h2>
-        <p>Barnet ritar och Sofia formar. Barnets egen teckning eller handstil blir en krok, en skylt eller en sten i lera. Som förskollärare har Sofia följt hur barns teckningar förändras med åldern: först klotter, sedan huvudfotingar, sedan hus och sol, och till sist det egna namnet. Varje föremål fångar barnet vid en viss ålder.</p>
+        <h2>Kritlinjen</h2>
+        <p>Sofia ritar motiven med en tjock och lite darrig linje, så som barn ritar: en svamp, en fisk, en måne, en blomma. Linjen ristas i leran och fylls med färg. Motiven är färdiga och samlade i fyra kollektioner. Kunden väljer kollektion, och allt i rummet hör ihop.</p>
         <h3 class="small">Formspråket</h3>
         <ul class="plain">
           <li><span>En enda linje som alltid är lika tjock, som en tjock krita med runda ändar.</span></li>
           <li><span>Linjen ristas i leran och fylls med färg. Den målas aldrig på.</span></li>
-          <li><span>Teckningen rättas aldrig till. Det ojämna är det fina.</span></li>
+          <li><span>Tre motiv per kollektion, och siffror och bokstäver i samma linje.</span></li>
           <li><span>Botten är alltid lugn: ofärgad lera, lin eller trä.</span></li>
         </ul>
       </div>
@@ -187,20 +187,19 @@ footer a { color: inherit; text-underline-offset: 2px; }
     <table class="list">
       <thead><tr><th>Föremål</th><th>Vad det är</th><th style="text-align:right">Pris</th></tr></thead>
       <tbody>
-        <tr><td>Första namnet</td><td class="note">Namnskylten, i barnets egen handstil från första gången det skriver sitt namn</td><td class="price">495 kr</td></tr>
-        <tr><td>Teckningskrokarna</td><td class="note">Klädkrokar formade efter barnets sol, moln eller hus</td><td class="price">295 kr st<br>795 kr för tre</td></tr>
-        <tr><td>Årets teckning</td><td class="note">En sten med årets teckning, åldern och året</td><td class="price">395 kr</td></tr>
-        <tr><td>Linnekudden</td><td class="note">Teckningen broderad på lin, i samarbete med en brodös</td><td class="price">695 kr</td></tr>
-        <tr><td>Väggen</td><td class="note">En väggmålning efter barnets teckning, målad av Sofia eller tryckt som tapet</td><td class="price">från 4 900 kr</td></tr>
-        <tr><td>Ritat i Norrahammar</td><td class="note">Krokar och hängen ritade av barn på Sofias kurser, med barnets namn på etiketten</td><td class="price">245–345 kr</td></tr>
-        <tr class="home"><td>I hemmet</td><td class="note">Familjeporträttet: barnets teckning av familjen, som relief i hallen</td><td class="price">1 295 kr</td></tr>
+        <tr><td>Årsstenen</td><td class="note">Siffran och lika många motiv som barnet fyller år. En sten för varje födelsedag</td><td class="price">395 kr</td></tr>
+        <tr><td>Namnskylten</td><td class="note">Namnet i kritbokstäver och ett motiv från kollektionen</td><td class="price">395 kr</td></tr>
+        <tr><td>Krokarna</td><td class="note">Kollektionens tre motiv som klädkrokar</td><td class="price">795 kr för tre</td></tr>
+        <tr><td>Mobilen</td><td class="note">En liten båge i filt med fem motiv i lera</td><td class="price">895 kr</td></tr>
+        <tr><td>Landskapstavlan</td><td class="note">En bågformad relief med hela kollektionen</td><td class="price">1 295 kr</td></tr>
+        <tr><td>Färdigt rumskoncept</td><td class="note">Färger med kulörkoder, en möbleringsidé och en inköpslista för kollektionens rum</td><td class="price">995 kr</td></tr>
       </tbody>
     </table>
     <div class="facts">
-      <p class="fact"><b>Köps igen</b>Årets teckning. Efter några år har familjen en rad som visar hur barnet växte, från klotter till namn.</p>
-      <p class="fact"><b>Bilden</b>Teckningen på papper bredvid samma teckning i lera.</p>
-      <p class="fact"><b>Kan bli populär</b>Föräldrar söker saker som är personliga och handgjorda, och handmålade väggar tar över efter färdiga tapeter. Ingen kan kopiera teckningarna, eftersom de är barnens egna.</p>
-      <p class="fact hard"><b>Det svåra</b>Utan fasta regler kan det se ut som pyssel. Varje föremål är unikt och tar längre tid. Gosedjur och smycken av barnteckningar finns redan, så det egna måste vara att linjen blir hela formspråket.</p>
+      <p class="fact"><b>Köps igen</b>Årsstenen, en gång om året. Och när ett syskon kommer väljer familjen ofta en ny kollektion.</p>
+      <p class="fact"><b>Bilden</b>Hela kollektionen i ett rum: tavlan, krokarna och stenarna i samma färger och motiv.</p>
+      <p class="fact"><b>Kan bli populär</b>Motiven känns igen direkt, och de går att samla. Illustrerade väggar och handgjorda saker är på väg in i barnrummen.</p>
+      <p class="fact hard"><b>Det svåra</b>Utan fasta regler kan det se ut som pyssel. Flera skandinaviska barnmärken har egna motiv, så det egna måste vara linjen som ristas i lera.</p>
     </div>
   </div>
 </section>
@@ -244,8 +243,8 @@ footer a { color: inherit; text-underline-offset: 2px; }
   <div class="wrap">
     <div class="col">
       <p class="eyebrow">Teman</p>
-      <h2>Fyra <em>landskap.</em></h2>
-      <p>Färgerna och motiven kommer från landskapet runt Norrahammar: skogen, Vättern, Taberg och ängarna. Ett tema är fem färger och några motiv. Barnet väljer sitt landskap, och sedan kan allt i rummet göras i det, vilken riktning det än blir.</p>
+      <h2>Fyra <em>kollektioner.</em></h2>
+      <p>Varje kollektion är ett färdigt koncept: fem färger, tre motiv och samma föremål. Färgerna och motiven kommer från landskapet runt Norrahammar: skogen, Vättern, Taberg och ängarna. Familjen väljer en kollektion, och allt i rummet kan göras i den.</p>
     </div>
     <div class="themes">{{THEMES}}</div>
     <div class="col" style="margin-top: 2rem">
@@ -258,30 +257,29 @@ footer a { color: inherit; text-underline-offset: 2px; }
   <div class="wrap">
     <div class="col">
       <p class="eyebrow">Valt</p>
-      <h2>Barnets linje, <em>i bågen och stenen.</em></h2>
-      <p>Valet blev B, i formerna från A. Barnets linje är det enda som ingen annan kan kopiera, och den bygger på det Sofia kan bäst: barn och lera. Bågen och stenen från logotypen blir ramarna som linjerna sitter i, så att allt hänger ihop med varumärket.</p>
+      <h2>Kritlinjen, <em>i bågen och stenen.</em></h2>
+      <p>Valet blev B, i formerna från A. Sofia ritar färdiga motiv i kritlinjen, och de sitter i bågen och stenen från logotypen. Det är linjen i leran som gör föremålen igenkännbara, och samma motiv går igen i hela rummet.</p>
     </div>
     <div class="ages">
       {{AGES}}
       <div class="labels">
-        <span>1 år<small>avtrycket</small></span>
-        <span>2 år<small>klottret</small></span>
-        <span>4 år<small>huvudfotingen</small></span>
-        <span>5 år<small>huset och solen</small></span>
-        <span>6 år<small>namnet</small></span>
+        <span>1 år<small>en svamp</small></span>
+        <span>2 år<small>två svampar</small></span>
+        <span>3 år<small>tre svampar</small></span>
+        <span>4 år<small>fyra svampar</small></span>
+        <span>5 år<small>fem svampar</small></span>
       </div>
     </div>
     <div class="col" style="margin-top: 2.4rem">
-      <p>Det bärande föremålet blir Årsstenen: en sten för varje födelsedag, med en linje som barnet har gjort just det året. Första avtrycket, som redan säljs, blir den första stenen. Efter några år står barnets uppväxt på en hylla, och mor- och farföräldrar vet vad de ska ge.</p>
+      <p>Det bärande föremålet är Årsstenen: siffran och lika många motiv som barnet fyller år, en sten för varje födelsedag. Barnet räknar svamparna, stenarna blir fler på hyllan, och mor- och farföräldrar vet vad de ska ge.</p>
       <p>Familjens högtider kan komma senare som säsongssläpp i samma former. Julhängena finns redan.</p>
       <h3 class="small">Det som är gjort, och det som återstår</h3>
       <ul class="plain">
-        <li><span><b>Gjort:</b> ateljén på hemsidan är ombyggd kring barnets linje, med Årsstenen först och de fyra landskapen som färgval. Krokraden, timglaset och lyktan är borttagna, och presentkortet gäller nu en årssten.</span></li>
-        <li><span><b>Gjort:</b> kursen Ritat i Norrahammar den 13 mars 2027. Barnen ritar, och några teckningar blir den första serien.</span></li>
-        <li><span><b>Nästa:</b> Sofia gör tre prov: Första namnet, en årssten med en teckning och en teckningskrok. De fotograferas bredvid teckningarna och ersätter teckningarna i butiken.</span></li>
-        <li><span>Barnets teckning är barnets eget verk. Till serien behövs vårdnadshavarens skriftliga medgivande, och barnet ska stå på etiketten och få det första exemplaret.</span></li>
+        <li><span><b>Gjort:</b> ateljén på hemsidan visar de fyra kollektionerna. Kunden väljer kollektion, föremålen ritas om i den, och valet följer med i korgen och på ordern.</span></li>
+        <li><span><b>Gjort:</b> Färdigt rumskoncept för 995 kr finns bland barnrumspaketen, som ett billigare första steg.</span></li>
+        <li><span><b>Nästa:</b> Sofia ritar de tolv motiven och siffrorna 1–12 i sin egen kritlinje, och gör en årssten, en namnskylt och en krok i Skogen som prov. Fotona ersätter teckningarna i butiken.</span></li>
+        <li><span><b>Nästa:</b> de fyra rumskoncepten skrivs: färger med kulörkoder, möbleringsidé och inköpslista.</span></li>
       </ul>
-      
     </div>
   </div>
 </section>

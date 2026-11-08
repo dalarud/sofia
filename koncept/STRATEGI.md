@@ -60,6 +60,7 @@ Inredning och säsongsstyling av små verksamheter i Jönköping, som frisörer,
 
 | Tjänst | Pris | Kommentar |
 |---|---|---|
+| **Färdigt rumskoncept** | 995 kr | Ett av fyra färdiga barnrum, i samma kollektioner som ateljén: färger med kulörkoder, en möbleringsidé och en inköpslista. Familjen gör rummet själv |
 | **Barnrumsplan på distans** | 1 495 kr | Handritad plan, färger och en inköpslista från vilka butiker som helst, även begagnat. Det skiljer den från IKEA:s paket, som bara innehåller IKEA:s egna produkter. Den säljs i hela Sverige |
 | **Hembesök** | 2 495 kr | Två timmar, och en handritad plan som lämnas på plats. Dras av om familjen bokar mer inom 30 dagar |
 | **Barnrummet klart** | från 6 900 kr | Plan, inköp, montering och styling. Möblerna och sakerna betalar familjen separat |
@@ -72,16 +73,16 @@ Ett paket heter **Lugna barnrum**. Det är för barn som behöver färre intryck
 
 ### Produkterna
 
-Formspråket är valt: **barnets linje i bågen och stenen**. Barnets egen teckning och handstil ristas i stenar och skyltar i lera. Hela underlaget finns i `DESIGNKONCEPT.md`.
+Formspråket är valt: **Kritlinjen i bågen och stenen**. Sofia ritar färdiga motiv i en tjock kritlinje som ristas i lera, och samlar dem i fyra kollektioner: Skogen, Sjön, Berget och Ängen. Hela underlaget finns i `DESIGNKONCEPT.md`.
 
 | Produkt | Pris | Kommentar |
 |---|---|---|
-| **Årsstenen** | 395 kr | En sten för varje födelsedag, med årets teckning. Det bärande föremålet, och en present som kan ges varje år |
-| **Första avtrycket** | 595 kr | Den första årsstenen: barnets hand eller fot, med namn och datum. Det tar en kvart i ateljén |
-| **Första namnet** | 495 kr | Namnet i barnets egen handstil, ristat i en sten |
-| **Teckningskrokarna** | 795 kr för 3 | Klädkrokar formade efter barnets sol, moln eller hus |
+| **Årsstenen** | 395 kr | Siffran och lika många motiv som barnet fyller år. Det bärande föremålet, och en present som kan ges varje år |
+| **Första avtrycket** | 595 kr | Barnets hand eller fot, med namn och datum. Det tar en kvart i ateljén |
+| **Namnskylten** | 395 kr | Namnet i kritbokstäver och ett motiv från kollektionen |
+| **Krokarna, Mobilen och Landskapstavlan** | 795–1 295 kr | Kollektionens motiv som krokar, som mobil under en filtbåge och som relief |
 | **Stenhyllan och Bågtavlan** | 695 och 895 kr | Hyllan i ek där årsstenarna står, och anslagstavlan i filt där teckningarna sitter |
-| **Till hemmet** | 225–1 795 kr | Familjeporträttet, Familjeröset, Filtvalvet och julhängena |
+| **Till hemmet** | 225–1 795 kr | Familjeröset, Filtvalvet och julhängena |
 
 Vaser, skålar, brickor, krokraden, timglaset och lyktan säljs slut och görs inte om.
 
@@ -148,7 +149,7 @@ Hemsidan är ombyggd efter beslutet.
 - **Menyn** är Barnrum, Hela hemmet, Ateljén och Om Sofia.
 - **Barnrum** är en ny sida. Den visar tillfällena då familjer brukar höra av sig, paketen med fasta priser, hur ett rum fungerar i barnets höjd, och stegen från första samtal till färdigt rum.
 - **Hela hemmet** samlar Familjens hem, Ett lugnare hem och homestaging, tillsammans med Ro-kartan.
-- **Ateljén** är byggd kring barnets linje: årsstenen, Första avtrycket, Första namnet, teckningskrokarna och lådmärkena till barnrummet, och familjeporträttet, Familjeröset, Filtvalvet och julhängena till hemmet. De fyra landskapen visas som färgval. Avtrycksdagen den 12 december och kursen Ritat i Norrahammar i mars går att boka.
+- **Ateljén** visar fyra färdiga kollektioner: Skogen, Sjön, Berget och Ängen. Kunden väljer kollektion, och årsstenen, namnskylten, krokarna, mobilen, landskapstavlan och de andra föremålen ritas om i den. Avtrycksdagen den 12 december går att boka.
 - **Förskolesidan och verksamhetssidan är borttagna.** Människohemmet, Rohemmet och Ro i vardagen ligger kvar som bakgrund.
 
 ---

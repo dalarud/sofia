@@ -2,7 +2,7 @@
 
 *Version 1 · november 2026 · visuellt i `koncept/designkoncept.html` · bygger på nischen i `STRATEGI.md`*
 
-**Beslut:** B i formerna från A. Barnets linje, i bågen och stenen från logotypen.
+**Beslut:** B i formerna från A: Kritlinjen, i bågen och stenen från logotypen. Motiven är Sofias egna och samlade i fyra färdiga kollektioner. Kundernas barnteckningar används inte.
 
 Inredningen och leran behöver ett utseende som man känner igen innan man ser namnet. Det går inte att bestämma att något ska bli populärt. Men det som blir det brukar ha tre saker gemensamt:
 
@@ -49,30 +49,29 @@ Logotypen har tre bågar och en liten sten. Bågarna går att läsa som hemmet o
 - **Kan bli populär:** Mjuka material och dämpade jordfärger syns mest i barnrummen nu. Föremålen och logotypen blir samma bild, så varumärket känns igen även utan namn.
 - **Det svåra:** Bågar fanns överallt för några år sedan, i speglar, tapeter och regnbågar av trä. Bågen måste vara tjock, i filt och i en enda djup färg, så att den inte ser ut som pastellregnbågen.
 
-## B. Barnets linje
+## B. Kritlinjen
 
-Barnet ritar och Sofia formar. Barnets egen teckning eller handstil blir en krok, en skylt eller en sten i lera. Som förskollärare har Sofia följt hur barns teckningar förändras med åldern: först klotter, sedan huvudfotingar, sedan hus och sol, och till sist det egna namnet. Varje föremål fångar barnet vid en viss ålder.
+Sofia ritar motiven med en tjock och lite darrig linje, så som barn ritar: en svamp, en fisk, en måne, en blomma. Linjen ristas i leran och fylls med färg. Motiven är färdiga och samlade i fyra kollektioner. Kunden väljer kollektion, och allt i rummet hör ihop.
 
 **Formspråket:**
 - En enda linje som alltid är lika tjock, som en tjock krita med runda ändar.
 - Linjen ristas i leran och fylls med färg. Den målas aldrig på.
-- Teckningen rättas aldrig till. Det ojämna är det fina.
+- Tre motiv per kollektion, och siffror och bokstäver i samma linje.
 - Botten är alltid lugn: ofärgad lera, lin eller trä.
 
 | Föremål | Vad det är | Pris |
 |---|---|---|
-| **Första namnet** | Namnskylten, i barnets egen handstil från första gången det skriver sitt namn | 495 kr |
-| **Teckningskrokarna** | Klädkrokar formade efter barnets sol, moln eller hus | 295 kr st, 795 kr för tre |
-| **Årets teckning** | En sten med årets teckning, åldern och året | 395 kr |
-| **Linnekudden** | Teckningen broderad på lin, i samarbete med en brodös | 695 kr |
-| **Väggen** | En väggmålning efter barnets teckning, målad av Sofia eller tryckt som tapet | från 4 900 kr |
-| **Ritat i Norrahammar** | Krokar och hängen ritade av barn på Sofias kurser, med barnets namn på etiketten | 245–345 kr |
-| *I hemmet* | Familjeporträttet: barnets teckning av familjen, som relief i hallen | 1 295 kr |
+| **Årsstenen** | Siffran och lika många motiv som barnet fyller år. En sten för varje födelsedag | 395 kr |
+| **Namnskylten** | Namnet i kritbokstäver och ett motiv från kollektionen | 395 kr |
+| **Krokarna** | Kollektionens tre motiv som klädkrokar | 795 kr för tre |
+| **Mobilen** | En liten båge i filt med fem motiv i lera | 895 kr |
+| **Landskapstavlan** | En bågformad relief med hela kollektionen | 1 295 kr |
+| **Färdigt rumskoncept** | Färger med kulörkoder, en möbleringsidé och en inköpslista för kollektionens rum | 995 kr |
 
-- **Köps igen:** Årets teckning. Efter några år har familjen en rad som visar hur barnet växte, från klotter till namn.
-- **Bilden:** teckningen på papper bredvid samma teckning i lera.
-- **Kan bli populär:** Föräldrar söker saker som är personliga och handgjorda, och handmålade väggar tar över efter färdiga tapeter. Ingen kan kopiera teckningarna, eftersom de är barnens egna.
-- **Det svåra:** Utan fasta regler kan det se ut som pyssel. Varje föremål är unikt och tar längre tid. Gosedjur och smycken av barnteckningar finns redan, så det egna måste vara att linjen blir hela formspråket.
+- **Köps igen:** Årsstenen, en gång om året. Och när ett syskon kommer väljer familjen ofta en ny kollektion.
+- **Bilden:** hela kollektionen i ett rum: tavlan, krokarna och stenarna i samma färger och motiv.
+- **Kan bli populär:** Motiven känns igen direkt, och de går att samla. Illustrerade väggar och handgjorda saker är på väg in i barnrummen.
+- **Det svåra:** Utan fasta regler kan det se ut som pyssel. Flera skandinaviska barnmärken har egna motiv, så det egna måste vara linjen som ristas i lera.
 
 ## C. Familjens högtider
 
@@ -98,46 +97,43 @@ Föremål för de dagar som familjer firar varje år: födelsedagen, advent, jul
 
 ---
 
-## Teman: fyra landskap
+## Teman: fyra kollektioner
 
-Färgerna och motiven kommer från landskapet runt Norrahammar: skogen, Vättern, Taberg och ängarna. Ett tema är fem färger och några motiv. Barnet väljer sitt landskap, och sedan kan allt i rummet göras i det, vilken riktning det än blir.
+Varje kollektion är ett färdigt koncept: fem färger, tre motiv och samma föremål. Färgerna och motiven kommer från landskapet runt Norrahammar: skogen, Vättern, Taberg och ängarna. Familjen väljer en kollektion, och allt i rummet kan göras i den.
 
-| Landskap | Färger | Motiv |
+| Kollektion | Färger | Motiv |
 |---|---|---|
-| **Skogen** | Mossa #6E7B52, Gran #4B3A2B, Lingon #A63D32, Kantarell #D49A3A, Lav #C8CCB4 | svamp, kotte, lingonris, ekorre |
-| **Sjön** | Vättern #5D7889, Sand #D8C6A6, Vass #A3A06B, Sten #8B8983, Skum #ECE8DF | våg, fisk, strandsten, båt |
-| **Berget** | Järn #4A3F3B, Ljung #8D6E86, Granit #A29B94, Ockra #BF8A3F, Snö #F0EDE7 | berg, måne, stjärna, uggla |
-| **Ängen** | Smörblomma #E6C766, Klöver #D69B98, Havre #E2D5BB, Gräs #8E9F66, Himmel #A8BECB | blomma, bi, sol, jordgubbe |
+| **Skogen** | Mossa #6E7B52, Gran #4B3A2B, Lingon #A63D32, Kantarell #D49A3A, Lav #C8CCB4 | svamp, kotte, gran |
+| **Sjön** | Vättern #5D7889, Sand #D8C6A6, Vass #A3A06B, Sten #8B8983, Skum #ECE8DF | fisk, våg, båt |
+| **Berget** | Järn #4A3F3B, Ljung #8D6E86, Granit #A29B94, Ockra #BF8A3F, Snö #F0EDE7 | berg, måne, stjärna |
+| **Ängen** | Smörblomma #E6C766, Klöver #D69B98, Havre #E2D5BB, Gräs #8E9F66, Himmel #A8BECB | blomma, bi, jordgubbe |
 
 Bruna och gröna toner är på väg tillbaka i barnrummen, liksom sammansatta jordfärger som terrakotta, salvia och ockra. Skogen och Berget ligger närmast. Klara grundfärger och helt nya, färdigstylade rum är på väg ut.
 
 ---
 
-## Valet: Barnets linje, i bågen och stenen
+## Valet: Kritlinjen, i bågen och stenen
 
-Valet blev B, i formerna från A. Barnets linje är det enda som ingen annan kan kopiera, och den bygger på det Sofia kan bäst: barn och lera. Bågen och stenen från logotypen blir ramarna som linjerna sitter i, så att allt hänger ihop med varumärket.
+Valet blev B, i formerna från A. Sofia ritar färdiga motiv i kritlinjen, och de sitter i bågen och stenen från logotypen. Det är linjen i leran som gör föremålen igenkännbara, och samma motiv går igen i hela rummet.
 
-Det bärande föremålet blir **Årsstenen**: en sten för varje födelsedag, med en linje som barnet har gjort just det året.
+Det bärande föremålet är **Årsstenen**: siffran och lika många motiv som barnet fyller år.
 
-| Ålder | Linjen på stenen |
+| Ålder | På stenen, i Skogen |
 |---|---|
-| 1 år | avtrycket av handen eller foten |
-| 2 år | klottret |
-| 4 år | huvudfotingen |
-| 5 år | huset och solen |
-| 6 år | namnet, skrivet av barnet |
+| 1 år | en svamp |
+| 2 år | två svampar |
+| 3 år | tre svampar |
+| 4 år | fyra svampar |
+| 5 år | fem svampar |
 
-Första avtrycket, som redan säljs, blir den första stenen. Efter några år står barnets uppväxt på en hylla, och mor- och farföräldrar vet vad de ska ge.
-
-Familjens högtider kan komma senare som säsongssläpp i samma former. Julhängena finns redan.
+Barnet räknar svamparna, stenarna blir fler på hyllan, och mor- och farföräldrar vet vad de ska ge. Familjens högtider kan komma senare som säsongssläpp i samma former. Julhängena finns redan.
 
 ### Det som är gjort, och det som återstår
 
-- **Gjort:** ateljén på hemsidan är ombyggd kring barnets linje, med Årsstenen först och de fyra landskapen som färgval. Krokraden, timglaset och lyktan är borttagna, och presentkortet gäller nu en årssten.
-- **Gjort:** kursen Ritat i Norrahammar den 13 mars 2027. Barnen ritar, och några teckningar blir den första serien.
-- **Nästa:** Sofia gör tre prov: Första namnet, en årssten med en teckning och en teckningskrok. De fotograferas bredvid teckningarna och ersätter teckningarna i butiken.
-- Barnets teckning är barnets eget verk. Till serien behövs vårdnadshavarens skriftliga medgivande, och barnet ska stå på etiketten och få det första exemplaret.
-
+- **Gjort:** ateljén på hemsidan visar de fyra kollektionerna. Kunden väljer kollektion, föremålen ritas om i den, och valet följer med i korgen och på ordern.
+- **Gjort:** Färdigt rumskoncept för 995 kr finns bland barnrumspaketen, som ett billigare första steg.
+- **Nästa:** Sofia ritar de tolv motiven och siffrorna 1–12 i sin egen kritlinje, och gör en årssten, en namnskylt och en krok i Skogen som prov. Fotona ersätter teckningarna i butiken.
+- **Nästa:** de fyra rumskoncepten skrivs: färger med kulörkoder, möbleringsidé och inköpslista.
 
 ---
 

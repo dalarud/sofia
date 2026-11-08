@@ -205,35 +205,23 @@ def vignette_a():
 
 
 def vignette_b():
-    C = {"wall": SKOGEN["Gran"], "roof": SKOGEN["Lingon"], "sun": SKOGEN["Kantarell"], "grass": ANGEN["Gräs"]}
-    s = '<g transform="rotate(-4 110 120)">'
-    s += '<rect x="28" y="36" width="168" height="160" rx="2" fill="#FFFDF8" stroke="var(--line)" stroke-width="1.5"/>'
-    s += house(56, 66, 1.0, C["roof"], C["wall"], C["sun"], C["grass"], seed=3, w=3.4)
-    s += '</g>'
-    s += line([(212, 120), (258, 118)], "var(--muted)", 2.2, 90, .8) + line([(248, 108), (260, 118), (248, 128)], "var(--muted)", 2.2, 91, .5)
-    inner = house(298, 74, .78, C["roof"], C["wall"], C["sun"], C["grass"], seed=3, w=3.2)
-    s += stone(354, 122, 84, 74, LERA, vein=False, inner=inner)
-    s += note(112, 228, "teckningen", "middle") + note(352, 228, "Årets teckning", "middle")
-    # Första namnet
-    s += stone(140, 312, 104, 44, ANGEN["Havre"], vein=False, inner=letters("ELLA", 70, 290, 40, SKOGEN["Lingon"], seed=61, w=3.6))
-    s += note(140, 382, "Första namnet", "middle")
-    # Teckningskrokarna
-    sx, sy = 316, 300
-    s += f'<circle cx="{sx}" cy="{sy}" r="24" fill="{ANGEN["Smörblomma"]}"/>' + line(circle_pts(sx, sy, 15, 20), SKOGEN["Gran"], 2.6, 71)
-    for i in range(8):
-        a = i * math.pi / 4
-        s += line([(sx + math.cos(a) * 18, sy + math.sin(a) * 18), (sx + math.cos(a) * 22, sy + math.sin(a) * 22)], SKOGEN["Gran"], 2.2, 72 + i, .3)
-    cx2 = 404
-    cloud = circle_pts(cx2 - 14, sy + 4, 14, 10, math.pi * .5, math.pi) + circle_pts(cx2, sy - 6, 17, 12, math.pi, math.pi) + circle_pts(cx2 + 16, sy + 4, 13, 10, math.pi * 1.5, math.pi)
-    s += f'<path d="M{cx2 - 28} {sy + 18} H{cx2 + 29} V{sy + 4} A13 13 0 0 0 {cx2 + 16} {sy - 9} A17 17 0 0 0 {cx2 - 16} {sy - 6} A14 14 0 0 0 {cx2 - 28} {sy + 6} Z" fill="{SJON["Skum"]}" stroke="var(--line)"/>'
-    s += line(cloud + [(cx2 - 14, sy + 18)], SJON["Vättern"], 2.4, 80, .6)
-    hx = 492
-    s += f'<path d="M{hx - 22} {sy + 20} V{sy - 4} L{hx} {sy - 26} L{hx + 22} {sy - 4} V{sy + 20} Z" fill="{SKOGEN["Lingon"]}"/>'
-    s += line([(hx - 6, sy + 20), (hx - 6, sy + 4), (hx + 6, sy + 4), (hx + 6, sy + 20)], SKOGEN["Lav"], 2.4, 81, .5)
-    for x in (sx, cx2, hx):
-        s += f'<circle cx="{x}" cy="{sy + 36}" r="5" fill="{SKOGEN["Gran"]}"/><path d="M{x} {sy + 26} V{sy + 34}" stroke="{SKOGEN["Gran"]}" stroke-width="3"/>'
-    s += note(404, 382, "Teckningskrokarna", "middle")
-    return _svg("0 0 560 392", s, "Ett barns teckning av ett hus och en sol, samma teckning ristad i lera, en namnskylt och tre krokar")
+    L = LINE["Skogen"]
+    s = f'<path d="{arch_d(110, 26, 72, 232)}" fill="{STONE["Skogen"]}"/>'
+    s += line([(52, 206), (90, 200), (130, 204), (170, 199)], SKOGEN["Mossa"], 2.6, 3, .8)
+    s += motif("gran", 72, 172, 1.7, 5, L) + motif("svamp", 122, 186, 1.2, 9, L) + motif("kotte", 152, 168, 1.05, 13, L)
+    s += f'<circle cx="128" cy="84" r="12" fill="#E6C766"/>' + line(circle_pts(128, 84, 12, 18), L, 2.2, 17, .4)
+    s += note(110, 258, "Landskapstavlan", "middle", 17)
+    s += stone(112, 322, 98, 40, STONE["Skogen"], vein=False, inner=motif("kotte", 40, 322, .95, 21, L) + letters("ELLA", 64, 304, 34, SKOGEN["Lingon"], 61, 3.2))
+    s += note(112, 384, "Namnskylten", "middle", 17)
+    s += f'<rect x="236" y="156" width="312" height="9" rx="3" fill="{EK}"/>'
+    for n, x, rx, ry in [(3, 284, 44, 31), (4, 386, 48, 33), (5, 494, 52, 36)]:
+        s += year_stone(n, x, 156 - ry * .95, rx, ry, "Skogen", 30 + n * 20)
+    s += note(394, 180, "Årsstenarna", "middle", 17)
+    for i, (x, m) in enumerate([(304, "svamp"), (394, "kotte"), (484, "gran")]):
+        s += motif(m, x, 262, 1.55, 100 + i * 9, L)
+        s += f'<path d="M{x} 286 V302 L{x + 7} 308" fill="none" stroke="{L}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'
+    s += note(394, 340, "Krokarna", "middle", 17)
+    return _svg("0 0 560 392", s, "Kollektionen Skogen: en landskapstavla, en namnskylt, årsstenar med svampar och tre krokar")
 
 
 def vignette_c():
@@ -289,21 +277,12 @@ def vignette_c():
 
 
 def ages():
-    """Rekommendationen: en sten för varje år, med barnets linje från just det året."""
-    G, L, K = SKOGEN["Gran"], SKOGEN["Lingon"], SKOGEN["Kantarell"]
+    """Årsstenarna: siffran och lika många motiv, en sten för varje födelsedag."""
     s = '<rect x="20" y="226" width="860" height="14" rx="4" fill="#C49A6C"/><rect x="20" y="238" width="860" height="5" rx="2" fill="#000" opacity=".08"/>'
-    spec = [
-        (52, 36, SKOGEN["Lav"], lambda x, y: handprint(x, y - 2, 1.05, "#8E9478")),
-        (60, 40, ANGEN["Havre"], lambda x, y: scribble(x, y, 1.0, G, 41, 3)),
-        (66, 44, SJON["Sand"], lambda x, y: tadpole(x, y - 4, 1.05, G, 21, 3)),
-        (72, 48, BERGET["Snö"], lambda x, y: house(x - 46, y - 38, .62, L, G, K, ANGEN["Gräs"], 5, 2.8)),
-        (80, 52, ANGEN["Smörblomma"], lambda x, y: letters("ELLA", x - 52, y - 20, 36, L, 61, 3.4)),
-    ]
-    for i, (rx, ry, c, draw) in enumerate(spec):
+    for i, (rx, ry) in enumerate([(52, 36), (58, 39), (64, 42), (70, 46), (78, 50)]):
         x = 90 + i * 180
-        y = 226 - ry * .95
-        s += stone(x, y, rx, ry, c, vein=False, inner=draw(x, y))
-    return _svg("0 100 900 150", s, "Fem stenar på en hylla, en för varje år: avtrycket, klottret, huvudfotingen, huset och solen och namnet")
+        s += year_stone(i + 1, x, 226 - ry * .95, rx, ry, "Skogen", 200 + i * 30)
+    return _svg("0 100 900 150", s, "Fem årsstenar på en hylla, med siffran 1 till 5 och lika många svampar")
 
 
 def trio():
@@ -322,17 +301,101 @@ def trio():
 
 
 def emblem(name):
-    """Ett motiv per landskap, ritat som ett barn skulle rita det."""
-    if name == "Skogen":
-        body = f'<path d="M24 50 A26 22 0 0 1 76 50 Z" fill="{SKOGEN["Lingon"]}"/>' + "".join(f'<circle cx="{x}" cy="{y}" r="3" fill="#F7F2EA"/>' for x, y in [(38, 40), (52, 34), (63, 43)])
-        body += f'<rect x="42" y="50" width="16" height="24" rx="5" fill="{SJON["Skum"]}"/>' + line([(14, 76), (86, 75)], SKOGEN["Mossa"], 3, 1)
-    elif name == "Sjön":
-        body = "".join(line([(10 + i * 3, 40 + i * 14)] + [(10 + i * 3 + j * 8, 40 + i * 14 + (-5 if j % 2 else 0)) for j in range(1, 10)], SJON["Vättern"], 3, 2 + i, .5) for i in range(3))
-        body += f'<path d="M30 30 Q44 18 58 30 Q44 40 30 30 Z M58 30 L66 23 V37 Z" fill="{SJON["Vass"]}"/>'
-    elif name == "Berget":
-        body = f'<path d="M8 78 L38 30 L52 50 L62 38 L92 78 Z" fill="{BERGET["Granit"]}"/><path d="M30 42 L38 30 L45 41 Z" fill="{BERGET["Snö"]}"/>'
-        body += f'<path d="M72 12 A12 12 0 1 0 84 26 A9 9 0 1 1 72 12 Z" fill="{BERGET["Ockra"]}"/>'
-    else:
-        body = "".join(f'<ellipse cx="{50 + math.cos(math.radians(a)) * 13:.1f}" cy="{40 + math.sin(math.radians(a)) * 13:.1f}" rx="9" ry="7" transform="rotate({a} {50 + math.cos(math.radians(a)) * 13:.1f} {40 + math.sin(math.radians(a)) * 13:.1f})" fill="{ANGEN["Klöver"]}"/>' for a in range(0, 360, 60))
-        body += f'<circle cx="50" cy="40" r="8" fill="{ANGEN["Smörblomma"]}"/>' + line([(50, 54), (52, 80)], ANGEN["Gräs"], 3, 3) + line([(51, 70), (64, 62)], ANGEN["Gräs"], 3, 4)
-    return _svg("0 0 100 86", body, f"Motiv från {name.lower()}")
+    """Kollektionens tre motiv i rad."""
+    body = "".join(motif(m, 18 + k * 32, 22, .95, 300 + k * 7, LINE[name]) for k, m in enumerate(MOTIFS[name]))
+    names = {"vag": "våg", "bat": "båt", "mane": "måne", "stjarna": "stjärna"}
+    return _svg("0 0 100 44", body, f"Motiven i {name.lower()}: " + ", ".join(names.get(m, m) for m in MOTIFS[name]))
+
+
+# ---------- Kritlinjen: Sofias motiv i fyra kollektioner ----------
+
+LINE = {"Skogen": "#4B3A2B", "Sjön": "#3E5563", "Berget": "#4A3F3B", "Ängen": "#5E6B3F"}
+MOTIFS = {"Skogen": ["svamp", "kotte", "gran"], "Sjön": ["fisk", "vag", "bat"], "Berget": ["berg", "mane", "stjarna"], "Ängen": ["blomma", "bi", "jordgubbe"]}
+STONE = {"Skogen": "#D9CDB4", "Sjön": "#DCD3C2", "Berget": "#D6D0C9", "Ängen": "#E8DFCB"}
+
+
+def arc_pts(cx, cy, rx, ry, a0, a1, n):
+    return [(cx + math.cos(a0 + (a1 - a0) * i / n) * rx, cy + math.sin(a0 + (a1 - a0) * i / n) * ry) for i in range(n + 1)]
+
+
+def shp(pts, fill, L, seed, w):
+    d = "M" + " L".join(f"{x:.1f} {y:.1f}" for x, y in pts) + "Z"
+    return f'<path d="{d}" fill="{fill}" opacity=".92"/>' + line(list(pts) + [pts[0]], L, w, seed, .5)
+
+
+def motif(name, x, y, s, seed=1, L="#4B3A2B"):
+    """Ett motiv i kritlinje, centrerat i (x, y). s = 1 ger ungefär 26 px."""
+    w = max(1.4, 1.9 * s)
+    P = lambda a: [(x + px * s, y + py * s) for px, py in a]
+    dot = lambda dx, dy, r, c: f'<circle cx="{x + dx * s:.1f}" cy="{y + dy * s:.1f}" r="{r * s:.1f}" fill="{c}"/>'
+    o = ""
+    if name == "svamp":
+        o += shp(P(arc_pts(0, 0, 12, 11, math.pi, 2 * math.pi, 14)), "#A63D32", L, seed, w)
+        o += shp(P([(-4, 0), (-5, 11), (5, 11), (4, 0)]), "#ECE8DF", L, seed + 1, w)
+        o += dot(-5, -5, 1.5, "#F7F2EA") + dot(2, -8, 1.5, "#F7F2EA") + dot(6, -3, 1.5, "#F7F2EA")
+    elif name == "kotte":
+        o += shp(P(arc_pts(0, 0, 7, 12, 0, 2 * math.pi, 18)), "#9A6A44", L, seed, w)
+        for i, yy in enumerate((-5, 0, 5)):
+            o += line(P([(-5, yy - 2), (0, yy + 2), (5, yy - 2)]), L, w * .7, seed + 2 + i, .4)
+    elif name == "gran":
+        o += shp(P([(0, -13), (-8, -3), (-5, -3), (-11, 7), (11, 7), (5, -3), (8, -3)]), "#6E7B52", L, seed, w)
+        o += line(P([(0, 7), (0, 13)]), L, w, seed + 3, .3)
+    elif name == "fisk":
+        o += shp(P(arc_pts(-3, 0, 10, 6.5, 0, 2 * math.pi, 18)), "#5D7889", L, seed, w)
+        o += shp(P([(6, 0), (13, -6), (13, 6)]), "#A3A06B", L, seed + 1, w) + dot(-8, -1.5, 1.4, "#F7F2EA")
+    elif name == "vag":
+        for i, yy in enumerate((-4, 4)):
+            o += line(P([(-13 + t * 26 / 16, yy + math.sin(t / 16 * math.pi * 3) * 3.4) for t in range(17)]), "#A3A06B" if i else "#5D7889", w * 1.1, seed + i, .4)
+    elif name == "bat":
+        o += shp(P([(-13, 3), (13, 3), (8, 10), (-8, 10)]), "#9A6A44", L, seed, w) + line(P([(0, 3), (0, -13)]), L, w, seed + 1, .3)
+        o += shp(P([(2, -12), (2, 0), (11, 0)]), "#ECE8DF", L, seed + 2, w)
+    elif name == "berg":
+        o += shp(P([(-14, 10), (-3, -10), (3, -2), (6, -6), (14, 10)]), "#A29B94", L, seed, w)
+        o += f'<path d="M{x - 6.4 * s:.1f} {y - 5 * s:.1f} L{x - 3 * s:.1f} {y - 10 * s:.1f} L{x + .4 * s:.1f} {y - 5.6 * s:.1f}Z" fill="#F0EDE7"/>'
+    elif name == "mane":
+        o += shp(P(arc_pts(0, 0, 11, 11, math.pi * .35, math.pi * 1.65, 16) + arc_pts(4.5, 0, 8, 8, math.pi * 1.55, math.pi * .45, 14)), "#BF8A3F", L, seed, w)
+    elif name == "stjarna":
+        o += shp(P([(math.cos(-math.pi / 2 + i * math.pi / 5) * (5 if i % 2 else 12), math.sin(-math.pi / 2 + i * math.pi / 5) * (5 if i % 2 else 12)) for i in range(10)]), "#BF8A3F", L, seed, w)
+    elif name == "blomma":
+        o += line(P([(0, 4), (1, 14)]), "#8E9F66", w, seed + 9, .3)
+        for j in range(5):
+            b = j * math.pi * 2 / 5 - math.pi / 2
+            o += shp(P(arc_pts(math.cos(b) * 6.5, math.sin(b) * 6.5 - 2, 4.6, 4.6, 0, 2 * math.pi, 10)), "#D69B98", L, seed + j, w * .8)
+        o += dot(0, -2, 3.4, "#E6C766")
+    elif name == "bi":
+        o += shp(P(arc_pts(-2, -7, 5, 4, 0, 2 * math.pi, 10)), "#ECE8DF", L, seed + 3, w * .8) + shp(P(arc_pts(4, -7, 5, 4, 0, 2 * math.pi, 10)), "#ECE8DF", L, seed + 4, w * .8)
+        o += shp(P(arc_pts(0, 1, 10, 6.5, 0, 2 * math.pi, 18)), "#E6C766", L, seed, w)
+        o += line(P([(-3, -5), (-3, 7)]), L, w, seed + 6, .3) + line(P([(2, -5), (2, 7)]), L, w, seed + 7, .3)
+    elif name == "jordgubbe":
+        o += shp(P([(0, 12), (-9, 1), (-9, -5), (-4, -7), (0, -6), (4, -7), (9, -5), (9, 1)]), "#C9443A", L, seed, w)
+        o += shp(P([(-6, -6), (-3, -11), (0, -7), (3, -11), (6, -6), (0, -4)]), "#8E9F66", L, seed + 1, w * .8)
+        o += "".join(dot(dx, dy, 1.1, "#F7E3A8") for dx, dy in [(-4, -1), (3, -2), (0, 4), (-3, 6), (4, 4)])
+    return o
+
+
+DIGITS = {1: [(.15, .2), (.4, 0), (.4, 1)], 2: [(.05, .22), (.2, .04), (.45, 0), (.62, .15), (.58, .38), (.05, 1), (.66, 1)],
+          3: [(.05, .1), (.3, 0), (.55, .1), (.55, .35), (.3, .48), (.6, .6), (.62, .85), (.35, 1), (.03, .92)], 4: [(.5, 1), (.5, 0), (0, .68), (.7, .68)],
+          5: [(.62, 0), (.08, 0), (.04, .45), (.35, .38), (.58, .48), (.64, .7), (.55, .9), (.3, 1), (.02, .92)]}
+
+
+def digit(n, x, y, h, col, seed=1, w=3.2):
+    return line([(x + px * h, y + py * h) for px, py in DIGITS[n]], col, w, seed, .6)
+
+
+def year_stone(n, x, y, rx, ry, coll="Skogen", seed=1):
+    """En årssten: siffran och lika många motiv."""
+    L, m = LINE[coll], MOTIFS[coll][0]
+    inner = digit(n, x - rx * .78, y - ry * .55, ry * 1.1, L, seed, max(2.2, ry * .09))
+    cols = 2 if n <= 4 else 3
+    ms = min(.62, ry / 58)
+    for i in range(n):
+        r, c = divmod(i, cols)
+        rows = (n + cols - 1) // cols
+        mx = x + rx * .08 + c * 25 * ms * 1.25
+        my = y - (rows - 1) * 13 * ms * 1.3 + r * 26 * ms * 1.25
+        inner += motif(m, mx, my, ms, seed + 10 + i * 4, L)
+    return stone(x, y, rx, ry, STONE[coll], vein=False, inner=inner)
+
+
+def arch_d(cx, top, r, bottom):
+    return f"M{cx - r} {bottom} V{top + r} A{r} {r} 0 0 1 {cx + r} {top + r} V{bottom} Z"

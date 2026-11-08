@@ -7,7 +7,7 @@ import { saveFile } from "@/lib/receipts";
 import { kr } from "@/lib/money";
 
 const back = "/admin/hemsidan/produkter";
-const SHAPES = { arssten: "Årssten med teckning", forstanamn: "Namn i barnets handstil", teckningskrok: "Teckningskrokar", skylt: "Namnskylt", avtryck: "Avtryck", stenhylla: "Stenhylla", bagtavla: "Bågtavla i filt", portratt: "Familjeporträtt", familjeroset: "Familjeröse", filtvalvet: "Filtvalvet", krokrad: "Krokrad", timglas: "Timglas", vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", hangen: "Hänge", tval: "Bricka", ask: "Presentask", kit: "Lerpaket med verktyg" };
+const SHAPES = { arssten: "Årssten", namn: "Namnskylt i kollektionen", krokar: "Krokar i kollektionen", mobil: "Mobil", landskap: "Landskapstavla", avtryck: "Avtryck", stenhylla: "Stenhylla", bagtavla: "Bågtavla i filt", familjeroset: "Familjeröse", filtvalvet: "Filtvalvet", skylt: "Namnskylt (äldre)", krokrad: "Krokrad", timglas: "Timglas", vas: "Vas", skal: "Skål", stake: "Ljusstake", lykta: "Ljuslykta", sten: "Sten", markar: "Lådmärke", hangen: "Hänge", tval: "Bricka", ask: "Presentask", kit: "Lerpaket med verktyg" };
 const GLAZES = { mossa: "Mossa", lera: "Lera", havre: "Havre", strand: "Strand", kvall: "Kväll", sten: "Sten", kantarell: "Kantarell", lingon: "Lingon", smor: "Smörblomma", vattern: "Vättern" };
 const CATS = { barn: "Till barnrummet", hem: "Till hemmet" };
 const pick = <T extends object>(m: T, v: string, d: keyof T) => (v in m ? v : String(d));

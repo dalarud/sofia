@@ -11,6 +11,7 @@ import { createVerification } from "./ledger";
 import { ACC, saleRows, type SaleLine } from "./rules";
 import { addDays, today, vatFromGross } from "./money";
 import { getStripe, siteUrl, stripeMock } from "./stripe";
+import { splitItemId } from "./collections";
 import type { OrderItem } from "@/db/schema";
 
 export const checkoutInput = z.object({
@@ -42,13 +43,14 @@ export async function buildCart(input: CheckoutInput): Promise<Cart> {
   const products = await db.select().from(schema.products).where(eq(schema.products.active, true));
 
   for (const item of input.items) {
-    const base = products.find((p) => p.id === item.id || p.option?.id === item.id);
-    if (!base) throw new CheckoutError("En vara i korgen finns inte längre. Ta bort den och försök igen.");
-    const withOption = base.option?.id === item.id;
+    const parsed = splitItemId(item.id);
+    const base = parsed && products.find((p) => p.id === parsed.productId || p.option?.id === parsed.productId);
+    if (!parsed || !base) throw new CheckoutError("En vara i korgen finns inte längre. Ta bort den och försök igen.");
+    const withOption = base.option?.id === parsed.productId;
     if (base.stock !== null && base.stock < item.qty) throw new CheckoutError(`${base.name} finns inte i så många exemplar just nu.`);
     lines.push({
       kind: "product", id: base.id, qty: item.qty, vatRate: base.vatRate,
-      name: withOption ? `${base.name}, ${base.option!.label.toLowerCase()}` : base.name,
+      name: (withOption ? `${base.name}, ${base.option!.label.toLowerCase()}` : base.name) + (parsed.collection ? ` · ${parsed.collection}` : ""),
       unitOre: base.priceOre + (withOption ? base.option!.priceOre : 0),
     });
   }

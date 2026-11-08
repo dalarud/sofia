@@ -38,8 +38,8 @@ print("strategi", len(st))
 import sys
 sys.path.insert(0, str(root / "koncept"))
 import designbilder as db
-motiv = {"Skogen": "svamp, kotte, lingonris och ekorre", "Sjön": "våg, fisk, strandsten och båt",
-         "Berget": "berg, måne, stjärna och uggla", "Ängen": "blomma, bi, sol och jordgubbe"}
+motiv = {"Skogen": "svamp, kotte och gran", "Sjön": "fisk, våg och båt",
+         "Berget": "berg, måne och stjärna", "Ängen": "blomma, bi och jordgubbe"}
 themes = "".join(
     f'<div class="theme"><header><h3>{n}</h3>{db.emblem(n)}</header><ul class="swatches">'
     + "".join(f'<li><i style="--c:{c}"></i>{k}</li>' for k, c in cols.items())

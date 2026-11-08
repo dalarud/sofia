@@ -220,16 +220,19 @@ section { padding-block: clamp(4.5rem, 10vw, 8.5rem); }
 .chip[aria-pressed="true"]::after { transform: none; }
 .drop-note { font-size: var(--step--1); color: var(--muted); }
 .drop-note b { color: var(--accent); font-weight: 600; }
-.lands { margin-top: 3.2rem; padding-top: 2rem; border-top: 1px solid var(--line); }
-.lands__lede { color: var(--muted); max-width: 40rem; margin: .8rem 0 1.4rem; }
-.lands__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.4rem 2rem; }
-.lands__list li { display: grid; gap: .45rem; align-content: start; }
-.lands__list b { font-family: var(--font-display, Georgia, serif); font-weight: 400; font-size: 1.5rem; line-height: 1.1; }
+.colls { margin: 0 0 2.6rem; }
+.colls__list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; margin-top: 1rem; }
+.coll { display: grid; gap: .45rem; justify-items: start; text-align: left; padding: .2rem 0 .9rem; border: 0; border-bottom: 1px solid var(--line); background: none; color: var(--muted); font: inherit; cursor: pointer; transition: border-color .2s; }
+.coll b { font: 400 1.5rem/1.1 var(--font-display); color: var(--fg); }
+.coll small { font-size: var(--step--1); }
+.coll:hover { border-bottom-color: var(--fg); }
+.coll[aria-pressed="true"] { border-bottom: 2px solid var(--accent); }
+.coll[aria-pressed="true"] b { font-style: italic; color: var(--accent); }
+.coll:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .lands__dots { display: flex; gap: .3rem; }
-.lands__dots i { width: 1.7rem; height: 1.15rem; border-radius: var(--pebble-a); background: var(--c); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.lands__dots i { width: 1.6rem; height: 1.1rem; border-radius: var(--pebble-a); background: var(--c); box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
 .lands__dots i:nth-child(2n) { border-radius: 45% 55% 48% 52% / 60% 45% 55% 40%; }
-.lands__list small { font-size: var(--step--1); color: var(--muted); }
-@media (max-width: 860px) { .lands__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .colls__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .stamp-note { display: inline-flex; align-items: center; gap: .5rem; margin-right: 1rem; }
 .stamp-mark { width: 1.4rem; flex: none; }
 .shelf { display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 3rem; }
