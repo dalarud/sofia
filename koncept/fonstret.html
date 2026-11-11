@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fönstret – Studio Dalarud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&family=Hanken+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+/* Två bilder av samma fönster bredvid varandra: inifrån på dagen och från gatan på kvällen. Texten hålls kort. */
+:root {
+  --bg: #F3EEE6; --surface: #FBF8F3; --fg: #2B362E; --muted: #5D6458; --line: #D0C3AF; --accent: #9B5E49; --moss: #6F7D62;
+  --serif: "Instrument Serif", Georgia, serif; --sans: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif; --hand: "Caveat", cursive;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #1E2420; --surface: #262D28; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --moss: #A9B79A; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #1E2420; --surface: #262D28; --fg: #ECE5D9; --muted: #B3AFA2; --line: #3D473F; --accent: #D49C82; --moss: #A9B79A; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 400 18px/1.65 var(--sans); -webkit-font-smoothing: antialiased; }
+.wrap { width: min(100% - 32px, 1080px); margin-inline: auto; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.05; margin: 0; text-wrap: balance; }
+em { font-style: italic; color: var(--accent); }
+p { margin: 0 0 1rem; }
+header { padding: clamp(2rem, 6vw, 4rem) 0 clamp(1.4rem, 3vw, 2.2rem); }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--moss); margin: 0 0 1rem; }
+h1 { font-size: clamp(2.6rem, 7.5vw, 5.4rem); letter-spacing: -.02em; }
+.intro { color: var(--muted); max-width: 38rem; margin-top: 1.4rem; font-size: 1.1rem; }
+.scenes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem; }
+@media (max-width: 760px) { .scenes { grid-template-columns: 1fr; } }
+figure { margin: 0; }
+figure svg { display: block; width: 100%; height: auto; border-radius: 14px; }
+figcaption { margin-top: .7rem; font: 400 1.5rem/1.2 var(--hand); color: var(--accent); }
+section { padding: clamp(2.2rem, 5vw, 3.6rem) 0; border-top: 1px solid var(--line); margin-top: clamp(2.2rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.9rem, 4.4vw, 2.8rem); margin-bottom: 1.4rem; }
+.things { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.6rem 2.4rem; }
+@media (max-width: 760px) { .things { grid-template-columns: 1fr; } }
+.thing { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 1rem; align-items: start; }
+.thing svg { width: 84px; height: 96px; background: var(--surface); border-radius: 10px; }
+.thing h3 { font-size: 1.5rem; margin-bottom: .3rem; }
+.thing p { font-size: .95rem; color: var(--muted); margin: 0; }
+.rules { max-width: 40rem; padding-left: 1.2rem; margin: 0; }
+.rules li { margin-bottom: .5rem; }
+footer { padding: 2rem 0 4rem; color: var(--muted); font-size: .9rem; }
+/* Föremålens färger: samma teckning används i båda bilderna */
+.day { --c1: #C9B48E; --c2: #C48B66; --c3: #8F9679; --c4: #F6F1E6; --shade: #F3E8CF; --thread: #A89C86; --twig: #6B5A48; --sh: .12; }
+.night { --c1: #2A1A14; --c2: #2A1A14; --c3: #2A1A14; --c4: #2A1A14; --shade: #FFE3A1; --thread: #3A241A; --twig: #2A1A14; --sh: 0; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Fönsterlampan: en fot formad som en båge, med liten skärm i lin -->
+    <g id="lampa">
+      <path d="M180 410 V365 A25 25 0 0 1 230 365 V410 H216 V365 A11 11 0 0 0 194 365 V410 Z" fill="var(--c2)"/>
+      <rect x="201" y="322" width="8" height="20" fill="var(--c2)"/>
+      <path d="M183 324 L192 284 H218 L227 324 Z" fill="var(--shade)"/>
+    </g>
+    <!-- Hängena: fyra former i lera på lintråd -->
+    <g id="hangen">
+      <g stroke="var(--thread)" stroke-width="1.2"><path d="M160 64 V203"/><path d="M255 64 V134"/><path d="M345 64 V214"/><path d="M430 64 V112"/></g>
+      <path fill-rule="evenodd" d="M144 215 A16 12 0 1 0 176 215 A16 12 0 1 0 144 215 Z M156 212 A4 4 0 1 1 164 212 A4 4 0 1 1 156 212 Z" fill="var(--c3)"/>
+      <path fill-rule="evenodd" d="M237 152 A18 18 0 1 0 273 152 A18 18 0 1 0 237 152 Z M247 152 A8 8 0 1 1 263 152 A8 8 0 1 1 247 152 Z" fill="var(--c2)"/>
+      <path d="M329 250 V230 A16 16 0 0 1 361 230 V250 H352 V230 A7 7 0 0 0 338 230 V250 Z" fill="var(--c1)"/>
+      <path d="M430 112 A19 19 0 1 0 430 150 A27 27 0 0 1 430 112 Z" fill="var(--c4)"/>
+    </g>
+    <!-- Fönstersetet: stenar, en vas med kvist och en liten båge -->
+    <g id="set">
+      <g fill="#000" opacity="var(--sh)"><ellipse cx="352" cy="410" rx="26" ry="3"/><ellipse cx="402" cy="410" rx="14" ry="2.5"/><ellipse cx="447" cy="410" rx="18" ry="2.5"/></g>
+      <ellipse cx="350" cy="400" rx="23" ry="10" fill="var(--c3)"/><ellipse cx="353" cy="384" rx="16" ry="7.5" fill="var(--c4)"/><ellipse cx="349" cy="372" rx="10" ry="5.5" fill="var(--c2)"/>
+      <g fill="none" stroke="var(--twig)" stroke-width="1.6" stroke-linecap="round"><path d="M400 352 C398 320 392 296 380 268"/><path d="M397 318 C404 304 412 296 420 290"/><path d="M392 298 C386 290 380 288 372 288"/><path d="M401 336 C408 328 414 326 422 326"/></g>
+      <g fill="var(--twig)"><circle cx="380" cy="268" r="2.4"/><circle cx="420" cy="290" r="2.4"/><circle cx="372" cy="288" r="2.2"/><circle cx="422" cy="326" r="2.2"/><circle cx="388" cy="284" r="1.8"/><circle cx="410" cy="300" r="1.8"/></g>
+      <path d="M392 410 Q385 380 394 362 V350 H406 V362 Q415 380 408 410 Z" fill="var(--c4)"/>
+      <path d="M432 410 V392 A15 15 0 0 1 462 392 V410 H453 V392 A6 6 0 0 0 441 392 V410 Z" fill="var(--c1)"/>
+    </g>
+    <!-- Karm och spröjs -->
+    <g id="karm">
+      <path fill-rule="evenodd" d="M120 50 H480 V410 H120 Z M134 64 H295 V410 H134 Z M305 64 H466 V410 H305 Z" fill="var(--frame)"/>
+      <rect x="134" y="168" width="161" height="7" fill="var(--frame)"/><rect x="305" y="168" width="161" height="7" fill="var(--frame)"/>
+    </g>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Studio Dalarud · koncept</p>
+    <h1>Hon som gör <em>fönstren.</em></h1>
+    <p class="intro">Samma fönster i två lägen. Föremålen är Sofias egna, i självtorkande lera. De är gjorda för att stå i motljus på dagen och synas som silhuetter från gatan på kvällen.</p>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="scenes">
+    <figure class="day">
+      <svg viewBox="0 0 600 500" role="img" aria-label="Fönstret inifrån på dagen: en lampa med bågformad fot, fyra hängen i lera, tre staplade stenar, en vas med kvist och en liten båge">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D5E1E6"/><stop offset=".7" stop-color="#EDEFE6"/><stop offset="1" stop-color="#DDE2CF"/></linearGradient>
+          <clipPath id="glasD"><rect x="134" y="64" width="332" height="346"/></clipPath>
+        </defs>
+        <rect width="600" height="500" fill="#EDE6DA"/>
+        <rect y="436" width="600" height="64" fill="#E4DBCC"/>
+        <rect x="134" y="64" width="332" height="346" fill="url(#sky)"/>
+        <g clip-path="url(#glasD)" opacity=".55">
+          <path d="M134 360 Q220 330 300 350 T466 338 V410 H134 Z" fill="#B9C3A6"/>
+          <g stroke="#F4F1EA" stroke-width="7"><path d="M210 410 V120"/><path d="M405 410 V90"/></g>
+          <g stroke="#C9CDBE" stroke-width="2" fill="none"><path d="M210 220 Q180 190 165 150"/><path d="M210 180 Q240 150 250 110"/><path d="M405 200 Q440 170 452 130"/><path d="M405 160 Q380 130 372 96"/></g>
+        </g>
+        <use href="#hangen"/>
+        <use href="#lampa"/>
+        <use href="#set"/>
+        <g style="--frame: #FBF9F4"><use href="#karm"/></g>
+        <path fill-rule="evenodd" d="M120 50 H480 V410 H120 Z M134 64 H466 V410 H134 Z" fill="none" stroke="#D9D0C0" stroke-width="1"/>
+        <rect x="96" y="410" width="408" height="16" rx="2" fill="#D2A878"/><rect x="96" y="424" width="408" height="5" fill="#B88F62"/>
+        <path d="M60 30 H110 V470 Q86 476 60 470 Z" fill="#F4EEE2"/><path d="M76 30 V472 M94 30 V472" stroke="#E2D9C8" stroke-width="2"/>
+      </svg>
+      <figcaption>Inifrån, en förmiddag</figcaption>
+    </figure>
+    <figure class="night">
+      <svg viewBox="0 0 600 500" role="img" aria-label="Samma fönster från gatan på kvällen: föremålen syns som mörka silhuetter mot varmt ljus, och lampskärmen lyser">
+        <defs>
+          <radialGradient id="glow" cx="205" cy="300" r="330" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFE9B0"/><stop offset=".35" stop-color="#F3BE66"/><stop offset="1" stop-color="#B8742F"/></radialGradient>
+          <radialGradient id="halo" cx="205" cy="300" r="90" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#FFF4CF" stop-opacity=".9"/><stop offset="1" stop-color="#FFF4CF" stop-opacity="0"/></radialGradient>
+          <radialGradient id="spill" cx="300" cy="250" r="330" gradientUnits="userSpaceOnUse"><stop offset=".45" stop-color="#F3BE66" stop-opacity=".22"/><stop offset="1" stop-color="#F3BE66" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="600" height="500" fill="#4A211E"/>
+        <g stroke="#3B1917" stroke-width="2"><path d="M30 0V500M75 0V500M120 0V500M165 0V500M210 0V500M255 0V500M300 0V500M345 0V500M390 0V500M435 0V500M480 0V500M525 0V500M570 0V500"/></g>
+        <rect width="600" height="500" fill="url(#spill)"/>
+        <rect x="134" y="64" width="332" height="346" fill="url(#glow)"/>
+        <rect x="134" y="64" width="332" height="346" fill="url(#halo)"/>
+        <use href="#hangen"/>
+        <use href="#lampa"/>
+        <use href="#set"/>
+        <g style="--frame: #CFC8BC"><use href="#karm"/></g>
+        <path d="M104 36 H496 V50 H480 V410 H120 V50 H104 Z M120 50 V410" fill="none"/>
+        <path fill-rule="evenodd" d="M104 34 H496 V426 H104 Z M120 50 H480 V410 H120 Z" fill="#BDB6AA"/>
+        <rect x="96" y="426" width="408" height="9" fill="#2B1513"/>
+      </svg>
+      <figcaption>Från gatan, samma kväll</figcaption>
+    </figure>
+  </div>
+
+  <section>
+    <h2>Det som står <em>i fönstret.</em></h2>
+    <div class="things day">
+      <div class="thing">
+        <svg viewBox="165 270 80 150" aria-hidden="true"><use href="#lampa"/></svg>
+        <div><h3>Fönsterlampan</h3><p>Foten är en båge i lera, 12 cm djup så att den får plats på en fönsterbräda. Skärm i lin. Färdig, CE-märkt sladd och sockel.</p></div>
+      </div>
+      <div class="thing">
+        <svg viewBox="130 60 320 200" aria-hidden="true"><use href="#hangen"/></svg>
+        <div><h3>Fönsterhängena</h3><p>Fyra former på lintråd: stenen, ringen, bågen och månen. Ett nytt hänge varje år, numrerat.</p></div>
+      </div>
+      <div class="thing">
+        <svg viewBox="320 255 150 165" aria-hidden="true"><use href="#set"/></svg>
+        <div><h3>Fönstersetet</h3><p>Tre staplade stenar, en vas med kvist och en liten båge. Ett nytt set kommer varje årstid.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Formspråket, <em>kort.</em></h2>
+    <ul class="rules">
+      <li>Varje föremål har en öppning som ljuset går igenom: bågen, ringen, månen.</li>
+      <li>Formerna är enkla nog att kännas igen som silhuett på tjugo meters håll.</li>
+      <li>Leran är matt och ofärgad eller färgad igenom, i sand, lerrött, mossa och krita.</li>
+      <li>Inget är djupare än 12 cm, så att allt ryms på en vanlig fönsterbräda.</li>
+    </ul>
+  </section>
+</div>
+</main>
+<footer><div class="wrap">Skisserna är mina. Det slutliga uttrycket avgörs av Sofias egna prov i lera.</div></footer>
+</body>
+</html>
